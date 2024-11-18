@@ -5,4 +5,3 @@ Wir können aus Personen aufteilen
 ![[Gerrit]]
 ![[Robin]]
 
-#next-step und #todo können zum Filtern genutzt werden
