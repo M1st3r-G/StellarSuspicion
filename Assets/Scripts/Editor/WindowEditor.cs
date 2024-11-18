@@ -13,7 +13,7 @@ namespace Editor
             GUILayout.Label("");
             GUILayout.Label("Dev Tools", EditorStyles.boldLabel);
             
-            if (GUILayout.Button("Open/Close Window"))
+            if (GUILayout.Button("Open/Close Window (Runtime/Editor)"))
             {
                 WindowController tmp = (WindowController)target;
                 tmp.SetWindowOpened(!tmp.IsOpen);

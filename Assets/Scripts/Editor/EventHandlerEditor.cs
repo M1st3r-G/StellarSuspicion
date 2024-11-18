@@ -12,7 +12,7 @@ namespace Editor
             base.OnInspectorGUI();
             GUILayout.Label("Dev Tools", EditorStyles.boldLabel);
             
-            if (GUILayout.Button("Trigger Random Event"))
+            if (GUILayout.Button("Trigger Random Event (Runtime)"))
             {
                 EventHandler tmp = (EventHandler)target;
                 tmp.TriggerRandomEvent();

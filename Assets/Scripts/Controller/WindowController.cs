@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,18 +7,24 @@ namespace Controller
     public class WindowController : MonoBehaviour
     {
         [Header("References")]
+        [Tooltip("This is the Transform of the Canvas with the Non See-through Blinder image")]
         [SerializeField] private Transform blinderTransform;
+        [Tooltip("This is the CanvasGroup Monsters Canvas to hide them")]
         [SerializeField] private CanvasGroup monsterGroup;
-    
+
         [Header("Parameters")]
-        [SerializeField] private float up = 1.5f;
-        [SerializeField] private float closingTime = 1f;
+        [Tooltip("The length to move up inorder to hide the Blinder image")]
+        [Range(0f, 3f)] [SerializeField] private float up;
+        [Tooltip("The Time it takes to change the Blinder State")]
+        [Range(0f, 3f)][SerializeField] private float closingTime;
     
-        // Publics
+        // Public
         public bool IsOpen { get; private set; }
 
         // Temps
         private Coroutine _closingRoutine;
+
+        private void Awake() => SetWindowOpened(true);
 
         #region WindowClosing
 
@@ -34,22 +41,20 @@ namespace Controller
             Vector3 startPosition = blinderTransform.localPosition;
             Vector3 endPosition = open ? up * Vector3.up : Vector3.zero;
         
-            float startAlpha = monsterGroup.alpha;
-            float endAlpha = open ? 0f: 1f;
-        
             IsOpen = open;
-        
+
+            if (open) monsterGroup.alpha = 1f; 
+            
             while (elapsed <= closingTime)
             {
                 blinderTransform.localPosition = Vector3.Lerp(startPosition, endPosition, elapsed / closingTime);
-                monsterGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / closingTime);
             
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
             blinderTransform.localPosition = endPosition;
-            monsterGroup.alpha = endAlpha;
+            if (!open) monsterGroup.alpha = 0f;
         }
 
         #endregion

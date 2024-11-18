@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Manager
 {
@@ -24,6 +25,11 @@ namespace Manager
             }
             
             Instance = this;
+        }
+
+        private void OnDestroy()
+        {
+            if(Instance == this) Instance = null;
         }
 
         public void RegisterEventReceiver(EventReceiver eventReceiver) => _events.Add(eventReceiver);
