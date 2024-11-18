@@ -9,4 +9,5 @@ Hier sind ToDos
 
 Tags:
 #next-step und #todo können zum Filtern genutzt werden
-#artist und #programmer können sowohl im Text, als auch bei Hauptseiten benutzt werden
+#artist und #programmer können sowohl im Text, als auch bei SeitenTags unter owner benutzt werden benutzt werden
+
