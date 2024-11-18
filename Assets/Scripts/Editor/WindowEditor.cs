@@ -1,10 +1,11 @@
+using Controller;
 using UnityEditor;
 using UnityEngine;
 
 namespace Editor
 {
     [CustomEditor(typeof(WindowController))]
-    class WindowEditor : UnityEditor.Editor {
+    internal class WindowEditor : UnityEditor.Editor {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
