@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WindowController : MonoBehaviour
 {
-    [Header("Components")]
+    [Header("References")]
     [SerializeField] private Transform blinderTransform;
     [SerializeField] private CanvasGroup monsterGroup;
     
