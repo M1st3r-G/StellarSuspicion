@@ -4,14 +4,14 @@ classDiagram
         CameraManager <--> ThirdPersonController
 		EntryChecker <--> Creature
 		CreatureGenerator <--> Creature
-		ThirdPersonController <--> IInteract
+		FirstPersonController <--> IInteract
 
         class GameManager{
             +DayInformation
             #OnNewDay()
         }
 		
-		class ThirdPersonController{
+		class FirstPersonController{
 			+HandleInput()
 			+Interact()
 		}
