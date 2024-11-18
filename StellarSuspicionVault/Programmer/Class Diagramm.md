@@ -5,10 +5,12 @@ owner: programmer
 ```mermaid
 
 classDiagram
-        CameraManager <--> ThirdPersonController
+        CameraManager <--> FirstPersonController
 		EntryChecker <--> Creature
 		CreatureGenerator <--> Creature
 		FirstPersonController <--> IInteract
+		UIManager <--> DialogueController
+
 
         class GameManager{
             +DayInformation
@@ -50,6 +52,9 @@ classDiagram
 		}
 		
 		class UIManager{
+		}
+
+		class DialogueController{
 		}
 
 		class EntryChecker{
