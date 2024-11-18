@@ -70,3 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Obsidian
+StellarSuspicionVault/.obsidian/app.json
+StellarSuspicionVault/.obsidian/appearance.json
+StellarSuspicionVault/.obsidian/graph.json
+StellarSuspicionVault/.obsidian/hotkeys.json
+StellarSuspicionVault/.obsidian/workspace.json
