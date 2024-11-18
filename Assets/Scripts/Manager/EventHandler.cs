@@ -37,7 +37,7 @@ namespace Manager
         
         #endregion
 
-        public void TriggerRandomEvent() => TriggerEvent(Random.Range(0, _events.Count));
+        public static void TriggerRandomEvent() => Instance.TriggerEvent(Random.Range(0, Instance._events.Count));
         private void TriggerEvent(int index) => _events[index].Trigger();
     }
 }
