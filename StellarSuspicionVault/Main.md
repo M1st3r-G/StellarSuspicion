@@ -4,3 +4,4 @@ Das ist die Hauptübersicht:
 Hier sind ToDos
 ![[ToDos]]
 
+![[Class Diagramm]]
