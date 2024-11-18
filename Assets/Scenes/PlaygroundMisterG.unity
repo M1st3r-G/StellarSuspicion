@@ -801,10 +801,6 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: showHidden
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: windowController
       value: 
       objectReference: {fileID: 345869086}
