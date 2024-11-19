@@ -7,6 +7,8 @@ namespace DebugTools
     {
         public WindowController windowController;
         public CreatureController creatureController;
+        public DoorController firstDoorController;
+        public DoorController secondDoorController;
         public bool showHidden;
     }
 }

@@ -24,6 +24,13 @@ namespace DebugTools.Editor
                 
                 SerializedProperty creature = serializedObject.FindProperty("creatureController");
                 EditorGUILayout.PropertyField(creature);
+                
+                SerializedProperty doorOne = serializedObject.FindProperty("firstDoorController");
+                EditorGUILayout.PropertyField(doorOne);
+                
+                SerializedProperty doorTwo = serializedObject.FindProperty("secondDoorController");
+                EditorGUILayout.PropertyField(doorTwo);
+                
                 serializedObject.ApplyModifiedProperties();
             }
 
@@ -82,6 +89,24 @@ namespace DebugTools.Editor
             else
             {
                 if (GUILayout.Button("Open/Close Window")) storage.windowController.SetWindowOpened(!storage.windowController.IsOpen); 
+            }
+
+            if (storage.firstDoorController == null)
+            {
+                GUILayout.Label("No First Door Controller selected", warningStyle);
+            }
+            else
+            {
+                if (GUILayout.Button("Open/Close Door1")) storage.firstDoorController.SetDoorOpend(!storage.firstDoorController.IsOpen);
+            }
+
+            if (storage.secondDoorController == null)
+            {
+                GUILayout.Label("No Second Door Controller selected", warningStyle);
+            }
+            else
+            {
+                if (GUILayout.Button("Open/Close Door2")) storage.secondDoorController.SetDoorOpend(!storage.secondDoorController.IsOpen);
             }
         }
     }
