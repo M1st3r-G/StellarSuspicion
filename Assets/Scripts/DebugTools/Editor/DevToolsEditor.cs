@@ -66,6 +66,10 @@ namespace DebugTools.Editor
             }
             GUILayout.EndHorizontal();
             
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("StartTime"))TimeManager._instance.SetDayTimerActive();
+            GUILayout.EndHorizontal();
+            
             // Always
             
             GUI.enabled = true;

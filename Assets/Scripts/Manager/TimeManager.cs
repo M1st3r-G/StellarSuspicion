@@ -8,12 +8,19 @@ public class TimeManager : MonoBehaviour
 {
 
     public static event System.Action OnDayEnd;
-    public static event System.Action OnTimeEvent;
+    
+    public delegate void OnTimeEventDelegate(System.Action callback);
+    public static event OnTimeEventDelegate OnTimeEvent;
     
     [Header("Parameters")]
     [Tooltip("Time of day in Seconds.")][SerializeField] float timeOfDay;
+    [Tooltip("Max Events per day")][SerializeField]int maxEventsPerDay;
 
+    private bool eventIsGoingOn;
+    private int amountOfEventsToday;
+    
     private bool dayTimeisCounting;
+    
     
     #region Setup
 
@@ -40,14 +47,44 @@ public class TimeManager : MonoBehaviour
 
     public void SetDayTimerActive()
     {
-               
+        Debug.Log("Timer is active");
+        dayTimeisCounting = true;
+        StartCoroutine(DayTimer());
     }
 
+    private void FixedUpdate()
+    {
+        if (!dayTimeisCounting) return;
+        if (amountOfEventsToday >= maxEventsPerDay)
+        {
+            Debug.Log("MaxEventsOverstayed");
+            return;
+        }
+
+        if (eventIsGoingOn)
+        {
+            Debug.Log("Event is going on");
+            return;
+            
+        }
+        
+        if (Random.Range(0f, 1f) < 0.0035f)
+        {
+            Debug.Log("Event started");
+            OnTimeEvent?.Invoke(() => eventIsGoingOn = false);
+            eventIsGoingOn = true;
+        }
+    }
+    
+    /// <remarks>Maby stop timer while event is happening</remarks>>
     IEnumerator DayTimer()
     {
-        dayTimeisCounting = true;
         yield return new WaitForSeconds(timeOfDay);
         dayTimeisCounting = false;
+        OnDayEnd?.Invoke();
+        Debug.Log("Day End");
+        amountOfEventsToday = 0;
+        
     }
     
     
