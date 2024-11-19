@@ -34,8 +34,8 @@ namespace DebugTools.Editor
             GUILayout.Label("Runtime", EditorStyles.centeredGreyMiniLabel);
             
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Go to Sitting Camera")) CameraManager.SwitchCamera(true);
-            if (GUILayout.Button("Go to Player Camera")) CameraManager.SwitchCamera(false);
+            if (GUILayout.Button("Go to Player Camera")) CameraManager.SwitchCamera(true);
+            if (GUILayout.Button("Go to Sitting Camera")) CameraManager.SwitchCamera(false);
             GUILayout.EndHorizontal();
             
             if (GUILayout.Button("Trigger Random Event (Runtime)")) EventHandler.TriggerRandomEvent();
