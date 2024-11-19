@@ -17,4 +17,7 @@ Grund der anreise
 - zum rauswerfen
 - darf weitergehen
 - der nächste bitte
-- 
+### Regeln:
+- Monster die Zähne Zeigen verdienen den TOD
+- Einzelnes Auge ist Nett
+- Nur Genau Zwei Augen sind Nett
