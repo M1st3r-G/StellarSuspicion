@@ -18,5 +18,12 @@ namespace Controller
             eyes.sprite = creature.Eyes;
             name = creature.Name;
         }
+
+        public void ResetCreature()
+        {
+            mouth.sprite = null;
+            eyes.sprite = null;
+            name = "Default";
+        }
     }
 }

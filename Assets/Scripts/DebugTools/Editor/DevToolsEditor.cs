@@ -48,7 +48,7 @@ namespace DebugTools.Editor
             {
                 GUILayout.BeginHorizontal();
                 if (GUILayout.Button("Generate RandomCreature")) storage.creatureController.SetToCreature(CreatureCreator.GetRandomCreature()); 
-                if (GUILayout.Button("ResetCreatureController")) storage.creatureController.SetToCreature(new CreatureData("", null, null));
+                if (GUILayout.Button("ResetCreatureController")) storage.creatureController.ResetCreature();
                 GUILayout.EndHorizontal();
             }
             
