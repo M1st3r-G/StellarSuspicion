@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Data;
 using UnityEngine;
 
@@ -8,9 +9,9 @@ namespace Manager
     {
         [Header("References")]
         [Tooltip("A list of all of the monsters possible Eyes")]
-        [SerializeField] private List<Sprite> monsterEyes;
+        [SerializeField] private List<CreaturePartAsset> monsterEyes;
         [Tooltip("A list of all of the monsters possible Mouths")]
-        [SerializeField] private List<Sprite> monsterMouths;
+        [SerializeField] private List<CreaturePartAsset> monsterMouths;
 
         // Temps/States
         private static CreatureCreator _instance;
@@ -27,6 +28,9 @@ namespace Manager
             }
             
             _instance = this;
+
+            Debug.Assert(monsterEyes.All(p => p.part.type == CreatureComponentType.Eye), "monsterEyes contains bad stuff");
+            Debug.Assert(monsterMouths.All(p => p.part.type == CreatureComponentType.Mouth), "monsterMouth contains bad stuff");
         }
 
         private void OnDestroy()
@@ -36,11 +40,11 @@ namespace Manager
 
         #endregion
 
-        public static CreatureData GetRandomCreature()
-        {
-            return new CreatureData("Random",
-                _instance.monsterMouths[Random.Range(0, _instance.monsterMouths.Count)],
-                _instance.monsterEyes[Random.Range(0, _instance.monsterEyes.Count)]);
-        }
+        public static CreatureData GetRandomCreature() => _instance.GetRandom();
+
+        private CreatureData GetRandom() 
+            => new("Random", 
+            monsterMouths[Random.Range(0, monsterMouths.Count)].part,
+            monsterEyes[Random.Range(0, monsterEyes.Count)].part);
     }
 }
