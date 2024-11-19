@@ -1,9 +1,14 @@
 ---
 owner: programmer
+tags:
+  - todo
 ---
 Todo:
-- [ ] CameraManager
+- [x] CameraManager
 - [x] AudioManager
 - [x] TimeManager
+- [ ] Room
+	- [ ] DoorController on Proximity
+	- [ ] Collider
 
 Bugs:

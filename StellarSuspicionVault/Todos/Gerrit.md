@@ -1,5 +1,7 @@
 ---
 owner: programmer
+tags:
+  - todo
 ---
 Todo:
 - [ ] EventHandler
@@ -13,4 +15,5 @@ Todo:
 - [ ] Settings
 	- [ ] Sensitivity
 	- [ ] Audio
+
 Bugs:
