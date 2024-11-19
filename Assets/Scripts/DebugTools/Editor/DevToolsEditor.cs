@@ -1,5 +1,4 @@
-﻿using Data;
-using Manager;
+﻿using Manager;
 using UnityEditor;
 using UnityEngine;
 using EventHandler = Manager.EventHandler;
@@ -14,8 +13,12 @@ namespace DebugTools.Editor
             DevTools storage = (DevTools)target;
             GUIStyle warningStyle = new() { normal = { textColor = Color.red } };
 
-            
-            if (GUILayout.Button("DevTool", EditorStyles.boldLabel)) storage.showHidden = !storage.showHidden;
+
+            if (GUILayout.Button("DevTool", EditorStyles.boldLabel))
+            {
+                storage.showHidden = !storage.showHidden;
+                EditorUtility.SetDirty(storage);
+            }
 
             if (storage.showHidden)
             {
@@ -41,11 +44,11 @@ namespace DebugTools.Editor
             GUILayout.Label("Runtime", EditorStyles.centeredGreyMiniLabel);
             
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Go to Player Camera")) CameraManager.SwitchCamera(true);
-            if (GUILayout.Button("Go to Sitting Camera")) CameraManager.SwitchCamera(false);
+            if (GUILayout.Button("Go to Player Mode")) PlaymodeManager.SwitchState(true);
+            if (GUILayout.Button("Go to Sitting Mode")) PlaymodeManager.SwitchState(false);
             GUILayout.EndHorizontal();
             
-            if (GUILayout.Button("Trigger Random Event (Runtime)")) EventHandler.TriggerRandomEvent();
+            if (GUILayout.Button("Trigger Random Event")) EventHandler.TriggerRandomEvent();
 
             if (storage.creatureController == null)
             {
@@ -74,7 +77,7 @@ namespace DebugTools.Editor
             GUILayout.EndHorizontal();
             
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("StartTime"))TimeManager._instance.SetDayTimerActive();
+            if (GUILayout.Button("StartTime"))TimeManager.Instance.SetDayTimerActive();
             GUILayout.EndHorizontal();
             
             // Always
@@ -82,6 +85,7 @@ namespace DebugTools.Editor
             GUI.enabled = true;
             GUILayout.Label("Runtime/Editor", EditorStyles.centeredGreyMiniLabel);
 
+            GUILayout.BeginHorizontal();
             if (storage.windowController == null)
             {
                 GUILayout.Label("No Window Controller selected", warningStyle);
@@ -108,6 +112,7 @@ namespace DebugTools.Editor
             {
                 if (GUILayout.Button("Open/Close Door2")) storage.secondDoorController.SetDoorOpend(!storage.secondDoorController.IsOpen);
             }
+            GUILayout.EndHorizontal();
         }
     }
 }

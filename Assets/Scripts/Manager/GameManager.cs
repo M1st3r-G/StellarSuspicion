@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Manager
 {
     public class GameManager : MonoBehaviour
     {
+        [Header("References")]
+        [Tooltip("The InputAction to pause the Game")]
+        [SerializeField] private InputActionReference pauseAction;
+        
         // Temps
         public int Score { get; private set; }
         public int NumMonsters { get; private set; }
@@ -11,7 +16,7 @@ namespace Manager
 
         // Public
         public static GameManager Instance;
-
+        
         #region Setup
 
         private void Awake()
@@ -25,6 +30,8 @@ namespace Manager
             
             Debug.Log("GameManager is created!");
             Instance = this;
+
+            pauseAction.action.performed += ctx => Pause();
         }
 
         private void OnDestroy()
@@ -32,6 +39,15 @@ namespace Manager
             if (Instance == this) Instance = null;
         }
     
+        #endregion
+        
+        #region Pause
+
+        private static void Pause()
+        {
+            Debug.Log("GameManager is paused!");
+        }
+        
         #endregion
     }
 }

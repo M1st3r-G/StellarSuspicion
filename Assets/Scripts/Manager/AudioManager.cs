@@ -14,40 +14,40 @@ namespace Manager
         
         [Header("Parameters")]
         [Tooltip("List of audio clips")]
-        public List<AudioClip> audioClips = new List<AudioClip>();
+        public List<AudioClip> audioClips = new();
     
     
         #region Setup
 
-        public static AudioManager _instance;
+        public static AudioManager Instance;
 
         private void Awake()
         {
-            if (_instance != null)
+            if (Instance != null)
             {
                 Debug.LogWarning("More than one instance of CameraManager");
                 Destroy(gameObject);
                 return;
             }
-            Debug.Log("Camera Manager");
-            _instance = this;
+
+            Instance = this;
         }
 
         public void OnDestroy()
         {
-            if (_instance == this) _instance = null;
+            if (Instance == this) Instance = null;
         }
 
         #endregion
 
         public static void PlayAudio(int index)
         {
-            _instance.effectSource.PlayOneShot(_instance.audioClips[index]);
+            Instance.effectSource.PlayOneShot(Instance.audioClips[index]);
         }
 
         public static void StartStopMusic(bool isPlaying)
         {
-            _instance.musicSource.enabled = !isPlaying;
+            Instance.musicSource.enabled = !isPlaying;
         }
     }
 }

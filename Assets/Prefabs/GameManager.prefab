@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 4144603335056678358}
   - component: {fileID: 7130360158209713221}
   - component: {fileID: 6891955640083801498}
+  - component: {fileID: 3401441052818810947}
   - component: {fileID: 2874027425423242632}
   - component: {fileID: 4251771522819697113}
   - component: {fileID: 6944027494598702273}
-  - component: {fileID: 3401441052818810947}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -54,6 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowController: {fileID: 0}
   creatureController: {fileID: 0}
+  firstDoorController: {fileID: 0}
+  secondDoorController: {fileID: 0}
   showHidden: 1
 --- !u!114 &8132665944091326048
 MonoBehaviour:
@@ -67,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a69b49c517c45c42b69c2cae2c18edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseAction: {fileID: 9035303309346546217, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
 --- !u!114 &4144603335056678358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sittingCamera: {fileID: 0}
   firstPersonCamera: {fileID: 0}
+  mainInputAsset: {fileID: -944628639613478452, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   swappingTime: 1
 --- !u!114 &6891955640083801498
 MonoBehaviour:
@@ -117,6 +121,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b773a0266ab2da74e8b93cbfa3d50820, type: 2}
   - {fileID: 11400000, guid: 6cd0d37dc2cdaa34288896d5deaaa59f, type: 2}
   - {fileID: 11400000, guid: b1f2c9ad9a2805447885af4756e373a1, type: 2}
+--- !u!114 &3401441052818810947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741363777618056504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac43f26d8c8f374895c199354bf0c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOfDay: 30
+  maxEventsPerDay: 3
 --- !u!114 &2874027425423242632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,17 +342,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3401441052818810947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741363777618056504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aac43f26d8c8f374895c199354bf0c68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeOfDay: 30
-  maxEventsPerDay: 0
