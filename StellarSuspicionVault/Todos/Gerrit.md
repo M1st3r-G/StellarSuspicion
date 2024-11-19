@@ -5,9 +5,12 @@ Todo:
 - [ ] EventHandler
 	- [x] Start
 	- [ ] Finalize
-- [ ] CreatureGenerator
+- [x] CreatureGenerator
 	- [x] Start
-	- [ ] Finalize
-- [ ] EntryChecker
-
+	- [x] Finalize
+- [x] EntryChecker
+- [x] First Person Playercontroller
+- [ ] Settings
+	- [ ] Sensitivity
+	- [ ] Audio
 Bugs:
