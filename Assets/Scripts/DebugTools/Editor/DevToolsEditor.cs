@@ -52,6 +52,20 @@ namespace DebugTools.Editor
                 GUILayout.EndHorizontal();
             }
             
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("StartMusic"))
+            {
+                Debug.Log("Starting Music");
+                AudioManager.StartStopMusic(false);
+            }
+
+            if (GUILayout.Button("StopMusic"))
+            {
+                Debug.Log("Stoping Music");
+                AudioManager.StartStopMusic(true);
+            }
+            GUILayout.EndHorizontal();
+            
             // Always
             
             GUI.enabled = true;
