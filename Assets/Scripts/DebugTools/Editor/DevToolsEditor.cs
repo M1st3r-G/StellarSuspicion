@@ -34,6 +34,9 @@ namespace DebugTools.Editor
                 SerializedProperty doorTwo = serializedObject.FindProperty("secondDoorController");
                 EditorGUILayout.PropertyField(doorTwo);
                 
+                SerializedProperty trapdoor = serializedObject.FindProperty("trapdoorController");
+                EditorGUILayout.PropertyField(trapdoor);
+                
                 serializedObject.ApplyModifiedProperties();
             }
 
@@ -101,7 +104,7 @@ namespace DebugTools.Editor
             }
             else
             {
-                if (GUILayout.Button("Open/Close Door1")) storage.firstDoorController.SetDoorOpend(!storage.firstDoorController.IsOpen);
+                if (GUILayout.Button("Open/Close Door1")) storage.firstDoorController.SetDoorOpened(!storage.firstDoorController.IsOpen);
             }
 
             if (storage.secondDoorController == null)
@@ -110,9 +113,19 @@ namespace DebugTools.Editor
             }
             else
             {
-                if (GUILayout.Button("Open/Close Door2")) storage.secondDoorController.SetDoorOpend(!storage.secondDoorController.IsOpen);
+                if (GUILayout.Button("Open/Close Door2")) storage.secondDoorController.SetDoorOpened(!storage.secondDoorController.IsOpen);
             }
             GUILayout.EndHorizontal();
+
+            if (storage.trapdoorController == null)
+            {
+                GUILayout.Label("No Trap Door Controller selected", warningStyle);
+            }
+            else
+            {
+                if (GUILayout.Button("Open/Close Trapdoor"))
+                    storage.trapdoorController.SetOpen(!storage.trapdoorController.IsOpen);
+            }
         }
     }
 }

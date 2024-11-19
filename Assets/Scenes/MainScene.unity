@@ -315,6 +315,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1821501259905154394, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
   m_PrefabInstance: {fileID: 757268603}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &757268607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2720032516329474906, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+  m_PrefabInstance: {fileID: 757268603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5970b440bab04bfd80e290e5a7438fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +495,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1188581205}
     - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: showHidden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: windowController
       value: 
       objectReference: {fileID: 33296172}
@@ -491,6 +506,10 @@ PrefabInstance:
       propertyPath: creatureController
       value: 
       objectReference: {fileID: 1267484800}
+    - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: trapdoorController
+      value: 
+      objectReference: {fileID: 757268607}
     - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: firstDoorController
       value: 

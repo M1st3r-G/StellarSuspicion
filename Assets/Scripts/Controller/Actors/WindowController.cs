@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Controller
+namespace Controller.Actors
 {
     public class WindowController : MonoBehaviour
     {
