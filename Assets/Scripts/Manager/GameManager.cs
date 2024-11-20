@@ -45,7 +45,7 @@ namespace Manager
 
         private static void Pause()
         {
-            Debug.Log("GameManager is paused!");
+            Debug.LogWarning("GameManager is paused!");
         }
         
         #endregion

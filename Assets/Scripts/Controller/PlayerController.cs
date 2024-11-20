@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Controller
 {
-    [RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
+    [RequireComponent(typeof(Rigidbody), typeof(Collider))]
     public class PlayerController : MonoBehaviour
     {
         #region Variables
@@ -45,8 +45,7 @@ namespace Controller
             
             lookingAction.action.performed += OnMouseInput;            
             interactAction.action.performed += OnInteract;
-            walkingAction.action.performed += OnMovementInput;
-            walkingAction.action.canceled += OnStopMovement;
+            // Movement in Update
         }
 
         #endregion
@@ -55,7 +54,7 @@ namespace Controller
 
         private void OnInteract(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Interact");
+            Debug.LogWarning("Interact");
         }
 
         private void OnMouseInput(InputAction.CallbackContext ctx)
@@ -74,14 +73,12 @@ namespace Controller
 
             playerCam.transform.localRotation *= Quaternion.AngleAxis(-input.y, Vector3.right);
         }
-        
-        private void OnMovementInput(InputAction.CallbackContext ctx)
+
+        private void FixedUpdate()
         {
-            Vector2 input = ctx.ReadValue<Vector2>() * walkSpeed;
+            Vector2 input = walkingAction.action.ReadValue<Vector2>() * walkSpeed;
             _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
         }
-
-        private void OnStopMovement(InputAction.CallbackContext ctx) => _rigidbody.velocity = Vector3.zero;
 
         #endregion
     }
