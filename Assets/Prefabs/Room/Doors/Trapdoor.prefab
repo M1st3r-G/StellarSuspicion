@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9211093223372676779}
   - component: {fileID: 6982876984839992222}
+  - component: {fileID: 8388005427511219327}
   m_Layer: 0
   m_Name: Trapdoor
   m_TagString: Untagged
@@ -152,3 +153,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapdoor: {fileID: 3887598549758638184}
   openTime: 1
+--- !u!114 &8388005427511219327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444134784573124055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bc237f63a14b6c99775616223a6101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: Trapdoor

@@ -3,7 +3,10 @@ guid: 251886ea5b1e45141a2993e38acf5fbf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sittingCamera: {instanceID: 0}
+  - firstPersonCamera: {instanceID: 0}
+  - mainInputAsset: {fileID: -944628639613478452, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   executionOrder: 0
   icon: {fileID: 2800000, guid: 8973670be4bd7fe49a6a7b82418796d4, type: 3}
   userData: 
