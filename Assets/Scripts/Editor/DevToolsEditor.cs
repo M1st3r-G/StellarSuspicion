@@ -2,9 +2,8 @@
 using Manager;
 using UnityEditor;
 using UnityEngine;
-using EventHandler = Manager.EventHandler;
 
-namespace DebugTools.Editor
+namespace Editor
 {
     [CustomEditor(typeof(DevTools))]
     public class DevToolsEditor : UnityEditor.Editor
@@ -52,7 +51,7 @@ namespace DebugTools.Editor
             if (GUILayout.Button("Go to Sitting Mode")) PlaymodeManager.SwitchState(false);
             GUILayout.EndHorizontal();
             
-            if (GUILayout.Button("Trigger Random Event")) EventHandler.TriggerRandomEvent();
+            if (GUILayout.Button("Trigger Random Event")) TimeManager.TriggerRandomEvent();
 
             if (storage.creatureController == null)
             {
@@ -81,7 +80,7 @@ namespace DebugTools.Editor
             GUILayout.EndHorizontal();
             
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("StartTime"))TimeManager.Instance.SetDayTimerActive();
+            if (GUILayout.Button("StartTime"))TimeManager.Instance.StartTimerActive();
             GUILayout.EndHorizontal();
             
             // Always
