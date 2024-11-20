@@ -27,7 +27,7 @@ namespace Manager
 
             Instance = this;
             
-            SetMenuActive(pauseMenu, true);
+            SetMenuActive(pauseMenu, false);
         }
 
         private static void SetMenuActive(CanvasGroup menu, bool state)

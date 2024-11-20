@@ -2,7 +2,7 @@
 using Controller.Actors;
 using UnityEngine;
 
-namespace DebugTools
+namespace Extern
 {
     public class DevTools : MonoBehaviour
     {
