@@ -43,7 +43,9 @@ namespace Controller
         {
             _rigidbody = GetComponent<Rigidbody>();
             
+            lookingAction.action.performed += OnMouseInput;            
             interactAction.action.performed += OnInteract;
+            // Movement in Update
         }
 
         #endregion
@@ -55,17 +57,10 @@ namespace Controller
             Debug.LogWarning("Interact");
         }
 
-        private void FixedUpdate()
+        private void OnMouseInput(InputAction.CallbackContext ctx)
         {
-            Vector2 input = walkingAction.action.ReadValue<Vector2>() * walkSpeed;
-            _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
+            Vector2 input = ctx.ReadValue<Vector2>() * lookSpeed;
             
-            input = lookingAction.action.ReadValue<Vector2>() * lookSpeed;
-            if (!(input.magnitude > 0.1)) return;
-            
-            input = lookingAction.action.ReadValue<Vector2>() * lookSpeed;
-            if (!(input.magnitude > 0.1)) return;
-
             // Rotate around y
             transform.localRotation *= Quaternion.AngleAxis(input.x, Vector3.up);
             
@@ -77,6 +72,12 @@ namespace Controller
             if (height > halfRange && input.y < 0) return;
 
             playerCam.transform.localRotation *= Quaternion.AngleAxis(-input.y, Vector3.right);
+        }
+
+        private void FixedUpdate()
+        {
+            Vector2 input = walkingAction.action.ReadValue<Vector2>() * walkSpeed;
+            _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
         }
 
         #endregion
