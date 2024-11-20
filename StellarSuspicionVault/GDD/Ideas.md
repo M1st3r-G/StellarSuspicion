@@ -18,14 +18,14 @@ Grund der anreise
 - darf weitergehen
 - der nächste bitte
 ### Regeln:
-
+Gut(24) Böse(18)
 **Augenformen
 
 -Einzelauge ( Ein bisschen dümmer als andere aber eigentlich ganz freundlich)(gut)(davon gibt es 3)
 -Zwei Augen seitwärts (Anzeichen von beute Tieren, harmlos)(gut)(davon gibt es 2)
 -Menschliche augen (unberechenbar)(nicht gut nicht böse)(2)
 -Mehr als 2 Augen (wesen lebt auf harschem planet und musste sich für den Kampf entwickeln) (böse) (3)
-Geschlossene Augen (nicht einschätzbar)(nicht gut oder böse) (2)
+Geschlossene Augen (halten sich für besser sind aber harmlos)(gut) (2)
 
 **Pupille
 
@@ -35,7 +35,16 @@ Geschlossene Augen (nicht einschätzbar)(nicht gut oder böse) (2)
 -Schlangenpupille(Raubtier ähnlich)(böse)(4)
 -Froschartig (sehr dümmlich)(gut)(5)
 -Stern (happy to be there)(gut)(1)
--geschlossene augen (Eigensinnig)(nicht gut oder böse)(2)
+-geschlossene Augen (Eigensinnig)(gut)(2)
+
+**Mund
+
+-Schnabel (nicht ausgelegt so große wesen wie Menschen zu essen)(harmlos)(gut(2)
+-kreismünde (können Menschen in einem stück schlucken)(böse)(2)
+-zu viele zähne (Perfekt zum zerfleischen)(böse)(2)
+-Menschliche Mund (unberechenbar)(nicht gut nicht böse)(2)
+-Tentakel (Happy squid bois:) )(2)
+
 
 
 
