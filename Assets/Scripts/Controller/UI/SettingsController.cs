@@ -41,4 +41,9 @@ public class SettingsController : MonoBehaviour
         float newSensetivity = Mathf.Lerp(0.1f,0.5f,newValue);
         player.ChangeSensitivity(newSensetivity);
     }
+    
+    public void returnToNormalMenu()
+    {
+        Debug.Log("Return to Normal Menu");
+    }
 }

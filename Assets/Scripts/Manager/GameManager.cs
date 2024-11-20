@@ -48,6 +48,7 @@ namespace Manager
         {
             Debug.LogWarning("GameManager is paused!");
             Time.timeScale = 0;
+            UIManager.SetPauseActive(true);
             PlaymodeManager._instance.SetMouseOnOf(true);
         }
 
@@ -55,15 +56,17 @@ namespace Manager
         {
             Debug.LogWarning("You have unpased the GameManager!");
             Time.timeScale = 1;
+            UIManager.SetPauseActive(false);
             PlaymodeManager._instance.SetMouseOnOf(false);
         }
         #endregion
         
         #region setting
 
-        public void OpenSettings()
+        public static void OpenSettings()
         {
-            Debug.Log("Settings is opened!");
+            UIManager.SetPauseActive(false);
+            UIManager.SetSettingsMenuActive(true);
         }
         #endregion
 
