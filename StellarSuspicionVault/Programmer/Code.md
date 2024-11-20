@@ -25,3 +25,6 @@ EDIT → PROJECT SETTINGS → INPUT SYSTEM PACKAGE
 #2:  
 Switch UPDATE MODE to: PROCESS EVENTS IN DYNAMIC UPDATE
 ```
+
+
+https://www.desmos.com/calculator/0uppxrgxo1
