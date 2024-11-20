@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8690624128409333510}
   - component: {fileID: 3794920727474310422}
+  - component: {fileID: 6790486466548759744}
   m_Layer: 0
   m_Name: OpenableDoor
   m_TagString: Untagged
@@ -48,6 +49,27 @@ MonoBehaviour:
   doorTransform: {fileID: 6291666147080722285}
   up: 2.5
   closingTime: 1.5
+--- !u!65 &6790486466548759744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867949722929278146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7129478, y: 2.6499424, z: 3.036266}
+  m_Center: {x: 0.19361496, y: 0.8249712, z: -0.11020577}
 --- !u!1 &1252343890151425630
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6034957751646507721, guid: b7ef30746bc65174fae9dd7b8af5e18d, type: 3}
+  - {fileID: 6034957751646507721, guid: 8331a321751c1884baa26f67105d1e0d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
