@@ -47,7 +47,9 @@ Geschlossene Augen (halten sich für besser sind aber harmlos)(gut) (2)
 
 **Nase
 
--menschenähnlich
+-menschenähnlich (Entwickelte sich ähnlich wie wir)(gut)(3)
+-keine nase/loch (Für sie schmeckt alles gleich, menschen sind uninteressant)(gut)(3)
+-Mehrere nasenlöcher (genaues gegenteil zu den ohne nase, unfassbarer geruchsinn wodurch alles besser schmeckt)(böse)(3)
 
 
 
