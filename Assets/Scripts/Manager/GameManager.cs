@@ -46,8 +46,14 @@ namespace Manager
         private static void Pause()
         {
             Debug.LogWarning("GameManager is paused!");
+            Time.timeScale = 0;
         }
-        
+
+        public static void Unpause()
+        {
+            Debug.LogWarning("GameManager is unpaused!");
+            Time.timeScale = 1;
+        }
         #endregion
     }
 }
