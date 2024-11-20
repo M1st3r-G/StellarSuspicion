@@ -119,16 +119,27 @@ namespace Manager
             {
                 FirstPersonMap.Enable();
                 SittingMap.Disable();
-                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 FirstPersonMap.Disable();
                 SittingMap.Enable();
-                Cursor.lockState = CursorLockMode.Confined;
             }
             
-            Cursor.visible = !isSitting;
+            SetMouseOnOf(isSitting);
+        }
+
+        public static void SetMouseOnOf(bool isOn)
+        {
+            if (isOn)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            Cursor.visible = !isOn;
         }
         
         #endregion

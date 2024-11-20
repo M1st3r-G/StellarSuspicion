@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -47,12 +48,14 @@ namespace Manager
         {
             Debug.LogWarning("GameManager is paused!");
             Time.timeScale = 0;
+            PlaymodeManager.SetMouseOnOf(true);
         }
 
         public static void Unpause()
         {
             Debug.LogWarning("GameManager is unpaused!");
             Time.timeScale = 1;
+            PlaymodeManager.SetMouseOnOf(false);
         }
         #endregion
     }
