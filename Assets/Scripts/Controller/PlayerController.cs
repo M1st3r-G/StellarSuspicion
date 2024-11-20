@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Manager;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Controller
@@ -59,6 +60,8 @@ namespace Controller
 
         private void OnMouseInput(InputAction.CallbackContext ctx)
         {
+            if (UIManager.Instance.IsPaused) return;
+            
             Vector2 input = ctx.ReadValue<Vector2>() * lookSpeed;
             
             // Rotate around y

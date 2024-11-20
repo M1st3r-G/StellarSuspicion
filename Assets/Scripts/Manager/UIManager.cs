@@ -21,6 +21,8 @@ namespace Manager
         public static UIManager Instance;
         public InteractUIController InteractionUI => interactUIController;
         
+        public bool IsPaused => pauseMenu.gameObject.activeSelf;
+        
         private void Awake()
         {
             if (Instance != null)
