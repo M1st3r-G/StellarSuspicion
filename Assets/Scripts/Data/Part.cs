@@ -14,6 +14,7 @@ namespace Data
     {
         public Sprite sprite;
         public CreatureComponentType type;
-        public bool isGood;
+        public int goodPart;
+        public int badPart;
     }
 }
