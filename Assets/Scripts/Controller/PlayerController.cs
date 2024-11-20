@@ -61,8 +61,7 @@ namespace Controller
             _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
             
             input = lookingAction.action.ReadValue<Vector2>() * lookSpeed;
-            if (!(input.magnitude > 0.1)) return;
-            
+
             // Rotate around y
             transform.localRotation *= Quaternion.AngleAxis(input.x, Vector3.up);
             
