@@ -1,5 +1,6 @@
 using Controller.UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Manager
 {
@@ -11,6 +12,10 @@ namespace Manager
         
         [SerializeField] [Tooltip("A Reference to the Interaction UI element.")]
         private CanvasGroup pauseMenu;
+        
+        [Header("Parameters")]
+        [SerializeField] [Tooltip("Whether the Menus start Visible")]
+        private bool pauseStartVisible;
         
         // Publics
         public static UIManager Instance;
@@ -27,7 +32,7 @@ namespace Manager
 
             Instance = this;
             
-            SetMenuActive(pauseMenu, false);
+            SetMenuActive(pauseMenu, pauseStartVisible);
         }
 
         private static void SetMenuActive(CanvasGroup menu, bool state)
@@ -36,5 +41,7 @@ namespace Manager
             menu.blocksRaycasts = state;
             menu.alpha = state ? 1f : 0f;
         }
+        
+        public static void SetPauseActive(bool active) => SetMenuActive(Instance.pauseMenu, active);
     }
 }
