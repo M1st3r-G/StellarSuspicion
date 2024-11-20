@@ -7,8 +7,8 @@ Todo:
 - [x] CameraManager
 - [x] AudioManager
 - [x] TimeManager
-- [ ] Room
-	- [ ] DoorController on Proximity
-	- [ ] Collider
+- [x] Room
+	- [x] DoorController on Proximity
+	- [x] Collider
 
 Bugs:
