@@ -18,12 +18,12 @@ Grund der anreise
 - darf weitergehen
 - der nächste bitte
 ### Regeln:
-Gut(24) Böse(18)
+Gut(24) Böse(18) Letzter zähl punkt mund
 **Augenformen
 
 -Einzelauge ( Ein bisschen dümmer als andere aber eigentlich ganz freundlich)(gut)(davon gibt es 3)
 -Zwei Augen seitwärts (Anzeichen von beute Tieren, harmlos)(gut)(davon gibt es 2)
--Menschliche augen (unberechenbar)(nicht gut nicht böse)(2)
+-Menschliche augen (Entwickelte sich wie wir) (Gut)(2)
 -Mehr als 2 Augen (wesen lebt auf harschem planet und musste sich für den Kampf entwickeln) (böse) (3)
 Geschlossene Augen (halten sich für besser sind aber harmlos)(gut) (2)
 
@@ -42,8 +42,13 @@ Geschlossene Augen (halten sich für besser sind aber harmlos)(gut) (2)
 -Schnabel (nicht ausgelegt so große wesen wie Menschen zu essen)(harmlos)(gut(2)
 -kreismünde (können Menschen in einem stück schlucken)(böse)(2)
 -zu viele zähne (Perfekt zum zerfleischen)(böse)(2)
--Menschliche Mund (unberechenbar)(nicht gut nicht böse)(2)
+-Menschlicher Mund (Entwickelte sich ähnlich wie wir)(gut)(2)
 -Tentakel (Happy squid bois:) )(2)
+
+**Nase
+
+-menschenähnlich
+
 
 
 
