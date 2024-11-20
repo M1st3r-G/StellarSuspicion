@@ -5,12 +5,15 @@ owner: programmer
 ```mermaid
 
 classDiagram
-        CameraManager <--> FirstPersonController
+        PlayerSwitchManager <--> FirstPersonController
 		EntryChecker <--> Creature
 		CreatureGenerator <--> Creature
 		FirstPersonController <--> IInteract
 		UIManager <--> DialogueController
-
+		UIManager <--> SettingsMenu
+		UIManager <--> MainMenu
+		SettingsMenu <--> AudioManager
+		SettingsMenu <--> FirstPersonController
 
         class GameManager{
             +DayInformation
@@ -26,7 +29,7 @@ classDiagram
 			<<interface>>
 		}
 
-		class CameraManager{
+		class PlayerSwitchManager{
 			+SwitchCamera()
 			+SetCameraActive(int index, bool state)
 		}
@@ -63,5 +66,11 @@ classDiagram
 		}
 
 		class Creature{
+		}
+		
+	
+		class SettingsMenu{
+			+Sensitivity
+			+AudioVolume
 		}
 ```
