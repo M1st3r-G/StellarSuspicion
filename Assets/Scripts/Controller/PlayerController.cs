@@ -43,9 +43,7 @@ namespace Controller
         {
             _rigidbody = GetComponent<Rigidbody>();
             
-            lookingAction.action.performed += OnMouseInput;            
             interactAction.action.performed += OnInteract;
-            // Movement in Update
         }
 
         #endregion
@@ -55,11 +53,6 @@ namespace Controller
         private void OnInteract(InputAction.CallbackContext ctx)
         {
             Debug.LogWarning("Interact");
-        }
-
-        private void OnMouseInput(InputAction.CallbackContext ctx)
-        {
-            
         }
 
         private void FixedUpdate()
