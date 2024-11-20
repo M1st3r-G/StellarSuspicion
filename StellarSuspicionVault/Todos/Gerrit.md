@@ -4,7 +4,7 @@ tags:
   - todo
 ---
 Todo:
-- [ ] EventHandler
+- [ ] EventHandler/Time Manager
 	- [x] Start
 	- [ ] Finalize
 - [x] CreatureGenerator
@@ -12,8 +12,6 @@ Todo:
 	- [x] Finalize
 - [x] EntryChecker
 - [x] First Person Playercontroller
-- [ ] Settings
-	- [ ] Sensitivity
-	- [ ] Audio
+
 
 Bugs:
