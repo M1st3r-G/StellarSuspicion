@@ -29,12 +29,13 @@ namespace Manager
         private Vector3 _sittingCameraStartingPosition;
         private Quaternion _sittingCameraStartingRotation;
         private Quaternion _firstPersonCameraStartingRotation;
+        private static bool _internalIsSitting;
         
         public bool IsSitting => sittingCamera.gameObject.activeSelf;
         
         #region Setup
 
-        private static PlaymodeManager _instance;
+        public static PlaymodeManager _instance;
 
         private void Awake()
         {
@@ -127,9 +128,10 @@ namespace Manager
             }
             
             SetMouseOnOf(isSitting);
+            _internalIsSitting = isSitting;
         }
 
-        public static void SetMouseOnOf(bool isOn)
+        public void SetMouseOnOf(bool isOn)
         {
             if (isOn)
             {
@@ -137,6 +139,7 @@ namespace Manager
             }
             else
             {
+                if (IsSitting) return;
                 Cursor.lockState = CursorLockMode.Locked;
             }
             Cursor.visible = !isOn;
