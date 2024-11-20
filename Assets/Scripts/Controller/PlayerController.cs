@@ -55,11 +55,13 @@ namespace Controller
             Debug.LogWarning("Interact");
         }
 
-
         private void FixedUpdate()
         {
             Vector2 input = walkingAction.action.ReadValue<Vector2>() * walkSpeed;
             _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
+            
+            input = lookingAction.action.ReadValue<Vector2>() * lookSpeed;
+            if (!(input.magnitude > 0.1)) return;
             
             input = lookingAction.action.ReadValue<Vector2>() * lookSpeed;
             if (!(input.magnitude > 0.1)) return;
