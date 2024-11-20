@@ -10,6 +10,7 @@
     public enum CreatureComponentType
     {
         Eye,
-        Mouth
+        Mouth, 
+        Nose
     }
 }
