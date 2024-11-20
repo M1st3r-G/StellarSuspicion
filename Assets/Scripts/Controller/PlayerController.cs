@@ -81,5 +81,14 @@ namespace Controller
         }
 
         #endregion
+        
+        #region ExternalChangeOfVariables
+
+        public void ChangeSensitivity(float sensitivity)
+        {
+            lookSpeed = sensitivity;
+            print(lookSpeed+" player controller looking speed");
+        }
+        #endregion
     }
 }

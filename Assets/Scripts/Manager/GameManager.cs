@@ -48,15 +48,33 @@ namespace Manager
         {
             Debug.LogWarning("GameManager is paused!");
             Time.timeScale = 0;
-            PlaymodeManager.SetMouseOnOf(true);
+            PlaymodeManager._instance.SetMouseOnOf(true);
         }
 
         public static void Unpause()
         {
-            Debug.LogWarning("GameManager is unpaused!");
+            Debug.LogWarning("You have unpased the GameManager!");
             Time.timeScale = 1;
-            PlaymodeManager.SetMouseOnOf(false);
+            PlaymodeManager._instance.SetMouseOnOf(false);
         }
         #endregion
+        
+        #region setting
+
+        public void OpenSettings()
+        {
+            Debug.Log("Settings is opened!");
+        }
+        #endregion
+
+        #region QuitToMainMenu
+
+        public void QuitToMainMenu()
+        {
+            Debug.Log("you quit to main menu");
+        }
+        
+        #endregion
+        
     }
 }
