@@ -439,6 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8415863890466193443}
   - component: {fileID: 9160640524041007920}
+  - component: {fileID: 6267199676878237262}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -480,6 +481,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6267199676878237262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575731743136468476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019fcc3ecaf657b429a075fff3fa1176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &8716290217979065343
 GameObject:
   m_ObjectHideFlags: 0

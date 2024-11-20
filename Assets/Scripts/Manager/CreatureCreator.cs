@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Data;
 using UnityEngine;
 
@@ -7,15 +6,14 @@ namespace Manager
 {
     public class CreatureCreator : MonoBehaviour
     {
-        [Header("References")]
-        [Tooltip("A list of all of the monsters possible Eyes")]
-        [SerializeField] private List<CreaturePartAsset> monsterEyes;
-        [Tooltip("A list of all of the monsters possible Mouths")]
-        [SerializeField] private List<CreaturePartAsset> monsterMouths;
+        private readonly Dictionary<CreatureComponentType, CreaturePartAsset[]> _allParts = new();
 
         // Temps/States
         private static CreatureCreator _instance;
 
+        private Part GetRandomPart(CreatureComponentType type)
+            => _allParts[type][Random.Range(0, _allParts[type].Length)].part;
+        
         #region SetUp
 
         private void Awake()
@@ -28,9 +26,15 @@ namespace Manager
             }
             
             _instance = this;
-
-            Debug.Assert(monsterEyes.All(p => p.part.type == CreatureComponentType.Eye), "monsterEyes contains bad stuff");
-            Debug.Assert(monsterMouths.All(p => p.part.type == CreatureComponentType.Mouth), "monsterMouth contains bad stuff");
+            
+            _allParts[CreatureComponentType.Mouth] = Resources.LoadAll<CreaturePartAsset>("Parts/Mouth");
+            _allParts[CreatureComponentType.Eye]   = Resources.LoadAll<CreaturePartAsset>("Parts/Eye");
+            _allParts[CreatureComponentType.Nose]  = Resources.LoadAll<CreaturePartAsset>("Parts/Nose");
+           
+            Debug.LogWarning("Mouth: " + _allParts[CreatureComponentType.Mouth].Length);
+            Debug.LogWarning("Eyes: " + _allParts[CreatureComponentType.Eye].Length);
+            Debug.LogWarning("Noses: " + _allParts[CreatureComponentType.Nose].Length);
+            
         }
 
         private void OnDestroy()
@@ -43,8 +47,9 @@ namespace Manager
         public static CreatureData GetRandomCreature() => _instance.GetRandom();
 
         private CreatureData GetRandom() 
-            => new("Random", 
-            monsterMouths[Random.Range(0, monsterMouths.Count)].part,
-            monsterEyes[Random.Range(0, monsterEyes.Count)].part);
+            => new("Random",
+                GetRandomPart(CreatureComponentType.Mouth),
+                GetRandomPart(CreatureComponentType.Eye),
+                GetRandomPart(CreatureComponentType.Nose));
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -328,11 +328,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 4096541787641101573, guid: 5f27539681e23484ba8a2d797ded5fe9, type: 3}
   m_PrefabInstance: {fileID: 5894674892855268748}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &1225419415 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 8569939615331527511, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-  m_PrefabInstance: {fileID: 2076482066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1267484800 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3351251579883874235, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
@@ -342,17 +337,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60666fae637f56c4d95115411b9fad56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1673625188 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8132665944091326048, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-  m_PrefabInstance: {fileID: 2076482066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a69b49c517c45c42b69c2cae2c18edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2076482066
@@ -385,18 +369,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 436319694518140590, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1241935566486401510, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1241935566486401510, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1241935566486401510, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1830794203767681666, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
@@ -439,10 +411,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2705865623520259209, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 5894674892855268749}
     - target: {fileID: 2753988940868656884, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -503,14 +471,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6230366378018188666, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: settingsMenu
-      value: 
-      objectReference: {fileID: 1225419415}
-    - target: {fileID: 6230366378018188666, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: pauseStartVisible
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6741363777618056504, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -523,34 +483,6 @@ PrefabInstance:
       propertyPath: firstPersonCamera
       value: 
       objectReference: {fileID: 1188581205}
-    - target: {fileID: 7524283619993531520, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524283619993531520, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524283619993531520, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1673625188}
-    - target: {fileID: 7524283619993531520, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524283619993531520, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenSettings
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524283619993531520, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Manager.GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524283619993531520, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: windowController
       value: 
@@ -633,17 +565,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f27539681e23484ba8a2d797ded5fe9, type: 3}
---- !u!114 &5894674892855268749 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8668827284809697893, guid: 5f27539681e23484ba8a2d797ded5fe9, type: 3}
-  m_PrefabInstance: {fileID: 5894674892855268748}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de8840f1c594a70a2de08a6ab3bcd35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

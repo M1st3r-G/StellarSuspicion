@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 2874027425423242632}
   - component: {fileID: 4251771522819697113}
   - component: {fileID: 6944027494598702273}
-  - component: {fileID: 2705865623520259209}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -166,7 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactUIController: {fileID: 1835192347097924519}
   pauseMenu: {fileID: 3270912664827936416}
+  settingsMenu: {fileID: 8569939615331527511}
   pauseStartVisible: 0
+  settingsStartVisible: 0
 --- !u!114 &7130360158209713221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,17 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919e8d8dba054a78ae1af6327076fc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterEyes:
-  - {fileID: 11400000, guid: c22ff14858f00b649a4311b29c56ffdb, type: 2}
-  - {fileID: 11400000, guid: 6cb5968808ba5b04a8fe246e819cdfaf, type: 2}
-  - {fileID: 11400000, guid: 8b785c9e4f6f92c49a1819b436675257, type: 2}
-  - {fileID: 11400000, guid: 568f06a9f13a3694682931c8e21662d4, type: 2}
-  - {fileID: 11400000, guid: 04d8f2ff95e53d743953f1d0e0d9461a, type: 2}
-  monsterMouths:
-  - {fileID: 11400000, guid: 152929d6224daf9458c8e1aec02d3426, type: 2}
-  - {fileID: 11400000, guid: b773a0266ab2da74e8b93cbfa3d50820, type: 2}
-  - {fileID: 11400000, guid: 6cd0d37dc2cdaa34288896d5deaaa59f, type: 2}
-  - {fileID: 11400000, guid: b1f2c9ad9a2805447885af4756e373a1, type: 2}
 --- !u!114 &3401441052818810947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,19 +416,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2705865623520259209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741363777618056504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019fcc3ecaf657b429a075fff3fa1176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &6213298806628802918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,11 +424,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1830794203767681666}
     m_Modifications:
-    - target: {fileID: 661100388814882602, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2705865623520259209}
     - target: {fileID: 1127066035600580007, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8132665944091326048}
+    - target: {fileID: 4490566352003061222, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8132665944091326048}
@@ -647,5 +624,10 @@ CanvasGroup:
 --- !u!224 &4423357222583903582 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7735206883089335352, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
+  m_PrefabInstance: {fileID: 6213298806628802918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &8569939615331527511 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2365683881943091761, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
   m_PrefabInstance: {fileID: 6213298806628802918}
   m_PrefabAsset: {fileID: 0}
