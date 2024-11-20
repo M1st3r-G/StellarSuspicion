@@ -97,7 +97,6 @@ namespace Editor
             if (!GUILayout.Button("Start Conversion")) return;
             
             ConvertAssets.ConvertAsset(_srcPath, _outPath, _typeToInt);
-            return;
             EditorUtility.DisplayDialog("AssetConversion Finished Successfully",
                 "This window will now be closed", "Understood");
             Close();
