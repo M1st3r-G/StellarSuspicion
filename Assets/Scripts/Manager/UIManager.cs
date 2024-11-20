@@ -9,6 +9,9 @@ namespace Manager
         [SerializeField] [Tooltip("A Reference to the Interaction UI element.")]
         private InteractUIController interactUIController;
         
+        [SerializeField] [Tooltip("A Reference to the Interaction UI element.")]
+        private CanvasGroup pauseMenu;
+        
         // Publics
         public static UIManager Instance;
         public InteractUIController InteractionUI => interactUIController;
@@ -23,6 +26,15 @@ namespace Manager
             }
 
             Instance = this;
+            
+            SetMenuActive(pauseMenu, false);
+        }
+
+        private static void SetMenuActive(CanvasGroup menu, bool state)
+        {
+            menu.interactable = state;
+            menu.blocksRaycasts = state;
+            menu.alpha = state ? 1f : 0f;
         }
     }
 }
