@@ -59,7 +59,16 @@ namespace Controller
 
         private void OnMouseInput(InputAction.CallbackContext ctx)
         {
-            Vector2 input = ctx.ReadValue<Vector2>() * lookSpeed;
+            
+        }
+
+        private void FixedUpdate()
+        {
+            Vector2 input = walkingAction.action.ReadValue<Vector2>() * walkSpeed;
+            _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
+            
+            input = lookingAction.action.ReadValue<Vector2>() * lookSpeed;
+            if (!(input.magnitude > 0.1)) return;
             
             // Rotate around y
             transform.localRotation *= Quaternion.AngleAxis(input.x, Vector3.up);
@@ -72,12 +81,6 @@ namespace Controller
             if (height > halfRange && input.y < 0) return;
 
             playerCam.transform.localRotation *= Quaternion.AngleAxis(-input.y, Vector3.right);
-        }
-
-        private void FixedUpdate()
-        {
-            Vector2 input = walkingAction.action.ReadValue<Vector2>() * walkSpeed;
-            _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
         }
 
         #endregion
