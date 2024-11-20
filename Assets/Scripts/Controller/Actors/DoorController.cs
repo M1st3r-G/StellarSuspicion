@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Controller.Actors
         [Header("References")]
         [Tooltip("This is the Transform of the Canvas with the Non See-through Blinder image")]
         [SerializeField] private Transform doorTransform;
-
+        
         [Header("Parameters")]
         [Tooltip("The length to move up inorder to hide the Blinder imae")]
         [Range(0f, 3f)] [SerializeField] private float up;
@@ -17,12 +18,25 @@ namespace Controller.Actors
     
         // Public
         public bool IsOpen { get; private set; }
+        
+        //DoorCollider logic
+        private void OnTriggerEnter(Collider other)
+        {
+            SetDoorOpened(true);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            SetDoorOpened(false);
+        }
+
 
         // Temps
         private Coroutine _closingRoutine;
 
-        #region WindowClosing
+        #region DoorClosing
 
+        //Bool open must be true for the door to open
         public void SetDoorOpened(bool open)
         {
             if(_closingRoutine != null) StopCoroutine(_closingRoutine);
