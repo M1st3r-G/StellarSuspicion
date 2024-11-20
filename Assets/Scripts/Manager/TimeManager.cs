@@ -98,5 +98,3 @@ namespace Manager
         #endregion
     }
 }
-
-
