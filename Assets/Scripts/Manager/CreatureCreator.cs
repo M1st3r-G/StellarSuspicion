@@ -11,6 +11,9 @@ namespace Manager
         [SerializeField] [Tooltip("A list of all the ImageConvertMaterials")] 
         private List<Material> colors;
         
+        [SerializeField] [Tooltip("A list of all the Possible Names")]
+        private List<string> names;
+        
         private readonly Dictionary<CreatureComponentType, CreaturePartAsset[]> _allParts = new();
 
         // Temps/States
@@ -57,8 +60,10 @@ namespace Manager
         
         public static CreatureData GetRandomCreature() => _instance.GetRandom();
 
+        private string GetRandomName() => names[Random.Range(0, names.Count)];
+        
         private CreatureData GetRandom() 
-            => new("Random",
+            => new(GetRandomName(),
                 GetRandomPart(CreatureComponentType.Mouth),
                 GetRandomPart(CreatureComponentType.Eye),
                 GetRandomPart(CreatureComponentType.Nose),

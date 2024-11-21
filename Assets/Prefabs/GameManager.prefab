@@ -244,6 +244,19 @@ MonoBehaviour:
   colors:
   - {fileID: 2100000, guid: 7bfdddb36bbd412459214a3588bf8bc4, type: 2}
   - {fileID: 2100000, guid: 7a52e164e5e62a84c82d6a254795b584, type: 2}
+  names:
+  - Xlak
+  - Guboo
+  - Anton
+  - Zzztzzz
+  - Rawwwk
+  - Krank
+  - Lullo
+  - Plapf
+  - Weeb
+  - Skraatz
+  - Jesse
+  - Der Coolere Boris
 --- !u!114 &3401441052818810947
 MonoBehaviour:
   m_ObjectHideFlags: 0

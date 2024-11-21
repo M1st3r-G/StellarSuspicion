@@ -1,3 +1,4 @@
+using Controller.UI;
 using Data;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,11 +23,14 @@ namespace Controller
         [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
         private Image head;
 
+        [SerializeField] [Tooltip("This is the Dialogue Controller for this creature")]
+        private DialogueUIController dialogue;
         
         public void SetToCreature(CreatureData creature)
         {
             name = creature.Name;
-
+            dialogue.SetText($"Glorb blorb bla: {name}!");
+            
             mouth.sprite = creature.Mouth;
             eyes.sprite = creature.Eyes;
             nose.sprite = creature.Nose;
@@ -41,6 +45,7 @@ namespace Controller
         public void ResetCreature()
         {
             name = "Default";
+            dialogue.SetText("");
             
             mouth.sprite = null;
             eyes.sprite = null;

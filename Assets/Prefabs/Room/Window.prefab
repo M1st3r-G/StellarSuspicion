@@ -445,6 +445,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5167839032158002908, guid: 30e5496ac22ff984b9927dd09b332b9f, type: 3}
   m_PrefabInstance: {fileID: 4668276412008683700}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1591673022680713775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6259949088841142939, guid: 30e5496ac22ff984b9927dd09b332b9f, type: 3}
+  m_PrefabInstance: {fileID: 4668276412008683700}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d13b92778d61940ac08600dc209cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6513162626498604603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -537,6 +548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 7751099118588462136, guid: 891db4d6b7408134983d09cd28b11464, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 1591673022680713775}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
