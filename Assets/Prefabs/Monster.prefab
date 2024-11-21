@@ -206,8 +206,8 @@ MonoBehaviour:
   mouth: {fileID: 1550707415256822796}
   eyes: {fileID: 7569053148106611090}
   nose: {fileID: 6729773195158816659}
-  body: {fileID: 0}
-  head: {fileID: 0}
+  body: {fileID: 3997458933931473715}
+  head: {fileID: 9204711899122435947}
 --- !u!1 &4297229404786606249
 GameObject:
   m_ObjectHideFlags: 0
