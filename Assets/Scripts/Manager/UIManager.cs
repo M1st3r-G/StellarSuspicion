@@ -1,3 +1,4 @@
+using System;
 using Controller.UI;
 using UnityEngine;
 
@@ -42,11 +43,13 @@ namespace Manager
             }
 
             Instance = this;
+        }
 
+        private void Start()
+        {
             Settings.SetMenuActive(false);
             PauseMenu.SetMenuActive(false);
         }
-        
 
         #endregion
     }
