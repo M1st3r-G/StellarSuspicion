@@ -11,6 +11,8 @@
     {
         Eye,
         Mouth, 
-        Nose
+        Nose, 
+        Head, 
+        Body
     }
 }

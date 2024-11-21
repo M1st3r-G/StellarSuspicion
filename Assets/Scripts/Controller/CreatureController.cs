@@ -16,20 +16,40 @@ namespace Controller
         [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
         private Image nose;
         
+        [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
+        private Image body;
+
+        [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
+        private Image head;
+
+        
         public void SetToCreature(CreatureData creature)
         {
+            name = creature.Name;
+
             mouth.sprite = creature.Mouth;
             eyes.sprite = creature.Eyes;
             nose.sprite = creature.Nose;
-            name = creature.Name;
+            body.sprite = creature.Body;
+            head.sprite = creature.Head;
+            
+            body.material = creature.Color;
+            head.material = creature.Color;
+            
         }
 
         public void ResetCreature()
         {
+            name = "Default";
+            
             mouth.sprite = null;
             eyes.sprite = null;
             nose.sprite = null;
-            name = "Default";
+            body.sprite = null;
+            head.sprite = null;
+            
+            body.material = null;
+            head.material = null;
         }
     }
 }
