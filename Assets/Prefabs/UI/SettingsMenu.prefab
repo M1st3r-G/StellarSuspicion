@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5248732304265501333}
   - component: {fileID: 8283868380253206633}
   m_Layer: 5
-  m_Name: Scrollbar Text
+  m_Name: SensitivityLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6441915167897212194}
   - component: {fileID: 7742618552843975475}
   m_Layer: 5
-  m_Name: return to normal pause menu
+  m_Name: Return
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6441915167897212194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6267199676878237262}
+        m_TargetAssemblyTypeName: Controller.UI.SettingsController, Assembly-CSharp
+        m_MethodName: ReturnToPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5417313437568551582
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +594,7 @@ GameObject:
   - component: {fileID: 5423196942274358536}
   - component: {fileID: 6258043862828842539}
   m_Layer: 5
-  m_Name: Scrollbar
+  m_Name: Sensitivity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,9 +707,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
-        m_MethodName: SensetivityChanged
+      - m_Target: {fileID: 6267199676878237262}
+        m_TargetAssemblyTypeName: Controller.UI.SettingsController, Assembly-CSharp
+        m_MethodName: SensitivityChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

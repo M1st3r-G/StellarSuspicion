@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
@@ -29,7 +30,6 @@ namespace Manager
         private Vector3 _sittingCameraStartingPosition;
         private Quaternion _sittingCameraStartingRotation;
         private Quaternion _firstPersonCameraStartingRotation;
-        private static bool _internalIsSitting;
         
         public bool IsSitting => sittingCamera.gameObject.activeSelf;
         
@@ -127,24 +127,25 @@ namespace Manager
                 SittingMap.Enable();
             }
             
-            SetMouseOnOf(isSitting);
-            _internalIsSitting = isSitting;
+            ReturnMouseToGame();
         }
 
-        public void SetMouseOnOf(bool isOn)
+        public static void SetMouseTo(bool active)
         {
-            if (isOn)
+            if (active)
             {
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
             }
             else
             {
-                if (IsSitting) return;
+                Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
-            Cursor.visible = !isOn;
         }
-        
+
+        public static void ReturnMouseToGame() => SetMouseTo(_instance.IsSitting);
+
         #endregion
     }
 }

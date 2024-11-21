@@ -60,7 +60,7 @@ namespace Controller
 
         private void OnMouseInput(InputAction.CallbackContext ctx)
         {
-            if (UIManager.Instance.IsPaused) return;
+            if (UIManager.PauseMenu.IsPaused) return;
             
             Vector2 input = ctx.ReadValue<Vector2>() * lookSpeed;
             

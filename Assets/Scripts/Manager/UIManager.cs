@@ -1,6 +1,5 @@
 using Controller.UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Manager
 {
@@ -11,10 +10,12 @@ namespace Manager
         private InteractUIController interactUIController;
         
         [SerializeField] [Tooltip("A Reference to the Interaction UI element.")]
-        private CanvasGroup pauseMenu;
+        private PauseMenuController pauseMenu;
+        private CanvasGroup _pauseGroup;
         
-        [SerializeField][Tooltip("A Refrence to the Settings UI Element")]
-        private CanvasGroup settingsMenu;
+        [SerializeField][Tooltip("A Reference to the Settings UI Element")]
+        private SettingsController settingsMenu;
+        private CanvasGroup _settingsGroup;
         
         [Header("Parameters")]
         [SerializeField] [Tooltip("Whether the Menus start Visible")]
@@ -27,9 +28,9 @@ namespace Manager
 
         // Publics
         public static UIManager Instance;
-        public InteractUIController InteractionUI => interactUIController;
-        
-        public bool IsPaused => pauseMenu.alpha > 0.5f;
+        public static InteractUIController InteractionUI => Instance.interactUIController;
+        public static PauseMenuController PauseMenu => Instance.pauseMenu;
+        public static SettingsController Settings => Instance.settingsMenu;
         
         private void Awake()
         {
@@ -41,21 +42,12 @@ namespace Manager
             }
 
             Instance = this;
-            
-            SetMenuActive(pauseMenu, pauseStartVisible);
-            SetMenuActive(settingsMenu,settingsStartVisible );
+
+            Settings.SetMenuActive(false);
+            PauseMenu.SetMenuActive(false);
         }
         
 
         #endregion
-        private static void SetMenuActive(CanvasGroup menu, bool state)
-        {
-            menu.interactable = state;
-            menu.blocksRaycasts = state;
-            menu.alpha = state ? 1f : 0f;
-        }
-
-        public static void SetPauseActive(bool active) => SetMenuActive(Instance.pauseMenu, active);
-        public static void SetSettingsMenuActive(bool active) => SetMenuActive(Instance.settingsMenu, active);
     }
 }

@@ -1,49 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
-using Controller;
-using Unity.VisualScripting;
+using Extern;
+using Manager;
 using UnityEngine;
 
-public class SettingsController : MonoBehaviour
+namespace Controller.UI
 {
-    
-    [SerializeField]PlayerController player;
-    #region Setup
-    
-    public static SettingsController instance;
-    public void Awake()
+    public class SettingsController : MonoBehaviour
     {
-        if (instance != null)
+    
+        [SerializeField] private PlayerController player;
+
+        private CanvasGroup _myGroup;
+    
+        public static SettingsController Instance;
+    
+        #region Setup
+    
+        public void Awake()
         {
-            Debug.LogWarning("Multiple instances of SettingsController found!");
-            Destroy(this);
-            return;
-        }
+            if (Instance != null)
+            {
+                Debug.LogWarning("Multiple instances of SettingsController found!");
+                Destroy(this);
+                return;
+            }
             
-        instance = this;
-    }
+            Instance = this;
+        
+            _myGroup = GetComponent<CanvasGroup>();
+        }
 
-    private void OnDestroy()
-    {
-        if(instance == this) instance = null;
-    }
+        private void OnDestroy()
+        {
+            if(Instance == this) Instance = null;
+        }
 
+        #endregion
 
-    #endregion
+        public void ReturnToPause()
+        {
+            _myGroup.SetGroupActive(false);
+            UIManager.PauseMenu.SetMenuActive(true);
+        }
 
-    public static void ReturnToNormalMenu()
-    {
-        Debug.Log("Return to Normal Menu");
-    }
-
-    public void SensetivityChanged(float newValue)
-    {
-        float newSensetivity = Mathf.Lerp(0.1f,0.5f,newValue);
-        player.ChangeSensitivity(newSensetivity);
-    }
+        public void SensitivityChanged(float newValue)
+        {
+            float newSensitivity = Mathf.Lerp(0.1f,0.5f,newValue);
+            player.ChangeSensitivity(newSensitivity);
+        }
     
-    public void returnToNormalMenu()
-    {
-        Debug.Log("Return to Normal Menu");
+        public void SetMenuActive(bool b) => _myGroup.SetGroupActive(b);
     }
 }
