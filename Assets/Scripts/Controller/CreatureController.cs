@@ -1,5 +1,6 @@
 using Controller.UI;
 using Data;
+using Extern;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,8 +29,9 @@ namespace Controller
         
         public void SetToCreature(CreatureData creature)
         {
-            name = creature.Name;
-            dialogue.SetText($"Glorb blorb bla: {name}!");
+            creature.IsGood(out int rating);
+            name = name;
+            dialogue.SetText($"Name: {name}<br>Rating: {rating}");
             
             mouth.sprite = creature.Mouth;
             eyes.sprite = creature.Eyes;

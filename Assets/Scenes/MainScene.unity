@@ -483,6 +483,10 @@ PrefabInstance:
       propertyPath: firstPersonCamera
       value: 
       objectReference: {fileID: 1188581205}
+    - target: {fileID: 8132665944091326048, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: creature
+      value: 
+      objectReference: {fileID: 1267484800}
     - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: windowController
       value: 

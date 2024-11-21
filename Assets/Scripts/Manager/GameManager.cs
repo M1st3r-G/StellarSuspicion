@@ -1,3 +1,5 @@
+using System.Collections;
+using Controller;
 using UnityEngine;
 
 namespace Manager
@@ -9,6 +11,8 @@ namespace Manager
         public int NumMonsters { get; private set; }
         public int NumSuccesses { get; private set; }
 
+        [SerializeField] private CreatureController creature;
+        
         // Public
         public static GameManager Instance;
         
@@ -31,7 +35,21 @@ namespace Manager
         {
             if (Instance == this) Instance = null;
         }
-    
+
+        private void Start()
+        {
+            StartCoroutine(ShowOffMonsters());
+        }
+
+        private IEnumerator ShowOffMonsters()
+        {
+            while (true)
+            {
+                creature.SetToCreature(CreatureCreator.GetRandomCreature());
+                yield return new WaitForSeconds(1f);
+            }
+        }
+
         #endregion
     }
 }
