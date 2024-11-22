@@ -51,6 +51,7 @@ namespace Manager
             Debug.Log("Camera Manager");
             Instance = this;
 
+            mainInputAsset.actionMaps[0].Enable();
             standUpAction.action.performed += OnStandUpAction;
         }
 
