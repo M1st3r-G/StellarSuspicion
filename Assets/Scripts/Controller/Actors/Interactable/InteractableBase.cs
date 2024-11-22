@@ -69,29 +69,10 @@ namespace Controller.Actors.Interactable
 
         #region MouseInput
 
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            Debug.LogWarning("Enter");
-            _outline.enabled = IsEnabled;
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            Debug.LogWarning("Exit");
-            _outline.enabled = false;
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            Debug.LogWarning("Down");
-            _held = IsEnabled;
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            Debug.LogWarning("Up");
-            Release();
-        }
+        public void OnPointerEnter(PointerEventData eventData) => _outline.enabled = IsEnabled;
+        public void OnPointerExit(PointerEventData eventData) => _outline.enabled = false;
+        public void OnPointerDown(PointerEventData eventData) => _held = IsEnabled;
+        public void OnPointerUp(PointerEventData eventData) => Release();
 
         #endregion
     }

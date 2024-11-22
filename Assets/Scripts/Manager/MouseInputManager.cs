@@ -79,8 +79,6 @@ namespace Manager
                 return;
             }
 
-            Debug.LogError("Raycast Hit");
-            
             // Old One
             if (_currentlyOver is not null && _currentlyOver.transform == hit.transform) return;
             
