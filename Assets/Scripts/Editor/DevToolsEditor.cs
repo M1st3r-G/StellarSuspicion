@@ -48,7 +48,9 @@ namespace Editor
             
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Go to Player Mode")) PlaymodeManager.SwitchState(true);
-            if (GUILayout.Button("Go to Sitting Mode")) PlaymodeManager.SwitchState(false);
+            GUI.enabled = false;
+            if (GUILayout.Button("Sitting (Deprecated)")) PlaymodeManager.SwitchState(false);
+            GUI.enabled = playing;
             GUILayout.EndHorizontal();
             
             if (GUILayout.Button("Trigger Random Event")) TimeManager.TriggerRandomEvent();

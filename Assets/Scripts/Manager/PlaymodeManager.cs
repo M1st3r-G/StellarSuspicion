@@ -16,6 +16,9 @@ namespace Manager
         
         [SerializeField] [Tooltip("The Input action asset")]
         private InputActionAsset mainInputAsset;
+
+        [SerializeField] [Tooltip("The InputAction for Stading Up")]
+        private InputActionReference standUpAction;
         
         [Header("Parameters")]
         [SerializeField] [Range(0f, 3f)] [Tooltip("Time it Takes to swap the camera")]
@@ -24,13 +27,14 @@ namespace Manager
         private InputActionMap FirstPersonMap => mainInputAsset.actionMaps[2];
         private InputActionMap SittingMap => mainInputAsset.actionMaps[1];
         
-        // Temps/States
-        private Vector3 _firstPersonCameraStartingPosition;
-        private Vector3 _sittingCameraStartingPosition;
-        private Quaternion _sittingCameraStartingRotation;
-        private Quaternion _firstPersonCameraStartingRotation;
         
-        public bool IsSitting => sittingCamera.gameObject.activeSelf;
+        // Temps/States
+        private Vector3 _fpcStartingPosition;
+        private Vector3 _scStartingPosition;
+        private Quaternion _scStartingRotation;
+        private Quaternion _fpcStartingRotation;
+
+        private bool IsSitting => sittingCamera.gameObject.activeSelf;
         
         #region Setup
 
@@ -46,6 +50,8 @@ namespace Manager
             }
             Debug.Log("Camera Manager");
             Instance = this;
+
+            standUpAction.action.performed += OnStandUpAction;
         }
 
         public void OnDestroy()
@@ -55,25 +61,22 @@ namespace Manager
 
         public void Start()
         {
-            _sittingCameraStartingPosition = sittingCamera.transform.position;
-            _sittingCameraStartingRotation = sittingCamera.transform.rotation;
+            sittingCamera.transform.GetPositionAndRotation(out _scStartingPosition, out _scStartingRotation);
+            firstPersonCamera.transform.GetPositionAndRotation(out _fpcStartingPosition, out _fpcStartingRotation);
             
-            _firstPersonCameraStartingPosition = firstPersonCamera.transform.position;
-            _firstPersonCameraStartingRotation = firstPersonCamera.transform.rotation;
-            
-            firstPersonCamera.gameObject.SetActive(false);
-            
-            mainInputAsset.actionMaps[0].Enable();
-            SittingMap.Enable();
+            SwitchState(false);
         }
         
         #endregion
 
         public static void SwitchState(bool isSitting)
         {
+            Debug.Log("SwitchingState");
             Instance.SwitchCamera(isSitting);
             Instance.SwitchInputMap(isSitting);
         }
+
+        private static void OnStandUpAction(InputAction.CallbackContext ctx) => SwitchState(true);
 
         #region CameraChange
         
@@ -88,11 +91,11 @@ namespace Manager
         {
             float elapsedTime = 0;
         
-            Vector3 startingPosition    = isSitting ? _sittingCameraStartingPosition : _firstPersonCameraStartingPosition;
-            Quaternion startingRotation = isSitting ? _sittingCameraStartingRotation : _firstPersonCameraStartingRotation;
+            Vector3 startingPosition    = isSitting ? _scStartingPosition : _fpcStartingPosition;
+            Quaternion startingRotation = isSitting ? _scStartingRotation : _fpcStartingRotation;
             
-            Vector3 targetPosition    = isSitting ? _firstPersonCameraStartingPosition : _sittingCameraStartingPosition;
-            Quaternion targetRotation = isSitting ? _firstPersonCameraStartingRotation : _sittingCameraStartingRotation;
+            Vector3 targetPosition    = isSitting ? _fpcStartingPosition : _scStartingPosition;
+            Quaternion targetRotation = isSitting ? _fpcStartingRotation : _scStartingRotation;
             
             Camera currentCamera = isSitting ? firstPersonCamera : sittingCamera;
         
