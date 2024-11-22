@@ -40,12 +40,13 @@ namespace Controller.UI
                     break;
             }
         }
-        
-        public void Pause()
+
+        private void Pause()
         {
             Debug.LogWarning("Game is paused!");
             Time.timeScale = 0;
             
+            _myGroup.SetGroupActive(true);
             IsPaused = true;
             PlaymodeManager.SetMouseTo(true);
         }

@@ -34,23 +34,23 @@ namespace Manager
         
         #region Setup
 
-        public static PlaymodeManager _instance;
+        public static PlaymodeManager Instance;
 
         private void Awake()
         {
-            if (_instance != null)
+            if (Instance != null)
             {
                 Debug.LogWarning("More than one instance of CameraManager");
                 Destroy(gameObject);
                 return;
             }
             Debug.Log("Camera Manager");
-            _instance = this;
+            Instance = this;
         }
 
         public void OnDestroy()
         {
-            if (_instance == this) _instance = null;
+            if (Instance == this) Instance = null;
         }
 
         public void Start()
@@ -71,8 +71,8 @@ namespace Manager
 
         public static void SwitchState(bool isSitting)
         {
-            _instance.SwitchInputMap(isSitting);
-            _instance.SwitchCamera(isSitting);
+            Instance.SwitchCamera(isSitting);
+            Instance.SwitchInputMap(isSitting);
         }
 
         #region CameraChange
@@ -143,7 +143,7 @@ namespace Manager
             }
         }
 
-        public static void ReturnMouseToGame() => SetMouseTo(_instance.IsSitting);
+        public static void ReturnMouseToGame() => SetMouseTo(Instance.IsSitting);
 
         #endregion
     }
