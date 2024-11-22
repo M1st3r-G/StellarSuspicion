@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2852161241607220279}
   - component: {fileID: 4096541787641101573}
   - component: {fileID: 3115436860778353429}
+  - component: {fileID: 5524709177208283964}
   m_Layer: 0
   m_Name: StandingCamera
   m_TagString: MainCamera
@@ -92,6 +93,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766007129106301904}
   m_Enabled: 1
+--- !u!114 &5524709177208283964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766007129106301904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 1
 --- !u!1 &4126081732624735509
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingAction: {fileID: -4106571575136503022, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
-  interactAction: {fileID: -2597457260242803404, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   lookingAction: {fileID: 3408512003495251016, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   playerCam: {fileID: 4096541787641101573}
   walkSpeed: 3

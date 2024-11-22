@@ -17,9 +17,6 @@ namespace Manager
         [SerializeField] [Tooltip("The Input action asset")]
         private InputActionAsset mainInputAsset;
 
-        [SerializeField] [Tooltip("The InputAction for Stading Up")]
-        private InputActionReference standUpAction;
-        
         [Header("Parameters")]
         [SerializeField] [Range(0f, 3f)] [Tooltip("Time it Takes to swap the camera")]
          private float swappingTime;
@@ -52,7 +49,6 @@ namespace Manager
             Instance = this;
 
             mainInputAsset.actionMaps[0].Enable();
-            standUpAction.action.performed += OnStandUpAction;
         }
 
         public void OnDestroy()
@@ -76,8 +72,6 @@ namespace Manager
             Instance.SwitchCamera(isSitting);
             Instance.SwitchInputMap(isSitting);
         }
-
-        private static void OnStandUpAction(InputAction.CallbackContext ctx) => SwitchState(true);
 
         #region CameraChange
         
@@ -142,8 +136,8 @@ namespace Manager
             }
             else
             {
-                Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = true;
             }
         }
 

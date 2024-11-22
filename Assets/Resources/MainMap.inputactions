@@ -34,15 +34,6 @@
             "id": "13cef47c-3535-49cf-bdd9-a31aa7877b00",
             "actions": [
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "363d4192-d48b-41b2-a80c-0dc1e9c6acb2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "StandUp",
                     "type": "Button",
                     "id": "8bb7dc01-3de5-4663-b8a2-c90fcfda39b9",
@@ -53,17 +44,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "8bf5a5f3-5660-43b9-bb82-a0edfd7324a1",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "88b359c9-088d-463e-88ce-51fa598c9ade",
@@ -111,15 +91,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "6ca424d5-d1d8-4a05-a6dd-bb39973ce4fb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 },
                 {
                     "name": "MouseAxis",
@@ -186,28 +157,6 @@
                     "action": "Walking",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "a41a2868-43a4-41df-9402-82691dd0db07",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "53065a88-f498-41b7-a4a6-b889a7e452ec",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

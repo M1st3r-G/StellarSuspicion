@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Controller
+namespace Controller.Player
 {
     [RequireComponent(typeof(Rigidbody), typeof(Collider))]
     public class PlayerController : MonoBehaviour
@@ -12,9 +12,6 @@ namespace Controller
         [Header("References")]
         [SerializeField] [Tooltip("The Action for Walking")]
         private InputActionReference walkingAction;
-        
-        [SerializeField] [Tooltip("The Action for Interacting")]
-        private InputActionReference interactAction;
         
         [SerializeField] [Tooltip("The Action for Looking")]
         private InputActionReference lookingAction;
@@ -45,18 +42,12 @@ namespace Controller
             _rigidbody = GetComponent<Rigidbody>();
             
             lookingAction.action.performed += OnMouseInput;            
-            interactAction.action.performed += OnInteract;
             // Movement in Update
         }
 
         #endregion
 
         #region InputHanling
-
-        private void OnInteract(InputAction.CallbackContext ctx)
-        {
-            Debug.LogWarning("Interact");
-        }
 
         private void OnMouseInput(InputAction.CallbackContext ctx)
         {
