@@ -15,3 +15,4 @@ Todo:
 
 
 Bugs:
+- Mouse and Pause menu delay
