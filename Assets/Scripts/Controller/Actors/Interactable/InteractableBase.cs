@@ -1,4 +1,5 @@
-﻿using QuickOutline;
+﻿using Manager;
+using QuickOutline;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,6 +17,7 @@ namespace Controller.Actors.Interactable
         
         private float _holdTime;
         private bool _held;
+        private bool IsEnabled=> _isEnabled && !UIManager.PauseMenu.IsPaused;
         private bool _isEnabled;
         private Outline _outline;
 
@@ -27,11 +29,12 @@ namespace Controller.Actors.Interactable
             _outline.enabled = false;
             
             _isEnabled = startEnabled;
+            gameObject.layer = LayerMask.NameToLayer("Interaction");
         }
 
         private void Update()
         {
-            if (!_isEnabled) return;
+            if (!IsEnabled) return;
             if (!_held) return;
 
             _holdTime += Time.deltaTime;
@@ -66,10 +69,29 @@ namespace Controller.Actors.Interactable
 
         #region MouseInput
 
-        public void OnPointerEnter(PointerEventData eventData) => _outline.enabled = _isEnabled;
-        public void OnPointerExit(PointerEventData eventData) => _outline.enabled = false;
-        public void OnPointerDown(PointerEventData eventData) => _held = _isEnabled;
-        public void OnPointerUp(PointerEventData eventData) => Release();
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Debug.LogWarning("Enter");
+            _outline.enabled = IsEnabled;
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            Debug.LogWarning("Exit");
+            _outline.enabled = false;
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            Debug.LogWarning("Down");
+            _held = IsEnabled;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            Debug.LogWarning("Up");
+            Release();
+        }
 
         #endregion
     }

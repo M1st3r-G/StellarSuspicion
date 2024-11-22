@@ -134,11 +134,7 @@ namespace Manager
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
             }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = true;
-            }
+            else Cursor.lockState = CursorLockMode.Locked;
         }
 
         public static void ReturnMouseToGame() => SetMouseTo(Instance.IsSitting);

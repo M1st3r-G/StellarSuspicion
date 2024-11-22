@@ -15,4 +15,4 @@ Todo:
 
 
 Bugs:
-- Mouse and Pause menu delay
+- Reset Camera Rotaton on Desk
