@@ -1,5 +1,4 @@
-﻿using Controller.Actors.Interactable;
-using Manager;
+﻿using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,7 +21,6 @@ namespace Controller.Player
         
         private Rigidbody _rigidbody;
         
-        
         [Header("Parameters")]
         [SerializeField] [Range(1f, 5f)] [Tooltip("The Speed of the Player in Units per Second")]
         private float walkSpeed;
@@ -33,8 +31,6 @@ namespace Controller.Player
         [SerializeField] [Range(0.1f, 0.9f)] [Tooltip("Half the visible Range for looking up and down")]
         private float halfRange;
 
-        private InteractableBase _currentlyOver;
-        
         #endregion
 
         #region SetUp
@@ -44,7 +40,6 @@ namespace Controller.Player
             _rigidbody = GetComponent<Rigidbody>();
             
             lookingAction.action.performed += OnMouseInput;            
-            // Movement in Update
         }
 
         #endregion
@@ -72,38 +67,8 @@ namespace Controller.Player
 
         private void FixedUpdate()
         {
-            //Movement
             Vector2 input = walkingAction.action.ReadValue<Vector2>() * walkSpeed;
             _rigidbody.velocity = input.x * transform.right + input.y * transform.forward;
-            
-            
-            // RayTrace
-            if (!playerCam.gameObject.activeSelf) return;
-
-            Ray midpointRay = playerCam.ScreenPointToRay(new Vector3(playerCam.pixelWidth / 2f, playerCam.pixelHeight / 2f, 0));
-            if (!Physics.Raycast(midpointRay, out RaycastHit hit, 50f, ~LayerMask.NameToLayer("Interaction")))
-            {
-                if(_currentlyOver != null) _currentlyOver.OnPointerExit(null);
-                _currentlyOver = null;
-                return;
-            }
-            
-            Debug.LogError($"Raycast Hit: {hit.transform.name}");
-            
-            // Hit an Interactable
-            InteractableBase interact = hit.transform.gameObject.GetComponent<InteractableBase>();
-
-            // New one
-            if (_currentlyOver != interact)
-            {   
-                if(_currentlyOver != null) _currentlyOver.OnPointerExit(null);
-                
-                _currentlyOver = interact;
-                interact.OnPointerEnter(null);
-            }
-            
-            if(Mouse.current.leftButton.wasPressedThisFrame) interact.OnPointerDown(null);
-            if(Mouse.current.leftButton.wasReleasedThisFrame) interact.OnPointerUp(null);
         }
 
         #endregion

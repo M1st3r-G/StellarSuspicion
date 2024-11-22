@@ -32,6 +32,8 @@ namespace Manager
         private Quaternion _fpcStartingRotation;
 
         private bool IsSitting => sittingCamera.gameObject.activeSelf;
+
+        public Camera CurrentCamera => IsSitting ? sittingCamera : firstPersonCamera;
         
         #region Setup
 
@@ -116,11 +118,13 @@ namespace Manager
             if (isSitting)
             {
                 FirstPersonMap.Enable();
+                MouseInputManager.Instance.SetCamera(firstPersonCamera);
                 SittingMap.Disable();
             }
             else
             {
                 FirstPersonMap.Disable();
+                MouseInputManager.Instance.SetInactive();
                 SittingMap.Enable();
             }
             
