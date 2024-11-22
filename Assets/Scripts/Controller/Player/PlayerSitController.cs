@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Controller.Player
 {
-    public class PlayerSitController : MonoBehaviour
+    public class PlayerSitController : PlayerBaseController
     {
         [Header("References")]
         [SerializeField] [Tooltip("The InputAction for Standing Up")]
@@ -19,11 +19,14 @@ namespace Controller.Player
         {
             standUpAction.action.performed += OnStandUpAction;
         }
-        
+
+        public override void SetMouseState() => PlaymodeManager.SetMouseTo(true);
+        protected override InputActionMap LoadActionMap() => PlaymodeManager.Instance.SittingMap;
+
         private void OnStandUpAction(InputAction.CallbackContext ctx)
         {
             deskInteraction.SetInteractionTo(true);
-            PlaymodeManager.SwitchState(true);
+            PlaymodeManager.StandUp();
         }
     }
 }

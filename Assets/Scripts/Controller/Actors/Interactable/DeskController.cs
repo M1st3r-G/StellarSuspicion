@@ -8,7 +8,7 @@ namespace Controller.Actors.Interactable
         {
             base.TriggerInteraction();
 
-            PlaymodeManager.SwitchState(false);
+            PlaymodeManager.SitDown();
             SetInteractionTo(false);
         }
     }

@@ -46,12 +46,12 @@ namespace Editor
             GUI.enabled = playing;
             GUILayout.Label("Runtime", EditorStyles.centeredGreyMiniLabel);
             
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Go to Player Mode")) PlaymodeManager.SwitchState(true);
             GUI.enabled = false;
-            if (GUILayout.Button("Sitting (Deprecated)")) PlaymodeManager.SwitchState(false);
-            GUI.enabled = playing;
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Go to Player Mode")) PlaymodeManager.StandUp();
+            if (GUILayout.Button("Sitting (Deprecated)")) PlaymodeManager.SitDown();
             GUILayout.EndHorizontal();
+            GUI.enabled = playing;
             
             if (GUILayout.Button("Trigger Random Event")) TimeManager.TriggerRandomEvent();
 

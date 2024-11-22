@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Controller.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
@@ -7,12 +9,12 @@ namespace Manager
 {
     public class PlaymodeManager : MonoBehaviour
     {
-        [Header("References")]
-        [Tooltip("Reference to Static Camera at the Desk")] [SerializeField] 
-        private Camera sittingCamera;
+        [Header("References")] 
+        [SerializeField] [Tooltip("The PlayerController for Sitting")]
+        private PlayerSitController playerSit;
         
-        [SerializeField] [Tooltip("Reference to Dynamic Camera of the First Person Controller")]
-        private Camera firstPersonCamera;
+        [SerializeField] [Tooltip("The PlayerController for Standing")]
+        private PlayerController playerStand;
         
         [SerializeField] [Tooltip("The Input action asset")]
         private InputActionAsset mainInputAsset;
@@ -21,23 +23,17 @@ namespace Manager
         [SerializeField] [Range(0f, 3f)] [Tooltip("Time it Takes to swap the camera")]
          private float swappingTime;
         
-        private InputActionMap FirstPersonMap => mainInputAsset.actionMaps[2];
-        private InputActionMap SittingMap => mainInputAsset.actionMaps[1];
-        
-        
         // Temps/States
-        private Vector3 _fpcStartingPosition;
-        private Vector3 _scStartingPosition;
-        private Quaternion _scStartingRotation;
-        private Quaternion _fpcStartingRotation;
+        public InputActionMap FirstPersonMap => mainInputAsset.actionMaps[2];
+        public InputActionMap SittingMap => mainInputAsset.actionMaps[1];
+        private PlayerBaseController CurrentPlayerController => _isSitting ? playerSit : playerStand;
+        private Camera CurrentCamera => CurrentPlayerController.Camera;
 
-        private bool IsSitting => sittingCamera.gameObject.activeSelf;
-
-        public Camera CurrentCamera => IsSitting ? sittingCamera : firstPersonCamera;
+        private bool _isSitting;
+        
+        public static PlaymodeManager Instance;
         
         #region Setup
-
-        public static PlaymodeManager Instance;
 
         private void Awake()
         {
@@ -47,7 +43,7 @@ namespace Manager
                 Destroy(gameObject);
                 return;
             }
-            Debug.Log("Camera Manager");
+
             Instance = this;
 
             mainInputAsset.actionMaps[0].Enable();
@@ -58,48 +54,52 @@ namespace Manager
             if (Instance == this) Instance = null;
         }
 
-        public void Start()
-        {
-            sittingCamera.transform.GetPositionAndRotation(out _scStartingPosition, out _scStartingRotation);
-            firstPersonCamera.transform.GetPositionAndRotation(out _fpcStartingPosition, out _fpcStartingRotation);
-            
-            SwitchState(false);
-        }
-        
+        public void Start() => SwitchStateTo(false);
+
         #endregion
 
-        public static void SwitchState(bool isSitting)
+        public static void StandUp() => Instance.SwitchStateTo(false);
+        public static void SitDown() => Instance.SwitchStateTo(true);
+        
+        private void SwitchStateTo(bool sit)
         {
-            Debug.Log("SwitchingState");
-            Instance.SwitchCamera(isSitting);
-            Instance.SwitchInputMap(isSitting);
+            if (_isSitting == sit) return;
+
+            Transform targetCamTransform = sit ? playerSit.Camera.transform : playerStand.Camera.transform; 
+            StartCoroutine(MoveCameraToTransform(CurrentCamera,targetCamTransform, SwitchPlayerControllers));
+        }
+
+        private void SwitchPlayerControllers()
+        {
+            if (_isSitting)
+            {
+                playerSit.Unpossess();
+                playerStand.Possess();
+            }
+            else
+            {
+                playerStand.Unpossess();
+                playerSit.Possess();
+            }
+
+            _isSitting = !_isSitting;
+            Debug.Log("SwitchedState");
         }
 
         #region CameraChange
         
-        private void SwitchCamera(bool isSitting)
-        {
-            sittingCamera.gameObject.SetActive(!isSitting);
-            firstPersonCamera.gameObject.SetActive(isSitting);
-            StartCoroutine(CameraChange(isSitting));
-        }
-
-        private IEnumerator CameraChange(bool isSitting)
+        private IEnumerator MoveCameraToTransform(Camera cam, Transform trfm, Action onFinished)
         {
             float elapsedTime = 0;
-        
-            Vector3 startingPosition    = isSitting ? _scStartingPosition : _fpcStartingPosition;
-            Quaternion startingRotation = isSitting ? _scStartingRotation : _fpcStartingRotation;
             
-            Vector3 targetPosition    = isSitting ? _fpcStartingPosition : _scStartingPosition;
-            Quaternion targetRotation = isSitting ? _fpcStartingRotation : _scStartingRotation;
+            cam.transform.GetPositionAndRotation(out Vector3 startingPosition, 
+                                                 out Quaternion startingRotation);
+            trfm.GetPositionAndRotation(out Vector3 targetPosition, 
+                                        out Quaternion targetRotation);
             
-            Camera currentCamera = isSitting ? firstPersonCamera : sittingCamera;
-        
-        
             while (elapsedTime <= swappingTime)
             {
-                currentCamera.transform.SetPositionAndRotation(
+                cam.transform.SetPositionAndRotation(
                     Vector3.Lerp(startingPosition, targetPosition, elapsedTime / swappingTime),
                     Quaternion.Lerp(startingRotation, targetRotation, elapsedTime / swappingTime)
                 );
@@ -107,30 +107,12 @@ namespace Manager
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
+            
+            onFinished?.Invoke();
         }
 
         #endregion
         
-        #region InputChange
-        
-        private void SwitchInputMap(bool isSitting)
-        {
-            if (isSitting)
-            {
-                FirstPersonMap.Enable();
-                MouseInputManager.Instance.SetCamera(firstPersonCamera);
-                SittingMap.Disable();
-            }
-            else
-            {
-                FirstPersonMap.Disable();
-                MouseInputManager.Instance.SetInactive();
-                SittingMap.Enable();
-            }
-            
-            ReturnMouseToGame();
-        }
-
         public static void SetMouseTo(bool active)
         {
             if (active)
@@ -141,8 +123,6 @@ namespace Manager
             else Cursor.lockState = CursorLockMode.Locked;
         }
 
-        public static void ReturnMouseToGame() => SetMouseTo(Instance.IsSitting);
-
-        #endregion
+        public static void ReturnMouseToGame() => Instance.CurrentPlayerController.SetMouseState();
     }
 }

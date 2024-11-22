@@ -1,5 +1,4 @@
-﻿using System;
-using Controller.Actors.Interactable;
+﻿using Controller.Actors.Interactable;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,7 +14,7 @@ namespace Manager
         private bool IsActive => _currentCamera is not null;
         private Camera _currentCamera;
         private int _defaultMask;
-        private Vector3 midPoint;
+        private Vector3 _midPoint;
         
         public static MouseInputManager Instance { get; private set; }
 
@@ -62,16 +61,15 @@ namespace Manager
         public void SetCamera(Camera newCamera)
         {
             _currentCamera = newCamera;
-            midPoint = new Vector3(_currentCamera.pixelWidth / 2f, _currentCamera.pixelHeight / 2f, 0);
+            _midPoint = new Vector3(_currentCamera.pixelWidth / 2f, _currentCamera.pixelHeight / 2f, 0);
         }
         
         private void FixedUpdate()
         {
             if (!IsActive) return;
             
-            if (!Physics.Raycast(_currentCamera.ScreenPointToRay(midPoint), out RaycastHit hit, 5f, _defaultMask))
+            if (!Physics.Raycast(_currentCamera.ScreenPointToRay(_midPoint), out RaycastHit hit, 5f, _defaultMask))
             {
-                Debug.LogError("No Raycast Hit");
                 if (_currentlyOver == null) return;
                 
                 _currentlyOver.OnPointerExit(null);

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 namespace Controller.Player
 {
     [RequireComponent(typeof(Rigidbody), typeof(Collider))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : PlayerBaseController
     {
         #region Variables
 
@@ -15,12 +15,9 @@ namespace Controller.Player
         
         [SerializeField] [Tooltip("The Action for Looking")]
         private InputActionReference lookingAction;
-
-        [SerializeField] [Tooltip("The Player Attached Camera")]
-        private Camera playerCam;
         
         private Rigidbody _rigidbody;
-        
+
         [Header("Parameters")]
         [SerializeField] [Range(1f, 5f)] [Tooltip("The Speed of the Player in Units per Second")]
         private float walkSpeed;
@@ -72,7 +69,23 @@ namespace Controller.Player
         }
 
         #endregion
+
+        protected override InputActionMap LoadActionMap() => PlaymodeManager.Instance.FirstPersonMap;
+        public override void SetMouseState() => PlaymodeManager.SetMouseTo(false);
+
+        public override void Possess()
+        {
+            base.Possess();
+            MouseInputManager.Instance.SetCamera(playerCam);
+            
+        }
         
+        public override void Unpossess()
+        {
+            base.Unpossess();
+            MouseInputManager.Instance.SetInactive();
+        }
+
         #region ExternalChangeOfVariables
 
         public void ChangeSensitivity(float sensitivity)

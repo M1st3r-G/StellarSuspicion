@@ -226,8 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251886ea5b1e45141a2993e38acf5fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sittingCamera: {fileID: 0}
-  firstPersonCamera: {fileID: 0}
+  playerSit: {fileID: 0}
+  playerStand: {fileID: 0}
   mainInputAsset: {fileID: -944628639613478452, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   swappingTime: 1
 --- !u!114 &6891955640083801498
