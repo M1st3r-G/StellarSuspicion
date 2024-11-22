@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Manager
 {
+    [DefaultExecutionOrder(-1)]
     public class TimeManager : MonoBehaviour
     {
         [Header("Parameters")]
