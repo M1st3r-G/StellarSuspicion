@@ -51,8 +51,14 @@ Geschlossene Augen (halten sich für besser sind aber harmlos)(gut) (2)
 -keine nase/loch (Für sie schmeckt alles gleich, menschen sind uninteressant)(gut)(3)
 -Mehrere nasenlöcher (genaues gegenteil zu den ohne nase, unfassbarer geruchsinn wodurch alles besser schmeckt)(böse)(3)
 
+**Kopfformen
 
+-Kantig (?)(Böse)(3)
+-Rund(?)(gut)(7)
 
+**kopfzeug
 
-
+-Planzen (können von photosynthese nahrung erhalte)(gut)(3)
+-Antennen (sind beutetiere)(gut)(3)
+-Hörner (entwickelt für den kampf)(böse)
 
