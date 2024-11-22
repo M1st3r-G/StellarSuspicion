@@ -82,6 +82,8 @@ namespace Editor
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("StartTime"))TimeManager.Instance.StartTimerActive();
             GUILayout.EndHorizontal();
+
+            if (GUILayout.Button("Get Distribution")) CreatureCreator.PrintDistribution();
             
             // Always
             

@@ -28,3 +28,6 @@ Switch UPDATE MODE to: PROCESS EVENTS IN DYNAMIC UPDATE
 
 
 https://www.desmos.com/calculator/0uppxrgxo1
+
+Current Distribution
+<iframe src="https://www.desmos.com/calculator/eymjti5t1s?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>

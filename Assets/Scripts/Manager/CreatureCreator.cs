@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Data;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Manager
 {
@@ -53,14 +54,38 @@ namespace Manager
 
         #endregion
 
-        private Part GetRandomPart(CreatureComponentType type)
-            => _allParts[type][Random.Range(0, _allParts[type].Length)].part;
+        public static void PrintDistribution()
+        {
+            foreach (var (key, value) in _instance.GetDistribution()) Debug.LogWarning($"The Value {key} appears {value}% of the time");
+        }
 
-        private Material GetRandomColor() => colors[Random.Range(0, colors.Count)];
-        
-        public static CreatureData GetRandomCreature() => _instance.GetRandom();
+        private Dictionary<int, float> GetDistribution()
+        {
+            Dictionary<int, float> ratingToAmount = new();
 
-        private string GetRandomName() => names[Random.Range(0, names.Count)];
+            int totalNumber = _allParts.Aggregate(1, (i, pair) => i * pair.Value.Length);
+            
+            foreach (var headAmount in _allParts[CreatureComponentType.Head].GroupBy(partList => partList.part.goodness).Select(g => new {Rating = g.Key, Count = g.Count()}))
+            {
+                foreach (var eyeAmount in _allParts[CreatureComponentType.Eye].GroupBy(partList => partList.part.goodness).Select(g => new { Rating = g.Key, Count = g.Count() }))
+                {
+                    foreach (var noseAmount in _allParts[CreatureComponentType.Nose].GroupBy(partList => partList.part.goodness).Select(g => new { Rating = g.Key, Count = g.Count() }))
+                    {
+                        foreach (var bodyAmount in _allParts[CreatureComponentType.Body].GroupBy(partList => partList.part.goodness).Select(g => new { Rating = g.Key, Count = g.Count() }))
+                        {
+                            foreach (var mouthAmount in _allParts[CreatureComponentType.Mouth].GroupBy(partList => partList.part.goodness).Select(g => new { Rating = g.Key, Count = g.Count() }))
+                            {
+                                int rating = headAmount.Rating + eyeAmount.Rating + noseAmount.Rating + bodyAmount.Rating + mouthAmount.Rating;
+                                int count = headAmount.Count * eyeAmount.Count * noseAmount.Count * bodyAmount.Count * mouthAmount.Count;
+                                if (!ratingToAmount.TryAdd(rating, count)) ratingToAmount[rating] += count;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return ratingToAmount.ToDictionary(kvp => kvp.Key, kvp => kvp.Value * 100f / totalNumber);
+        }
         
         private CreatureData GetRandom() 
             => new(GetRandomName(),
@@ -70,5 +95,16 @@ namespace Manager
                 GetRandomPart(CreatureComponentType.Body), 
                 GetRandomPart(CreatureComponentType.Head), 
                 GetRandomColor());
+
+        #region Utilsa
+
+        private Part GetRandomPart(CreatureComponentType type)
+            => _allParts[type][Random.Range(0, _allParts[type].Length)].part;
+        private string GetRandomName() => names[Random.Range(0, names.Count)];
+        private Material GetRandomColor() => colors[Random.Range(0, colors.Count)];
+        
+        public static CreatureData GetRandomCreature() => _instance.GetRandom();
+
+        #endregion
     }
 }
