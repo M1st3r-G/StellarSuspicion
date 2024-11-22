@@ -38,13 +38,9 @@ namespace Manager
             _allParts[CreatureComponentType.Nose]  = Resources.LoadAll<CreaturePartAsset>("Parts/Nose");
             _allParts[CreatureComponentType.Body]  = Resources.LoadAll<CreaturePartAsset>("Parts/Body");
             _allParts[CreatureComponentType.Head]  = Resources.LoadAll<CreaturePartAsset>("Parts/Head");
-           
-            Debug.LogWarning("Mouth: " + _allParts[CreatureComponentType.Mouth].Length);
-            Debug.LogWarning("Eyes: " + _allParts[CreatureComponentType.Eye].Length);
-            Debug.LogWarning("Noses: " + _allParts[CreatureComponentType.Nose].Length);
-            Debug.LogWarning("Body: " + _allParts[CreatureComponentType.Body].Length);
-            Debug.LogWarning("Head: " + _allParts[CreatureComponentType.Head].Length);
-            
+
+            Debug.Log(_allParts.Aggregate("",
+                (msg, valuePair) => msg + $"{valuePair.Value[0].part.type}: {valuePair.Value.Length}\n"));
         }
 
         private void OnDestroy()
