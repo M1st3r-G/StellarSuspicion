@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 1
-  startEnabled: 1
+  startEnabled: 0
 --- !u!1 &6035937545358042402
 GameObject:
   m_ObjectHideFlags: 0

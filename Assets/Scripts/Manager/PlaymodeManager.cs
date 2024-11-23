@@ -54,7 +54,10 @@ namespace Manager
             if (Instance == this) Instance = null;
         }
 
-        public void Start() => SwitchStateTo(false);
+        public void Start()
+        {
+            SwitchStateTo(true);
+        }
 
         #endregion
 

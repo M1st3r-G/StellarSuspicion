@@ -46,27 +46,28 @@ namespace Editor
             GUI.enabled = playing;
             GUILayout.Label("Runtime", EditorStyles.centeredGreyMiniLabel);
             
-            GUI.enabled = false;
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Go to Player Mode")) PlaymodeManager.StandUp();
-            if (GUILayout.Button("Sitting (Deprecated)")) PlaymodeManager.SitDown();
-            GUILayout.EndHorizontal();
-            GUI.enabled = playing;
-            
-            if (GUILayout.Button("Trigger Random Event")) TimeManager.TriggerRandomEvent();
+            GUILayout.Label("TimeAndEventManager");
 
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Trigger Random Event")) TimeManager.TriggerRandomEvent();
+            if (GUILayout.Button("StartTime"))TimeManager.Instance.StartTimerActive();
+            GUILayout.EndHorizontal();
+            
+            GUILayout.Label("Creatures");
+            GUILayout.BeginHorizontal();
             if (storage.creatureController == null)
             {
                 GUILayout.Label("No Creature Controller selected", warningStyle);
             }
             else
             {
-                GUILayout.BeginHorizontal();
-                if (GUILayout.Button("Generate RandomCreature")) storage.creatureController.SetToCreature(CreatureCreator.GetRandomCreature()); 
-                if (GUILayout.Button("ResetCreatureController")) storage.creatureController.ResetCreature();
-                GUILayout.EndHorizontal();
+                if (GUILayout.Button("Generate")) storage.creatureController.SetToCreature(CreatureCreator.GetRandomCreature()); 
+                if (GUILayout.Button("Reset")) storage.creatureController.ResetCreature();
             }
+            if (GUILayout.Button("Get Distribution")) CreatureCreator.PrintDistribution();
+            GUILayout.EndHorizontal();
             
+            GUILayout.Label("Music");
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("StartMusic"))
             {
@@ -81,17 +82,13 @@ namespace Editor
             }
             GUILayout.EndHorizontal();
             
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("StartTime"))TimeManager.Instance.StartTimerActive();
-            GUILayout.EndHorizontal();
-
-            if (GUILayout.Button("Get Distribution")) CreatureCreator.PrintDistribution();
-            
             // Always
             
             GUI.enabled = true;
             GUILayout.Label("Runtime/Editor", EditorStyles.centeredGreyMiniLabel);
 
+            GUILayout.Label("Scene Assets");
+            
             GUILayout.BeginHorizontal();
             if (storage.windowController == null)
             {
@@ -102,25 +99,6 @@ namespace Editor
                 if (GUILayout.Button("Open/Close Window")) storage.windowController.SetWindowOpened(!storage.windowController.IsOpen); 
             }
 
-            if (storage.firstDoorController == null)
-            {
-                GUILayout.Label("No First Door Controller selected", warningStyle);
-            }
-            else
-            {
-                if (GUILayout.Button("Open/Close Door1")) storage.firstDoorController.SetDoorOpened(!storage.firstDoorController.IsOpen);
-            }
-
-            if (storage.secondDoorController == null)
-            {
-                GUILayout.Label("No Second Door Controller selected", warningStyle);
-            }
-            else
-            {
-                if (GUILayout.Button("Open/Close Door2")) storage.secondDoorController.SetDoorOpened(!storage.secondDoorController.IsOpen);
-            }
-            GUILayout.EndHorizontal();
-
             if (storage.trapdoorController == null)
             {
                 GUILayout.Label("No Trap Door Controller selected", warningStyle);
@@ -130,6 +108,30 @@ namespace Editor
                 if (GUILayout.Button("Open/Close Trapdoor"))
                     storage.trapdoorController.SetOpen(!storage.trapdoorController.IsOpen);
             }
+            
+            GUILayout.EndHorizontal();
+            
+            GUILayout.Label("Doors");
+            
+            GUILayout.BeginHorizontal();
+            if (storage.firstDoorController == null)
+            {
+                GUILayout.Label("No First Door Controller selected", warningStyle);
+            }
+            else
+            {
+                if (GUILayout.Button("Open/Close Door1")) storage.firstDoorController.SetDoorOpened(!storage.firstDoorController.IsOpen);
+            }
+            
+            if (storage.secondDoorController == null)
+            {
+                GUILayout.Label("No Second Door Controller selected", warningStyle);
+            }
+            else
+            {
+                if (GUILayout.Button("Open/Close Door2")) storage.secondDoorController.SetDoorOpened(!storage.secondDoorController.IsOpen);
+            }
+            GUILayout.EndHorizontal();
         }
     }
 }

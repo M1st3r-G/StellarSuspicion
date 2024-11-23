@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3887598549758638184}
   - component: {fileID: 2683373886044239471}
   - component: {fileID: 8713443499366468282}
+  - component: {fileID: 1487604344875152629}
+  - component: {fileID: 987206096250466548}
+  - component: {fileID: 9081435260351688484}
   m_Layer: 0
   m_Name: TrapDoorMesh
   m_TagString: Untagged
@@ -83,6 +86,59 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1487604344875152629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862675566768924985}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7286719, y: 0.031961594, z: 2.5241113}
+  m_Center: {x: 0.8643357, y: 0.015980797, z: 0}
+--- !u!114 &987206096250466548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862675566768924985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.82133824, g: 0.8867924, b: 0.13803846, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &9081435260351688484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862675566768924985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb988c2de9744abb80bb60d26ff0293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 1
+  startEnabled: 0
 --- !u!1 &7444134784573124055
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9211093223372676779}
+  - component: {fileID: 3224833093491329922}
   - component: {fileID: 6982876984839992222}
   - component: {fileID: 8388005427511219327}
   m_Layer: 0
@@ -110,13 +167,31 @@ Transform:
   m_GameObject: {fileID: 7444134784573124055}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 0, z: -4.5}
+  m_LocalPosition: {x: -1.75, y: 0, z: -4.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3887598549758638184}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3224833093491329922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444134784573124055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.8867924, g: 0.8240395, b: 0.15477037, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!114 &6982876984839992222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5970b440bab04bfd80e290e5a7438fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapdoor: {fileID: 3887598549758638184}
   openTime: 1
 --- !u!114 &8388005427511219327
 MonoBehaviour:
@@ -144,3 +218,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customName: Trapdoor
+  onEventStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6982876984839992222}
+        m_TargetAssemblyTypeName: Controller.Actors.TrapdoorController, Assembly-CSharp
+        m_MethodName: SetOpenAsEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

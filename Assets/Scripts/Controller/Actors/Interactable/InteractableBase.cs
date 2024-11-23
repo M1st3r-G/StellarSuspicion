@@ -1,11 +1,13 @@
-﻿using Manager;
+﻿using System;
+using Manager;
 using QuickOutline;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Controller.Actors.Interactable
 {
-    [RequireComponent(typeof(Outline))]
+    [DefaultExecutionOrder(-1)]
+    [RequireComponent(typeof(Outline), typeof(Collider))]
     public class InteractableBase : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Parameters")]
@@ -23,13 +25,20 @@ namespace Controller.Actors.Interactable
 
         #region UpdateAndAwake
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _outline = GetComponent<Outline>();
             _outline.enabled = false;
             
             _isEnabled = startEnabled;
             gameObject.layer = LayerMask.NameToLayer("Interaction");
+        }
+
+        private void Start()
+        {
+            // CleanUp Errors of others
+            Renderer renderer = GetComponent<Renderer>();
+            renderer.materials = new[] { renderer.materials[0] };
         }
 
         private void Update()
@@ -63,13 +72,22 @@ namespace Controller.Actors.Interactable
             _holdTime = 0f;
         }
 
-        public void SetInteractionTo(bool pEnabled) => _isEnabled = pEnabled;
+        public void SetInteractionTo(bool pEnabled)
+        {
+            _isEnabled = pEnabled;
+            _outline.enabled = false;
+        }
 
         #endregion
 
         #region MouseInput
 
-        public void OnPointerEnter(PointerEventData eventData) => _outline.enabled = IsEnabled;
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Debug.LogWarning("Pointer Enter");
+            _outline.enabled = IsEnabled;
+        }
+
         public void OnPointerExit(PointerEventData eventData) => _outline.enabled = false;
         public void OnPointerDown(PointerEventData eventData) => _held = IsEnabled;
         public void OnPointerUp(PointerEventData eventData) => Release();
