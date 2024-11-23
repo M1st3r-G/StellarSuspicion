@@ -1,4 +1,3 @@
-using System;
 using Controller.UI;
 using UnityEngine;
 
@@ -25,13 +24,13 @@ namespace Manager
         [SerializeField] [Tooltip("Whether the Settings Menus start Visible")]
         private bool settingsStartVisible;
 
-        #region Setup
-
         // Publics
         public static UIManager Instance;
         public static InteractUIController InteractionUI => Instance.interactUIController;
         public static PauseMenuController PauseMenu => Instance.pauseMenu;
         public static SettingsController Settings => Instance.settingsMenu;
+        
+        #region Setup
         
         private void Awake()
         {

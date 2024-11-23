@@ -1,5 +1,4 @@
-﻿using System;
-using Manager;
+﻿using Manager;
 using QuickOutline;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,8 +15,18 @@ namespace Controller.Actors.Interactable
 
         [SerializeField] [Tooltip("Whether to start Enabled")]
         private bool startEnabled = true;
-        
+
         private float _holdTime;
+        private float HoldTime
+        {
+            get => _holdTime;
+            set
+            {
+                _holdTime = value;
+                UIManager.InteractionUI.SetToAmount(_holdTime / threshold);
+            }
+        }
+
         private bool _held;
         private bool IsEnabled=> _isEnabled && !UIManager.PauseMenu.IsPaused;
         private bool _isEnabled;
@@ -37,8 +46,8 @@ namespace Controller.Actors.Interactable
         private void Start()
         {
             // CleanUp Errors of others
-            Renderer renderer = GetComponent<Renderer>();
-            renderer.materials = new[] { renderer.materials[0] };
+            Renderer tmpR = GetComponent<Renderer>();
+            tmpR.materials = new[] { tmpR.materials[0] };
         }
 
         private void Update()
@@ -46,9 +55,9 @@ namespace Controller.Actors.Interactable
             if (!IsEnabled) return;
             if (!_held) return;
 
-            _holdTime += Time.deltaTime;
-            
-            if (_holdTime < threshold) return;
+            HoldTime += Time.deltaTime;
+
+            if (HoldTime < threshold) return;
             TriggerInteraction();
             Release();
         }
@@ -69,7 +78,7 @@ namespace Controller.Actors.Interactable
         private void Release()
         {
             _held = false;
-            _holdTime = 0f;
+            HoldTime = 0f;
         }
 
         public void SetInteractionTo(bool pEnabled)
