@@ -129,8 +129,6 @@ GameObject:
   - component: {fileID: 880996358381553973}
   - component: {fileID: 3521270397112616261}
   - component: {fileID: 6277629780299324079}
-  - component: {fileID: 8659282677815443099}
-  - component: {fileID: 7469209678850410984}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -216,7 +214,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -225,38 +223,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1166227962325419741, guid: 7d70ee26b85e21146bc272bb480d5cf5, type: 3}
---- !u!114 &8659282677815443099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081713942085186340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.50524676, g: 1, b: 0, a: 1}
-  outlineWidth: 7
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &7469209678850410984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081713942085186340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de99f76d8c2d5bf42a58a456dfe5055e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  threshold: 1
-  startEnabled: 0
 --- !u!1 &7754237662381840980
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,10 +414,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair
       objectReference: {fileID: 0}
-    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
-      propertyPath: deskInteraction
-      value: 
-      objectReference: {fileID: 7469209678850410984}
     - target: {fileID: 5251516068723924770, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.38

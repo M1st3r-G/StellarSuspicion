@@ -2,7 +2,7 @@ using Manager;
 
 namespace Controller.Actors.Interactable
 {
-    public class DeskController : InteractableBase
+    public class SitDownInteraction : InteractableBase
     {
         protected override void TriggerInteraction()
         {

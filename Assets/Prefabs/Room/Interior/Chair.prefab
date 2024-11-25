@@ -49,7 +49,7 @@ MonoBehaviour:
   playerCam: {fileID: 870320634741617787}
   standUpAction: {fileID: -3370452476898846882, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   chair: {fileID: 1681314779276388620}
-  deskInteraction: {fileID: 0}
+  deskInteraction: {fileID: 8263413596510965642}
   rotateTime: 0.75
 --- !u!1 &2024897655528180424
 GameObject:
@@ -62,6 +62,9 @@ GameObject:
   - component: {fileID: 1681314779276388620}
   - component: {fileID: 4238449020110343416}
   - component: {fileID: 1985963760985018685}
+  - component: {fileID: 5156335161186446310}
+  - component: {fileID: 8700122399998163906}
+  - component: {fileID: 8263413596510965642}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -134,6 +137,60 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5156335161186446310
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024897655528180424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5380752311601867091, guid: 7999444c4bc47a648bb5bfd8fae840f8, type: 3}
+--- !u!114 &8700122399998163906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024897655528180424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.13101399, g: 0.8773585, b: 0.12829298, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &8263413596510965642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024897655528180424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de99f76d8c2d5bf42a58a456dfe5055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 1
+  startEnabled: 0
 --- !u!1 &2288424413716053000
 GameObject:
   m_ObjectHideFlags: 0

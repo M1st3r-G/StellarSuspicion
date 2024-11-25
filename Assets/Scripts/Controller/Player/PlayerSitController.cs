@@ -16,7 +16,7 @@ namespace Controller.Player
         
         [Header("Parameters")] 
         [SerializeField] [Tooltip("The DeskInteraction to Disable when Sitting")]
-        private DeskController deskInteraction;
+        private SitDownInteraction deskInteraction;
         [SerializeField] [Range(0.1f, 1f)] [Tooltip("The Time for the Chair to Rotate")]
         private float rotateTime;
 
