@@ -13,6 +13,7 @@
         Mouth, 
         Nose, 
         Head, 
-        Body
+        Body,
+        Gear
     }
 }

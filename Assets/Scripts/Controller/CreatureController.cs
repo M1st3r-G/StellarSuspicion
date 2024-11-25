@@ -1,3 +1,4 @@
+using System.Runtime.ConstrainedExecution;
 using Controller.UI;
 using Data;
 using UnityEngine;
@@ -8,6 +9,10 @@ namespace Controller
     public class CreatureController : MonoBehaviour
     {
         [Header("References")]
+        [SerializeField] [Tooltip("This is the Dialogue Controller for this creature")]
+        private DialogueUIController dialogue;
+
+        [Header("MonsterParts")]
         [SerializeField] [Tooltip("This is the Image, later Containing the creature's Mouth")]
         private Image mouth;
         
@@ -23,8 +28,8 @@ namespace Controller
         [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
         private Image head;
 
-        [SerializeField] [Tooltip("This is the Dialogue Controller for this creature")]
-        private DialogueUIController dialogue;
+        [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
+        private Image headGear;
         
         public void SetToCreature(CreatureData creature)
         {
@@ -36,25 +41,19 @@ namespace Controller
             nose.sprite = creature.Nose;
             body.sprite = creature.Body;
             head.sprite = creature.Head;
+            headGear.sprite = creature.Gear;
             
             body.material = creature.Color;
             head.material = creature.Color;
-            
         }
 
         public void ResetCreature()
         {
             name = "Default";
             dialogue.SetText("");
-            
-            mouth.sprite = null;
-            eyes.sprite = null;
-            nose.sprite = null;
-            body.sprite = null;
-            head.sprite = null;
-            
-            body.material = null;
-            head.material = null;
+
+            mouth.sprite = eyes.sprite = nose.sprite = body.sprite = head.sprite = headGear.sprite = null;
+            body.material =  head.material = null;
         }
     }
 }
