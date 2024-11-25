@@ -1,43 +1,33 @@
-﻿using Extern;
-using Manager;
+﻿using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Controller.UI
+namespace Controller.UI.Panels
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class PauseMenuController : MonoBehaviour
+    public class PauseMenuController : UIPanel
     {
         [Header("References")]
         [Tooltip("The InputAction to pause the Game")]
         [SerializeField] private InputActionReference pauseAction;
 
         public bool IsPaused { get; private set; }
-
-        private CanvasGroup _myGroup;
         
-        private void Awake()
+        protected override void Awake()
         {
-            _myGroup = GetComponent<CanvasGroup>();
+            base.Awake();
             pauseAction.action.performed += OnPauseAction;
         }
 
         private void OnPauseAction(InputAction.CallbackContext context)
         {
-            switch (IsPaused)
+            if (!IsPaused) Pause();
+            else if (IsVisible) Unpause();
+            else
             {
-                case false:
-                    Pause();
-                    return;
-                // Paused and Visible
-                case true when _myGroup.alpha > 0.5:
-                    Unpause();
-                    return;
                 // Paused and Invisible => Settings
-                case true when _myGroup.alpha < 0.5:
-                    UIManager.Settings.SetMenuActive(false);
-                    _myGroup.SetGroupActive(true);
-                    break;
+                UIManager.Settings.SetMenuActive(false);
+                SetMenuActive(true);
             }
         }
 
@@ -45,8 +35,8 @@ namespace Controller.UI
         {
             Debug.LogWarning("Game is paused!");
             Time.timeScale = 0;
-            
-            _myGroup.SetGroupActive(true);
+
+            SetMenuActive(true);
             IsPaused = true;
             PlaymodeManager.SetMouseTo(true);
         }
@@ -56,14 +46,14 @@ namespace Controller.UI
             Debug.LogWarning("You have unpaused the GameManager!");
             Time.timeScale = 1;
             
-            _myGroup.SetGroupActive(false);
+            SetMenuActive(false);
             IsPaused = false;
             PlaymodeManager.ReturnMouseToGame();
         }
 
         public void OpenSettings()
         {
-            _myGroup.SetGroupActive(false);
+            SetMenuActive(false);
             UIManager.Settings.SetMenuActive(true);
         }
 
@@ -72,7 +62,5 @@ namespace Controller.UI
             Debug.LogError("you quit to main menu");
             Application.Quit();
         }
-
-        public void SetMenuActive(bool b) => _myGroup.SetGroupActive(b);
     }
 }

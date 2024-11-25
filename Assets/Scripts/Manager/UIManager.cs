@@ -1,4 +1,5 @@
 using Controller.UI;
+using Controller.UI.Panels;
 using UnityEngine;
 
 namespace Manager

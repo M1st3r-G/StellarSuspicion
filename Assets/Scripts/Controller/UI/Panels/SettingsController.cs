@@ -1,22 +1,19 @@
 using Controller.Player;
-using Extern;
 using Manager;
 using UnityEngine;
 
-namespace Controller.UI
+namespace Controller.UI.Panels
 {
-    public class SettingsController : MonoBehaviour
+    public class SettingsController : UIPanel
     {
     
+        [Header("References")]
         [SerializeField] [Tooltip("The Standing PlayerController")]
         private PlayerStandController playerStand;
-        private CanvasGroup _myGroup;
     
-        public void Awake() => _myGroup = GetComponent<CanvasGroup>();
-
         public void ReturnToPause()
         {
-            _myGroup.SetGroupActive(false);
+            SetMenuActive(false);
             UIManager.PauseMenu.SetMenuActive(true);
         }
 
@@ -25,7 +22,5 @@ namespace Controller.UI
             float newSensitivity = Mathf.Lerp(0.1f,0.5f,newValue);
             playerStand.ChangeSensitivity(newSensitivity);
         }
-    
-        public void SetMenuActive(bool b) => _myGroup.SetGroupActive(b);
     }
 }
