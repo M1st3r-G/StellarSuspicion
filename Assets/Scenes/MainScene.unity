@@ -258,9 +258,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2057092134867456262, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+      propertyPath: threshold
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2725435831764648465, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
       propertyPath: m_Name
       value: MainRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011300681363671793, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+      propertyPath: threshold
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7666907755372251888, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
       propertyPath: m_LocalPosition.x

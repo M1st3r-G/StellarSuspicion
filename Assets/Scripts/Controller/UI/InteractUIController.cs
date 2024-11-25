@@ -12,5 +12,6 @@ namespace Controller.UI
         private Image center;
         
         public void SetToAmount(float value) => circle.fillAmount = value;
+        public void SetCenterTo(bool active) => center.gameObject.SetActive(active);
     }
 }

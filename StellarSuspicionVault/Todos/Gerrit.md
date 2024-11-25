@@ -8,4 +8,4 @@ Todo:
 	- [ ] Finalize
 
 Bugs:
-- Test Outline in Hirachy
+- UI As Statemachine

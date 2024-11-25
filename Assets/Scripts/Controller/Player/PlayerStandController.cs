@@ -77,12 +77,14 @@ namespace Controller.Player
         {
             base.Possess();
             MouseInputManager.Instance.SetCamera(playerCam);
+            UIManager.InteractionUI.SetCenterTo(true);
         }
         
         public override void Unpossess()
         {
             base.Unpossess();
             MouseInputManager.Instance.SetInactive();
+            UIManager.InteractionUI.SetCenterTo(false);
         }
 
         #region ExternalChangeOfVariables

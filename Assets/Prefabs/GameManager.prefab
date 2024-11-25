@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a7d5ee17feaad48b89242f75e951bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactUIController: {fileID: 1835192347097924519}
+  interactUIController: {fileID: 338418641873426295}
   pauseMenu: {fileID: 9016365086060502825}
   settingsMenu: {fileID: 6860732995979195945}
   pauseStartVisible: 0
@@ -672,9 +672,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
---- !u!114 &1835192347097924519 stripped
+--- !u!114 &338418641873426295 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5714500507112727233, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5947108510655034897, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
   m_PrefabInstance: {fileID: 6213298806628802918}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
