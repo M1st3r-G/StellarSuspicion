@@ -245,6 +245,9 @@ MonoBehaviour:
   colors:
   - {fileID: 2100000, guid: 7bfdddb36bbd412459214a3588bf8bc4, type: 2}
   - {fileID: 2100000, guid: 7a52e164e5e62a84c82d6a254795b584, type: 2}
+  - {fileID: 2100000, guid: 8473b444f00265a40be23bd442d19dfa, type: 2}
+  - {fileID: 2100000, guid: 93257132401b22c4ea6aa6b1c4b5ad82, type: 2}
+  - {fileID: 2100000, guid: 8bb928bbe243298448353ea14afaa237, type: 2}
   names:
   - Xlak
   - Guboo
