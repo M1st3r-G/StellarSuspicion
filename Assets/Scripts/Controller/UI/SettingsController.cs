@@ -8,34 +8,11 @@ namespace Controller.UI
     public class SettingsController : MonoBehaviour
     {
     
-        [SerializeField] private PlayerController player;
-
+        [SerializeField] [Tooltip("The Standing PlayerController")]
+        private PlayerStandController playerStand;
         private CanvasGroup _myGroup;
     
-        public static SettingsController Instance;
-    
-        #region Setup
-    
-        public void Awake()
-        {
-            if (Instance != null)
-            {
-                Debug.LogWarning("Multiple instances of SettingsController found!");
-                Destroy(this);
-                return;
-            }
-            
-            Instance = this;
-        
-            _myGroup = GetComponent<CanvasGroup>();
-        }
-
-        private void OnDestroy()
-        {
-            if(Instance == this) Instance = null;
-        }
-
-        #endregion
+        public void Awake() => _myGroup = GetComponent<CanvasGroup>();
 
         public void ReturnToPause()
         {
@@ -46,7 +23,7 @@ namespace Controller.UI
         public void SensitivityChanged(float newValue)
         {
             float newSensitivity = Mathf.Lerp(0.1f,0.5f,newValue);
-            player.ChangeSensitivity(newSensitivity);
+            playerStand.ChangeSensitivity(newSensitivity);
         }
     
         public void SetMenuActive(bool b) => _myGroup.SetGroupActive(b);

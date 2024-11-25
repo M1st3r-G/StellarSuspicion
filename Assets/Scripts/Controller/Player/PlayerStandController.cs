@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 namespace Controller.Player
 {
     [RequireComponent(typeof(Rigidbody), typeof(Collider))]
-    public class PlayerController : PlayerBaseController
+    public class PlayerStandController : PlayerBaseController
     {
         #region Variables
 
@@ -77,7 +77,6 @@ namespace Controller.Player
         {
             base.Possess();
             MouseInputManager.Instance.SetCamera(playerCam);
-            
         }
         
         public override void Unpossess()
