@@ -397,11 +397,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
+--- !u!114 &2154126891861097634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4536320466449327001, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
+  m_PrefabInstance: {fileID: 2526732218268966715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0cf8e32ee71417eb23ce3436e0b41ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5289910279355545009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7672243496494328458, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
   m_PrefabInstance: {fileID: 2526732218268966715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7228664497319596208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5134562754774077323, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
+  m_PrefabInstance: {fileID: 2526732218268966715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0cf8e32ee71417eb23ce3436e0b41ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8497546979060813942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6268333812261441357, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
+  m_PrefabInstance: {fileID: 2526732218268966715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0cf8e32ee71417eb23ce3436e0b41ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8221986781801682006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,6 +447,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair
       objectReference: {fileID: 0}
+    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
+      propertyPath: interactionsWhenSitting.Array.data[0]
+      value: 
+      objectReference: {fileID: 2154126891861097634}
+    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
+      propertyPath: interactionsWhenSitting.Array.data[1]
+      value: 
+      objectReference: {fileID: 8497546979060813942}
+    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
+      propertyPath: interactionsWhenSitting.Array.data[2]
+      value: 
+      objectReference: {fileID: 7228664497319596208}
     - target: {fileID: 5251516068723924770, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.38

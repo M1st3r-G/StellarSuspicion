@@ -50,6 +50,10 @@ MonoBehaviour:
   standUpAction: {fileID: -3370452476898846882, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   chair: {fileID: 1681314779276388620}
   deskInteraction: {fileID: 8263413596510965642}
+  interactionsWhenSitting:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rotateTime: 0.75
 --- !u!1 &2024897655528180424
 GameObject:
@@ -298,8 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  m_MaxRayIntersections: 1
+    m_Bits: 8
+  m_MaxRayIntersections: 2
 --- !u!1 &2439165791535198580
 GameObject:
   m_ObjectHideFlags: 0

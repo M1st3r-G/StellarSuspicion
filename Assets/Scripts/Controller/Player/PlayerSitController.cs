@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Controller.Actors.Interactable;
 using Manager;
 using UnityEngine;
@@ -13,17 +14,20 @@ namespace Controller.Player
         private InputActionReference standUpAction;
         [SerializeField] [Tooltip("The Transform of the Chair")]
         private Transform chair;
-        
-        [Header("Parameters")] 
         [SerializeField] [Tooltip("The DeskInteraction to Disable when Sitting")]
         private SitDownInteraction deskInteraction;
+        [SerializeField] [Tooltip("All the Interactions Only Enabled when sitting")]
+        private List<InteractableBase> interactionsWhenSitting;
+
+        [Header("Parameters")] 
         [SerializeField] [Range(0.1f, 1f)] [Tooltip("The Time for the Chair to Rotate")]
         private float rotateTime;
 
         private Coroutine _rotRoutine;
         
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             standUpAction.action.performed += OnStandUpAction;
         }
 
@@ -34,7 +38,15 @@ namespace Controller.Player
         {
             base.Possess();
             if(_rotRoutine is not null) StopCoroutine(_rotRoutine);
-            _rotRoutine=StartCoroutine(RotateChair(true));
+            _rotRoutine = StartCoroutine(RotateChair(true));
+            
+            foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(true);
+        }
+
+        public override void Unpossess()
+        {
+            base.Unpossess();
+            foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(false);
         }
 
         private void OnStandUpAction(InputAction.CallbackContext ctx)

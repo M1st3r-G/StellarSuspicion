@@ -17,8 +17,8 @@ namespace Controller.Player
         public Quaternion DefaultRot => DefaultRotation;
         protected Quaternion DefaultRotation;
 
-        private void Awake() => playerCam.transform.GetPositionAndRotation(out DefaultPosition, out DefaultRotation);
-        private void Start() => ActionMap = LoadActionMap();
+        protected virtual void Awake() => playerCam.transform.GetPositionAndRotation(out DefaultPosition, out DefaultRotation);
+        protected virtual void Start() => ActionMap = LoadActionMap();
         protected abstract InputActionMap LoadActionMap();
 
         public virtual void Possess()
