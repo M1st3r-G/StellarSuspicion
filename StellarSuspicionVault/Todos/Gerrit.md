@@ -3,12 +3,12 @@ owner: programmer
 tags:
   - todo
 ---
-Todo:
-- [ ] EventHandler/Time Manager
-	- [ ] Finalize
-
-Bugs:
+Enhancments:
 - UI As Statemachine
-- Disable Table Interaction OnUnpossess
-- Buttons work Different
-- 
+
+Todo:
+- Materials
+- Audio
+- More Events
+- GameLoop
+- Tutorial
