@@ -145,6 +145,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de8840f1c594a70a2de08a6ab3bcd35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &378191135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3367721588546485209, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+  m_PrefabInstance: {fileID: 757268603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905f80ed024749dab9291e437583468f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,17 +250,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &729413942 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1843472362002736615, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-  m_PrefabInstance: {fileID: 757268603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905f80ed024749dab9291e437583468f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &757268603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,17 +258,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2057092134867456262, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-      propertyPath: threshold
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2725435831764648465, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
       propertyPath: m_Name
       value: MainRoom
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011300681363671793, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-      propertyPath: threshold
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7666907755372251888, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -498,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: playerSit
       value: 
-      objectReference: {fileID: 729413942}
+      objectReference: {fileID: 378191135}
     - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: playerStand
       value: 
