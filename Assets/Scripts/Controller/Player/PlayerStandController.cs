@@ -32,10 +32,10 @@ namespace Controller.Player
 
         #region SetUp
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _rigidbody = GetComponent<Rigidbody>();
-            
             lookingAction.action.performed += OnMouseInput;            
         }
 

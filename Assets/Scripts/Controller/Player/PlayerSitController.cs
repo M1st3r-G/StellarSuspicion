@@ -47,6 +47,7 @@ namespace Controller.Player
         {
             base.Unpossess();
             foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(false);
+            GameManager.Window.SetWindowOpened(false);
         }
 
         private void OnStandUpAction(InputAction.CallbackContext ctx)

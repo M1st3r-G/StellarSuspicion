@@ -1,9 +1,16 @@
+using Controller.Actors;
 using UnityEngine;
 
 namespace Manager
 {
     public class GameManager : MonoBehaviour
     {
+        [Header("References")]
+        [SerializeField] [Tooltip("The Window With the Monsters")]
+        private WindowController window;
+        
+        public static WindowController Window => Instance.window;
+        
         // Temps
         public int Score { get; private set; }
         public int NumMonsters { get; private set; }
