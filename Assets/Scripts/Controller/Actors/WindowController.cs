@@ -24,7 +24,7 @@ namespace Controller.Actors
         // Temps
         private Coroutine _closingRoutine;
 
-        private void Awake() => SetWindowOpened(true);
+        private void Awake() => SetWindowOpened(false);
 
         #region WindowClosing
 
