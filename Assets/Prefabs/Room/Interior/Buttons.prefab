@@ -64,10 +64,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: 8331a321751c1884baa26f67105d1e0d, type: 3}
-  - {fileID: 6034957751646507721, guid: 8331a321751c1884baa26f67105d1e0d, type: 3}
-  - {fileID: 5561349426305759274, guid: 8331a321751c1884baa26f67105d1e0d, type: 3}
-  - {fileID: 5561349426305759274, guid: 8331a321751c1884baa26f67105d1e0d, type: 3}
+  - {fileID: 2100000, guid: 1e7e02aca06096e4cadd628ccdebcde5, type: 2}
+  - {fileID: 2100000, guid: 8a21068e63670894384470ff0b75e460, type: 2}
+  - {fileID: 2100000, guid: c588966cfd4cb8248b15b04ac149e229, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,6 +148,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6271130495886968632, guid: 5c24d1c364b5b994ba7f3371b6710708, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9759463bc3fd4444e9596e3d05660bc6, type: 2}
     - target: {fileID: 8613044614986521792, guid: 5c24d1c364b5b994ba7f3371b6710708, type: 3}
       propertyPath: m_Name
       value: ButtonMiddle
@@ -223,6 +226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6271130495886968632, guid: 5c24d1c364b5b994ba7f3371b6710708, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 662cf1441e675064ba17e301d7fef0af, type: 2}
     - target: {fileID: 8613044614986521792, guid: 5c24d1c364b5b994ba7f3371b6710708, type: 3}
       propertyPath: m_Name
       value: ButtonRight
