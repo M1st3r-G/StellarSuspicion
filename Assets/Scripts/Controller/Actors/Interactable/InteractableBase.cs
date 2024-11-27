@@ -7,7 +7,7 @@ namespace Controller.Actors.Interactable
 {
     [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(Outline), typeof(Collider))]
-    public class InteractableBase : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    public abstract class InteractableBase : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Parameters")]
         [SerializeField] [Range(0.5f, 4f)] [Tooltip("The Amount of time, the Object has to be clicked")]
@@ -66,11 +66,8 @@ namespace Controller.Actors.Interactable
 
         #region Overridable
 
-        protected virtual void TriggerInteraction()
-        {
-            Debug.Log("I was Triggered");
-        }
-
+        abstract protected void TriggerInteraction();
+        
         #endregion
 
         #region Utils

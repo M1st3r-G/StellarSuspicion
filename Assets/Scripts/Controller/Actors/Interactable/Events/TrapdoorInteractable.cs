@@ -1,4 +1,4 @@
-﻿namespace Controller.Actors.Interactable
+﻿namespace Controller.Actors.Interactable.Events
 {
     public class TrapdoorInteractable : InteractableBase
     {
@@ -12,7 +12,6 @@
         
         protected override void TriggerInteraction()
         {
-            base.TriggerInteraction();
             _parent.SetOpen(false);
             SetInteractionTo(false);
         }

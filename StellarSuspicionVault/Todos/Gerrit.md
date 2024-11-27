@@ -6,8 +6,13 @@ tags:
 Enhancments:
 - UI As Statemachine
 
+Bug:
+Durch die Wand öffnenbar
+
 Todo:
 - Audio
 - More Events
-- GameLoop
+	- Visuall Sound for Tasks
 - Tutorial
+- Move Aliens
+- Fix ScreenController

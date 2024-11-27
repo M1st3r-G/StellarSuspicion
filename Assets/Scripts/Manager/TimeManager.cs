@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Manager
 {
@@ -11,10 +12,13 @@ namespace Manager
         [SerializeField] [Tooltip("Time of day in Seconds.")]
         private float timeOfDay;
         
+        [FormerlySerializedAs("_maxEvents")] [SerializeField] [Tooltip("The Amount of events this day.")]
+        private int maxEvents;
+
+        
         // States
         private int _eventsLeft;
-        private int _maxEvents;
-        private float _deviation;
+        private float _bounds;
     
         private readonly List<EventReceiver> _eventReceiver = new();
         
@@ -36,8 +40,8 @@ namespace Manager
 
             Instance = this;
 
-            _maxEvents = Mathf.RoundToInt(timeOfDay / 2.5f);
-            _deviation = -1.25f * Mathf.Exp(-(_maxEvents / 4f)) + 1.25f;
+            float deviation = -Mathf.Exp(-(maxEvents / 4f)) + 1f;
+            _bounds = deviation * timeOfDay / (2 * maxEvents);
         }
     
         private void Start() => Debug.Log($"EventHandler has {_eventReceiver.Count} events registered");
@@ -55,7 +59,7 @@ namespace Manager
         {
             Debug.Log("Timer is active");
             
-            _eventsLeft = _maxEvents;
+            _eventsLeft = maxEvents;
             StartCoroutine(DayTimer());
         }
     
@@ -70,20 +74,22 @@ namespace Manager
                 yield return new WaitForSeconds(nextWaitTime);
                 
                 // Trigger Event
-                Debug.LogWarning($"Event {_maxEvents - _eventsLeft} started");
+                Debug.LogError($"Event {maxEvents - _eventsLeft} started");
                 TriggerRandomEvent();
                 _eventsLeft -= 1;
             }
             
-            Debug.LogWarning("Max Events triggered");
+            Debug.Log("Max Events triggered");
             
             // When Day Over
-            yield return new WaitUntil(()=> Time.time < endTime);
+            yield return new WaitForSeconds(endTime - Time.time);
+            
             Debug.Log("Day End");
             OnDayEnd?.Invoke();
         }
 
-        private float CalcNextWaitTime() => 1.25f + 2 * _deviation * (Random.Range(0f, 1f) - Random.Range(0f, 1f));
+        private float CalcNextWaitTime() =>
+            timeOfDay / maxEvents + 2 * _bounds * (Random.Range(0f, 1f) - Random.Range(0f, 1f));
 
         #endregion
         

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Controller.Actors.Interactable;
+using Controller.Actors.Interactable.Table;
 using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;

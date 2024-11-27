@@ -2,7 +2,7 @@
 using Manager;
 using UnityEngine;
 
-namespace Controller.Actors.Interactable
+namespace Controller.Actors.Interactable.Table
 {
     [RequireComponent(typeof(Animator))]
     public class ButtonInteract : InteractableBase
