@@ -3,9 +3,12 @@ owner: programmer
 tags:
   - todo
 ---
-Todo:
-- [ ] EventHandler/Time Manager
-	- [ ] Finalize
+Enhancments:
+- UI As Statemachine
 
-Bugs:
-- Test Outline in Hirachy
+Todo:
+- Materials
+- Audio
+- More Events
+- GameLoop
+- Tutorial

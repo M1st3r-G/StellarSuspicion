@@ -1,5 +1,5 @@
-using Controller.UI;
 using Data;
+using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +8,11 @@ namespace Controller
     public class CreatureController : MonoBehaviour
     {
         [Header("References")]
+        [SerializeField] [Tooltip("This is the CanvasGroup for this creature")]
+        private CanvasGroup canvasGroup;
+
+        
+        [Header("MonsterParts")]
         [SerializeField] [Tooltip("This is the Image, later Containing the creature's Mouth")]
         private Image mouth;
         
@@ -23,38 +28,55 @@ namespace Controller
         [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
         private Image head;
 
-        [SerializeField] [Tooltip("This is the Dialogue Controller for this creature")]
-        private DialogueUIController dialogue;
+        [SerializeField] [Tooltip("This is the Image, later Containing the creature's Eyes")]
+        private Image headGear;
+
+        public CreatureData? CurrentCreature
+        {
+            get => _currentCreature;
+            private set
+            {
+                _currentCreature = value;
+                mouth.sprite = _currentCreature?.Mouth;
+                eyes.sprite = _currentCreature?.Eyes;
+                nose.sprite = _currentCreature?.Nose;
+                body.sprite = _currentCreature?.Body;
+                head.sprite = _currentCreature?.Head;
+                headGear.sprite = _currentCreature?.Gear;
+            
+                body.material = _currentCreature?.Color;
+                head.material = _currentCreature?.Color;
+            }
+        }
+        private CreatureData? _currentCreature; 
         
+        public bool IsVisible => canvasGroup.alpha > 0.5f;
+        public bool ShowingCreature => IsVisible && CurrentCreature is not null;
+
+        private void Awake() => SetVisibility(false);
+        public void SetVisibility(bool on) => canvasGroup.alpha = on ? 1f : 0f;
+
         public void SetToCreature(CreatureData creature)
         {
+            if (!IsVisible) canvasGroup.alpha = 1f;
             name = creature.Name;
-            dialogue.SetText($"Glorb blorb bla: {name}!");
-            
-            mouth.sprite = creature.Mouth;
-            eyes.sprite = creature.Eyes;
-            nose.sprite = creature.Nose;
-            body.sprite = creature.Body;
-            head.sprite = creature.Head;
-            
-            body.material = creature.Color;
-            head.material = creature.Color;
-            
+            UIManager.Dialogue.SetText($"Glorb blorb bla: {name}!");
+            CurrentCreature = creature;
         }
 
         public void ResetCreature()
         {
             name = "Default";
-            dialogue.SetText("");
-            
-            mouth.sprite = null;
-            eyes.sprite = null;
-            nose.sprite = null;
-            body.sprite = null;
-            head.sprite = null;
-            
-            body.material = null;
-            head.material = null;
+            UIManager.Dialogue.SetText("");
+            CurrentCreature = null;
+            canvasGroup.alpha = 0f;
+        }
+
+        public void Clear(AcceptMode acceptMode)
+        {
+            //Wait
+            //Stuff
+            ResetCreature();
         }
     }
 }

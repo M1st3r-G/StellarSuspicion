@@ -93,7 +93,12 @@ namespace Controller.Actors.Interactable
 
         public void OnPointerEnter(PointerEventData eventData) => _outline.enabled = IsEnabled;
         public void OnPointerExit(PointerEventData eventData) => _outline.enabled = false;
-        public void OnPointerDown(PointerEventData eventData) => _held = IsEnabled;
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            Debug.Log($"Clicked {name}");
+            _held = IsEnabled;
+        }
+
         public void OnPointerUp(PointerEventData eventData) => Release();
 
         #endregion

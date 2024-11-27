@@ -2,9 +2,9 @@
 {
     public enum CreatureAlignment
     {
-        Good,
-        Neutral,
-        Evil
+        Good = 1,
+        Neutral = 0,
+        Evil = -1,
     }
     
     public enum CreatureComponentType
@@ -13,6 +13,13 @@
         Mouth, 
         Nose, 
         Head, 
-        Body
+        Body,
+        Gear
+    }
+
+    public enum AcceptMode
+    {
+        Rejected = -1,
+        Allowed = 1
     }
 }

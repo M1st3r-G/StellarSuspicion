@@ -22,18 +22,6 @@ namespace Editor
 
             if (storage.showHidden)
             {
-                SerializedProperty window = serializedObject.FindProperty("windowController");
-                EditorGUILayout.PropertyField(window);
-                
-                SerializedProperty creature = serializedObject.FindProperty("creatureController");
-                EditorGUILayout.PropertyField(creature);
-                
-                SerializedProperty doorOne = serializedObject.FindProperty("firstDoorController");
-                EditorGUILayout.PropertyField(doorOne);
-                
-                SerializedProperty doorTwo = serializedObject.FindProperty("secondDoorController");
-                EditorGUILayout.PropertyField(doorTwo);
-                
                 SerializedProperty trapdoor = serializedObject.FindProperty("trapdoorController");
                 EditorGUILayout.PropertyField(trapdoor);
                 
@@ -54,18 +42,7 @@ namespace Editor
             GUILayout.EndHorizontal();
             
             GUILayout.Label("Creatures");
-            GUILayout.BeginHorizontal();
-            if (storage.creatureController == null)
-            {
-                GUILayout.Label("No Creature Controller selected", warningStyle);
-            }
-            else
-            {
-                if (GUILayout.Button("Generate")) storage.creatureController.SetToCreature(CreatureCreator.GetRandomCreature()); 
-                if (GUILayout.Button("Reset")) storage.creatureController.ResetCreature();
-            }
             if (GUILayout.Button("Get Distribution")) CreatureCreator.PrintDistribution();
-            GUILayout.EndHorizontal();
             
             GUILayout.Label("Music");
             GUILayout.BeginHorizontal();
@@ -86,19 +63,7 @@ namespace Editor
             
             GUI.enabled = true;
             GUILayout.Label("Runtime/Editor", EditorStyles.centeredGreyMiniLabel);
-
-            GUILayout.Label("Scene Assets");
-            
-            GUILayout.BeginHorizontal();
-            if (storage.windowController == null)
-            {
-                GUILayout.Label("No Window Controller selected", warningStyle);
-            }
-            else
-            {
-                if (GUILayout.Button("Open/Close Window")) storage.windowController.SetWindowOpened(!storage.windowController.IsOpen); 
-            }
-
+            GUILayout.Label("Trapdoor");
             if (storage.trapdoorController == null)
             {
                 GUILayout.Label("No Trap Door Controller selected", warningStyle);
@@ -108,30 +73,6 @@ namespace Editor
                 if (GUILayout.Button("Open/Close Trapdoor"))
                     storage.trapdoorController.SetOpen(!storage.trapdoorController.IsOpen);
             }
-            
-            GUILayout.EndHorizontal();
-            
-            GUILayout.Label("Doors");
-            
-            GUILayout.BeginHorizontal();
-            if (storage.firstDoorController == null)
-            {
-                GUILayout.Label("No First Door Controller selected", warningStyle);
-            }
-            else
-            {
-                if (GUILayout.Button("Open/Close Door1")) storage.firstDoorController.SetDoorOpened(!storage.firstDoorController.IsOpen);
-            }
-            
-            if (storage.secondDoorController == null)
-            {
-                GUILayout.Label("No Second Door Controller selected", warningStyle);
-            }
-            else
-            {
-                if (GUILayout.Button("Open/Close Door2")) storage.secondDoorController.SetDoorOpened(!storage.secondDoorController.IsOpen);
-            }
-            GUILayout.EndHorizontal();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Manager
         private PlayerSitController playerSit;
         
         [SerializeField] [Tooltip("The PlayerController for Standing")]
-        private PlayerController playerStand;
+        private PlayerStandController playerStand;
         
         [SerializeField] [Tooltip("The Input action asset")]
         private InputActionAsset mainInputAsset;

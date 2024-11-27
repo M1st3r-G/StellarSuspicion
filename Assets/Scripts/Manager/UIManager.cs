@@ -1,4 +1,5 @@
 using Controller.UI;
+using Controller.UI.Panels;
 using UnityEngine;
 
 namespace Manager
@@ -15,6 +16,9 @@ namespace Manager
         
         [SerializeField][Tooltip("A Reference to the Settings UI Element")]
         private SettingsController settingsMenu;
+
+        [SerializeField] [Tooltip("The Dialogue Controller for the Creatures")]
+        private DialogueUIController dialogueUIController;
         private CanvasGroup _settingsGroup;
         
         [Header("Parameters")]
@@ -29,6 +33,7 @@ namespace Manager
         public static InteractUIController InteractionUI => Instance.interactUIController;
         public static PauseMenuController PauseMenu => Instance.pauseMenu;
         public static SettingsController Settings => Instance.settingsMenu;
+        public static DialogueUIController Dialogue => Instance.dialogueUIController;
         
         #region Setup
         
