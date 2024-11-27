@@ -134,9 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453871f10a924d2ba02f5925be94a503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureController: {fileID: 0}
-  firstDoorController: {fileID: 0}
-  secondDoorController: {fileID: 0}
   trapdoorController: {fileID: 0}
   showHidden: 0
 --- !u!114 &6037092333538581778
@@ -212,6 +209,7 @@ MonoBehaviour:
   interactUIController: {fileID: 338418641873426295}
   pauseMenu: {fileID: 9016365086060502825}
   settingsMenu: {fileID: 6860732995979195945}
+  dialogueUIController: {fileID: 0}
   pauseStartVisible: 0
   settingsStartVisible: 0
 --- !u!114 &7130360158209713221

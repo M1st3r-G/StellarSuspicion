@@ -202,6 +202,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+--- !u!114 &757268604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7676908162787749874, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+  m_PrefabInstance: {fileID: 757268603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d13b92778d61940ac08600dc209cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &757268607 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2720032516329474906, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
@@ -211,28 +222,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5970b440bab04bfd80e290e5a7438fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1081827460 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5035521434969327278, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-  m_PrefabInstance: {fileID: 757268603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d13b92778d61940ac08600dc209cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1267484800 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3351251579883874235, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-  m_PrefabInstance: {fileID: 757268603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60666fae637f56c4d95115411b9fad56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1875760219 stripped
@@ -381,7 +370,7 @@ PrefabInstance:
     - target: {fileID: 6230366378018188666, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: dialogueUIController
       value: 
-      objectReference: {fileID: 1081827460}
+      objectReference: {fileID: 757268604}
     - target: {fileID: 6741363777618056504, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -398,14 +387,6 @@ PrefabInstance:
       propertyPath: window
       value: 
       objectReference: {fileID: 1875760219}
-    - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: showHidden
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: creatureController
-      value: 
-      objectReference: {fileID: 1267484800}
     - target: {fileID: 8484898134173808916, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: trapdoorController
       value: 
