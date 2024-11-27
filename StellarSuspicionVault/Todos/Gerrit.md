@@ -12,6 +12,7 @@ Durch die Wand öffnenbar
 Todo:
 - Audio
 - More Events
-- GameLoop
+	- Visuall Sound for Tasks
 - Tutorial
-- Visuall Sound for Tasks
+- Move Aliens
+- Fix ScreenController
