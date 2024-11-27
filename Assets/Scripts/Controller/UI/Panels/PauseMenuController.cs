@@ -33,7 +33,7 @@ namespace Controller.UI.Panels
 
         private void Pause()
         {
-            Debug.LogWarning("Game is paused!");
+            Debug.Log("Game is paused!");
             Time.timeScale = 0;
 
             SetMenuActive(true);
@@ -43,7 +43,7 @@ namespace Controller.UI.Panels
 
         public void Unpause()
         {
-            Debug.LogWarning("You have unpaused the GameManager!");
+            Debug.Log("You have unpaused the GameManager!");
             Time.timeScale = 1;
             
             SetMenuActive(false);

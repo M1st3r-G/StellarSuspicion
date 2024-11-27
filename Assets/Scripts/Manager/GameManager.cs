@@ -1,3 +1,4 @@
+using System;
 using Controller;
 using Controller.Actors;
 using Data;
@@ -38,13 +39,21 @@ namespace Manager
             
             Debug.Log("GameManager is created!");
             Instance = this;
+            
+            TimeManager.OnDayEnd += () => Debug.Log("Game Over");
         }
 
         private void OnDestroy()
         {
             if (Instance == this) Instance = null;
         }
-    
+
+        private void Start()
+        {
+            TimeManager.Instance.StartTimerActive();
+            Debug.Log("Tag Beginnt");
+        }
+
         #endregion
 
         public static void ResolveCreature(AcceptMode acceptMode, CreatureData creature)

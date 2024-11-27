@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections;
-using Controller.Actors.Interactable;
+﻿using System.Collections;
+using Controller.Actors.Interactable.Events;
 using UnityEngine;
 
 namespace Controller.Actors

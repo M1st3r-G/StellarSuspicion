@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-namespace Controller.Actors.Interactable
+namespace Controller.Actors.Interactable.Table
 {
     public class ScreenInteractController : InteractableBase
     {
@@ -9,6 +12,11 @@ namespace Controller.Actors.Interactable
         [SerializeField] private Quaternion cameraRotation;
         [SerializeField] private float swappingTime;
         [SerializeField] private Camera playerCamera;
+        [SerializeField] private TextMeshProUGUI textMesh;
+
+        [SerializeField] private List<string> content;
+
+        private int _currentIndex;
         
         protected override void TriggerInteraction()
         {
@@ -35,6 +43,37 @@ namespace Controller.Actors.Interactable
             }
             
             cam.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
+            FinishedRotation();
+        }
+
+        public void MoveLeft()
+        {
+            _currentIndex--;
+            if (_currentIndex == -1) _currentIndex += content.Count;
+
+            DisplayContent();
+        }
+
+        public void Exit()
+        {
+            SetInteractionTo(true);
+            StartCoroutine(MoveCameraToTransform(playerCamera, Vector3.zero, Quaternion.identity));
+        }
+        
+        public void MoveRight()
+        {
+            _currentIndex++;
+            if (_currentIndex == content.Count) _currentIndex = 0;
+
+            DisplayContent();
+        }
+        
+        private void DisplayContent() => textMesh.text = content[_currentIndex];
+
+        private void FinishedRotation()
+        {
+            SetInteractionTo(false);
+            //TODO
         }
     }
 }
