@@ -16,3 +16,6 @@ Todo:
 - Tutorial
 - Move Aliens
 - Fix ScreenController
+	- Buttons
+	- Replace with shift
+	- Text better formated
