@@ -48,9 +48,9 @@ namespace Controller
                 head.material = _currentCreature?.Color;
             }
         }
-        private CreatureData? _currentCreature; 
-        
-        public bool IsVisible => canvasGroup.alpha > 0.5f;
+        private CreatureData? _currentCreature;
+
+        private bool IsVisible => canvasGroup.alpha > 0.5f;
         public bool ShowingCreature => IsVisible && CurrentCreature is not null;
 
         private void Awake() => SetVisibility(false);
@@ -64,10 +64,9 @@ namespace Controller
             CurrentCreature = creature;
         }
 
-        public void ResetCreature()
+        private void ResetCreature()
         {
             name = "Default";
-            UIManager.Dialogue.SetText("");
             CurrentCreature = null;
             canvasGroup.alpha = 0f;
         }
