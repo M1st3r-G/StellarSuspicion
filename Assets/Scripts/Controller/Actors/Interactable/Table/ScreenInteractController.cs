@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -43,7 +42,7 @@ namespace Controller.Actors.Interactable.Table
             }
             
             cam.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
-            FinishedRotation();
+            FinishedRotation(targetPosition == Vector3.zero);
         }
 
         public void MoveLeft()
@@ -56,8 +55,8 @@ namespace Controller.Actors.Interactable.Table
 
         public void Exit()
         {
-            SetInteractionTo(true);
             StartCoroutine(MoveCameraToTransform(playerCamera, Vector3.zero, Quaternion.identity));
+            SetInteractionTo(true);
         }
         
         public void MoveRight()
@@ -70,9 +69,9 @@ namespace Controller.Actors.Interactable.Table
         
         private void DisplayContent() => textMesh.text = content[_currentIndex];
 
-        private void FinishedRotation()
+        private void FinishedRotation(bool start)
         {
-            SetInteractionTo(false);
+            SetInteractionTo(start);
             //TODO
         }
     }

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Controller.Player
 {
+    [DefaultExecutionOrder(-1)]
     public abstract class PlayerBaseController : MonoBehaviour
     {
         [Header("References")]
@@ -12,12 +13,12 @@ namespace Controller.Player
 
         public Camera Camera => playerCam;
 
-        public Vector3 DefaultPos => DefaultPosition;
-        protected Vector3 DefaultPosition;
-        public Quaternion DefaultRot => DefaultRotation;
-        protected Quaternion DefaultRotation;
+        public Vector3 DefaultPos => _defaultPosition;
+        private Vector3 _defaultPosition;
+        public Quaternion DefaultRot => _defaultRotation;
+        private Quaternion _defaultRotation;
 
-        protected virtual void Awake() => playerCam.transform.GetPositionAndRotation(out DefaultPosition, out DefaultRotation);
+        protected virtual void Awake() => playerCam.transform.GetPositionAndRotation(out _defaultPosition, out _defaultRotation);
         protected virtual void Start() => ActionMap = LoadActionMap();
         protected abstract InputActionMap LoadActionMap();
 
