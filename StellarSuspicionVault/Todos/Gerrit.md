@@ -21,10 +21,9 @@ Todo:
 	- Replace with shift
 	- Text better formated
 
-- Bestätigung beim Gelben Button nicht
 - Visuell eindeutiger, welcher button benutzbar
-- Lighting in Unity
-- Im stehen starten
+	- Split Up and Down
+	- Up when Usable
+	- Down when used
 - UI zu Sprites
 - Gemurmel im Raum
-- Mouse not confined

@@ -10,7 +10,7 @@ namespace Controller.Actors.Interactable
     public abstract class InteractableBase : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Parameters")]
-        [SerializeField] [Range(0.5f, 4f)] [Tooltip("The Amount of time, the Object has to be clicked")]
+        [SerializeField] [Range(0f, 4f)] [Tooltip("The Amount of time, the Object has to be clicked")]
         private float threshold;
 
         [SerializeField] [Tooltip("Whether to start Enabled")]
@@ -23,7 +23,7 @@ namespace Controller.Actors.Interactable
             set
             {
                 _holdTime = value;
-                UIManager.InteractionUI.SetToAmount(_holdTime / threshold);
+                if(threshold != 0) UIManager.InteractionUI.SetToAmount(_holdTime / threshold);
             }
         }
 
@@ -55,9 +55,13 @@ namespace Controller.Actors.Interactable
             if (!IsEnabled) return;
             if (!_held) return;
 
-            HoldTime += Time.deltaTime;
+            if (threshold != 0f)
+            {
+                HoldTime += Time.deltaTime;
 
-            if (HoldTime < threshold) return;
+                if (HoldTime < threshold) return;
+            }
+            
             TriggerInteraction();
             Release();
         }
@@ -66,7 +70,7 @@ namespace Controller.Actors.Interactable
 
         #region Overridable
 
-        abstract protected void TriggerInteraction();
+        protected abstract void TriggerInteraction();
         
         #endregion
 

@@ -56,7 +56,9 @@ namespace Manager
 
         public void Start()
         {
-            SwitchStateTo(true);
+            playerSit.Unpossess();
+            playerStand.Possess();
+            _isSitting = false;
         }
 
         #endregion
@@ -121,7 +123,7 @@ namespace Manager
             if (active)
             {
                 Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.lockState = CursorLockMode.None;
             }
             else Cursor.lockState = CursorLockMode.Locked;
         }

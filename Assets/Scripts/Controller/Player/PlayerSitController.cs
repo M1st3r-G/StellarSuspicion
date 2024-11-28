@@ -49,15 +49,12 @@ namespace Controller.Player
             base.Unpossess();
             foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(false);
             GameManager.Window.SetWindowOpened(false);
-        }
-
-        private void OnStandUpAction(InputAction.CallbackContext ctx)
-        {
             deskInteraction.SetInteractionTo(true);
-            PlaymodeManager.StandUp();
             if(_rotRoutine is not null) StopCoroutine(_rotRoutine);
             _rotRoutine=StartCoroutine(RotateChair(false));
         }
+
+        private static void OnStandUpAction(InputAction.CallbackContext ctx) => PlaymodeManager.StandUp();
 
         private IEnumerator RotateChair(bool straight)
         {
