@@ -21,7 +21,11 @@ namespace Manager
 
         [Header("Parameters")]
         [SerializeField] [Range(0f, 3f)] [Tooltip("Time it Takes to swap the camera")]
-         private float swappingTime;
+        private float swappingTime;
+        
+        [SerializeField] [Tooltip("Weather to start standing or sitting")]
+        private bool startStanding;
+ 
         
         // Temps/States
         public InputActionMap FirstPersonMap => mainInputAsset.actionMaps[2];
@@ -32,7 +36,7 @@ namespace Manager
         private bool _isSitting;
         
         public static PlaymodeManager Instance;
-        
+
         #region Setup
 
         private void Awake()
@@ -56,9 +60,8 @@ namespace Manager
 
         public void Start()
         {
-            playerSit.Unpossess();
-            playerStand.Possess();
-            _isSitting = false;
+            _isSitting = startStanding;
+            SwitchPlayerControllers();
         }
 
         #endregion

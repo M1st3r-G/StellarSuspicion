@@ -86,16 +86,10 @@ namespace Manager
 
             return ratingToAmount.ToDictionary(kvp => kvp.Key, kvp => kvp.Value * 100f / totalNumber);
         }
-        
+
         private CreatureData GetRandom() 
-            => new(GetRandomName(),
-                GetRandomPart(CreatureComponentType.Mouth),
-                GetRandomPart(CreatureComponentType.Eye),
-                GetRandomPart(CreatureComponentType.Nose),
-                GetRandomPart(CreatureComponentType.Body), 
-                GetRandomPart(CreatureComponentType.Head), 
-                GetRandomPart(CreatureComponentType.Gear),
-                GetRandomColor());
+            => new(GetRandomName(),GetRandomBundle(),
+            GetRandomColor());
 
         #region Utils
 
@@ -103,6 +97,14 @@ namespace Manager
             => _allParts[type][Random.Range(0, _allParts[type].Length)].part;
         private string GetRandomName() => names[Random.Range(0, names.Count)];
         private Material GetRandomColor() => colors[Random.Range(0, colors.Count)];
+        
+        private PartBundle GetRandomBundle() => new(
+            GetRandomPart(CreatureComponentType.Mouth), 
+            GetRandomPart(CreatureComponentType.Eye),
+            GetRandomPart(CreatureComponentType.Nose), 
+            GetRandomPart(CreatureComponentType.Body),
+            GetRandomPart(CreatureComponentType.Head), 
+            GetRandomPart(CreatureComponentType.Gear));
         
         public static CreatureData GetRandomCreature() => _instance.GetRandom();
 
