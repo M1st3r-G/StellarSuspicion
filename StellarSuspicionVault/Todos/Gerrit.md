@@ -8,9 +8,10 @@ Enhancments:
 
 Bug:
 Durch die Wand öffnenbar
+Nur einmal Reinzoom bar
+Button Diablen, wenn jemand da ist
 
 Todo:
-- Audio
 - More Events
 	- Visuall Sound for Tasks
 - Tutorial
@@ -19,3 +20,11 @@ Todo:
 	- Buttons
 	- Replace with shift
 	- Text better formated
+
+- Bestätigung beim Gelben Button nicht
+- Visuell eindeutiger, welcher button benutzbar
+- Lighting in Unity
+- Im stehen starten
+- UI zu Sprites
+- Gemurmel im Raum
+- Mouse not confined
