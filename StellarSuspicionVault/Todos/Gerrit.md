@@ -23,8 +23,3 @@ Bug:
 	- Text better formated
 - Gemurmel im Raum
 - Mann im Schrank
-
-#next-step
-- Aliens
-	- Creature Lit Material
-
