@@ -23,3 +23,4 @@ Bug:
 	- Text better formated
 - Gemurmel im Raum
 - Mann im Schrank
+- StromAusfall

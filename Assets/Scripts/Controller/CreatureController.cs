@@ -18,16 +18,16 @@ namespace Controller
         [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Eyes")]
         private SpriteRenderer eyes;
         
-        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Eyes")]
+        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Nose")]
         private SpriteRenderer nose;
         
-        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Eyes")]
+        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Body")]
         private SpriteRenderer body;
 
-        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Eyes")]
+        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Head")]
         private SpriteRenderer head;
 
-        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Eyes")]
+        [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Gear")]
         private SpriteRenderer headGear;
 
         private Dictionary<CreatureComponentType, SpriteRenderer> _monsterPartRenderer;
@@ -54,7 +54,7 @@ namespace Controller
 
             set
             {
-                foreach (var (key, spriteRenderer) in _monsterPartRenderer)
+                foreach ((_, SpriteRenderer spriteRenderer) in _monsterPartRenderer)
                 {
                     Color prevColor = spriteRenderer.color;
                     prevColor.a = value;
