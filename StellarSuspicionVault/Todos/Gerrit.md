@@ -24,3 +24,5 @@ Bug:
 - Gemurmel im Raum
 - Mann im Schrank
 - StromAusfall
+
+Cut Walking

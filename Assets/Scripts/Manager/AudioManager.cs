@@ -1,53 +1,105 @@
 using System;
-using System.Collections.Generic;
+using Data;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Manager
 {
+    [RequireComponent(typeof(AudioSource))]
     public class AudioManager : MonoBehaviour
     {
         [Header("References")]
-        [Tooltip("Reference to EffectSource component")]
-        [SerializeField]private AudioSource effectSource;
-        [Tooltip("reference to MusicSource component")]
-        [SerializeField]private AudioSource musicSource;
-        
-        [Header("Parameters")]
-        [Tooltip("List of audio clips")]
-        public List<AudioClip> audioClips = new();
-    
-    
-        #region Setup
+        [SerializeField] [Tooltip("The Default Effect Source")] 
+        private AudioSource effectSrc;
+        [SerializeField] [Tooltip("The Music Src")] 
+        private AudioSource musicSrc;
+        [SerializeField] [Tooltip("The FuseBox Humming")]
+        private AudioSource ambienceSrc;
 
-        public static AudioManager Instance;
+        [Header("AudioClips")]
+        [SerializeField] private AudioClipsContainer[] clips;
+
+        public const string MasterVolumeKey = "MasterVolume";
+        public const string MusicVolumeKey = "MusicVolume";
+        public const string AmbienceVolumeKey = "AmbienceVolume";
+        public const string EffectVolumeKey = "EffectVolume";
+        
+        public static AudioManager Instance { get; private set; }
+
+        #region SetUp
 
         private void Awake()
         {
-            if (Instance != null)
+            if (Instance is not null)
             {
-                Debug.LogWarning("More than one instance of CameraManager");
-                Destroy(gameObject);
+                Debug.LogWarning("There are multipla AudioManager");
+                Destroy(this);
                 return;
             }
-
+            
             Instance = this;
         }
-
-        public void OnDestroy()
+        
+        private void OnDestroy()
         {
             if (Instance == this) Instance = null;
         }
 
         #endregion
-
-        public static void PlayAudio(int index)
+        
+        #region Music
+        
+        public static void StartStopMusic(bool play)
         {
-            Instance.effectSource.PlayOneShot(Instance.audioClips[index]);
+            if (play) Instance.musicSrc.Play();
+            else Instance.musicSrc.Pause();
+        }
+        
+        #endregion
+        
+        #region EffectManagement
+
+        /// <summary>
+        /// Plays a Clip of the given SoundEffect and returns its length in seconds
+        /// </summary>
+        /// <param name="effect">The ClipType to Play</param>
+        /// <returns>The length of the played Clip</returns>
+        public float PlayEffect(AudioEffect effect)
+        {
+            foreach (AudioClipsContainer cnt in clips)
+            {
+                if (cnt.Type != effect) continue;
+                AudioClip clip = cnt.GetClip();
+                if (clip is null)
+                {
+                    Debug.LogError($"Noch keine Sounds für {effect} sind importiert");
+                    return -1f;
+                }
+                
+                effectSrc.PlayOneShot(clip);
+                return clip.length;
+            }
+            
+            Debug.LogError($"Sound with {effect} Identifier not found");
+            return -1f;
+        }
+        
+        [Serializable]
+        private struct AudioClipsContainer
+        {
+            public string name;
+            [SerializeField] private AudioEffect type;
+            [SerializeField] private AudioClip[] clips;
+
+            public AudioEffect Type => type;
+            
+            public AudioClip GetClip()
+            {
+                return clips.Length == 0 ? null : clips[Random.Range(0, clips.Length)];
+            }
         }
 
-        public static void StartStopMusic(bool isPlaying)
-        {
-            Instance.musicSource.enabled = !isPlaying;
-        }
+        #endregion
     }
 }

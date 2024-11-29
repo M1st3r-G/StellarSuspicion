@@ -16,11 +16,7 @@ namespace Controller.Actors.Interactable.Buttons
         
         protected override void OnButtonDown()
         {
-            if (GameManager.Creature.CurrentCreature is null)
-            {
-                // ErrorSound
-                return;
-            }
+            Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
 
             GameManager.ResolveCreature(AcceptMode.Rejected, GameManager.Creature.CurrentCreature.Value);
             
