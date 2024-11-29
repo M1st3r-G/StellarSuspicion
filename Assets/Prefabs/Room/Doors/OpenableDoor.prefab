@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorTransform: {fileID: 6291666147080722285}
   up: 2.5
-  closingTime: 1.5
+  closingTime: 0.75
 --- !u!65 &6790486466548759744
 BoxCollider:
   m_ObjectHideFlags: 0

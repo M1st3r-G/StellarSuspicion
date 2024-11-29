@@ -15,12 +15,25 @@ namespace Controller.Actors.Interactable.Table
 
         [SerializeField] private List<string> content;
 
-        private int _currentIndex;
+        private Coroutine _moveRoutine;
         
+        private int _currentIndex;
+        public bool IsZoomed { get; private set; }
+
         protected override void TriggerInteraction()
         {
-            // Move Camera to Screen
-            StartCoroutine(MoveCameraToTransform(playerCamera, cameraPosition, cameraRotation));
+            if(_moveRoutine is not null) StopCoroutine(_moveRoutine);
+            _moveRoutine = StartCoroutine(MoveCameraToTransform(playerCamera, cameraPosition, cameraRotation));
+            IsZoomed = true;
+            SetInteractionTo(false);
+        }
+        
+        public void Exit()
+        {
+            if(_moveRoutine is not null) StopCoroutine(_moveRoutine);
+            _moveRoutine = StartCoroutine(MoveCameraToTransform(playerCamera, Vector3.zero, Quaternion.identity));
+            IsZoomed = false;
+            SetInteractionTo(true);
         }
         
         private IEnumerator MoveCameraToTransform(Camera cam, Vector3 targetPosition, Quaternion targetRotation)
@@ -42,8 +55,9 @@ namespace Controller.Actors.Interactable.Table
             }
             
             cam.transform.SetLocalPositionAndRotation(targetPosition, targetRotation);
-            FinishedRotation(targetPosition == Vector3.zero);
         }
+
+        #region Content
 
         public void MoveLeft()
         {
@@ -51,12 +65,6 @@ namespace Controller.Actors.Interactable.Table
             if (_currentIndex == -1) _currentIndex += content.Count;
 
             DisplayContent();
-        }
-
-        public void Exit()
-        {
-            StartCoroutine(MoveCameraToTransform(playerCamera, Vector3.zero, Quaternion.identity));
-            SetInteractionTo(true);
         }
         
         public void MoveRight()
@@ -69,10 +77,6 @@ namespace Controller.Actors.Interactable.Table
         
         private void DisplayContent() => textMesh.text = content[_currentIndex];
 
-        private void FinishedRotation(bool start)
-        {
-            SetInteractionTo(start);
-            //TODO
-        }
+        #endregion
     }
 }

@@ -31,7 +31,7 @@ namespace Manager
 
             Instance = this;
             
-            _defaultMask = ~LayerMask.NameToLayer("Interaction");
+            _defaultMask = LayerMask.NameToLayer("Interaction");
             
             mouseInteract.action.started += MouseDown;
             mouseInteract.action.canceled += MouseUp;
@@ -68,7 +68,7 @@ namespace Manager
         {
             if (!IsActive) return;
             
-            if (!Physics.Raycast(_currentCamera.ScreenPointToRay(_midPoint), out RaycastHit hit, 5f, _defaultMask))
+            if (!Physics.Raycast(_currentCamera.ScreenPointToRay(_midPoint), out RaycastHit hit, 5f))
             {
                 if (_currentlyOver == null) return;
                 
@@ -77,6 +77,8 @@ namespace Manager
                 return;
             }
 
+            if (hit.transform.gameObject.layer != _defaultMask) return;
+            
             // Old One
             if (_currentlyOver is not null && _currentlyOver.transform == hit.transform) return;
             

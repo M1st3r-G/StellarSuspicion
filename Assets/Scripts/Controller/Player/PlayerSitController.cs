@@ -17,6 +17,8 @@ namespace Controller.Player
         private Transform chair;
         [SerializeField] [Tooltip("The DeskInteraction to Disable when Sitting")]
         private SitDownInteraction deskInteraction;
+        [SerializeField] [Tooltip("The ScreenInteractionController")]
+        private ScreenInteractController screenController;
         [SerializeField] [Tooltip("All the Interactions Only Enabled when sitting")]
         private List<InteractableBase> interactionsWhenSitting;
 
@@ -54,7 +56,11 @@ namespace Controller.Player
             _rotRoutine=StartCoroutine(RotateChair(false));
         }
 
-        private static void OnStandUpAction(InputAction.CallbackContext ctx) => PlaymodeManager.StandUp();
+        private void OnStandUpAction(InputAction.CallbackContext ctx)
+        {
+            if(screenController.IsZoomed) screenController.Exit();
+            else PlaymodeManager.StandUp();
+        }
 
         private IEnumerator RotateChair(bool straight)
         {

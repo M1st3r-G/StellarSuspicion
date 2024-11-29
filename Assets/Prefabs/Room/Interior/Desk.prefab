@@ -442,6 +442,10 @@ PrefabInstance:
       value: Chair
       objectReference: {fileID: 0}
     - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
+      propertyPath: screenController
+      value: 
+      objectReference: {fileID: 1789730953288964656}
+    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
       propertyPath: interactionsWhenSitting.Array.size
       value: 4
       objectReference: {fileID: 0}

@@ -5,10 +5,13 @@ tags:
 ---
 Enhancments:
 - UI As Statemachine
+- CameraRoutineOverride
+
+WontFix:
+- UpdownUpDown Lock?
 
 Bug:
-Durch die Wand öffnenbar
-Nur einmal Reinzoom bar
+
 
 #todo :
 - More Events
@@ -16,7 +19,6 @@ Nur einmal Reinzoom bar
 - Tutorial
 - Fix ScreenController
 	- Buttons
-	- Replace with shift
 	- Text better formated
 - Visuell eindeutiger, welcher button benutzbar
 	- Split Up and Down
