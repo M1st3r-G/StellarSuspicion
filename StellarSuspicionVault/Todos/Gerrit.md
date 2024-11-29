@@ -13,7 +13,6 @@ WontFix:
 - UpdownUpDown Lock?
 
 Bug:
-- Interact thourgh Wall
 
 #todo :
 - More Events

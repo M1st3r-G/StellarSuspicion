@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1903537513849499730
+--- !u!114 &-5736035370314543921
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,8 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Green
-  m_Shader: {fileID: -6465566751694194690, guid: fb68524f76053a440b13794fe9ac3dcd, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: fb68524f76053a440b13794fe9ac3dcd, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 8c7122d7d66d7ea4fa21dabb15c92fda, type: 3}
+  m_Parent: {fileID: -876546973899608171, guid: 8c7122d7d66d7ea4fa21dabb15c92fda, type: 3}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -41,7 +41,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _BUILTIN_QueueControl: 0
+    m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []

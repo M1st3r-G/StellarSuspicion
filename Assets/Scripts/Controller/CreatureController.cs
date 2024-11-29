@@ -7,14 +7,10 @@ using UnityEngine;
 
 namespace Controller
 {
+    [RequireComponent(typeof(Animator))]
     public class CreatureController : MonoBehaviour
     {
         #region Variables
-
-        [Header("References")] 
-        [SerializeField] [Tooltip("This is the Animator for all Movement")]
-        private Animator anim;
-        
         [Header("MonsterParts")]
         [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Mouth")]
         private SpriteRenderer mouth;
@@ -35,6 +31,7 @@ namespace Controller
         private SpriteRenderer headGear;
 
         private Dictionary<CreatureComponentType, SpriteRenderer> _monsterPartRenderer;
+        private Animator _anim;
 
         public CreatureData? CurrentCreature
         {
@@ -45,8 +42,8 @@ namespace Controller
                 foreach (CreatureComponentType type in Enum.GetValues(typeof(CreatureComponentType)))
                     _monsterPartRenderer[type].sprite = _currentCreature?.GetSprite(type);
                 
-                //body.material = _currentCreature?.Color;
-                //head.material = _currentCreature?.Color;
+                body.material = _currentCreature?.Color; 
+                head.material = _currentCreature?.Color;
             }
         }
         private CreatureData? _currentCreature;
@@ -73,7 +70,7 @@ namespace Controller
         
         public void Awake()
         {
-            anim = GetComponent<Animator>();
+            _anim = GetComponent<Animator>();
             _monsterPartRenderer = new Dictionary<CreatureComponentType, SpriteRenderer>
             {
                 { CreatureComponentType.Eye, eyes },
@@ -95,7 +92,7 @@ namespace Controller
             name = creature.Name;
             UIManager.Dialogue.SetText($"Glorb blorb bla: {name}!");
             CurrentCreature = creature;
-            anim.Play("Enter");
+            _anim.Play("Enter");
         }
 
         public void ResetCreature()
@@ -105,6 +102,6 @@ namespace Controller
             Alpha = 0f;
         }
 
-        public void Clear(AcceptMode acceptMode) => anim.Play(acceptMode == AcceptMode.Rejected ? "Drop" : "Exit");
+        public void Clear(AcceptMode acceptMode) => _anim.Play(acceptMode == AcceptMode.Rejected ? "Drop" : "Exit");
     }
 }
