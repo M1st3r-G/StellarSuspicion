@@ -82,7 +82,7 @@ namespace Controller.Actors.Interactable
             HoldTime = 0f;
         }
 
-        public void SetInteractionTo(bool pEnabled)
+        public virtual void SetInteractionTo(bool pEnabled)
         {
             _isEnabled = pEnabled;
             _outline.enabled = false;

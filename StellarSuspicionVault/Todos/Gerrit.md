@@ -6,6 +6,7 @@ tags:
 Enhancments:
 - UI As Statemachine
 - CameraRoutineOverride
+- Button Lighting When Usable
 
 WontFix:
 - UpdownUpDown Lock?
@@ -20,13 +21,8 @@ Bug:
 - Fix ScreenController
 	- Buttons
 	- Text better formated
-- Visuell eindeutiger, welcher button benutzbar
-	- Split Up and Down
-	- Up when Usable
-	- Down when used
 - Gemurmel im Raum
 - Mann im Schrank
-- Neue Texturen
 
 #next-step
 - Aliens
