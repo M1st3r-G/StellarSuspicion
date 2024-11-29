@@ -228,8 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 1
   startEnabled: 0
-  downTime: 1
-  buttonSkip: {fileID: 6779734811092937797}
+  baseDownTime: 1
+  buttonNext: {fileID: 6779734811092937797}
   buttonKill: {fileID: 2933085849663344608}
 --- !u!1 &1653009128619532831
 GameObject:
@@ -371,9 +371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 1
   startEnabled: 0
-  downTime: 1
+  baseDownTime: 1
   buttonEnter: {fileID: 943791319704808522}
-  buttonSkip: {fileID: 6779734811092937797}
+  buttonNext: {fileID: 6779734811092937797}
 --- !u!1 &2129552254869219843
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4470479745911784337}
   m_Layer: 0
-  m_Name: ButtonSkip
+  m_Name: ButtonNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 4640211587176917470}
   - component: {fileID: 6779734811092937797}
   m_Layer: 0
-  m_Name: SkipMesh
+  m_Name: NextMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,6 +610,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0
   startEnabled: 1
-  downTime: 0.75
+  baseDownTime: 1
   buttonEnter: {fileID: 943791319704808522}
   buttonKill: {fileID: 2933085849663344608}

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Controller.Actors.Interactable.Table.Buttons
+namespace Controller.Actors.Interactable.Buttons
 {
     public abstract class ButtonBaseInteract : InteractableBase
     {

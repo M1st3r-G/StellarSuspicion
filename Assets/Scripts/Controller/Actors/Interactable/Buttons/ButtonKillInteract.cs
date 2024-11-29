@@ -3,7 +3,7 @@ using Manager;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Controller.Actors.Interactable.Table.Buttons
+namespace Controller.Actors.Interactable.Buttons
 {
     public class ButtonKillInteract: ButtonBaseInteract
     {

@@ -7,6 +7,7 @@ Enhancments:
 - UI As Statemachine
 - CameraRoutineOverride
 - Button Lighting When Usable
+- CamaraManager
 
 WontFix:
 - UpdownUpDown Lock?
