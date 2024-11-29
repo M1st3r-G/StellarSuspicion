@@ -9,6 +9,12 @@ namespace Controller
 {
     public class CreatureController : MonoBehaviour
     {
+        #region Variables
+
+        [Header("References")] 
+        [SerializeField] [Tooltip("This is the Animator for all Movement")]
+        private Animator anim;
+        
         [Header("MonsterParts")]
         [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Mouth")]
         private SpriteRenderer mouth;
@@ -30,21 +36,6 @@ namespace Controller
 
         private Dictionary<CreatureComponentType, SpriteRenderer> _monsterPartRenderer;
 
-        public void Awake()
-        {
-            _monsterPartRenderer = new Dictionary<CreatureComponentType, SpriteRenderer>
-            {
-                { CreatureComponentType.Eye, eyes },
-                { CreatureComponentType.Mouth, mouth },
-                { CreatureComponentType.Nose, nose },
-                { CreatureComponentType.Head, head },
-                { CreatureComponentType.Body, body },
-                { CreatureComponentType.Gear, headGear }
-            };
-            
-            SetVisibility(false);
-        }
-        
         public CreatureData? CurrentCreature
         {
             get => _currentCreature;
@@ -78,6 +69,24 @@ namespace Controller
         private bool IsVisible => Alpha > 0.5f;
         public bool ShowingCreature => IsVisible && CurrentCreature is not null;
 
+        #endregion
+        
+        public void Awake()
+        {
+            anim = GetComponent<Animator>();
+            _monsterPartRenderer = new Dictionary<CreatureComponentType, SpriteRenderer>
+            {
+                { CreatureComponentType.Eye, eyes },
+                { CreatureComponentType.Mouth, mouth },
+                { CreatureComponentType.Nose, nose },
+                { CreatureComponentType.Head, head },
+                { CreatureComponentType.Body, body },
+                { CreatureComponentType.Gear, headGear }
+            };
+            
+            SetVisibility(false);
+        }
+
         public void SetVisibility(bool on) => Alpha = on ? 1f : 0f;
 
         public void SetToCreature(CreatureData creature)
@@ -86,20 +95,16 @@ namespace Controller
             name = creature.Name;
             UIManager.Dialogue.SetText($"Glorb blorb bla: {name}!");
             CurrentCreature = creature;
+            anim.Play("Enter");
         }
 
-        private void ResetCreature()
+        public void ResetCreature()
         {
             name = "Default";
             CurrentCreature = null;
             Alpha = 0f;
         }
 
-        public void Clear(AcceptMode acceptMode)
-        {
-            //Wait
-            //Stuff
-            ResetCreature();
-        }
+        public void Clear(AcceptMode acceptMode) => anim.Play(acceptMode == AcceptMode.Rejected ? "Drop" : "Exit");
     }
 }

@@ -24,6 +24,7 @@ namespace Controller.Actors.Interactable.Buttons
             Debug.Log("Let New Creature in");
             GameManager.Creature.SetToCreature(CreatureCreator.GetRandomCreature());
 
+            SetInteractionTo(false);
             buttonKill.SetInteractionTo(true);
             buttonEnter.SetInteractionTo(true);
         }

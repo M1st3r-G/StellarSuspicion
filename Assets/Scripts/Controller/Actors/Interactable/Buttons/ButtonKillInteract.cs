@@ -25,6 +25,7 @@ namespace Controller.Actors.Interactable.Buttons
             GameManager.ResolveCreature(AcceptMode.Rejected, GameManager.Creature.CurrentCreature.Value);
             
             buttonNext.SetInteractionTo(true);
+            SetInteractionTo(false);
             buttonEnter.SetInteractionTo(false);
         }
     }

@@ -13,7 +13,7 @@ WontFix:
 - UpdownUpDown Lock?
 
 Bug:
-
+- Interact thourgh Wall
 
 #todo :
 - More Events
@@ -27,6 +27,5 @@ Bug:
 
 #next-step
 - Aliens
-	- Move Aliens
 	- Creature Lit Material
 

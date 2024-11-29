@@ -23,6 +23,7 @@ namespace Controller.Actors.Interactable.Buttons
 
             GameManager.ResolveCreature(AcceptMode.Allowed, GameManager.Creature.CurrentCreature.Value);
             buttonKill.SetInteractionTo(false);
+            SetInteractionTo(false);
             buttonNext.SetInteractionTo(true);
         }
     }

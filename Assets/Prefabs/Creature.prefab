@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 671594760935131987}
   - component: {fileID: 7954042941532413289}
+  - component: {fileID: 407382404543974288}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -308,6 +309,27 @@ MonoBehaviour:
   body: {fileID: 1748192080470292656}
   head: {fileID: 3622308101747726115}
   headGear: {fileID: 2221381270620918664}
+--- !u!95 &407382404543974288
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447787329822732219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc9d9375582110546b01c24e157c3a5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7253304979084025387
 GameObject:
   m_ObjectHideFlags: 0
