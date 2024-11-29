@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Controller
 {
-    [RequireComponent(typeof(Animator), typeof(CustomAudioPlayer))]
+    [RequireComponent(typeof(Animator))]
     public class CreatureController : MonoBehaviour
     {
         #region Variables
@@ -36,9 +36,16 @@ namespace Controller
         [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Gear")]
         private SpriteRenderer headGear;
 
+        [SerializeField] [Tooltip("This is the Effect AudioSource")]
+        private AudioSource creatureEffect;
+        
+        [SerializeField] [Tooltip("This is the Walking Loop")]
+        private AudioSource creatureSteps;
+
+        private Coroutine _stepLoop;
+        
         private Dictionary<CreatureComponentType, SpriteRenderer> _monsterPartRenderer;
         private Animator _anim;
-        private CustomAudioPlayer _creatureSounds;
         
         public CreatureData? CurrentCreature
         {
@@ -77,7 +84,6 @@ namespace Controller
         
         public void Awake()
         {
-            _creatureSounds = GetComponent<CustomAudioPlayer>();
             _anim = GetComponent<Animator>();
             _monsterPartRenderer = new Dictionary<CreatureComponentType, SpriteRenderer>
             {
@@ -101,13 +107,19 @@ namespace Controller
             UIManager.Dialogue.SetText($"Glorb blorb bla: {name}!");
             CurrentCreature = creature;
             _anim.Play("Enter");
-            _creatureSounds.Play(steps, true);
+            StartSteps();
+        }
+
+        private void StartSteps()
+        {
+            if (_stepLoop is not null) StopCoroutine(_stepLoop);
+            _stepLoop = StartCoroutine(AudioManager.PlayAsLoop(creatureSteps, steps));
         }
 
         public void OnFinishedMovement()
         {
-            // Dont Make Oneliner
-            _creatureSounds.StopLoop();
+            if (_stepLoop is not null) StopCoroutine(_stepLoop);
+            _stepLoop = null;
         }
 
         public void ResetCreature()
@@ -115,7 +127,8 @@ namespace Controller
             name = "Default";
             CurrentCreature = null;
             Alpha = 0f;
-            _creatureSounds.StopLoop();
+            if (_stepLoop is not null) StopCoroutine(_stepLoop);
+            _stepLoop = null;
         }
 
         public void Clear(AcceptMode acceptMode)
@@ -128,7 +141,7 @@ namespace Controller
             else
             {
                 _anim.Play( "Exit");
-                _creatureSounds.Play(steps, true);
+                StartSteps();
             }
         }
     }

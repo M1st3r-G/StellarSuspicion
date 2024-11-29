@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using Extern;
 using UnityEngine;
 
 namespace Manager
@@ -7,6 +10,8 @@ namespace Manager
     {
         [SerializeField] [Tooltip("The Music Src")]
         private AudioSource musicSrc;
+
+        private const float Puffer = 0.125f;
 
         public const string MasterVolumeKey = "MasterVolume";
         public const string MusicVolumeKey = "MusicVolume";
@@ -45,5 +50,15 @@ namespace Manager
         }
 
         #endregion
+        
+        public static IEnumerator PlayAsLoop(AudioSource src, AudioClipsContainer clips)
+        {
+            while (true)
+            {
+                AudioClip currentClip = clips.GetClip();
+                src.PlayOneShot(currentClip);
+                yield return new WaitForSeconds(currentClip.length + Puffer);
+            }
+        }
     }
 }

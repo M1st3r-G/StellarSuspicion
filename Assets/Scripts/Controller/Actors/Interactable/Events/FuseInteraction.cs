@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using UnityEditor.AssetImporters;
+using UnityEngine;
 
 namespace Controller.Actors.Interactable.Events
 {
     public class FuseInteraction : InteractableBase
     {
         [SerializeField] ParticleSystem particles;
+        [SerializeField] FuseBoxController parent;
 
         public void StartInteraction()
         {
@@ -16,6 +18,7 @@ namespace Controller.Actors.Interactable.Events
         {
             particles.Stop();
             SetInteractionTo(false);
+            parent.Finished();
         }
     }
 }

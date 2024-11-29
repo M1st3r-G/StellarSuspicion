@@ -26,6 +26,7 @@ namespace Controller.Player
         {
             Camera.gameObject.SetActive(true);
             ActionMap.Enable();
+            Debug.LogError($"Enabled Map {ActionMap}");
             SetMouseState();
         }
 
