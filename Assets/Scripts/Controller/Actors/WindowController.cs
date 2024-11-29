@@ -8,8 +8,8 @@ namespace Controller.Actors
         [Header("References")]
         [Tooltip("This is the Transform of the Canvas with the Non See-through Blinder image")]
         [SerializeField] private Transform blinderTransform;
-        [Tooltip("This is the CanvasGroup Monsters Canvas to hide them")]
-        [SerializeField] private CanvasGroup monsterGroup;
+        [Tooltip("This is the Monsters Controller to hide them")]
+        [SerializeField] private CreatureController creatureController;
 
         [Header("Parameters")]
         [Tooltip("The length to move up inorder to hide the Blinder image")]
@@ -19,16 +19,19 @@ namespace Controller.Actors
     
         // Public
         public bool IsOpen { get; private set; }
-
+        public CreatureController Creature => creatureController;
+        
         // Temps
         private Coroutine _closingRoutine;
 
-        private void Awake() => SetWindowOpened(true);
+        private void Awake() => SetWindowOpened(false);
 
         #region WindowClosing
 
         public void SetWindowOpened(bool open)
         {
+            if (IsOpen == open) return;
+            
             if(_closingRoutine != null) StopCoroutine(_closingRoutine);
             _closingRoutine = StartCoroutine(ClosingRoutine(open));
         }
@@ -42,7 +45,7 @@ namespace Controller.Actors
         
             IsOpen = open;
 
-            if (open) monsterGroup.alpha = 1f; 
+            if (open) creatureController.SetVisibility(true); 
             
             while (elapsed <= closingTime)
             {
@@ -53,7 +56,7 @@ namespace Controller.Actors
             }
 
             blinderTransform.localPosition = endPosition;
-            if (!open) monsterGroup.alpha = 0f;
+            if (!open) creatureController.SetVisibility(false);
         }
 
         #endregion

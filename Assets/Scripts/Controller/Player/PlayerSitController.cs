@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Controller.Actors.Interactable;
+using Controller.Actors.Interactable.Table;
 using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,8 @@ namespace Controller.Player
         private Transform chair;
         [SerializeField] [Tooltip("The DeskInteraction to Disable when Sitting")]
         private SitDownInteraction deskInteraction;
+        [SerializeField] [Tooltip("The ScreenInteractionController")]
+        private ScreenInteractController screenController;
         [SerializeField] [Tooltip("All the Interactions Only Enabled when sitting")]
         private List<InteractableBase> interactionsWhenSitting;
 
@@ -48,14 +51,15 @@ namespace Controller.Player
             base.Unpossess();
             foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(false);
             GameManager.Window.SetWindowOpened(false);
+            deskInteraction.SetInteractionTo(true);
+            if(_rotRoutine is not null) StopCoroutine(_rotRoutine);
+            _rotRoutine=StartCoroutine(RotateChair(false));
         }
 
         private void OnStandUpAction(InputAction.CallbackContext ctx)
         {
-            deskInteraction.SetInteractionTo(true);
-            PlaymodeManager.StandUp();
-            if(_rotRoutine is not null) StopCoroutine(_rotRoutine);
-            _rotRoutine=StartCoroutine(RotateChair(false));
+            if(screenController.IsZoomed) screenController.Exit();
+            else PlaymodeManager.StandUp();
         }
 
         private IEnumerator RotateChair(bool straight)

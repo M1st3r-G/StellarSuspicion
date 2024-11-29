@@ -5,10 +5,22 @@ tags:
 ---
 Enhancments:
 - UI As Statemachine
+- CameraRoutineOverride
+- Button Lighting When Usable
+- CamaraManager
 
-Todo:
-- Materials
-- Audio
+WontFix:
+- UpdownUpDown Lock?
+
+Bug:
+
+#todo :
 - More Events
-- GameLoop
+	- Visuall Sound for Tasks
 - Tutorial
+- Fix ScreenController
+	- Buttons
+	- Text better formated
+- Gemurmel im Raum
+- Mann im Schrank
+- StromAusfall

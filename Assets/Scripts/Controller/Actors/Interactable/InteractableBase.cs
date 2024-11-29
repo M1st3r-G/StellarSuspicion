@@ -7,10 +7,10 @@ namespace Controller.Actors.Interactable
 {
     [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(Outline), typeof(Collider))]
-    public class InteractableBase : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+    public abstract class InteractableBase : MonoBehaviour, IPointerDownHandler,IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("Parameters")]
-        [SerializeField] [Range(0.5f, 4f)] [Tooltip("The Amount of time, the Object has to be clicked")]
+        [SerializeField] [Range(0f, 4f)] [Tooltip("The Amount of time, the Object has to be clicked")]
         private float threshold;
 
         [SerializeField] [Tooltip("Whether to start Enabled")]
@@ -23,7 +23,7 @@ namespace Controller.Actors.Interactable
             set
             {
                 _holdTime = value;
-                UIManager.InteractionUI.SetToAmount(_holdTime / threshold);
+                if(threshold != 0) UIManager.InteractionUI.SetToAmount(_holdTime / threshold);
             }
         }
 
@@ -55,9 +55,13 @@ namespace Controller.Actors.Interactable
             if (!IsEnabled) return;
             if (!_held) return;
 
-            HoldTime += Time.deltaTime;
+            if (threshold != 0f)
+            {
+                HoldTime += Time.deltaTime;
 
-            if (HoldTime < threshold) return;
+                if (HoldTime < threshold) return;
+            }
+            
             TriggerInteraction();
             Release();
         }
@@ -66,11 +70,8 @@ namespace Controller.Actors.Interactable
 
         #region Overridable
 
-        protected virtual void TriggerInteraction()
-        {
-            Debug.Log("I was Triggered");
-        }
-
+        protected abstract void TriggerInteraction();
+        
         #endregion
 
         #region Utils
@@ -81,7 +82,7 @@ namespace Controller.Actors.Interactable
             HoldTime = 0f;
         }
 
-        public void SetInteractionTo(bool pEnabled)
+        public virtual void SetInteractionTo(bool pEnabled)
         {
             _isEnabled = pEnabled;
             _outline.enabled = false;
@@ -91,12 +92,7 @@ namespace Controller.Actors.Interactable
 
         #region MouseInput
 
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            Debug.Log($"Entered {name}");
-            _outline.enabled = IsEnabled;
-        }
-
+        public void OnPointerEnter(PointerEventData eventData) => _outline.enabled = IsEnabled;
         public void OnPointerExit(PointerEventData eventData) => _outline.enabled = false;
         public void OnPointerDown(PointerEventData eventData)
         {

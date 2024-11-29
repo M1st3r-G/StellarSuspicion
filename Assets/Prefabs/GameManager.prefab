@@ -87,7 +87,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1830794203767681666}
-  - component: {fileID: 8484898134173808916}
   - component: {fileID: 6037092333538581778}
   - component: {fileID: 8132665944091326048}
   - component: {fileID: 6230366378018188666}
@@ -122,23 +121,6 @@ Transform:
   - {fileID: 5208680113935991242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8484898134173808916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741363777618056504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453871f10a924d2ba02f5925be94a503, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creatureController: {fileID: 0}
-  firstDoorController: {fileID: 0}
-  secondDoorController: {fileID: 0}
-  trapdoorController: {fileID: 0}
-  showHidden: 0
 --- !u!114 &6037092333538581778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +142,7 @@ MonoBehaviour:
     key4: {r: 0.10196078, g: 0.40064046, b: 0.8666667, a: 0}
     key5: {r: 0.101960786, g: 0.4, b: 0.8666667, a: 0}
     key6: {r: 1, g: 0.5411765, b: 0.6919516, a: 0}
-    key7: {r: 1, g: 0.9842106, b: 0.5424528, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 13300
     ctime2: 13878
@@ -168,7 +150,7 @@ MonoBehaviour:
     ctime4: 35273
     ctime5: 45104
     ctime6: 45489
-    ctime7: 45489
+    ctime7: 0
     atime0: 0
     atime1: 65535
     atime2: 0
@@ -178,7 +160,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_ColorSpace: 0
+    m_ColorSpace: -1
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
   savingString: /Scripts/Extern/Gradients/Generated/
@@ -212,6 +194,7 @@ MonoBehaviour:
   interactUIController: {fileID: 338418641873426295}
   pauseMenu: {fileID: 9016365086060502825}
   settingsMenu: {fileID: 6860732995979195945}
+  dialogueUIController: {fileID: 0}
   pauseStartVisible: 0
   settingsStartVisible: 0
 --- !u!114 &7130360158209713221
@@ -230,6 +213,7 @@ MonoBehaviour:
   playerStand: {fileID: 0}
   mainInputAsset: {fileID: -944628639613478452, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   swappingTime: 1
+  startStanding: 0
 --- !u!114 &6891955640083801498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,11 +227,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors:
-  - {fileID: 2100000, guid: 7bfdddb36bbd412459214a3588bf8bc4, type: 2}
-  - {fileID: 2100000, guid: 7a52e164e5e62a84c82d6a254795b584, type: 2}
-  - {fileID: 2100000, guid: 8473b444f00265a40be23bd442d19dfa, type: 2}
+  - {fileID: 2100000, guid: 4d1d85d3d50f07347b198dd5dd89e6a6, type: 2}
+  - {fileID: 2100000, guid: b5d21404333e1564b95096cdec97627b, type: 2}
   - {fileID: 2100000, guid: 93257132401b22c4ea6aa6b1c4b5ad82, type: 2}
-  - {fileID: 2100000, guid: 8bb928bbe243298448353ea14afaa237, type: 2}
+  - {fileID: 2100000, guid: 711f21d9f2f19934ba98f99d50914ba1, type: 2}
+  - {fileID: 2100000, guid: 7a52e164e5e62a84c82d6a254795b584, type: 2}
   names:
   - Xlak
   - Guboo
@@ -273,7 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac43f26d8c8f374895c199354bf0c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOfDay: 30
+  timeOfDay: 120
+  maxEvents: 3
 --- !u!114 &2874027425423242632
 MonoBehaviour:
   m_ObjectHideFlags: 0
