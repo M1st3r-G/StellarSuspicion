@@ -2,15 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Data;
+using Extern;
 using Manager;
 using UnityEngine;
 
 namespace Controller
 {
-    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Animator), typeof(CustomAudioPlayer))]
     public class CreatureController : MonoBehaviour
     {
         #region Variables
+
+        [Header("References")] 
+        [SerializeField] [Tooltip("The Stepping Sound")]
+        private AudioClipsContainer steps;
+        
         [Header("MonsterParts")]
         [SerializeField] [Tooltip("This is the Sprite, later Containing the creature's Mouth")]
         private SpriteRenderer mouth;
@@ -32,7 +38,8 @@ namespace Controller
 
         private Dictionary<CreatureComponentType, SpriteRenderer> _monsterPartRenderer;
         private Animator _anim;
-
+        private CustomAudioPlayer _creatureSounds;
+        
         public CreatureData? CurrentCreature
         {
             get => _currentCreature;
@@ -70,6 +77,7 @@ namespace Controller
         
         public void Awake()
         {
+            _creatureSounds = GetComponent<CustomAudioPlayer>();
             _anim = GetComponent<Animator>();
             _monsterPartRenderer = new Dictionary<CreatureComponentType, SpriteRenderer>
             {
@@ -93,6 +101,13 @@ namespace Controller
             UIManager.Dialogue.SetText($"Glorb blorb bla: {name}!");
             CurrentCreature = creature;
             _anim.Play("Enter");
+            _creatureSounds.Play(steps, true);
+        }
+
+        public void OnFinishedMovement()
+        {
+            // Dont Make Oneliner
+            _creatureSounds.StopLoop();
         }
 
         public void ResetCreature()
@@ -100,8 +115,21 @@ namespace Controller
             name = "Default";
             CurrentCreature = null;
             Alpha = 0f;
+            _creatureSounds.StopLoop();
         }
 
-        public void Clear(AcceptMode acceptMode) => _anim.Play(acceptMode == AcceptMode.Rejected ? "Drop" : "Exit");
+        public void Clear(AcceptMode acceptMode)
+        {
+            if (acceptMode is AcceptMode.Rejected)
+            {
+                // TODO _creatureSounds.Play(drop, false)
+                _anim.Play( "Drop");
+            }
+            else
+            {
+                _anim.Play( "Exit");
+                _creatureSounds.Play(steps, true);
+            }
+        }
     }
 }

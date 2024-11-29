@@ -25,7 +25,6 @@ Bug:
 - Mann im Schrank
 - StromAusfall
 
-Step = 0,  
 Knocking = 1,  
 PowerOff = 2,  
 TrapdoorStuck = 3,  
