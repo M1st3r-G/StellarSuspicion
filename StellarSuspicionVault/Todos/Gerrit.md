@@ -32,4 +32,6 @@ Weight/Goals:
 - GameOver (Wrong)
 - Unlockables? 
 
+Events have Functions
+
 Feature Cam

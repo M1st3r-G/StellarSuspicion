@@ -76,6 +76,7 @@ namespace Controller.Player
         public override void Possess()
         {
             base.Possess();
+            gameObject.SetActive(true);
             MouseInputManager.Instance.SetCamera(playerCam);
             UIManager.InteractionUI.SetCenterTo(true);
         }
@@ -83,6 +84,7 @@ namespace Controller.Player
         public override void Unpossess()
         {
             base.Unpossess();
+            gameObject.SetActive(false);
             MouseInputManager.Instance.SetInactive();
             UIManager.InteractionUI.SetCenterTo(false);
         }

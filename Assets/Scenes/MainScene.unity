@@ -153,14 +153,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 586600994139892850, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-      propertyPath: m_Name
-      value: AlienSpot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1151282339322813257, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-      propertyPath: m_Name
-      value: LampLight
-      objectReference: {fileID: 0}
     - target: {fileID: 2725435831764648465, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
       propertyPath: m_Name
       value: MainRoom
