@@ -6,13 +6,13 @@ tags:
 Enhancments:
 - UI As Statemachine
 - CameraRoutineOverride
-- Button Lighting When Usable
 - CamaraManager
-
-WontFix:
+- Mann im Schrank
 - UpdownUpDown Lock?
 
 Bug:
+- Font umlaute Ö
+- Durch wände schauen
 
 #todo :
 - More Events
@@ -22,8 +22,14 @@ Bug:
 	- Buttons
 	- Text better formated
 - Gemurmel im Raum
-- Mann im Schrank
+#next-step
 - StromAusfall
+- Mehr Lighting
+- Button Lighting When Usable
 
+Weight/Goals:
+- Highscore (Days)
+- GameOver (Wrong)
+- Unlockables? 
 
 Feature Cam
