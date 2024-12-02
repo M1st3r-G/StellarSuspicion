@@ -25,7 +25,10 @@ Bug:
 	- Text better formated
 	- ScreenTurn Off bei Stromausfall
 - Mehr Lighting
-- Dialogue, Audio
+
+Dialogue Contorller, import Dialogue
+
+Preload Materials for monster
 
 Weight/Goals:
 - Highscore (Days)
