@@ -10,12 +10,12 @@ Feedback Sam:
 Feedback Utz:
 - [ ] Enviromental Storytelling
 - [ ] Gemurmel im Raum
-
-Feedback von Irina:
-- [ ] Der Raum ist sehr leer tasks kann man durch räume/ wände machen 
-- [ ] wenn wir die Monster killen maybe eine Alarm oder rote lichter /schreie 
+---
+- [ ] Leaderboard, Bestzeiten
+- [ ] Enviromental Storytelling
+- [ ] Gemurmel im Raum
+- [ ] wenn wir die Monster killen schreie 
 - [ ] tutorial
-
 ### Feedback Build 2
 Kerstin:
 - [ ] Nur schlecht, alles was nicht schlecht ist ist automatisch gut
@@ -28,3 +28,4 @@ Irina:
 - [ ] mehr Licht (aber das wisst ihr schon)
 - [ ] mehr Sound (aber das wisst ihr schon :))
 - [ ] der mini Kühlschrank braucht eine bessere Lage (den sieht man nicht mal!)
+ 
