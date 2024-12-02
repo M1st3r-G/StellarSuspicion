@@ -12,7 +12,6 @@ Enhancments:
 - Feature Cam
 
 Bug:
-- Font umlaute Ö
 - Durch wände schauen
 
 #todo :
@@ -26,6 +25,7 @@ Bug:
 	- Text better formated
 	- ScreenTurn Off bei Stromausfall
 - Mehr Lighting
+- Dialogue, Audio
 
 Weight/Goals:
 - Highscore (Days)
@@ -35,5 +35,6 @@ Weight/Goals:
 Switch Animation
 
 Events have Functions
-- Generator Already Working
+- Window
+- Trapdoor Event
 
