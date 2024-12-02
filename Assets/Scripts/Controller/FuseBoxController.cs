@@ -1,3 +1,4 @@
+using System;
 using Controller.Actors.Interactable.Events;
 using UnityEngine;
 
@@ -16,13 +17,18 @@ namespace Controller
         private AudioSource loop2;
         [SerializeField] [Tooltip("The Effects")]
         private AudioSource effects;
-    
-        private void Awake()
+
+        public static event Action<bool> OnPowerChangeTo;
+        
+        private void Awake() => TriggerPowerEvent(true);
+
+        private void TriggerPowerEvent(bool running)
         {
-            SetLoopRunning(true);
+            OnPowerChangeTo?.Invoke(running);
+            SetAudioTo(running);
         }
 
-        private void SetLoopRunning(bool running)
+        private void SetAudioTo(bool running)
         {
             if (running)
             {
@@ -35,14 +41,14 @@ namespace Controller
                 loop2.Stop();
             }
         }
-    
+
         public void OnStartEvent()
         {
-            SetLoopRunning(false);
+            TriggerPowerEvent(false);
             effects.Play();
             interaction.StartInteraction();
         }
 
-        public void Finished() => SetLoopRunning(true);
+        public void Finished() => TriggerPowerEvent(true);
     }
 }

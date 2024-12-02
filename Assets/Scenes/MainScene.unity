@@ -336,6 +336,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: lights.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: lights.Array.data[0]
       value: 
       objectReference: {fileID: 2007266140}
@@ -345,6 +349,10 @@ PrefabInstance:
       objectReference: {fileID: 1479856224}
     - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: lights.Array.data[2]
+      value: 
+      objectReference: {fileID: 1490607215}
+    - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: lights.Array.data[3]
       value: 
       objectReference: {fileID: 1490607215}
     - target: {fileID: 3621242351965476416, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
@@ -399,6 +407,10 @@ PrefabInstance:
       propertyPath: playerStand
       value: 
       objectReference: {fileID: 298192317}
+    - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: startStanding
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8132665944091326048, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: window
       value: 

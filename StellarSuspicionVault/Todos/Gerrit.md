@@ -9,6 +9,7 @@ Enhancments:
 - CamaraManager
 - Mann im Schrank
 - UpdownUpDown Lock?
+- Feature Cam
 
 Bug:
 - Font umlaute Ö
@@ -18,14 +19,14 @@ Bug:
 - More Events
 	- Visuall Sound for Tasks
 - Tutorial
+- Gemurmel im Raum
+- Button Lighting When Usable
+#next-step
 - Fix ScreenController
 	- Buttons
 	- Text better formated
-- Gemurmel im Raum
-#next-step
-- StromAusfall
+	- ScreenTurn Off bei Stromausfall
 - Mehr Lighting
-- Button Lighting When Usable
 
 Weight/Goals:
 - Highscore (Days)
@@ -33,5 +34,5 @@ Weight/Goals:
 - Unlockables? 
 
 Events have Functions
+- Generator Already Working
 
-Feature Cam
