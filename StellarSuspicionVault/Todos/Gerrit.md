@@ -20,7 +20,6 @@ Bug:
 	- Visuall Sound for Tasks
 - Tutorial
 - Gemurmel im Raum
-- Button Lighting When Usable
 #next-step
 - Fix ScreenController
 	- Buttons
@@ -32,6 +31,8 @@ Weight/Goals:
 - Highscore (Days)
 - GameOver (Wrong)
 - Unlockables? 
+
+Switch Animation
 
 Events have Functions
 - Generator Already Working
