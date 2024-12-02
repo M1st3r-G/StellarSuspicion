@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830794203767681666}
   - component: {fileID: 6037092333538581778}
+  - component: {fileID: 2950726481405818855}
   - component: {fileID: 8132665944091326048}
   - component: {fileID: 6230366378018188666}
   - component: {fileID: 7130360158209713221}
@@ -165,6 +166,25 @@ MonoBehaviour:
   savingString: /Scripts/Extern/Gradients/Generated/
   width: 256
   height: 64
+--- !u!114 &2950726481405818855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741363777618056504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf979c73da3b4914a14f337a3cad7b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  glowingMaterials:
+  - {fileID: 2100000, guid: e94152ee90d5e5743b9c8c77927b6da7, type: 2}
+  - {fileID: 2100000, guid: 7d8e9e2cbe14b284ab0384d0dd244574, type: 2}
 --- !u!114 &8132665944091326048
 MonoBehaviour:
   m_ObjectHideFlags: 0

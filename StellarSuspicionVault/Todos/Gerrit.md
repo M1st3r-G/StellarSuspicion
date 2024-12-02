@@ -25,9 +25,5 @@ Bug:
 - Mann im Schrank
 - StromAusfall
 
-PowerOff = 2,  
-TrapdoorStuck = 3,  
-EnemyFall = 4,  
-DoorCreak = 5,  
-ButtonClick = 6,  
-Accept = 7
+
+Feature Cam
