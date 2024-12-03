@@ -18,7 +18,7 @@ namespace Controller.Actors.Interactable.Buttons
         {
             Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
 
-            GameManager.ResolveCreature(AcceptMode.Rejected, GameManager.Creature.CurrentCreature.Value);
+            GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature.CurrentCreature.Value);
             
             buttonNext.SetInteractionTo(true);
             SetInteractionTo(false);
