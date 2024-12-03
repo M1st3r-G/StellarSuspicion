@@ -12,9 +12,6 @@ Enhancments:
 - Feature Cam
 - Preload Materials for monster
 
-Bug:
-- Durch wände schauen
-
 #todo :
 - More Events
 	- Visuall Sound for Tasks
@@ -37,4 +34,6 @@ Switch Animation
 
 Events need Functions
 - Window
+
+Lerp Light
 
