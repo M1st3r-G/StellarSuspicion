@@ -2,7 +2,7 @@
 
 namespace Data
 {
-    [CreateAssetMenu(fileName = "CreaturePart", menuName = "Data", order = 1)]
+    [CreateAssetMenu(fileName = "CreaturePart", menuName = "Data/CreaturePart")]
     public class CreaturePartAsset : ScriptableObject
     {
         public Part part;

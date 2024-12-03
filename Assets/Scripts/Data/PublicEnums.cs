@@ -36,10 +36,4 @@
         Body,
         Gear
     }
-
-    public enum AcceptMode
-    {
-        Rejected = -1,
-        Allowed = 1
-    }
 }

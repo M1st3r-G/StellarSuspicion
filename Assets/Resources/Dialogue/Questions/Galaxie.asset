@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34054e6369b148e381218a9a40bfc9ad, type: 3}
+  m_Name: Galaxie
+  m_EditorClassIdentifier: 
+  question: Aus welcher Galaxie sind sie hergereist?
+  answers:
+  - name: "Die Milchstra\xDFe, hier bin ich geboren und wahnsinnig stolz darauf."
+    rating: 1
+  - name: "\xD6hm....die Milkstra\xDFe?"
+    rating: -1
+  - name: "Milchstra\xDFe?"
+    rating: -1
+  - name: Sagittarius.
+    rating: 1
+  - name: Coma Berenices.
+    rating: 1
+  - name: Ursa Minor.
+    rating: 1
+  - name: "Alsooo....\xE4hm.....Ursa Miner?"
+    rating: -1
+  - name: "Bo\xF6tes."
+    rating: 1
+  - name: Draco.
+    rating: 1
+  - name: Dracu?
+    rating: -1
+  - name: Sculptor.
+    rating: -1
+  - name: Fornax.
+    rating: -1

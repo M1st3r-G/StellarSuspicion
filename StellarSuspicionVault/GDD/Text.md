@@ -17,8 +17,6 @@ Mein Lieber
 -Halli Hallo (Ansprechsart) Ich bin hier fürs Boarding.
 -Tagchen (Ansprechsart), Können wir das schnell hinter uns bringen? ich kanns kaum abwarten.
 
-
-
 **Für tutorial 
 
 -Aliens werden versuchen zu lügen um reinzukommen aber sind meist leicht durchschaubar

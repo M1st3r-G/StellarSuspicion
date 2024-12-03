@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34054e6369b148e381218a9a40bfc9ad, type: 3}
+  m_Name: Anlass
+  m_EditorClassIdentifier: 
+  question: Was ist ihr Anlass herzukommen?
+  answers:
+  - name: Familie
+    rating: 1
+  - name: Eh...Familien?
+    rating: -1
+  - name: "Die sch\xF6nen Orte"
+    rating: 1
+  - name: Das Essen
+    rating: 1
+  - name: Menschenschreie tun mir gut :)
+    rating: -1
+  - name: Eine einfache Entspannungsreise
+    rating: 1
+  - name: Ein einfacher Urlaub
+    rating: 1
+  - name: Ehm...uh....Urlaub?
+    rating: -1

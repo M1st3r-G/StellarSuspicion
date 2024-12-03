@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Data;
+using Data.Dialogue;
 using TMPro;
 using UnityEngine;
 
@@ -6,7 +8,10 @@ namespace Controller.UI
 {
     public class DialogueUIController : MonoBehaviour
     {
-        [Header("References")]
+        [Header("References")] 
+        [SerializeField] [Tooltip("The Questions to Ask")]
+        private List<DialogueQuestionAsset> questions;
+        
         [SerializeField] [Tooltip("This is the Text Box for Dialogue")]
         private TextMeshProUGUI textBox;
         
