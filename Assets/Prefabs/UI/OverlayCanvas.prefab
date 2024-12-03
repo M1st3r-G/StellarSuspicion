@@ -48,6 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d13b92778d61940ac08600dc209cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questions:
+  - {fileID: 11400000, guid: 1b4559d895606ef458c9ccbbe0c6969c, type: 2}
+  - {fileID: 11400000, guid: c2292f1050e502142817529ab7e4bf63, type: 2}
+  - {fileID: 11400000, guid: a79797040aaa5ca4793640c590d35e7d, type: 2}
+  greetings: {fileID: 11400000, guid: 86d20081f33547e45a56cfa4f06f839b, type: 2}
+  goodExit: {fileID: 11400000, guid: 947681249aedc564ebeb90197526531f, type: 2}
+  evilExit: {fileID: 11400000, guid: 4476e7d05ca9203448690e95c2380ba3, type: 2}
+  goodEject: {fileID: 11400000, guid: 13c22f99499456f4e8ed3fbdd518f888, type: 2}
+  evilEject: {fileID: 11400000, guid: d3492c77bebe1ab4e86d9b427398823d, type: 2}
   textBox: {fileID: 0}
 --- !u!1 &3358390617829749567
 GameObject:

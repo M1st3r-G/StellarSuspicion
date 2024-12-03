@@ -11,28 +11,24 @@ namespace Controller.UI
         [Header("References")] 
         [SerializeField] [Tooltip("The Questions to Ask")]
         private List<DialogueQuestionAsset> questions;
-        
+
+        [SerializeField] private GreetingInteraction greetings;
+
+        [SerializeField] private AlienBaseInteractionAsset goodExit;
+        [SerializeField] private AlienBaseInteractionAsset evilExit;
+        [SerializeField] private AlienBaseInteractionAsset goodEject;
+        [SerializeField] private AlienBaseInteractionAsset evilEject;
+
+
         [SerializeField] [Tooltip("This is the Text Box for Dialogue")]
         private TextMeshProUGUI textBox;
         
-        public void ShowInteraction(CreatureAction interaction, CreatureData? currentCreature, bool success = false)
+        public void ShowGreeting() => SetText(greetings.GetLine());
+        
+        public void ShowResolution(CreatureAction interaction, bool success)
         {
-            switch (interaction)
-            {
-                case CreatureAction.Hello:
-                    SetText($"Glorb blorb bla: {currentCreature?.Name}!");
-                    break;
-                case CreatureAction.Talk:
-                case CreatureAction.Exit:
-                    SetText(success ? "Vielen Dank" : "Ich werde ihre Kinder essen");
-                    break;
-                case CreatureAction.Die:
-                    SetText(success ? "Woher wussten sie es?" : "Aber ich bin unschuldig!");
-                    break;
-                default:
-                    SetText("Not Set Yet!");
-                    break;
-            }
+            if (interaction is CreatureAction.Exit) SetText(success ? goodExit.GetLine() : evilExit.GetLine());
+            else SetText(success ? evilEject.GetLine() : goodEject.GetLine());
         }
 
         private void SetText(string text) => textBox.text = text;

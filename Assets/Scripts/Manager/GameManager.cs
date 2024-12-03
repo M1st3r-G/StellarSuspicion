@@ -72,7 +72,7 @@ namespace Manager
             success =  (acceptAction == CreatureAction.Die ? -1 : 1) * (int)creatureAlignment > 0;
      
             Debug.LogWarning("Creature rating was " + (success ? "correct" : "incorrect"));
-            UIManager.Dialogue.ShowInteraction(acceptAction, default, success);
+            UIManager.Dialogue.ShowResolution(acceptAction, success);
             Creature.Clear(acceptAction, success);
         }
 

@@ -42,7 +42,7 @@ namespace Controller.Creature
         {
             if (!IsVisible) _creatureRenderer.SetVisibility(true);
             name = creature.Name;
-            UIManager.Dialogue.ShowInteraction(CreatureAction.Hello, _currentCreature);
+            UIManager.Dialogue.ShowGreeting();
             CurrentCreature = creature;
             
             _anim.Play("Enter");
