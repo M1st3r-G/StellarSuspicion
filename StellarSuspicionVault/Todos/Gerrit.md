@@ -26,7 +26,6 @@ Bug:
 
 Dialogue Contorller, import Dialogue
 
-
 Weight/Goals:
 - Highscore (Days)
 - GameOver (Wrong)
