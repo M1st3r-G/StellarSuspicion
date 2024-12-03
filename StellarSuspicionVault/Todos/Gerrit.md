@@ -31,9 +31,10 @@ Weight/Goals:
 - GameOver (Wrong)
 - Unlockables? 
 
+Skydome
+
 Switch Animation
 
-Events have Functions
+Events need Functions
 - Window
-- Trapdoor Event
 
