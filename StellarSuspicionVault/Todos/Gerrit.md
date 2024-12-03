@@ -24,8 +24,7 @@ tags:
 - Fix ScreenController
 	- Buttons
 	- Text better formated
-- Dialogue Contorller
-	- Add Questions
+- Add Goodness to Quesitnos
 - Weight:
 	- Highscore (Days)
 

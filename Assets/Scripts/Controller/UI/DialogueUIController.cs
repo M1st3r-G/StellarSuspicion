@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using Controller.Actors.Interactable.Table;
 using Data;
 using Data.Dialogue;
 using Extern;
 using Manager;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Controller.UI
@@ -70,12 +68,11 @@ namespace Controller.UI
         
         public void ButtonPressed(int index)
         {
-            Debug.LogWarning($"Answer: {questions[index].Answer}");
+            SetText(questions[index].Answer);
             optionTexts[index].transform.parent.parent.gameObject.SetActive(false);
             _myGroup.SetGroupActive(false);
             
-            //ToDo Sinnvoll das hier zu tun? 
-            GameManager.Creature.Voice.PlayerInteraction(CreatureAction.Talk);
+            GameManager.Creature.Voice.PlaySentence(index);
             if (optionTexts.Any(t => t.transform.parent.parent.gameObject.activeSelf)) GameManager.Mic.SetInteractionTo(true);
         }
     }

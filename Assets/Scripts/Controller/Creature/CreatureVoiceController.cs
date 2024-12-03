@@ -1,5 +1,4 @@
 ﻿using Data;
-using Manager;
 using UnityEngine;
 
 namespace Controller.Creature
@@ -16,14 +15,8 @@ namespace Controller.Creature
 
         private CreatureVoiceLine? _currentVoiceLine;
         
-        public void PlayerInteraction(CreatureAction action)
-        {
-            Debug.Assert(_currentVoiceLine != null);
-            // Only Hello and Talk
-            creatureVoice.PlayOneShot(action is CreatureAction.Hello
-                ? _currentVoiceLine?.Hello
-                : _currentVoiceLine?.Sentence);
-        }
+        public void PlayerHello() => creatureVoice.PlayOneShot(_currentVoiceLine?.Hello);
+        public void PlaySentence(int index) => creatureVoice.PlayOneShot(_currentVoiceLine?.GetSentence(index));
         
         public void StartSteps()
         {

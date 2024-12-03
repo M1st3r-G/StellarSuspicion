@@ -47,7 +47,7 @@ namespace Controller.Creature
             
             _anim.Play("Enter");
             Voice.StartSteps();
-            Voice.PlayerInteraction(CreatureAction.Hello);
+            Voice.PlayerHello();
             
             GameManager.Mic.SetInteractionTo(true); //TODO only when Neutral? 
             Debug.Log($"This Creature is {CurrentCreature?.IsGood()}");
@@ -66,6 +66,8 @@ namespace Controller.Creature
             _creatureRenderer.SetVisibility(false);
             
             Voice.StopSounds();
+            
+            GameManager.Mic.SetInteractionTo(false);
         }
 
         public void Clear(CreatureAction exitAction, bool success)
