@@ -13,7 +13,7 @@ namespace Controller.Creature
         private CreatureData? _currentCreature;
         private CreatureRenderer _creatureRenderer;
         private Animator _anim;
-        private CreatureVoiceController _creatureVoice;
+        public CreatureVoiceController Voice { get; private set; }
 
         public CreatureData? CurrentCreature
         {
@@ -22,7 +22,7 @@ namespace Controller.Creature
             {
                 _currentCreature = value;
                 _creatureRenderer.SetRenderer(_currentCreature);
-                _creatureVoice.SetVoice(_currentCreature?.VoiceLine);
+                Voice.SetVoice(_currentCreature?.VoiceLine);
             }
         }
 
@@ -33,7 +33,7 @@ namespace Controller.Creature
         public void Awake()
         {
             _anim = GetComponent<Animator>();
-            _creatureVoice = GetComponent<CreatureVoiceController>();
+            Voice = GetComponent<CreatureVoiceController>();
             _creatureRenderer = GetComponent<CreatureRenderer>();
             _creatureRenderer.SetVisibility(false);
         }
@@ -46,12 +46,14 @@ namespace Controller.Creature
             CurrentCreature = creature;
             
             _anim.Play("Enter");
-            _creatureVoice.StartSteps();
-            _creatureVoice.PlayerInteraction(CreatureAction.Hello);
+            Voice.StartSteps();
+            Voice.PlayerInteraction(CreatureAction.Hello);
+            
+            GameManager.Mic.SetInteractionTo(true); //TODO only when Neutral? 
             Debug.Log($"This Creature is {CurrentCreature?.IsGood()}");
         }
 
-        public void OnFinishedMovement() => _creatureVoice.StopSounds();
+        public void OnFinishedMovement() => Voice.StopSounds();
 
         public void ResetCreature()
         {
@@ -63,15 +65,15 @@ namespace Controller.Creature
             CurrentCreature = null;
             _creatureRenderer.SetVisibility(false);
             
-            _creatureVoice.StopSounds();
+            Voice.StopSounds();
         }
 
         public void Clear(CreatureAction exitAction, bool success)
         {
             _anim.Play(exitAction is CreatureAction.Exit ? "Exit" : "Drop");
 
-            if (exitAction is CreatureAction.Exit) _creatureVoice.StartSteps();
-            _creatureVoice.PlayResolution(exitAction, success);
+            if (exitAction is CreatureAction.Exit) Voice.StartSteps();
+            Voice.PlayResolution(exitAction, success);
         }
 
         public void SetVisibility(bool on) => _creatureRenderer.SetVisibility(on);

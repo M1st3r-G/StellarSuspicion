@@ -1,4 +1,5 @@
 ﻿using Data;
+using Manager;
 using UnityEngine;
 
 namespace Controller.Creature

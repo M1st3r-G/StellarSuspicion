@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using Controller.Actors.Interactable.Table;
 using Data;
 using Data.Dialogue;
 using Extern;
+using Manager;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Controller.UI
@@ -26,8 +29,6 @@ namespace Controller.UI
         private TextMeshProUGUI textBox;
 
         [SerializeField] private List<TextMeshProUGUI> optionTexts;
-
-        [SerializeField] private MicrophoneInteractController mic;
         
         private CanvasGroup _myGroup;
         
@@ -73,8 +74,9 @@ namespace Controller.UI
             optionTexts[index].transform.parent.parent.gameObject.SetActive(false);
             _myGroup.SetGroupActive(false);
             
-            //ToDo Sinvoll das hier zu tun? 
-            mic.SetInteractionTo(true);
+            //ToDo Sinnvoll das hier zu tun? 
+            GameManager.Creature.Voice.PlayerInteraction(CreatureAction.Talk);
+            if (optionTexts.Any(t => t.transform.parent.parent.gameObject.activeSelf)) GameManager.Mic.SetInteractionTo(true);
         }
     }
 }

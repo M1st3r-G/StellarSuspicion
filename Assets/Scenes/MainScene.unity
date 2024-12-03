@@ -431,8 +431,8 @@ PrefabInstance:
       propertyPath: window
       value: 
       objectReference: {fileID: 1875760219}
-    - target: {fileID: 8620418192823553222, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: mic
+    - target: {fileID: 8132665944091326048, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: microphoneInteraction
       value: 
       objectReference: {fileID: 2076034532}
     - target: {fileID: 8620418192823553222, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}

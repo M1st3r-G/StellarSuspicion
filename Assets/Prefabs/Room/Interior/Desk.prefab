@@ -3123,7 +3123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 1.25
-  startEnabled: 1
+  startEnabled: 0
 --- !u!1 &8128020569872523209
 GameObject:
   m_ObjectHideFlags: 0

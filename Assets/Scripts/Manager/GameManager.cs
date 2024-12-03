@@ -1,6 +1,7 @@
 using System;
 using Controller;
 using Controller.Actors;
+using Controller.Actors.Interactable.Table;
 using Controller.Creature;
 using Data;
 using Extern;
@@ -14,7 +15,11 @@ namespace Manager
         [Header("References")]
         [SerializeField] [Tooltip("The Window With the Monsters")]
         private WindowController window;
-        
+
+        [SerializeField] [Tooltip("The Microphone")]
+        private MicrophoneInteractController microphoneInteraction;
+
+        public static MicrophoneInteractController Mic => Instance.microphoneInteraction;
         public static WindowController Window => Instance.window;
         public static CreatureController Creature => Instance.window.Creature;
         
