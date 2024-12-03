@@ -1,5 +1,4 @@
-﻿using UnityEditor.AssetImporters;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Controller.Actors.Interactable.Events
 {

@@ -3,38 +3,29 @@ owner: programmer
 tags:
   - todo
 ---
-Enhancments:
+#### Enhancments:
 - UI As Statemachine
 - CameraRoutineOverride
 - CamaraManager
 - Mann im Schrank
 - UpdownUpDown Lock?
 - Feature Cam
-
-Bug:
-- Durch wände schauen
+- Preload Materials for monster
+- Lerp Light
+### Main
 
 #todo :
 - More Events
 	- Visuall Sound for Tasks
 - Tutorial
-- Gemurmel im Raum
+ - Skydome
+
 #next-step
 - Fix ScreenController
 	- Buttons
 	- Text better formated
-	- ScreenTurn Off bei Stromausfall
-- Mehr Lighting
-- Dialogue, Audio
-
-Weight/Goals:
-- Highscore (Days)
-- GameOver (Wrong)
-- Unlockables? 
-
-Switch Animation
-
-Events have Functions
-- Window
-- Trapdoor Event
+- Dialogue Contorller
+	- Add Questions
+- Weight:
+	- Highscore (Days)
 

@@ -13,13 +13,21 @@ namespace Controller.Actors.Interactable.Buttons
         [FormerlySerializedAs("buttonSkip")] [SerializeField] [Tooltip("The Other Button")]
         private ButtonNextInteract buttonNext;
 
+        [SerializeField] [Tooltip("The Trapdoor Controller")]
+        private TrapdoorController trapdoor;
         
         protected override void OnButtonDown()
         {
             Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
 
-            GameManager.ResolveCreature(AcceptMode.Rejected, GameManager.Creature.CurrentCreature.Value);
+            if (trapdoor.IsBlocked)
+            {   
+                AudioManager.PlayEffect(AudioEffect.Error, transform.position);
+                return;
+            }
             
+            GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature.CurrentCreature.Value);
+            AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
             buttonNext.SetInteractionTo(true);
             SetInteractionTo(false);
             buttonEnter.SetInteractionTo(false);

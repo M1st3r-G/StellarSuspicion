@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Controller;
 using UnityEngine;
 
@@ -6,9 +7,7 @@ namespace Manager
 {
     public class LightManager : MonoBehaviour
     {
-        [SerializeField] List<Light> lights;
         [SerializeField] List<Material> glowingMaterials;
-        // Screen Manages itself
         
         private static LightManager _instance;
 
@@ -26,9 +25,13 @@ namespace Manager
             FuseBoxController.OnPowerChangeTo += LightsToState;
         }
 
+        private void OnDestroy()
+        {
+            if(_instance == this) _instance = null;
+        }
+
         public static void LightsToState(bool on)
         {
-            foreach (Light l in _instance.lights) l.enabled = on;
             foreach (Material m in _instance.glowingMaterials)
             {
                 if(on) m.EnableKeyword("_EMISSION");

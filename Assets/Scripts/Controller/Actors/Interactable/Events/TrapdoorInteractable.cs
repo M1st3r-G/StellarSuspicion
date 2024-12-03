@@ -1,4 +1,7 @@
-﻿namespace Controller.Actors.Interactable.Events
+﻿using Data;
+using Manager;
+
+namespace Controller.Actors.Interactable.Events
 {
     public class TrapdoorInteractable : InteractableBase
     {
@@ -12,6 +15,7 @@
         
         protected override void TriggerInteraction()
         {
+            AudioManager.PlayEffect(AudioEffect.TrapdoorStuck, transform.position);
             _parent.SetOpen(false);
             SetInteractionTo(false);
         }

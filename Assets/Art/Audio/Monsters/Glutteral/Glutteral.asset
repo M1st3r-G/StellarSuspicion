@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496dfcd69d464a74a2aa55031f8adc3b, type: 3}
+  m_Name: Glutteral
+  m_EditorClassIdentifier: 
+  hello:
+  - {fileID: 8300000, guid: ba01a11a14f98dc4f9d78687b9879174, type: 3}
+  - {fileID: 8300000, guid: c67024f62331a3a478d6a162335fb564, type: 3}
+  - {fileID: 8300000, guid: a26a5f477e8e3954bb7aa737c5ae4842, type: 3}
+  - {fileID: 8300000, guid: 3299dee0ebaf4ee40a33a75a5f0297d0, type: 3}
+  sentence:
+  - {fileID: 8300000, guid: 17c7c5bef00fc424b8d2a23fdc2d08a0, type: 3}
+  - {fileID: 8300000, guid: 8cc6e37fe9495e043a00f3cd983adfec, type: 3}
+  - {fileID: 8300000, guid: c27ef58a02dbf7043801ace6fafa3cc1, type: 3}
+  - {fileID: 8300000, guid: 50007d85c9a6ab542acaf5bb3228bec4, type: 3}
+  - {fileID: 8300000, guid: 16b18f166243d174f8f5902f8bf2fac1, type: 3}
+  - {fileID: 8300000, guid: 280a99552cc68f543a3456f76fc6b2a7, type: 3}
+  thanks:
+  - {fileID: 8300000, guid: aaa1e4d0500db6848af6534f57985671, type: 3}
+  - {fileID: 8300000, guid: 85ba6fbd0643f984fab452d5c747e9d3, type: 3}
+  - {fileID: 8300000, guid: ff0d6bf8c3c24694e9ea78e82c135b6c, type: 3}
+  - {fileID: 8300000, guid: 10f50e6cf21af1441a46a58bab126a34, type: 3}
+  kill:
+  - {fileID: 8300000, guid: 99c1b15fbcdfbad4f9d99ac3e31aea2b, type: 3}
+  - {fileID: 8300000, guid: a361dd819c4f34949ab57f273c65ca11, type: 3}
+  death:
+  - {fileID: 8300000, guid: f17728286958a3642aab31b41aff7013, type: 3}
+  - {fileID: 8300000, guid: 1e0e34257ba1c0a4f8cff910567d20d7, type: 3}
+  - {fileID: 8300000, guid: 8199a289e41565b44b6ca73a713f49ca, type: 3}
+  - {fileID: 8300000, guid: ad96adae025abf64f98a4ba27dce2985, type: 3}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496dfcd69d464a74a2aa55031f8adc3b, type: 3}
+  m_Name: Soft
+  m_EditorClassIdentifier: 
+  hello:
+  - {fileID: 8300000, guid: f90cbe4e1a940894e94421f3275775c1, type: 3}
+  - {fileID: 8300000, guid: c7e93813e8a5ebf4a8e8f5da752b0ee4, type: 3}
+  - {fileID: 8300000, guid: d98ff7822c5a32e4ebe193772640273b, type: 3}
+  sentence:
+  - {fileID: 8300000, guid: 8a1075307da80b146b8de3a64d95de0f, type: 3}
+  thanks:
+  - {fileID: 8300000, guid: e3cd6487a290d7340b3e50b71c858a92, type: 3}
+  - {fileID: 8300000, guid: 84aca50638ed5d9438fdc330f67ed250, type: 3}
+  kill:
+  - {fileID: 8300000, guid: 4dada4e8116ec99419c9431d7f21bcf8, type: 3}
+  death:
+  - {fileID: 8300000, guid: 63a5724779adae446ac7ef567ae19895, type: 3}
+  - {fileID: 8300000, guid: 71f693b77bcb5ef449612fbdc942101d, type: 3}

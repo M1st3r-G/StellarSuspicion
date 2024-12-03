@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34054e6369b148e381218a9a40bfc9ad, type: 3}
+  m_Name: Diet
+  m_EditorClassIdentifier: 
+  question: "Was ist ihre Di\xE4t?"
+  answers:
+  - name: "Ausschlie\xDFlich pflanzen."
+    rating: 1
+  - name: Fleisch, aber ich koste nicht an hoch-kognitiven Wesen!
+    rating: 1
+  - name: Ich bin Omnivore, genau wie sie, doch ich bin hier um ihre Meeresspeisen
+      zu kosten.
+    rating: 1
+  - name: Fleisch.
+    rating: -1
+  - name: Pflanzen.
+    rating: 1
+  - name: "\xD6hm....Pflanzen?"
+    rating: -1
+  - name: Ich bin Pilz Connoisseur.
+    rating: 1
+  - name: "Ich esse ausschlie\xDFlich zartes Fleisch."
+    rating: -1
+  - name: "Ich esse ausschlie\xDFlich Meerestiere."
+    rating: 1
+  - name: Ich mag es an Armen rum zu kauen :)
+    rating: -1

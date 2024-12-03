@@ -250,7 +250,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -633,11 +633,10 @@ GameObject:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2280714180125472}
-  - component: {fileID: 3513805641921472481}
-  - component: {fileID: 640794107454848903}
-  - component: {fileID: 5850612256324843569}
+  - component: {fileID: 2528784271923316353}
+  - component: {fileID: 4518978206739162116}
+  - component: {fileID: 7732418670117462953}
+  - component: {fileID: 4440646678034036520}
   m_Layer: 0
   m_Name: ashtray
   m_TagString: Untagged
@@ -713,8 +712,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5850612256324843569
-BoxCollider:
+--- !u!114 &4440646678034036520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7754237662381840980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6851c311f14bc3986cd6ec76e62633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 986274758207327360}
+  glowingMaterials: []
+--- !u!1 &8128020569872523209
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

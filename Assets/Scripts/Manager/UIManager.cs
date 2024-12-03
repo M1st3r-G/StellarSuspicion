@@ -21,13 +21,9 @@ namespace Manager
         private DialogueUIController dialogueUIController;
         private CanvasGroup _settingsGroup;
         
-        [Header("Parameters")]
-        [SerializeField] [Tooltip("Whether the Menus start Visible")]
-        private bool pauseStartVisible;
+        [SerializeField][Tooltip("A refrence to the Gameover UI Element")]
+        private GameOverUIController gameOverUIController;
         
-        [SerializeField] [Tooltip("Whether the Settings Menus start Visible")]
-        private bool settingsStartVisible;
-
         // Publics
         public static UIManager Instance;
         public static InteractUIController InteractionUI => Instance.interactUIController;
@@ -53,6 +49,7 @@ namespace Manager
         {
             Settings.SetMenuActive(false);
             PauseMenu.SetMenuActive(false);
+            gameOverUIController.Hide();
         }
 
         #endregion

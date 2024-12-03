@@ -74,7 +74,7 @@ namespace Manager
                 yield return new WaitForSeconds(nextWaitTime);
                 
                 // Trigger Event
-                Debug.LogError($"Event {maxEvents - _eventsLeft} started");
+                Debug.Log($"Event {maxEvents - _eventsLeft} started");
                 TriggerRandomEvent();
                 _eventsLeft -= 1;
             }

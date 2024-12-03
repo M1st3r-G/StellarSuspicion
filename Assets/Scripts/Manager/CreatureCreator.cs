@@ -15,6 +15,9 @@ namespace Manager
         [SerializeField] [Tooltip("A list of all the Possible Names")]
         private List<string> names;
         
+        [SerializeField] [Tooltip("A list of all the Possible Creature Voices")]
+        private List<CreatureVoiceAsset> voices;
+        
         private readonly Dictionary<CreatureComponentType, CreaturePartAsset[]> _allParts = new();
 
         // Temps/States
@@ -89,7 +92,23 @@ namespace Manager
 
         private CreatureData GetRandom() 
             => new(GetRandomName(),GetRandomBundle(),
-            GetRandomColor());
+            GetRandomColor(), GetRandomVoice());
+
+        public static CreatureData GetEvil() =>
+            new("evil", new PartBundle(
+                GetEvilPart(CreatureComponentType.Mouth),
+                GetEvilPart(CreatureComponentType.Eye),
+                GetEvilPart(CreatureComponentType.Nose),
+                GetEvilPart(CreatureComponentType.Body),
+                GetEvilPart(CreatureComponentType.Head),
+                GetEvilPart(CreatureComponentType.Gear)
+            ), _instance.colors[0], _instance.voices[0].GetVoiceLine());
+
+        private static Part GetEvilPart(CreatureComponentType type)
+        {
+            CreaturePartAsset tmp =  _instance._allParts[type].FirstOrDefault(p => p.part.goodness < 0);
+            return tmp?.part ?? _instance._allParts[type].First().part;
+        }
 
         #region Utils
 
@@ -97,6 +116,8 @@ namespace Manager
             => _allParts[type][Random.Range(0, _allParts[type].Length)].part;
         private string GetRandomName() => names[Random.Range(0, names.Count)];
         private Material GetRandomColor() => colors[Random.Range(0, colors.Count)];
+        
+        private CreatureVoiceLine GetRandomVoice() => voices[Random.Range(0, voices.Count)].GetVoiceLine();
         
         private PartBundle GetRandomBundle() => new(
             GetRandomPart(CreatureComponentType.Mouth), 

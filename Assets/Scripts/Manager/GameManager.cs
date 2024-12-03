@@ -1,6 +1,7 @@
 using System;
 using Controller;
 using Controller.Actors;
+using Controller.Creature;
 using Data;
 using Extern;
 using UnityEngine;
@@ -22,7 +23,13 @@ namespace Manager
         public int Rating { get; private set; }
         private int GetRightAmount => (MonstersAmount + Rating) / 2;
         private int GetWrongAmount => (MonstersAmount - Rating) / 2;
+        public int Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
+        private static bool success;
         
+        private static int score;
+        
+
+        private static int fatalErrors;
         // Public
         public static GameManager Instance;
         
@@ -56,19 +63,28 @@ namespace Manager
 
         #endregion
 
-        public static void ResolveCreature(AcceptMode acceptMode, CreatureData creature)
+        public static void ResolveCreature(CreatureAction acceptAction, CreatureData creature)
         {
             CreatureAlignment creatureAlignment = creature.IsGood();
             if (creatureAlignment is CreatureAlignment.Neutral)
                 creatureAlignment = Random.Range(0f, 1f) > 0.5f ? CreatureAlignment.Good : CreatureAlignment.Evil;
 
+            success =  (acceptAction == CreatureAction.Die ? -1 : 1) * (int)creatureAlignment > 0;
+     
+            Debug.Log("Creature rating was " + (success ? "correct" : "incorrect"));
+            UIManager.Dialogue.ShowResolution(acceptAction, success);
+            Creature.Clear(acceptAction, success);
+        }
+
+        public static void RateCreature(CreatureData creature)
+        {
+            if (!success && creature.IsGood()== CreatureAlignment.Evil)fatalErrors++;
+            if (fatalErrors == 5)GameOverUIController.instance.GameOver(score-5); ;
             Instance.MonstersAmount++;
-            int rating = (int)acceptMode * (int)creatureAlignment;
+            int rating = success ? 1 : -1;
             Instance.Rating += rating;
-            
-            Debug.LogWarning("Creature rating was " + (rating > 0.5f ? "corrent" : "incorrect"));
-            
-            UIManager.Dialogue.ShowResolution(acceptMode, rating > 0);
+            score++;
+            Debug.LogWarning("Total Rating: " + Instance.Rating +", Total Fatal Errors: " + fatalErrors);
         }
     }
 }

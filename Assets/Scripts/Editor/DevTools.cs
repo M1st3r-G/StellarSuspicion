@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using Data;
+using Manager;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,8 +13,6 @@ namespace Editor
         private void OnGUI()
         {
             GUI.enabled = Application.isPlaying;
-            
-            GUILayout.Label("Runtime", EditorStyles.centeredGreyMiniLabel);
             
             GUILayout.Label("TimeAndEventManager");
 
@@ -40,17 +39,11 @@ namespace Editor
             }
             GUILayout.EndHorizontal();
             
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Sounds");
-            if (GUILayout.Button("Lights On"))
-            {
-                LightManager.LightsToState(true);
-            }
-            if (GUILayout.Button("Lights Off"))
-            {
-                LightManager.LightsToState(false);
-            }
-            GUILayout.EndHorizontal();
+            if (GUILayout.Button("Test Audio")) AudioManager.PlayEffect(AudioEffect.Knocking, new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-1.5f, 1.5f)));
+
+            if (GUILayout.Button("Spawn Evil"))GameManager.Creature.SetToCreature(CreatureCreator.GetEvil());
+            
+            if(GUILayout.Button("GameOver"))GameOverUIController.instance.GameOver(10);
         }
     }
 }

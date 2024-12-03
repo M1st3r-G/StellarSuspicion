@@ -1,4 +1,5 @@
 using System.Collections;
+using Controller.Creature;
 using UnityEngine;
 
 namespace Controller.Actors

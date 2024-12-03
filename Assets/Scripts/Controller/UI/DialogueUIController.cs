@@ -1,5 +1,6 @@
+using System.Collections.Generic;
 using Data;
-using Manager;
+using Data.Dialogue;
 using TMPro;
 using UnityEngine;
 
@@ -7,27 +8,29 @@ namespace Controller.UI
 {
     public class DialogueUIController : MonoBehaviour
     {
-        [Header("References")]
+        [Header("References")] 
+        [SerializeField] [Tooltip("The Questions to Ask")]
+        private List<DialogueQuestionAsset> questions;
+
+        [SerializeField] private GreetingInteraction greetings;
+
+        [SerializeField] private AlienBaseInteractionAsset goodExit;
+        [SerializeField] private AlienBaseInteractionAsset evilExit;
+        [SerializeField] private AlienBaseInteractionAsset goodEject;
+        [SerializeField] private AlienBaseInteractionAsset evilEject;
+
+
         [SerializeField] [Tooltip("This is the Text Box for Dialogue")]
         private TextMeshProUGUI textBox;
         
-        public void SetText(string text) => textBox.text = text;
-
-        private void ShowEnterLine(bool successful)
+        public void ShowGreeting() => SetText(greetings.GetLine());
+        
+        public void ShowResolution(CreatureAction interaction, bool success)
         {
-            textBox.text = successful ? "Vielen Dank" : "Ich werde ihre Kinder essen";
+            if (interaction is CreatureAction.Exit) SetText(success ? goodExit.GetLine() : evilExit.GetLine());
+            else SetText(success ? evilEject.GetLine() : goodEject.GetLine());
         }
 
-        private void ShowDeathLine(bool successful)
-        {
-            textBox.text = successful ? "Woher wussten sie es?" : "Aber ich bin unschuldig!";
-        }
-
-        public void ShowResolution(AcceptMode acceptMode, bool success)
-        {
-            if(acceptMode == AcceptMode.Rejected) ShowDeathLine(success);
-            else ShowEnterLine(success);
-            GameManager.Creature.Clear(acceptMode);
-        }
+        private void SetText(string text) => textBox.text = text;
     }
 }

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496dfcd69d464a74a2aa55031f8adc3b, type: 3}
+  m_Name: Bop
+  m_EditorClassIdentifier: 
+  hello:
+  - {fileID: 8300000, guid: 763b76d064b13284aa8d2032e468a7b1, type: 3}
+  - {fileID: 8300000, guid: 86f51cf3b08c632449c3dd41527442c2, type: 3}
+  - {fileID: 8300000, guid: cec0206ced85b7d4ab33157bf76ecfb4, type: 3}
+  - {fileID: 8300000, guid: 1129a9430c64d2d40a766526b42816c8, type: 3}
+  sentence:
+  - {fileID: 8300000, guid: caf3eb52ed2d96c479c5656d08591a98, type: 3}
+  - {fileID: 8300000, guid: a3a24d25bb9a5cb46b515e78b6b421c3, type: 3}
+  - {fileID: 8300000, guid: 6e280096d3c9c7249a9b8d8e6cd94e83, type: 3}
+  - {fileID: 8300000, guid: 12318c3e06efd2442854b0890a50dc03, type: 3}
+  - {fileID: 8300000, guid: be9f97d159074194cbff088b3d9f1e11, type: 3}
+  - {fileID: 8300000, guid: 97194731cd913b446a6e93bd50ead5a0, type: 3}
+  - {fileID: 8300000, guid: 0aa10d9ec852c3c4bb1a2c3eefaaf2be, type: 3}
+  - {fileID: 8300000, guid: 7dee8b53b4dcbc14eae13a5eb6c91e8d, type: 3}
+  - {fileID: 8300000, guid: 538c02de3f2a78c45854eff603a7db90, type: 3}
+  - {fileID: 8300000, guid: 346d62ce0924c9d4491a58f7d441cd26, type: 3}
+  - {fileID: 8300000, guid: b4a2c10a41f7ab54e9d654465339feb3, type: 3}
+  - {fileID: 8300000, guid: f4e3890de8a343a4eb84957e3560c308, type: 3}
+  - {fileID: 8300000, guid: 3eb644de4b0eccf4c95832ec8ccf4b1b, type: 3}
+  - {fileID: 8300000, guid: 3ea0a52dc59f93e4db40ece07d59906e, type: 3}
+  - {fileID: 8300000, guid: 441830fe87e22154698ee1a55e2c7f82, type: 3}
+  - {fileID: 8300000, guid: 4c088181f1fc07b43adb0c1f73a31f08, type: 3}
+  - {fileID: 8300000, guid: 5a6b82cdd44a5614f9ce1f416a6d447c, type: 3}
+  thanks:
+  - {fileID: 8300000, guid: 7c48b8f4858c08843a934ac1335c91d4, type: 3}
+  - {fileID: 8300000, guid: 1cb1a1a879cb75549a3d8172836e2380, type: 3}
+  - {fileID: 8300000, guid: 86d02144715268c4fba07604d53a3978, type: 3}
+  kill:
+  - {fileID: 8300000, guid: 80805cfb5f7aa9c43b4550c6a5144533, type: 3}
+  - {fileID: 8300000, guid: f0388a832d72dfb4d96561eb1b49fa49, type: 3}
+  - {fileID: 8300000, guid: 6ab92b3bc80ffb840a0239282ee3901b, type: 3}
+  - {fileID: 8300000, guid: f1abfc51fc7ebd944aad1f2cc09c868f, type: 3}
+  - {fileID: 8300000, guid: f615b631633dd9b4586f394bfc7385b7, type: 3}
+  death:
+  - {fileID: 8300000, guid: 4e00c7fae738b7d4cbb03a8867177f1e, type: 3}
+  - {fileID: 8300000, guid: 2739d2efc7fe49b49868e3e3afb34ce7, type: 3}
+  - {fileID: 8300000, guid: 22de76dc1d3c2bd4ebd5596358927eb1, type: 3}
