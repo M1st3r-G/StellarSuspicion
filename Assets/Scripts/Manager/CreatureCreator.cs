@@ -16,7 +16,7 @@ namespace Manager
         private List<string> names;
         
         [SerializeField] [Tooltip("A list of all the Possible Creature Voices")]
-        private List<CreatureVoiceType> voices;
+        private List<CreatureVoiceAsset> voices;
         
         private readonly Dictionary<CreatureComponentType, CreaturePartAsset[]> _allParts = new();
 
@@ -101,7 +101,7 @@ namespace Manager
         private string GetRandomName() => names[Random.Range(0, names.Count)];
         private Material GetRandomColor() => colors[Random.Range(0, colors.Count)];
         
-        private CreatureVoiceType GetRandomVoice() => voices[Random.Range(0, voices.Count)];
+        private CreatureVoiceLine GetRandomVoice() => voices[Random.Range(0, voices.Count)].GetVoiceLine();
         
         private PartBundle GetRandomBundle() => new(
             GetRandomPart(CreatureComponentType.Mouth), 
