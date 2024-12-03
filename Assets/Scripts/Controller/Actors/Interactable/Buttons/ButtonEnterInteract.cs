@@ -16,7 +16,8 @@ namespace Controller.Actors.Interactable.Buttons
         protected override void OnButtonDown()
         {
             Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
-
+            AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
+                
             GameManager.ResolveCreature(CreatureAction.Exit, GameManager.Creature.CurrentCreature.Value);
             buttonKill.SetInteractionTo(false);
             SetInteractionTo(false);

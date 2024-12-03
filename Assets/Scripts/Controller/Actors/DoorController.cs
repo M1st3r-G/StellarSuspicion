@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using Data;
+using Manager;
 using UnityEngine;
 
 namespace Controller.Actors
@@ -23,11 +25,13 @@ namespace Controller.Actors
         private void OnTriggerEnter(Collider other)
         {
             SetDoorOpened(true);
+            AudioManager.PlayEffect(AudioEffect.DoorCreak,transform.position);
         }
 
         private void OnTriggerExit(Collider other)
         {
             SetDoorOpened(false);
+            AudioManager.PlayEffect(AudioEffect.DoorCreak,transform.position);
         }
 
 

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using Controller.Actors.Interactable.Events;
+using Data;
+using Manager;
 using UnityEngine;
 
 namespace Controller.Actors
@@ -29,6 +31,7 @@ namespace Controller.Actors
         public void SetOpenAsEvent()
         {
             SetOpen(true);
+            AudioManager.PlayEffect(AudioEffect.TrapdoorStuck, transform.position);
             _interactable.SetInteractionTo(true);
         }
 

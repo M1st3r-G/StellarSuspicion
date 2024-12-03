@@ -123,28 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &298192317 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8668827284809697893, guid: 5f27539681e23484ba8a2d797ded5fe9, type: 3}
-  m_PrefabInstance: {fileID: 5894674892855268748}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de8840f1c594a70a2de08a6ab3bcd35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &378191135 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3367721588546485209, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-  m_PrefabInstance: {fileID: 757268603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905f80ed024749dab9291e437583468f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &757268603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,6 +234,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 940466647522941760, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 940466647522941760, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 940466647522941760, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1830794203767681666, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -360,14 +350,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: playerSit
-      value: 
-      objectReference: {fileID: 378191135}
-    - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: playerStand
-      value: 
-      objectReference: {fileID: 298192317}
     - target: {fileID: 8132665944091326048, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: window
       value: 

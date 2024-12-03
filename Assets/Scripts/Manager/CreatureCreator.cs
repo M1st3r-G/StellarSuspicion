@@ -94,6 +94,22 @@ namespace Manager
             => new(GetRandomName(),GetRandomBundle(),
             GetRandomColor(), GetRandomVoice());
 
+        public static CreatureData GetEvil() =>
+            new("evil", new PartBundle(
+                GetEvilPart(CreatureComponentType.Mouth),
+                GetEvilPart(CreatureComponentType.Eye),
+                GetEvilPart(CreatureComponentType.Nose),
+                GetEvilPart(CreatureComponentType.Body),
+                GetEvilPart(CreatureComponentType.Head),
+                GetEvilPart(CreatureComponentType.Gear)
+            ), _instance.colors[0], _instance.voices[0].GetVoiceLine());
+
+        private static Part GetEvilPart(CreatureComponentType type)
+        {
+            CreaturePartAsset tmp =  _instance._allParts[type].FirstOrDefault(p => p.part.goodness < 0);
+            return tmp?.part ?? _instance._allParts[type].First().part;
+        }
+
         #region Utils
 
         private Part GetRandomPart(CreatureComponentType type)

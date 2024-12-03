@@ -1,4 +1,5 @@
 using Data;
+using Extern;
 using Manager;
 using UnityEngine;
 
@@ -47,13 +48,18 @@ namespace Controller.Creature
             _anim.Play("Enter");
             _creatureVoice.StartSteps();
             _creatureVoice.PlayerInteraction(CreatureAction.Hello);
+            Debug.LogWarning(CurrentCreature?.IsGood());
         }
 
         public void OnFinishedMovement() => _creatureVoice.StopSounds();
 
         public void ResetCreature()
         {
+            Debug.Assert(CurrentCreature != null, nameof(CurrentCreature) + " != null");
+            
             name = "Default";
+ 
+            GameManager.RateCreature(CurrentCreature.Value);
             CurrentCreature = null;
             _creatureRenderer.SetVisibility(false);
             

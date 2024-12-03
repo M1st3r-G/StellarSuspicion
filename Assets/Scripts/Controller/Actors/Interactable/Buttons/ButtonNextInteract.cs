@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using Data;
+using Manager;
 using UnityEngine;
 
 namespace Controller.Actors.Interactable.Buttons
@@ -15,6 +16,7 @@ namespace Controller.Actors.Interactable.Buttons
         {
             SetInteractionTo(false);
             GameManager.Window.SetWindowOpened(true);
+            AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
 
             Debug.Log("Let New Creature in");
             GameManager.Creature.SetToCreature(CreatureCreator.GetRandomCreature());

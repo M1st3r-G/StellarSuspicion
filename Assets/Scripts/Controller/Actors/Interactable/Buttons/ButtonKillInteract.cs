@@ -21,13 +21,13 @@ namespace Controller.Actors.Interactable.Buttons
             Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
 
             if (trapdoor.IsBlocked)
-            {
+            {   
                 AudioManager.PlayEffect(AudioEffect.Error, transform.position);
                 return;
             }
             
             GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature.CurrentCreature.Value);
-            
+            AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
             buttonNext.SetInteractionTo(true);
             SetInteractionTo(false);
             buttonEnter.SetInteractionTo(false);

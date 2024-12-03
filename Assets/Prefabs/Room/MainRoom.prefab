@@ -668,6 +668,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2561735251481056945}
     m_Modifications:
+    - target: {fileID: 838984112749170907, guid: 2ef417a0ed8ac404fb20479174fcc041, type: 3}
+      propertyPath: trapdoor
+      value: 
+      objectReference: {fileID: 2720032516329474906}
     - target: {fileID: 6196865656702746244, guid: 2ef417a0ed8ac404fb20479174fcc041, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
@@ -855,6 +859,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9077755246061288722, guid: 16e07c8262a9b6c4989efecfc805df89, type: 3}
   m_PrefabInstance: {fileID: 7259221997555105864}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2720032516329474906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4684465835185392402, guid: 16e07c8262a9b6c4989efecfc805df89, type: 3}
+  m_PrefabInstance: {fileID: 7259221997555105864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5970b440bab04bfd80e290e5a7438fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7365236018912840638
 PrefabInstance:
   m_ObjectHideFlags: 0
