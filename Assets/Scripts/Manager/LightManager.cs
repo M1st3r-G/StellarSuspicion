@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Controller;
 using UnityEngine;
 
@@ -22,6 +23,11 @@ namespace Manager
             _instance = this;
 
             FuseBoxController.OnPowerChangeTo += LightsToState;
+        }
+
+        private void OnDestroy()
+        {
+            if(_instance == this) _instance = null;
         }
 
         public static void LightsToState(bool on)

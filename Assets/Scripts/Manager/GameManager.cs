@@ -26,6 +26,8 @@ namespace Manager
 
         private static bool success;
         
+        private static int score;
+        
 
         private static int fatalErrors;
         // Public
@@ -77,10 +79,11 @@ namespace Manager
         public static void RateCreature(CreatureData creature)
         {
             if (!success && creature.IsGood()== CreatureAlignment.Evil)fatalErrors++;
-            if (fatalErrors == 5)Debug.Log("GameOver") ;
+            if (fatalErrors == 5)GameOverUIController.instance.GameOver(score-5); ;
             Instance.MonstersAmount++;
             int rating = success ? 1 : -1;
             Instance.Rating += rating;
+            score++;
             Debug.LogWarning("Rating: " + rating +" FatalErrors: "+fatalErrors);
         }
     }
