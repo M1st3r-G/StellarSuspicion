@@ -12,7 +12,7 @@ namespace Manager
         private void Awake() => TimeManager.Instance.RegisterEventReceiver(this);
         public void Trigger()
         {
-            Debug.LogError($"Event {customName} started");
+            Debug.LogWarning($"Event {customName} started");
             onEventStart?.Invoke();
         }
     }

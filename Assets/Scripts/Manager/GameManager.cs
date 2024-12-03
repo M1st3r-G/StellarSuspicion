@@ -71,7 +71,7 @@ namespace Manager
 
             success =  (acceptAction == CreatureAction.Die ? -1 : 1) * (int)creatureAlignment > 0;
      
-            Debug.LogWarning("Creature rating was " + (success ? "correct" : "incorrect"));
+            Debug.Log("Creature rating was " + (success ? "correct" : "incorrect"));
             UIManager.Dialogue.ShowResolution(acceptAction, success);
             Creature.Clear(acceptAction, success);
         }
@@ -84,7 +84,7 @@ namespace Manager
             int rating = success ? 1 : -1;
             Instance.Rating += rating;
             score++;
-            Debug.LogWarning("Rating: " + rating +" FatalErrors: "+fatalErrors);
+            Debug.LogWarning("Total Rating: " + Instance.Rating +", Total Fatal Errors: " + fatalErrors);
         }
     }
 }

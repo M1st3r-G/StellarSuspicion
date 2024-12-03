@@ -48,7 +48,7 @@ namespace Controller.Creature
             _anim.Play("Enter");
             _creatureVoice.StartSteps();
             _creatureVoice.PlayerInteraction(CreatureAction.Hello);
-            Debug.LogWarning(CurrentCreature?.IsGood());
+            Debug.Log($"This Creature is {CurrentCreature?.IsGood()}");
         }
 
         public void OnFinishedMovement() => _creatureVoice.StopSounds();
