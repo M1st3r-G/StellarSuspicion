@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496dfcd69d464a74a2aa55031f8adc3b, type: 3}
   m_Name: Screamy
   m_EditorClassIdentifier: 
-  hello: []
-  sentence: []
+  hello:
+  - {fileID: 8300000, guid: d16d2d2ae75bf0345a2470f9b6c900e6, type: 3}
+  - {fileID: 8300000, guid: 297e666573251914cbee33e87fc0e03c, type: 3}
+  sentence:
+  - {fileID: 8300000, guid: 08035c76da1265444aae53ecb7e0d381, type: 3}
+  - {fileID: 8300000, guid: 6a780afe34128514f885ec1078f6b93e, type: 3}
+  - {fileID: 8300000, guid: 0071ee12fc4f9f84d8e0a2a4e43921eb, type: 3}
   thanks: []
   kill: []
-  death: []
+  death:
+  - {fileID: 8300000, guid: 1b8d3a0e8a5c88a4cab1c18358849140, type: 3}
+  - {fileID: 8300000, guid: a428f9bc635d6b748a838b3d3c19fc52, type: 3}
