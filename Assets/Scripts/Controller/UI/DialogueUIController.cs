@@ -19,7 +19,6 @@ namespace Controller.UI
         [SerializeField] private AlienBaseInteractionAsset goodEject;
         [SerializeField] private AlienBaseInteractionAsset evilEject;
 
-
         [SerializeField] [Tooltip("This is the Text Box for Dialogue")]
         private TextMeshProUGUI textBox;
         
@@ -32,5 +31,10 @@ namespace Controller.UI
         }
 
         private void SetText(string text) => textBox.text = text;
+
+        public static void ShowQuestionOptions()
+        {
+            Debug.LogWarning("Ask A Question");
+        }
     }
 }

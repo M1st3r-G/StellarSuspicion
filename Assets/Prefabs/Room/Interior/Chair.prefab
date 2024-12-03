@@ -54,6 +54,7 @@ MonoBehaviour:
   interactionsWhenSitting:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   rotateTime: 0.75
 --- !u!1 &2024897655528180424
 GameObject:
