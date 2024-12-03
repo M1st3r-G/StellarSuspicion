@@ -6,6 +6,7 @@ namespace Data
     [System.Serializable]
     public struct CreatureVoiceType
     {
+        public string name;
         [SerializeField] private List<AudioClip> hello;
         [SerializeField] private List<AudioClip> sentence;
         [SerializeField] private List<AudioClip> thanks;
