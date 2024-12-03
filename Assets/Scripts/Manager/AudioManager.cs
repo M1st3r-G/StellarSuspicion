@@ -69,8 +69,11 @@ namespace Manager
                     return;
                 }
                 
-                GameObject tmp = Instantiate(effectPrefab, position, Quaternion.identity);
-                tmp.GetComponent<AudioSource>().clip = cnt.GetClip();
+                AudioSource tmp = Instantiate(effectPrefab, position, Quaternion.identity).GetComponent<AudioSource>();
+                tmp.clip = cnt.GetClip();
+                tmp.Play();
+                
+                return;
             }
             
             Debug.LogError($"Sound with {effect} Identifier not found");
