@@ -77,7 +77,7 @@ Mein Lieber
 -Aber wieso :(
 -Was habe ich denn jetzt getan :(
 -ich wollte doch nur einen entspannten Urlaub haben:(
--Ich wollte doch nur meine kinder besuchen :(
+-Ich wollte doch nur meine Kinder besuchen :(
 
 **Wenn rausgeworfen und böse
 
