@@ -1,5 +1,7 @@
 using System;
 using Controller.Actors.Interactable.Events;
+using Data;
+using Manager;
 using UnityEngine;
 
 namespace Controller
@@ -15,8 +17,6 @@ namespace Controller
         private AudioSource loop1;
         [SerializeField] [Tooltip("The Machine Loop")]
         private AudioSource loop2;
-        [SerializeField] [Tooltip("The Effects")]
-        private AudioSource effects;
 
         public static event Action<bool> OnPowerChangeTo;
         
@@ -25,10 +25,10 @@ namespace Controller
         private void TriggerPowerEvent(bool running)
         {
             OnPowerChangeTo?.Invoke(running);
-            SetAudioTo(running);
+            SetAudioLoopTo(running);
         }
 
-        private void SetAudioTo(bool running)
+        private void SetAudioLoopTo(bool running)
         {
             if (running)
             {
@@ -45,7 +45,7 @@ namespace Controller
         public void OnStartEvent()
         {
             TriggerPowerEvent(false);
-            effects.Play();
+            AudioManager.PlayEffect(AudioEffect.PowerOff, transform.position);
             interaction.StartInteraction();
         }
 

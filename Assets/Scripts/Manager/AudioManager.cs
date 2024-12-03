@@ -78,7 +78,6 @@ namespace Manager
             
             Debug.LogError($"Sound with {effect} Identifier not found");
         }
-        
 
         #endregion
     }
