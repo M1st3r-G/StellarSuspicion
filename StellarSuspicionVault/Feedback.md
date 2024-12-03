@@ -14,7 +14,6 @@ Feedback Utz:
 - [ ] Leaderboard, Bestzeiten
 - [ ] Enviromental Storytelling
 - [ ] Gemurmel im Raum
-- [ ] wenn wir die Monster killen schreie 
 - [ ] tutorial
 ### Feedback Build 2
 Kerstin:
@@ -25,7 +24,6 @@ Irina:
 - [ ] Durch Wände schauen fixen
 - [ ] irgendein High Score System/win-lose conditions! Idee: Nach 3-5 Fehltritten Game Over?
 - [ ] Mehr Texte, Einführung in das Handbuch (wenigstens kein leeres Bildschirm am Anfang)
-- [ ] mehr Licht (aber das wisst ihr schon)
 - [ ] mehr Sound (aber das wisst ihr schon :))
 - [ ] der mini Kühlschrank braucht eine bessere Lage (den sieht man nicht mal!)
  

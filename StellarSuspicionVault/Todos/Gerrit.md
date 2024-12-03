@@ -18,13 +18,10 @@ Bug:
 - More Events
 	- Visuall Sound for Tasks
 - Tutorial
-- Gemurmel im Raum
 #next-step
 - Fix ScreenController
 	- Buttons
 	- Text better formated
-	- ScreenTurn Off bei Stromausfall
-- Mehr Lighting
 
 Dialogue Contorller, import Dialogue
 

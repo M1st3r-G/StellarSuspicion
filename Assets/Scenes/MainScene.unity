@@ -364,10 +364,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6891955640083801498, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: voices.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: playerSit
       value: 
@@ -376,10 +372,6 @@ PrefabInstance:
       propertyPath: playerStand
       value: 
       objectReference: {fileID: 298192317}
-    - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: startStanding
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8132665944091326048, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: window
       value: 
