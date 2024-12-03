@@ -7,14 +7,17 @@ namespace Data.Dialogue
     public class DialogueQuestionAsset : ScriptableObject
     {
         [SerializeField] private string question;
-
-        [SerializeField] private List<Answer> answers;
+        public string Question => question;
+            
+        [SerializeField] private List<AnswerContainer> answers;
+        public string Answer => answers[Random.Range(0, answers.Count)].name;
 
         [System.Serializable]
-        private struct Answer
+        private struct AnswerContainer
         {
             public string name;
             [Range(-1, 1)] public int rating;
         }
+
     }
 }
