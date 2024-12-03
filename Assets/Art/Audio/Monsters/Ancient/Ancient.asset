@@ -12,8 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496dfcd69d464a74a2aa55031f8adc3b, type: 3}
   m_Name: Ancient
   m_EditorClassIdentifier: 
-  hello: []
-  sentence: []
-  thanks: []
-  kill: []
-  death: []
+  hello:
+     - {fileID: 8300000, guid: bbaaa9c1504c6db44bbe12ed63ac6d6b, type: 3}
+     - {fileID: 8300000, guid: 1e70e5e891ad938439cf05f7701b4cb8, type: 3}
+     - {fileID: 8300000, guid: 0b2dff1a8fc8f924a994127397474607, type: 3}
+    sentence:
+    - {fileID: 8300000, guid: b308ac1cafb82714e80530fa9142c6a6, type: 3}
+    - {fileID: 8300000, guid: 9df031a31c195024db332bd17f8032a6, type: 3}
+    - {fileID: 8300000, guid: aa5d6bd2f87ffc145bea0646f62b40ca, type: 3}
+    - {fileID: 8300000, guid: 6f881ef0d99248a48bfda7860a863689, type: 3}
+    - {fileID: 8300000, guid: 818b47d3be796064ebddca4ad8ffa4be, type: 3}
+    - {fileID: 8300000, guid: f2637099de728a941aa5b2bcea343489, type: 3}
+    - {fileID: 8300000, guid: 35b40dc16e652074aa361ba3fbe87704, type: 3}
+    - {fileID: 8300000, guid: cc92f4c6a97b9144db5894977cdba29f, type: 3}
+    - {fileID: 8300000, guid: 7b77061991fbd834e8b24a9c7547ab13, type: 3}
+    - {fileID: 8300000, guid: 0667f34844303114a84b7814c00ba012, type: 3}
+    - {fileID: 8300000, guid: d79d0cb3c63d1004ca29a40904490cc9, type: 3}
+    thanks:
+    - {fileID: 8300000, guid: 47c2d0b147177ce40a350d7db36bf60f, type: 3}
+    - {fileID: 8300000, guid: 249aad284c0a02a4db8d7910e0998bb9, type: 3}
+    - {fileID: 8300000, guid: 9e9d8038bc975ae4ca250eddf2e55746, type: 3}
+    - {fileID: 8300000, guid: 289a02964ad068e4abb70cd04678ef2c, type: 3}
+    kill:
+    - {fileID: 8300000, guid: 1f6e2d8b0d2a4bd478610da30fbb7433, type: 3}
+    - {fileID: 8300000, guid: bd682fdcf1a8fc342bb1ba70cccc8ad8, type: 3}
+    - {fileID: 8300000, guid: 035fe617b04676c4eb6062f45e950e33, type: 3}
+    - {fileID: 8300000, guid: ed96fb4bbb26b9c4f9ed5aea3808f923, type: 3}
+    death:
+    - {fileID: 8300000, guid: 54695c5a033480544b10f0c067517548, type: 3}
+    - {fileID: 8300000, guid: b8ac0ce1092cc0f41a4919e9dfacd407, type: 3}
+    - {fileID: 8300000, guid: 5d90f7a7f0aeafd41aded131cabc5cba, type: 3}
+    - {fileID: 8300000, guid: dfa149411ee221a45ad31592fe02f5e0, type: 3}
+    - {fileID: 8300000, guid: 9c845dac684481a4eb0c8e2a0e1348d9, type: 3}
+    - {fileID: 8300000, guid: 8ce93a91b1492304fad0d7b7ad10b5db, type: 3}
+    - {fileID: 8300000, guid: 08c96af62d6a98f4ba7ca7af5a7fe1ec, type: 3}
