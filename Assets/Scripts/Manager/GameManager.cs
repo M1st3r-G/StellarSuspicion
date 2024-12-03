@@ -23,7 +23,7 @@ namespace Manager
         public int Rating { get; private set; }
         private int GetRightAmount => (MonstersAmount + Rating) / 2;
         private int GetWrongAmount => (MonstersAmount - Rating) / 2;
-
+        public int Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
         private static bool success;
         
         private static int score;
