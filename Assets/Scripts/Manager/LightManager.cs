@@ -6,9 +6,7 @@ namespace Manager
 {
     public class LightManager : MonoBehaviour
     {
-        [SerializeField] List<Light> lights;
         [SerializeField] List<Material> glowingMaterials;
-        // Screen Manages itself
         
         private static LightManager _instance;
 
@@ -28,7 +26,6 @@ namespace Manager
 
         public static void LightsToState(bool on)
         {
-            foreach (Light l in _instance.lights) l.enabled = on;
             foreach (Material m in _instance.glowingMaterials)
             {
                 if(on) m.EnableKeyword("_EMISSION");

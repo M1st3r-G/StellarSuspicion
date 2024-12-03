@@ -213,16 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d13b92778d61940ac08600dc209cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!108 &1479856224 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1592708179247368062, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-  m_PrefabInstance: {fileID: 757268603}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1490607215 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 5696127165233643174, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-  m_PrefabInstance: {fileID: 757268603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1875760219 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8000730710092480732, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
@@ -234,11 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ea797680e982840a0aa938f51b8a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!108 &2007266140 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1163615970467653274, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
-  m_PrefabInstance: {fileID: 757268603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2076482066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,26 +320,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: lights.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: lights.Array.data[0]
-      value: 
-      objectReference: {fileID: 2007266140}
-    - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: lights.Array.data[1]
-      value: 
-      objectReference: {fileID: 1479856224}
-    - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: lights.Array.data[2]
-      value: 
-      objectReference: {fileID: 1490607215}
-    - target: {fileID: 2950726481405818855, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: lights.Array.data[3]
-      value: 
-      objectReference: {fileID: 1490607215}
     - target: {fileID: 3621242351965476416, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
