@@ -13,8 +13,6 @@ namespace Editor
         {
             GUI.enabled = Application.isPlaying;
             
-            GUILayout.Label("Runtime", EditorStyles.centeredGreyMiniLabel);
-            
             GUILayout.Label("TimeAndEventManager");
 
             GUILayout.BeginHorizontal();
@@ -37,18 +35,6 @@ namespace Editor
             {
                 Debug.Log("Stoping Music");
                 AudioManager.StartStopMusic(true);
-            }
-            GUILayout.EndHorizontal();
-            
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Sounds");
-            if (GUILayout.Button("Lights On"))
-            {
-                LightManager.LightsToState(true);
-            }
-            if (GUILayout.Button("Lights Off"))
-            {
-                LightManager.LightsToState(false);
             }
             GUILayout.EndHorizontal();
         }
