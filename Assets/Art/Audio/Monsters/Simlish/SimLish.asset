@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496dfcd69d464a74a2aa55031f8adc3b, type: 3}
+  m_Name: SimLish
+  m_EditorClassIdentifier: 
+  hello:
+  - {fileID: 8300000, guid: 99a6409ada1601a43afa7ab46b3d7670, type: 3}
+  - {fileID: 8300000, guid: 035fe6001eccd484c9063afbdb65886c, type: 3}
+  - {fileID: 8300000, guid: e65cd4a331841e345be976cb28657dda, type: 3}
+  - {fileID: 8300000, guid: 2079b388dd37b2a42b9b6a9946d79452, type: 3}
+  - {fileID: 8300000, guid: d58c846afd77f5c4781f2ec57a1d1cf6, type: 3}
+  sentence:
+  - {fileID: 8300000, guid: b9ca24394ca110f41a8f324186bdbcf7, type: 3}
+  - {fileID: 8300000, guid: 2ae1c439386330e45ba562b2d1898f8a, type: 3}
+  - {fileID: 8300000, guid: fb7651d2911f5034e961bc94a91edf01, type: 3}
+  - {fileID: 8300000, guid: f864ba6dd7936ec458984a12f113210d, type: 3}
+  - {fileID: 8300000, guid: 006ec5aa809bef14883b04b912b450de, type: 3}
+  thanks:
+  - {fileID: 8300000, guid: 4bf327c8f706b22429860defa3efc8d4, type: 3}
+  - {fileID: 8300000, guid: 849781f994839ca4eaffbab0454f0348, type: 3}
+  - {fileID: 8300000, guid: 27cfc4dda596fe44b9a8045b1bb28b68, type: 3}
+  - {fileID: 8300000, guid: 151953ee4714d9941ae05826a77ded5e, type: 3}
+  kill:
+  - {fileID: 8300000, guid: 4dada4e8116ec99419c9431d7f21bcf8, type: 3}
+  - {fileID: 8300000, guid: 15740efbf08815d48a9e404a7451287c, type: 3}
+  - {fileID: 8300000, guid: 8c74c843b0012a04aac8e722acbeb367, type: 3}
+  death:
+  - {fileID: 8300000, guid: a31bdb4e35c7d4c438f75533d241c544, type: 3}
+  - {fileID: 8300000, guid: 4da1bfeaab2799a4ebdd001d7f05381e, type: 3}
+  - {fileID: 8300000, guid: 7432f57bef4f4d8458a967164cba2f6b, type: 3}

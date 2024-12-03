@@ -24,7 +24,13 @@ namespace Controller.Creature
                 : _currentVoiceLine?.Sentence);
         }
         
-        public void StartSteps() => creatureSteps.Stop();
+        public void StartSteps()
+        {
+            //Look for offset Points
+            //creatureSteps.time = Random.Range(0f, 5f);
+            creatureSteps.Play();
+        }
+
         public void StopSounds() => creatureSteps.Stop();
 
         public void SetVoice(CreatureVoiceLine? voiceLine) => _currentVoiceLine = voiceLine;

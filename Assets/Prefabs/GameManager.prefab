@@ -88,8 +88,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1830794203767681666}
   - component: {fileID: 6037092333538581778}
-  - component: {fileID: 2950726481405818855}
   - component: {fileID: 8132665944091326048}
+  - component: {fileID: 1548774846482777672}
   - component: {fileID: 6230366378018188666}
   - component: {fileID: 7130360158209713221}
   - component: {fileID: 6891955640083801498}
@@ -166,26 +166,6 @@ MonoBehaviour:
   savingString: /Scripts/Extern/Gradients/Generated/
   width: 256
   height: 64
---- !u!114 &2950726481405818855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741363777618056504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf979c73da3b4914a14f337a3cad7b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  glowingMaterials:
-  - {fileID: 2100000, guid: e94152ee90d5e5743b9c8c77927b6da7, type: 2}
-  - {fileID: 2100000, guid: 7d8e9e2cbe14b284ab0384d0dd244574, type: 2}
-  - {fileID: 2100000, guid: 628d0afce6c434f48943bdb0ba282fb6, type: 2}
 --- !u!114 &8132665944091326048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +179,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 0}
+--- !u!114 &1548774846482777672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741363777618056504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf979c73da3b4914a14f337a3cad7b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowingMaterials:
+  - {fileID: 2100000, guid: f9a554aa1e9925e468e25ac200c3906f, type: 2}
+  - {fileID: 2100000, guid: 628d0afce6c434f48943bdb0ba282fb6, type: 2}
+  - {fileID: 2100000, guid: 7d8e9e2cbe14b284ab0384d0dd244574, type: 2}
+  - {fileID: 2100000, guid: e94152ee90d5e5743b9c8c77927b6da7, type: 2}
 --- !u!114 &6230366378018188666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +230,7 @@ MonoBehaviour:
   playerStand: {fileID: 0}
   mainInputAsset: {fileID: -944628639613478452, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   swappingTime: 1
-  startStanding: 1
+  startStanding: 0
 --- !u!114 &6891955640083801498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +262,19 @@ MonoBehaviour:
   - Skraatz
   - Jesse
   - Der Coolere Boris
+  voices:
+  - {fileID: 11400000, guid: 0f1e722beea5b7f45aac228e64849341, type: 2}
+  - {fileID: 11400000, guid: b232ae5c1d439f742837cde270e323db, type: 2}
+  - {fileID: 11400000, guid: 89ebbc5daf4d3a347910372271bf32f0, type: 2}
+  - {fileID: 11400000, guid: a6dfcdee2adb1e144a2cae5020a4204e, type: 2}
+  - {fileID: 11400000, guid: a12ba2d209ea2e94f90045faf4f88dca, type: 2}
+  - {fileID: 11400000, guid: da6ba422b04a66a4eba3cd12efa1f389, type: 2}
+  - {fileID: 11400000, guid: 56ebfe77935ddcb4d963218610f29a12, type: 2}
+  - {fileID: 11400000, guid: c45dc9e3323072941af6fb1d23c8a79c, type: 2}
+  - {fileID: 11400000, guid: 7397505f5343f6b41b3688d67ebbca14, type: 2}
+  - {fileID: 11400000, guid: f686dd393a3d9ae42930e68a38fd7f17, type: 2}
+  - {fileID: 11400000, guid: 56cb7dc854f90534ca19d48aea7880e6, type: 2}
+  - {fileID: 11400000, guid: 43824a46b702c7f4d8b0f7ab402a9e92, type: 2}
 --- !u!114 &3401441052818810947
 MonoBehaviour:
   m_ObjectHideFlags: 0

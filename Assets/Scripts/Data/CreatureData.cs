@@ -12,14 +12,14 @@ namespace Data
 
         public Sprite GetSprite(CreatureComponentType type) => _parts[type].sprite;
         public Material Color { get; }
-        public CreatureVoiceType VoiceType { get; }
+        public CreatureVoiceLine VoiceLine { get; }
 
-        public CreatureData(string name, PartBundle bundle, Material color, CreatureVoiceType randomVoice)
+        public CreatureData(string name, PartBundle bundle, Material color, CreatureVoiceLine randomVoice)
         {
             Name = name;
             Color = color;
             _parts = bundle;
-            VoiceType = randomVoice;
+            VoiceLine = randomVoice;
         }
         
         // Reason

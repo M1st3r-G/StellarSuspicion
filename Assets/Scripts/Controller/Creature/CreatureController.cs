@@ -21,7 +21,7 @@ namespace Controller.Creature
             {
                 _currentCreature = value;
                 _creatureRenderer.SetRenderer(_currentCreature);
-                _creatureVoice.SetVoice(_currentCreature?.VoiceType.GetVoiceLine());
+                _creatureVoice.SetVoice(_currentCreature?.VoiceLine);
             }
         }
 
