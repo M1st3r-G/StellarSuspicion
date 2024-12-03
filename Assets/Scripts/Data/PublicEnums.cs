@@ -12,6 +12,14 @@
         Accept = 7
     }
 
+    public enum CreatureAction
+    {
+        Hello = 0,
+        Talk = 1,
+        Exit = 2,
+        Die = 3
+    }
+    
     public enum CreatureAlignment
     {
         Good = 1,

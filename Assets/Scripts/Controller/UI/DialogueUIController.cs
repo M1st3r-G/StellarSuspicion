@@ -1,5 +1,4 @@
 using Data;
-using Manager;
 using TMPro;
 using UnityEngine;
 
@@ -11,23 +10,26 @@ namespace Controller.UI
         [SerializeField] [Tooltip("This is the Text Box for Dialogue")]
         private TextMeshProUGUI textBox;
         
-        public void SetText(string text) => textBox.text = text;
-
-        private void ShowEnterLine(bool successful)
+        public void ShowInteraction(CreatureAction interaction, CreatureData? currentCreature, bool success = false)
         {
-            textBox.text = successful ? "Vielen Dank" : "Ich werde ihre Kinder essen";
+            switch (interaction)
+            {
+                case CreatureAction.Hello:
+                    SetText($"Glorb blorb bla: {currentCreature?.Name}!");
+                    break;
+                case CreatureAction.Talk:
+                case CreatureAction.Exit:
+                    SetText(success ? "Vielen Dank" : "Ich werde ihre Kinder essen");
+                    break;
+                case CreatureAction.Die:
+                    SetText(success ? "Woher wussten sie es?" : "Aber ich bin unschuldig!");
+                    break;
+                default:
+                    SetText("Not Set Yet!");
+                    break;
+            }
         }
 
-        private void ShowDeathLine(bool successful)
-        {
-            textBox.text = successful ? "Woher wussten sie es?" : "Aber ich bin unschuldig!";
-        }
-
-        public void ShowResolution(AcceptMode acceptMode, bool success)
-        {
-            if(acceptMode == AcceptMode.Rejected) ShowDeathLine(success);
-            else ShowEnterLine(success);
-            GameManager.Creature.Clear(acceptMode);
-        }
+        private void SetText(string text) => textBox.text = text;
     }
 }

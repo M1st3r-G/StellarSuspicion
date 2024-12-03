@@ -12,7 +12,6 @@ Enhancments:
 - Feature Cam
 
 Bug:
-- Font umlaute Ö
 - Durch wände schauen
 
 #todo :
@@ -20,7 +19,6 @@ Bug:
 	- Visuall Sound for Tasks
 - Tutorial
 - Gemurmel im Raum
-- Button Lighting When Usable
 #next-step
 - Fix ScreenController
 	- Buttons
@@ -28,11 +26,18 @@ Bug:
 	- ScreenTurn Off bei Stromausfall
 - Mehr Lighting
 
+Dialogue Contorller, import Dialogue
+
+Preload Materials for monster
+
 Weight/Goals:
 - Highscore (Days)
 - GameOver (Wrong)
 - Unlockables? 
 
+Switch Animation
+
 Events have Functions
-- Generator Already Working
+- Window
+- Trapdoor Event
 

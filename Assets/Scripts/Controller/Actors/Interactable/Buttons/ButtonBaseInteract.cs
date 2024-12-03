@@ -10,6 +10,14 @@ namespace Controller.Actors.Interactable.Buttons
         [SerializeField] [Range(0.5f, 4f)] [Tooltip("The time for the button to lower")]
         private float baseDownTime = 1f;
 
+        private Material _myMaterial;
+        
+        protected override void Awake()
+        {
+            base.Awake();
+            _myMaterial = GetComponent<Renderer>().material;
+        }
+
         protected override void TriggerInteraction()
         {
             if(_buttonRoutine is not null) StopCoroutine(_buttonRoutine);
@@ -19,6 +27,9 @@ namespace Controller.Actors.Interactable.Buttons
         public override void SetInteractionTo(bool pEnabled)
         {
             base.SetInteractionTo(pEnabled);
+            
+            if(pEnabled) _myMaterial.EnableKeyword("_EMISSION");
+            else _myMaterial.DisableKeyword("_EMISSION");
             
             if(_buttonRoutine is not null) StopCoroutine(_buttonRoutine);
             _buttonRoutine = StartCoroutine(MoveToState(!pEnabled, 0.5f, null));

@@ -15,11 +15,6 @@ namespace Controller.Actors.Interactable.Buttons
         {
             SetInteractionTo(false);
             GameManager.Window.SetWindowOpened(true);
-            if (GameManager.Creature.ShowingCreature)
-            {
-                //Error Sound
-                return;
-            }
 
             Debug.Log("Let New Creature in");
             GameManager.Creature.SetToCreature(CreatureCreator.GetRandomCreature());
