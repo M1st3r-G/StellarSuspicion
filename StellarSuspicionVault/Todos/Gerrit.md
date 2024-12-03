@@ -10,6 +10,7 @@ Enhancments:
 - Mann im Schrank
 - UpdownUpDown Lock?
 - Feature Cam
+- Preload Materials for monster
 
 Bug:
 - Durch wände schauen
@@ -25,7 +26,6 @@ Bug:
 
 Dialogue Contorller, import Dialogue
 
-Preload Materials for monster
 
 Weight/Goals:
 - Highscore (Days)

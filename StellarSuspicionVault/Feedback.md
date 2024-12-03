@@ -26,4 +26,7 @@ Irina:
 - [ ] Mehr Texte, Einführung in das Handbuch (wenigstens kein leeres Bildschirm am Anfang)
 - [ ] mehr Sound (aber das wisst ihr schon :))
 - [ ] der mini Kühlschrank braucht eine bessere Lage (den sieht man nicht mal!)
- 
+
+- [ ] Features nicht gut sichtbar -> Fix Light
+- [ ] Fenster Sehr Hell
+- [ ] Vielleicht notfall licht für den Generator

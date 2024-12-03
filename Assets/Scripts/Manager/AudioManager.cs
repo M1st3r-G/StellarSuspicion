@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Extern;
+using Data;
 using UnityEngine;
 
 namespace Manager
@@ -8,16 +6,14 @@ namespace Manager
     [RequireComponent(typeof(AudioSource))]
     public class AudioManager : MonoBehaviour
     {
+        [SerializeField] [Tooltip("The Effect Container Asset Prefab")]
+        private GameObject effectPrefab;
         [SerializeField] [Tooltip("The Music Src")]
         private AudioSource musicSrc;
-
-        private const float Puffer = 0.125f;
-
-        public const string MasterVolumeKey = "MasterVolume";
-        public const string MusicVolumeKey = "MusicVolume";
-        public const string AmbienceVolumeKey = "AmbienceVolume";
-        public const string EffectVolumeKey = "EffectVolume";
-
+        [Header("AudioClips")]
+        [SerializeField] [Tooltip("The Sound Src")]
+        private AudioClipsContainer[] clips;
+        
         private static AudioManager Instance { get; set; }
 
         #region SetUp
@@ -51,14 +47,36 @@ namespace Manager
 
         #endregion
         
-        public static IEnumerator PlayAsLoop(AudioSource src, AudioClipsContainer clips)
+        #region Effects
+
+        /// <summary>
+        /// Plays a Clip of the given SoundEffect and returns its length in seconds
+        /// </summary>
+        /// <param name="effect">The ClipType to Play</param>
+        /// <param name="position">The Position where the Clip should be played</param>
+        /// <returns>The length of the played Clip</returns>
+        public static void PlayEffect(AudioEffect effect, Vector3 position) => Instance.InnerPlayEffect(effect, position);
+
+        private void InnerPlayEffect(AudioEffect effect, Vector3 position)
         {
-            while (true)
+            foreach (AudioClipsContainer cnt in clips)
             {
-                AudioClip currentClip = clips.GetClip();
-                src.PlayOneShot(currentClip);
-                yield return new WaitForSeconds(currentClip.length + Puffer);
+                if (cnt.Type != effect) continue;
+                AudioClip clip = cnt.GetClip();
+                if (clip is null)
+                {
+                    Debug.LogError($"Noch keine Sounds für {effect} sind importiert");
+                    return;
+                }
+                
+                GameObject tmp = Instantiate(effectPrefab, position, Quaternion.identity);
+                tmp.GetComponent<AudioSource>().clip = cnt.GetClip();
             }
+            
+            Debug.LogError($"Sound with {effect} Identifier not found");
         }
+        
+
+        #endregion
     }
 }
