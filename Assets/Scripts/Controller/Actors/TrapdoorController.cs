@@ -13,20 +13,17 @@ namespace Controller.Actors
         private float openTime;
         
         // Public
-        public bool IsOpen { get; private set; }
+        public bool IsBlocked { get; private set; }
 
         // State
         private Coroutine _closingRoutine;
 
-        private void Awake()
-        {
-            _interactable = GetComponentInChildren<TrapdoorInteractable>();
-        }
+        private void Awake() => _interactable = GetComponentInChildren<TrapdoorInteractable>();
 
         public void SetOpen(bool open)
         {
             if(_closingRoutine != null) StopCoroutine(_closingRoutine);
-            _closingRoutine = StartCoroutine(ClosingRoutine(open));
+            _closingRoutine = StartCoroutine(MoveToBlockRoutine(open));
         }
 
         public void SetOpenAsEvent()
@@ -35,14 +32,14 @@ namespace Controller.Actors
             _interactable.SetInteractionTo(true);
         }
 
-        private IEnumerator ClosingRoutine(bool open)
+        private IEnumerator MoveToBlockRoutine(bool blocked)
         {
             float elapsed = 0f;
         
             Quaternion startRotation = _interactable.transform.localRotation;
-            Quaternion endRotation = open ? Quaternion.Euler(0f, 0f, -90f) : Quaternion.identity;
+            Quaternion endRotation = blocked ? Quaternion.Euler(0f, -3f, -6f) : Quaternion.identity;
         
-            IsOpen = open;
+            IsBlocked = blocked;
 
             while (elapsed <= openTime)
             {

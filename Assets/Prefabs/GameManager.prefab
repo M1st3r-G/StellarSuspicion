@@ -314,7 +314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d29bf71d63a4d44840c6953c266974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectPrefab: {fileID: 1554867913624214557, guid: db7de0a54977fc94baff7c29bd39e0e6, type: 3}
   musicSrc: {fileID: 6944027494598702273}
+  clips:
+  - name: Knocking
+    type: 1
+    clips:
+    - {fileID: 8300000, guid: 3efe9cc44e869bc41a5a47854620d01b, type: 3}
 --- !u!82 &6944027494598702273
 AudioSource:
   m_ObjectHideFlags: 0
@@ -325,7 +331,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2996951981231097149, guid: 6fd3f7fdff39751468d10f1dcf199584, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4b4a31cafa50870449ae5582be62ff99, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

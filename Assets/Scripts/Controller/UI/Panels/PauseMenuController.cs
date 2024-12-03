@@ -1,6 +1,7 @@
 ﻿using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Controller.UI.Panels
 {
@@ -59,8 +60,7 @@ namespace Controller.UI.Panels
 
         public void QuitToMainMenu()
         {
-            Debug.LogError("you quit to main menu");
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
     }
 }

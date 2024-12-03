@@ -2,14 +2,14 @@
 {
     public enum AudioEffect
     {
-        Step = 0,
         Knocking = 1,
         PowerOff = 2,
         TrapdoorStuck = 3,
         EnemyFall = 4,
         DoorCreak = 5,
         ButtonClick = 6,
-        Accept = 7
+        Accept = 7,
+        Error = 8
     }
 
     public enum CreatureAction

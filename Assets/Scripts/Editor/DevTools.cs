@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using Data;
+using Manager;
 using UnityEditor;
 using UnityEngine;
 
@@ -37,6 +38,8 @@ namespace Editor
                 AudioManager.StartStopMusic(true);
             }
             GUILayout.EndHorizontal();
+            
+            if (GUILayout.Button("Test Audio")) AudioManager.PlayEffect(AudioEffect.Knocking, new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-1.5f, 1.5f)));
         }
     }
 }
