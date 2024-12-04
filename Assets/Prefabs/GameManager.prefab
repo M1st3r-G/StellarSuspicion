@@ -497,22 +497,23 @@ MonoBehaviour:
   - "Den Gr\xFCnen, den GR\xDCNENNEEENNN!"
   - "Danke dir, machs gut und viel Gl\xFCck."
   tutorialAudio:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: a82617f908f0d8c4fa005ef531911548, type: 3}
+  - {fileID: 8300000, guid: 28ac74fa0fec34843b8e2787f83c50a0, type: 3}
+  - {fileID: 8300000, guid: a9610c90a3c204843975fc16526dc53f, type: 3}
+  - {fileID: 8300000, guid: a79df3350d91df34ab1bf425744d7ba6, type: 3}
+  - {fileID: 8300000, guid: 4ae43ecc43676a04bbf272792451e32a, type: 3}
+  - {fileID: 8300000, guid: 43761c28feb49834b94df965f275ae92, type: 3}
+  - {fileID: 8300000, guid: 5c0c2f050fc1bcf49ada340bbfbf1016, type: 3}
+  - {fileID: 8300000, guid: fc5b65cd22ce7d04e8cac3c1f2cf671a, type: 3}
+  - {fileID: 8300000, guid: 4ae43ecc43676a04bbf272792451e32a, type: 3}
+  - {fileID: 8300000, guid: b7aa28d69e618f84690a3adae2e45bfd, type: 3}
+  - {fileID: 8300000, guid: 70d1ab9f5edbffb49b41d24492223ed2, type: 3}
   fuseBox: {fileID: 0}
   screen: {fileID: 0}
   killButton: {fileID: 0}
   exitButton: {fileID: 0}
   nextButton: {fileID: 0}
+  adonis: {fileID: 0}
 --- !u!1001 &6213298806628802918
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,7 +21,8 @@ namespace Manager
         [SerializeField] private ButtonKillInteract killButton;
         [SerializeField] private ButtonEnterInteract exitButton;
         [SerializeField] private ButtonNextInteract nextButton;
-
+        [SerializeField] private Animator adonis;
+        
         private static TutorialManager Instance { get; set; }
         
         public enum TutorialFlag
@@ -70,6 +71,8 @@ namespace Manager
         {
             // Scene 1
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
+            adonis.gameObject.SetActive(true);
+            adonis.Play("Enter");
             TriggerTutorialDialogue(0);
             
             GameManager.Mic.TutorialGlow();
@@ -115,7 +118,7 @@ namespace Manager
             //Last Scene
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.PressedButtonKill or TutorialFlag.PressedButtonExit);
             TriggerTutorialDialogue(_lastFlag is TutorialFlag.PressedButtonKill ? 9 : 10);
-            
+            adonis.Play(_lastFlag is TutorialFlag.PressedButtonKill ? "Drop" : "Exit");
             nextButton.SetInteractionTo(true);
             
             _isInTutorial = false;
