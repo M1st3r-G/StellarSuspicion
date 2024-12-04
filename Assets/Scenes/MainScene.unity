@@ -442,11 +442,11 @@ PrefabInstance:
     - target: {fileID: 3401441052818810947, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: eventReceiver.Array.data[1]
       value: 
-      objectReference: {fileID: 1291130526}
+      objectReference: {fileID: 821637017}
     - target: {fileID: 3401441052818810947, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: eventReceiver.Array.data[2]
       value: 
-      objectReference: {fileID: 821637017}
+      objectReference: {fileID: 1291130526}
     - target: {fileID: 3621242351965476416, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
