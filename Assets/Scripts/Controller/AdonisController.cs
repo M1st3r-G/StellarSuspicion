@@ -15,5 +15,7 @@ namespace Controller
             }
             gameObject.SetActive(false);
         }
+
+        public void ResetCreature() => gameObject.SetActive(false);
     }
 }
