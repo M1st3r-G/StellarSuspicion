@@ -1883,6 +1883,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4718505879406874162, guid: 01c0e5846fd00974381e9982c4cd88bb, type: 3}
+      propertyPath: _trapdoorController
+      value: 
+      objectReference: {fileID: 2720032516329474906}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
