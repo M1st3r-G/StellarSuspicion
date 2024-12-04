@@ -23,3 +23,4 @@ tags:
 	- More Pages
 
 - Knocking
+- Pause Events while Tutorial
