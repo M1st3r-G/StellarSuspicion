@@ -17,6 +17,7 @@ namespace Manager
         [SerializeField] private ScreenInteractController screen;
         [SerializeField] private ButtonKillInteract killButton;
         [SerializeField] private ButtonEnterInteract exitButton;
+        [SerializeField] private ButtonNextInteract nextButton;
 
         private static TutorialManager Instance { get; set; }
         
@@ -85,17 +86,17 @@ namespace Manager
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
             UIManager.Dialogue.ShowTutorial(tutorialContent[3]);
 
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(12f);
             UIManager.Dialogue.ShowTutorial(tutorialContent[4]);
             
             // Scene 4
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(12f);
             UIManager.Dialogue.ShowTutorial(tutorialContent[5]);
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(12f);
             UIManager.Dialogue.ShowTutorial(tutorialContent[6]);
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(12f);
             UIManager.Dialogue.ShowTutorial(tutorialContent[7]);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             screen.TutorialGlow();
             screen.SetInteractionTo(true);
             
@@ -109,6 +110,8 @@ namespace Manager
             //Last Scene
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.PressedButtonKill or TutorialFlag.PressedButtonExit);
             UIManager.Dialogue.ShowTutorial(tutorialContent[_lastFlag is TutorialFlag.PressedButtonKill ? 9 : 10]);
+            
+            nextButton.SetInteractionTo(true);
             
             _isInTutorial = false;
         }

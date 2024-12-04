@@ -156,11 +156,3 @@ Sagt: Den Grünen DEN GRÜNEN!
 
 Exit: 
 Sagt: Danke dir machs gut und viel glück dir
-
-
-
-
-
-
-
-

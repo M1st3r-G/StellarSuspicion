@@ -246,6 +246,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd6216be057466b8723f47a0677f701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1387850661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7400304238774483072, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+  m_PrefabInstance: {fileID: 757268603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ec042fc0c5486ca87034dd1c11c83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1570871604 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8668827284809697893, guid: 5f27539681e23484ba8a2d797ded5fe9, type: 3}
@@ -378,6 +389,10 @@ PrefabInstance:
       propertyPath: killButton
       value: 
       objectReference: {fileID: 757268605}
+    - target: {fileID: 3057496956846867507, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 1387850661}
     - target: {fileID: 3621242351965476416, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
