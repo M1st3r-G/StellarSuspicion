@@ -12,6 +12,7 @@ tags:
 - Feature Cam
 - Preload Materials for monster
 - Lerp Light
+- Leave Qustion
 ### Main
 
 #todo :
@@ -24,8 +25,6 @@ tags:
 	- Buttons
 	- Text better formated
 
-Door Response
 
+Trapdoor wait till execute, Then Blocks enter
 Big Issue with Knowledge
-
-Leave Qustion
