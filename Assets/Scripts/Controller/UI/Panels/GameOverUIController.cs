@@ -62,7 +62,6 @@ namespace Controller.UI.Panels
                 gameOverPanel.alpha = Mathf.Lerp(0, 0.85f, elapsed / fadeoutTime);
                 elapsed += Time.deltaTime;
                 yield return null;
-         
             }
         }
     }

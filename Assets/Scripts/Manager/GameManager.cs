@@ -76,12 +76,18 @@ namespace Manager
         private void InnerRateCreature(CreatureController creatureController)
         {
             creatureController.GetGoodness(out var alignment);
-            if (!_success && alignment == CreatureAlignment.Evil)_fatalErrors++;
-            if (_fatalErrors == 5) GameOverUIController.Instance.GameOver();
+            if (!_success && alignment == CreatureAlignment.Evil)
+            {
+                _fatalErrors++;
+                Debug.LogError("Start Printout");
+                ClockController.instance.Printout();
+            }
+
+            if (_fatalErrors == 4) GameOverUIController.Instance.GameOver();
             Instance.MonstersAmount++;
             int rating = _success ? 1 : -1;
             Instance.Rating += rating;
-            Debug.LogWarning("Total Rating: " + Instance.Rating +", Total Fatal Errors: " + _fatalErrors);
+            Debug.LogWarning("Total Rating: " + Instance.Rating + ", Total Fatal Errors: " + _fatalErrors);
         }
     }
 }

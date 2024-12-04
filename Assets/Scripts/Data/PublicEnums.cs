@@ -7,7 +7,8 @@
         TrapdoorStuck = 3,
         DoorCreak = 5,
         ButtonClick = 6,
-        Error = 8
+        Error = 8,
+        Print =9
     }
 
     public enum CreatureAction
