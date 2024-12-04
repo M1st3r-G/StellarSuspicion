@@ -14,12 +14,12 @@ namespace Data.Dialogue
             
         [SerializeField] private List<AnswerContainer> answers;
         
-        public (string, int) GetAnswer(CreatureAlignment currentAlignment)
+        public (string, int) GetAnswer(int currentGoodness)
         {
-            AnswerContainer[] set = (currentAlignment switch
+            AnswerContainer[] set = (currentGoodness switch
             {
-                CreatureAlignment.Good => answers.Where(a => a.rating > 0),
-                CreatureAlignment.Evil => answers.Where(a => a.rating < 0),
+                1 => answers.Where(a => a.rating > 0),
+                -1 => answers.Where(a => a.rating < 0),
                 _ => answers
             }).ToArray();
 

@@ -1,4 +1,5 @@
 ﻿using Controller.Actors;
+using Data;
 using Manager;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ namespace Controller
 {
     public class ExitDoor : DoorController
     {
+        private static readonly int Try = Animator.StringToHash("Try");
+        public Animator errorSpriteAnim;
+        
         protected override void SetDoorOpened(bool open)
         {
             if(!open) base.SetDoorOpened(false);
@@ -17,9 +21,10 @@ namespace Controller
             }
         }
 
-        private static void ShowError()
+        private void ShowError()
         {
-            Debug.LogError("Creature Visible");
+            errorSpriteAnim.SetTrigger(Try);
+            AudioManager.PlayEffect(AudioEffect.Error, transform.position);
         }
     }
 }

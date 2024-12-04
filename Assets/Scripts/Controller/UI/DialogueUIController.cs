@@ -71,7 +71,7 @@ namespace Controller.UI
         {
             Debug.Assert(GameManager.Creature.CurrentCreature is not null, "GameManager.Creature.CurrentCreature != null");
 
-            (string content, int rating) = questions[index].GetAnswer(GameManager.Creature.IsGood());
+            (string content, int rating) = questions[index].GetAnswer(GameManager.Creature.GetGoodness(out _));
             SetText(content);
             
             optionTexts[index].transform.parent.parent.gameObject.SetActive(false);

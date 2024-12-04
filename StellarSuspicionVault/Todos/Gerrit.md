@@ -12,6 +12,7 @@ tags:
 - Feature Cam
 - Preload Materials for monster
 - Lerp Light
+- Leave Qustion
 ### Main
 
 #todo :
@@ -23,9 +24,7 @@ tags:
 - Fix ScreenController
 	- Buttons
 	- Text better formated
+	- Also Add Normal Page
 
-Door Response
 
-Big Issue with Knowledge
-
-Leave Qustion
+Trapdoor wait till execute, Then Blocks enter
