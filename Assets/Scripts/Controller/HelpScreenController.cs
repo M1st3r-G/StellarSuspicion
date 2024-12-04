@@ -6,10 +6,8 @@ namespace Controller
     public class HelpScreenController : MonoBehaviour
     {
         [SerializeField] private List<GameObject> content;
-        
+        [SerializeField] private GameObject currentSelection;
         private int _currentIndex;
-
-        //private void Awake() => DisplayContent();
 
         #region Content
 
@@ -29,7 +27,13 @@ namespace Controller
             DisplayContent();
         }
         
-        private void DisplayContent() => content[_currentIndex] = null;
+        private void DisplayContent()
+        {
+            currentSelection.SetActive(false);
+            currentSelection = content[_currentIndex];
+            currentSelection.SetActive(true);
+        }
+
         #endregion
     }
 }

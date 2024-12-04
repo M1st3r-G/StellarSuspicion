@@ -38,7 +38,14 @@ Gut(24) Böse(18) Letzter zähl punkt mund
 - Kantig (Böse)(3)
 - Hörner (entwickelt für den kampf)(böse)
 #### Fragen
-Übnersicht
+Allgemein:
+Vertraue deinem Bauch gefühlt. Aber achtung, sollte ein Alien Zögerlich antworten oder Fehler machen, ist es wahrschinlich Böse.
+Galaxien:
+Sculptor und Fornax sind Böse.
+Diät:
+Fleisch essen ist grundsätzlich nur dann nicht gefährlich, wenn Aliens ausdrücklich Menschenkonsum verneinen.
+Grund:
+Grundsätzlich schrieien Menschen nicht. Mag ein Alien Schreie, so wird es diese Wahrscheinlich selbst hervorrufen wollen.
 
 **Augenformen
 

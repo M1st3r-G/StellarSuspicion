@@ -9,7 +9,9 @@ namespace Manager
 {
     public class TutorialManager : MonoBehaviour
     {
-        private TutorialFlag _lastFlag;
+        [SerializeField] private bool _skipTutorial;
+        
+        private TutorialFlag _lastFlag = TutorialFlag.None;
         private bool _isInTutorial;
 
         [SerializeField] private List<string> tutorialContent;
@@ -48,7 +50,8 @@ namespace Manager
             Instance = this;
             
             Debug.Assert(tutorialAudio.Count == tutorialContent.Count, "Length Differ");
-            
+
+            if (_skipTutorial) return;
             StartTutorial();
         }
 
