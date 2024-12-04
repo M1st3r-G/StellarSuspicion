@@ -15,6 +15,7 @@ namespace Manager
         [FormerlySerializedAs("_maxEvents")] [SerializeField] [Tooltip("The Amount of events this day.")]
         private int maxEvents;
 
+        private int maxEventsInRuntime;
         
         // States
         private int _eventsLeft;
@@ -23,7 +24,6 @@ namespace Manager
         private readonly List<EventReceiver> _eventReceiver = new();
         
         // Public
-        public static event System.Action OnDayEnd;
         
         #region Setup
 
@@ -42,6 +42,7 @@ namespace Manager
 
             float deviation = -Mathf.Exp(-(maxEvents / 4f)) + 1f;
             _bounds = deviation * timeOfDay / (2 * maxEvents);
+            maxEventsInRuntime = maxEvents;
         }
     
         private void Start() => Debug.Log($"EventHandler has {_eventReceiver.Count} events registered");
@@ -60,14 +61,14 @@ namespace Manager
             Debug.Log("Timer is active");
             
             _eventsLeft = maxEvents;
-            StartCoroutine(DayTimer());
+            StartCoroutine(DayTimer(maxEventsInRuntime));
         }
     
-        private IEnumerator DayTimer()
+        private IEnumerator DayTimer( int maxEventsinternal)
         {
             float endTime = Time.time + timeOfDay;
             
-            while (_eventsLeft > 0)
+            while (maxEventsinternal > 0)
             {
                 //Wait till Event
                 float nextWaitTime = CalcNextWaitTime();
@@ -85,7 +86,8 @@ namespace Manager
             yield return new WaitForSeconds(endTime - Time.time);
             
             Debug.Log("Day End");
-            OnDayEnd?.Invoke();
+            maxEventsInRuntime++;
+            StartTimerActive();
         }
 
         private float CalcNextWaitTime() =>
