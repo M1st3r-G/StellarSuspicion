@@ -24,6 +24,7 @@ tags:
 - Fix ScreenController
 	- Buttons
 	- Text better formated
+	- Also Add Normal Page
 
 
 Trapdoor wait till execute, Then Blocks enter

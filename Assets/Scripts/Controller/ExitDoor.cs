@@ -7,6 +7,7 @@ namespace Controller
 {
     public class ExitDoor : DoorController
     {
+        private static readonly int Try = Animator.StringToHash("Try");
         public Animator errorSpriteAnim;
         
         protected override void SetDoorOpened(bool open)
@@ -22,7 +23,7 @@ namespace Controller
 
         private void ShowError()
         {
-            errorSpriteAnim.SetTrigger("Try");
+            errorSpriteAnim.SetTrigger(Try);
             AudioManager.PlayEffect(AudioEffect.Error, transform.position);
         }
     }
