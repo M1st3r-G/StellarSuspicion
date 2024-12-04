@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeOfDay: 120
   maxEvents: 3
-  waitTimeInMins: 0
+  waitTimeInMins: 2
 --- !u!114 &832158669268063750
 MonoBehaviour:
   m_ObjectHideFlags: 0

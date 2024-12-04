@@ -89,9 +89,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4555760777626211824, guid: f9df491397a10ec43bed853ec1492c4b, type: 3}
       propertyPath: m_text
-      value: 'Help Screen
+      value: 'Hilfemenu
 
-        Interact to Zoom'
+        Interagiere zum Zoomen'
       objectReference: {fileID: 0}
     - target: {fileID: 4555760777626211824, guid: f9df491397a10ec43bed853ec1492c4b, type: 3}
       propertyPath: m_fontSize
