@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Manager;
+using UnityEngine;
 
 namespace Controller.Actors.Interactable.Events
 {
@@ -16,6 +17,7 @@ namespace Controller.Actors.Interactable.Events
         protected override void TriggerInteraction()
         {
             particles.Stop();
+            TutorialManager.SetFlag(TutorialManager.TutorialFlag.GeneratorInteracted);
             SetInteractionTo(false);
             parent.Finished();
         }

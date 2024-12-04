@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Manager;
 using UnityEngine;
 
 namespace Controller.Actors.Interactable.Table
@@ -26,6 +27,7 @@ namespace Controller.Actors.Interactable.Table
         {
             if(_moveRoutine is not null) StopCoroutine(_moveRoutine);
             _moveRoutine = StartCoroutine(MoveCameraToTransform(playerCamera, Vector3.zero, Quaternion.identity));
+            TutorialManager.SetFlag(TutorialManager.TutorialFlag.ZoomedOutOfHelp);
             IsZoomed = false;
             SetInteractionTo(true);
         }

@@ -25,7 +25,7 @@ namespace Controller.Actors.Interactable.Buttons
                 AudioManager.PlayEffect(AudioEffect.Error, transform.position);
                 return;
             }
-            
+            TutorialManager.SetFlag(TutorialManager.TutorialFlag.PressedButtonKill);
             GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature);
             AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
             SetInteractionTo(false);
