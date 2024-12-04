@@ -13,6 +13,9 @@ namespace Manager
         private bool _isInTutorial;
 
         [SerializeField] private List<string> tutorialContent;
+        [SerializeField] private List<AudioClip> tutorialAudio;
+        
+        [Header("References")]
         [SerializeField] private FuseBoxController fuseBox;
         [SerializeField] private ScreenInteractController screen;
         [SerializeField] private ButtonKillInteract killButton;
@@ -43,6 +46,8 @@ namespace Manager
             
             Instance = this;
             
+            Debug.Assert(tutorialAudio.Count == tutorialContent.Count, "Length Differ");
+            
             StartTutorial();
         }
 
@@ -65,7 +70,7 @@ namespace Manager
         {
             // Scene 1
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[0]);
+            TriggerTutorialDialogue(0);
             
             GameManager.Mic.TutorialGlow();
             GameManager.Mic.SetInteractionTo(true);
@@ -73,10 +78,10 @@ namespace Manager
             
             // Scene 2
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.AnsweredQuestion);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[1]);
+            TriggerTutorialDialogue(1);
             
             yield return new WaitForSeconds(12f);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[2]);
+            TriggerTutorialDialogue(2);
             
             fuseBox.OnStartEvent();
             
@@ -84,36 +89,42 @@ namespace Manager
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.GeneratorInteracted);
             
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[3]);
+            TriggerTutorialDialogue(3);
 
             yield return new WaitForSeconds(12f);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[4]);
+            TriggerTutorialDialogue(4);
             
             // Scene 4
             yield return new WaitForSeconds(12f);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[5]);
+            TriggerTutorialDialogue(5);
             yield return new WaitForSeconds(12f);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[6]);
+            TriggerTutorialDialogue(6);
             yield return new WaitForSeconds(12f);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[7]);
+            TriggerTutorialDialogue(7);
             yield return new WaitForSeconds(5f);
             screen.TutorialGlow();
             screen.SetInteractionTo(true);
             
             // Scene 5
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.ZoomedOutOfHelp);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[8]);
+            TriggerTutorialDialogue(8);
             
             killButton.SetInteractionTo(true);
             exitButton.SetInteractionTo(true);
             
             //Last Scene
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.PressedButtonKill or TutorialFlag.PressedButtonExit);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[_lastFlag is TutorialFlag.PressedButtonKill ? 9 : 10]);
+            TriggerTutorialDialogue(_lastFlag is TutorialFlag.PressedButtonKill ? 9 : 10);
             
             nextButton.SetInteractionTo(true);
             
             _isInTutorial = false;
+        }
+
+        private void TriggerTutorialDialogue(int index)
+        {
+            UIManager.Dialogue.ShowTutorial(tutorialContent[index]);
+            AudioManager.PlayTutorialLine(tutorialAudio[index]);
         }
     }
 }

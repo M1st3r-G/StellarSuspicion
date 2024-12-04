@@ -76,5 +76,12 @@ namespace Manager
             Debug.LogError($"Sound with {effect} Identifier not found");
         }
         #endregion
+
+        public static void PlayTutorialLine(AudioClip audioClip)
+        {
+            AudioSource tmp = Instantiate(Instance.effectPrefab, GameManager.Creature.transform.position, Quaternion.identity).GetComponent<AudioSource>();
+            tmp.clip = audioClip;
+            tmp.Play();
+        }
     }
 }
