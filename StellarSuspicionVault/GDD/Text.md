@@ -103,6 +103,61 @@ Mein Lieber
 
 
 
+***Skript Tutorial:
+
+Szene 1:
+Sagt:
+Moinsen, hörste mich? klick aufs Mikrofon
+Tut:
+Mikrofon Leuchten
+Schaltenfrei Antwort 1
+Antworten:
+"Habs gefunden was jetzt" 
+Sagt:
+Perfekt mit dem ding wirst du auch mit den Aliens reden können, mach dir keine sorge über die Sprachbarriere wir haben mehrere Auto Übersetzer eingebaut -> Szene 2+generator geht aus
+
+Szene 2:
+Sagt: 
+Ach shit, dieser blöde Generator, ist nen altes schiff und die Sicherungen spielen oft verrückt, der Generator ist direkt hinter der Türe, geb dem ding mal nen klaps dann sollte er wieder klappen 
+Tut:
+Generator Leuchten
+Antworten:
+Keine
+Generator -> Szene 3
+
+Szene 3:
+Sagt: Gut gemacht, dieses alte schiff ist echt problematisch geworden über die Jahre, unter mir die Lucke klemmt auch oftmals wieder, geht aber genau so leicht repariert, pass nur auf du kannst deinen raum nicht verlassen solange ein Alien hier draußen ist, was in dem fall bedeutet das du die Dinger nicht rauswerfen kannst wenn es gefährlich ist
+Tut:
+Nichts:
+Delay 3 Sekunden
+
+Szene 4: 
+Sagt: 
+Nun zu deiner Hauptaufgabe, wir haben dich schließlich nicht zum reparieren hier angeheuert, deine Aufgabe wird es sein die Aliens die hier durchkommen werden nach verschiedenen Kriterien zu werten, viele dieser Aliens wollen einfach nur Urlaub machen aber manche haben etwas andere Hintergründe.
+pass also jetzt gut auf denn du kannst gut erkenn ob es gute oder schlechte Absichten hat nach der Art wie es aussieht, man kann ihnen aber auch drei leichte fragen stellen die du in deiner Ausbildung sicherlich mit bekommen hast, zu mehr nützlichen information schau einfach auf das tablett links von dir.
+Tut:
+Bildschirm Leuchten lassen
+Antworten:
+Keine
+Rauszoom -> Szene 5
+
+Szene 5
+Sagt:
+Damit wär ich hier fertig kannst du mich rauslassen? drück auf den grünen knopf um leute durchzulassen aber wehe du drückst den roten knopf, der is für die lucke zuständig
+Tut:
+Knopf Kill aktivieren -> Szene Death
+Knopf Exit aktivieren -> Szene Exit
+Antworten:
+keine
+Knopf beendet
+
+Death: 
+Sagt: Den Grünen DEN GRÜNEN!
+
+Exit: 
+Sagt: Danke dir machs gut und viel glück dir
+
+
 
 
 
