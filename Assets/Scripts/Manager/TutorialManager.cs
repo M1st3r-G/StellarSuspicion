@@ -74,31 +74,41 @@ namespace Manager
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.AnsweredQuestion);
             UIManager.Dialogue.ShowTutorial(tutorialContent[1]);
             
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(12f);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[2]);
+            
             fuseBox.OnStartEvent();
             
             // Scene 3
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.GeneratorInteracted);
             
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[2]);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[3]);
+
+            yield return new WaitForSeconds(8f);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[4]);
             
             // Scene 4
-            yield return new WaitForSeconds(4f);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[3]);
+            yield return new WaitForSeconds(8f);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[5]);
+            yield return new WaitForSeconds(8f);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[6]);
+            yield return new WaitForSeconds(8f);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[7]);
+            yield return new WaitForSeconds(3f);
             screen.TutorialGlow();
             screen.SetInteractionTo(true);
             
             // Scene 5
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.ZoomedOutOfHelp);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[4]);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[8]);
             
             killButton.SetInteractionTo(true);
             exitButton.SetInteractionTo(true);
             
             //Last Scene
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.PressedButtonKill or TutorialFlag.PressedButtonExit);
-            UIManager.Dialogue.ShowTutorial(tutorialContent[_lastFlag is TutorialFlag.PressedButtonKill ? 5 : 6]);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[_lastFlag is TutorialFlag.PressedButtonKill ? 9 : 10]);
             
             _isInTutorial = false;
         }

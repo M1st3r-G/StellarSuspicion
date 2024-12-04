@@ -472,13 +472,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialContent:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
+  - "Moinsen, h\xF6rste mich? Klick mal aufs Mikrofon."
+  - "Perfekt. Mit dem Ding wirst du auch mit Aliens Reden k\xF6nnen, mach dir keine
+    Sorge \xFCber die Sprachbarriere wir haben mehrere \xDCbersetzer eingabau"
+  - "A shit, bl\xF6der Generator, ist ne alte Station und die Sicherungen spielen
+    oft verr\xFCckt. Der Generator ist hinter der T\xFCr, geb dem mal nen Klaps (shift
+    um aufzustehen)"
+  - "Gut. Die alte Station ist echt runter gekommen \xFCber die Zeit. Auch die Luke
+    veklemmt hin und wieder, gaht aber genau so leicht repariert."
+  - "Achte aber darauf, dass du das Foyer nicht betreten kannst, solange ein Alien
+    hier drau\xDFen ist. Repariere es also schnell, bevor du hier ein Alien hast,
+    dass du nicht rauswerfen kannst, wenn es gef\xE4hrlich ist."
+  - "Nun zu deiner Hauptaufgabe, wir haben dich schlie\xDFlich nicht zum Reparieren
+    angeheuert. Dein Aufgabe ist es Aliens auf der durchreise nach verschidenen Kriterien
+    zu bewerten, denn manche von ihnen haben vielleicht B\xF6se absichten. "
+  - "Gib dir also viel M\xFChe zu erkennen, welche Absichten das Alien hat, das kannst
+    du am Aussehen erkennen, oder in dem du ihm Fragen stellst. W\xE4ge am Ende einfach
+    ab, ob es mehr gute oder Schlechte Hinweise zeigt. "
+  - "\xDCbringens kannst du alle Informationen \xFCber die Hinweise und diese Station
+    auch immer im Bildschirm Links von dir ansehen."
+  - "Damit w\xE4r ich hier Fertig, kannst du mich rauslassen? Dr\xFCck auf den gr\xFCnen
+    Knopf um Leute durchzulassen, aber wehe du dr\xFCckst den roten Knopf, der is
+    f\xFCr die Luke zust\xE4ndig."
+  - "Den Gr\xFCnen, den GR\xDCNENNEEENNN!"
+  - "Danke dir, machs gut und viel Gl\xFCck."
   fuseBox: {fileID: 0}
   screen: {fileID: 0}
   killButton: {fileID: 0}
