@@ -28,4 +28,3 @@ tags:
 
 
 Trapdoor wait till execute, Then Blocks enter
-Big Issue with Knowledge

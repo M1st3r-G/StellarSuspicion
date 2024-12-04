@@ -53,7 +53,8 @@ namespace Controller.Creature
             Voice.PlayerHello();
             
             GameManager.Mic.SetInteractionTo(true); //TODO only when Neutral? 
-            Debug.Log($"This Creature is currently {this.IsGood()}");
+            this.GetGoodness(out CreatureAlignment align);
+            Debug.Log($"This Creature is currently {align}");
         }
 
         public void OnFinishedMovement() => Voice.StopSounds();
@@ -84,7 +85,8 @@ namespace Controller.Creature
         public void AnswerQuestion(int index, int rating)
         {
             RatingFromQuestions += rating;
-            Debug.Log($"This Creature is currently {this.IsGood()}");
+            this.GetGoodness(out CreatureAlignment align);
+            Debug.Log($"This Creature is currently {align}");
             Voice.PlaySentence(index);
         }
     }
