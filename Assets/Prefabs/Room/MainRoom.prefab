@@ -1831,6 +1831,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 9083300212986372141, guid: 2ef417a0ed8ac404fb20479174fcc041, type: 3}
   m_PrefabInstance: {fileID: 1996673586286808062}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7400304238774483072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9009087611855156094, guid: 2ef417a0ed8ac404fb20479174fcc041, type: 3}
+  m_PrefabInstance: {fileID: 1996673586286808062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ec042fc0c5486ca87034dd1c11c83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2265311695460257208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1883,6 +1894,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4718505879406874162, guid: 01c0e5846fd00974381e9982c4cd88bb, type: 3}
+      propertyPath: buttonNext
+      value: 
+      objectReference: {fileID: 7400304238774483072}
     - target: {fileID: 4718505879406874162, guid: 01c0e5846fd00974381e9982c4cd88bb, type: 3}
       propertyPath: _trapdoorController
       value: 
