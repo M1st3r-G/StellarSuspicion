@@ -80,7 +80,7 @@ namespace Manager
             {
                 _fatalErrors++;
                 Debug.LogError("Start Printout");
-                ClockController.instance.Printout();
+                ClockController.Instance.Printout();
             }
 
             if (_fatalErrors == 4) GameOverUIController.Instance.GameOver();
