@@ -15,14 +15,15 @@ namespace Manager
         [FormerlySerializedAs("_maxEvents")] [SerializeField] [Tooltip("The Amount of events this day.")]
         private int maxEvents;
 
-        private int maxEventsInRuntime;
+        private int _maxEventsInRuntime;
         
         // States
         private int _eventsLeft;
         private float _bounds;
     
         private readonly List<EventReceiver> _eventReceiver = new();
-        
+        [SerializeField] [Range(0f, 2f)]private float waitTimeInMins = 1f;
+
         // Public
         
         #region Setup
@@ -42,11 +43,15 @@ namespace Manager
 
             float deviation = -Mathf.Exp(-(maxEvents / 4f)) + 1f;
             _bounds = deviation * timeOfDay / (2 * maxEvents);
-            maxEventsInRuntime = maxEvents;
+            _maxEventsInRuntime = maxEvents;
         }
     
-        private void Start() => Debug.Log($"EventHandler has {_eventReceiver.Count} events registered");
-        
+        private void Start()
+        {
+            Debug.Log($"EventHandler has {_eventReceiver.Count} events registered");
+            Invoke(nameof(StartNewDay), 60f * waitTimeInMins);
+        }
+
         public void OnDestroy()
         {
             if (Instance == this) Instance = null;
@@ -56,19 +61,15 @@ namespace Manager
 
         #region TimerManagemt
 
-        public void StartTimerActive()
-        {
-            Debug.Log("Timer is active");
-            
-            _eventsLeft = maxEvents;
-            StartCoroutine(DayTimer(maxEventsInRuntime));
-        }
-    
-        private IEnumerator DayTimer( int maxEventsinternal)
+        private void StartNewDay() => StartCoroutine(DayTimer(_maxEventsInRuntime));
+
+        private IEnumerator DayTimer(int internalMax)
         {
             float endTime = Time.time + timeOfDay;
             
-            while (maxEventsinternal > 0)
+            _eventsLeft = internalMax;
+            
+            while (_eventsLeft > 0)
             {
                 //Wait till Event
                 float nextWaitTime = CalcNextWaitTime();
@@ -77,7 +78,7 @@ namespace Manager
                 // Trigger Event
                 Debug.Log($"Event {maxEvents - _eventsLeft} started");
                 TriggerRandomEvent();
-                _eventsLeft -= 1;
+                _eventsLeft--;
             }
             
             Debug.Log("Max Events triggered");
@@ -86,8 +87,8 @@ namespace Manager
             yield return new WaitForSeconds(endTime - Time.time);
             
             Debug.Log("Day End");
-            maxEventsInRuntime++;
-            StartTimerActive();
+            _maxEventsInRuntime++;
+            StartNewDay();
         }
 
         private float CalcNextWaitTime() =>

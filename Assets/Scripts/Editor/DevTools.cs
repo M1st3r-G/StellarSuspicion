@@ -15,36 +15,20 @@ namespace Editor
         {
             GUI.enabled = Application.isPlaying;
             
-            GUILayout.Label("TimeAndEventManager");
-
-            GUILayout.BeginHorizontal();
+            GUILayout.Label("Events");
             if (GUILayout.Button("Trigger Random Event")) TimeManager.TriggerRandomEvent();
-            if (GUILayout.Button("StartTime"))TimeManager.Instance.StartTimerActive();
-            GUILayout.EndHorizontal();
             
             GUILayout.Label("Creatures");
             if (GUILayout.Button("Get Distribution")) CreatureCreator.PrintDistribution();
             
-            GUILayout.Label("Music");
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("StartMusic"))
-            {
-                Debug.Log("Starting Music");
-                AudioManager.StartStopMusic(false);
-            }
-
-            if (GUILayout.Button("StopMusic"))
-            {
-                Debug.Log("Stoping Music");
-                AudioManager.StartStopMusic(true);
-            }
-            GUILayout.EndHorizontal();
-            
+            GUILayout.Label("Audio");
             if (GUILayout.Button("Test Audio")) AudioManager.PlayEffect(AudioEffect.Knocking, new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-1.5f, 1.5f)));
 
+            GUILayout.Label("Creature Control");
             if (GUILayout.Button("Spawn Evil"))GameManager.Creature.SetToCreature(CreatureCreator.GetEvil());
             
-            if(GUILayout.Button("GameOver"))GameOverUIController.Instance.GameOver(10);
+            GUILayout.Label("Trigger Game Over");
+            if(GUILayout.Button("GameOver")) GameOverUIController.Instance.GameOver();
         }
     }
 }
