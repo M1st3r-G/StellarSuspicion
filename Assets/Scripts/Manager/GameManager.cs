@@ -17,9 +17,13 @@ namespace Manager
         [SerializeField] [Tooltip("The Microphone")]
         private MicrophoneInteractController microphoneInteraction;
 
+        [SerializeField] private ClockController clockController;
+        
         public static MicrophoneInteractController Mic => Instance.microphoneInteraction;
         public static WindowController Window => Instance.window;
         public static CreatureController Creature => Instance.window.Creature;
+        public static ClockController Clock => Instance.clockController;
+        
         
         // Temps
         public int MonstersAmount { get; private set; }
@@ -76,11 +80,13 @@ namespace Manager
         private void InnerRateCreature(CreatureController creatureController)
         {
             creatureController.GetGoodness(out var alignment);
+            if (alignment is CreatureAlignment.Neutral) alignment = CreatureAlignment.Evil;
+            Debug.LogWarning(_success +" Success    "+ alignment + " Creature Aligment");
             if (!_success && alignment == CreatureAlignment.Evil)
             {
                 _fatalErrors++;
                 Debug.LogError("Start Printout");
-                ClockController.Instance.Printout();
+                clockController.Printout();
             }
 
             if (_fatalErrors == 4) GameOverUIController.Instance.GameOver();

@@ -7,8 +7,7 @@ namespace Controller.Actors
     public class ClockController : MonoBehaviour
     {
         private int _counter;
-    
-        public static ClockController Instance;
+
 
         [SerializeField] private Vector3 positionForSummondthing;
         [SerializeField]private GameObject firstSprite;
@@ -20,18 +19,11 @@ namespace Controller.Actors
 
         private void Awake()
         {
-            if (Instance != null)Destroy(this.gameObject);
-            Instance = this;
             _counter = 0;
             firstSprite.SetActive(false);
             secondSprite.SetActive(false);
             thirdSprite.SetActive(false);
             Debug.LogWarning("Clock Controller");
-        }
-
-        private void OnDestroy()
-        {
-            if (Instance == this) Instance = null; Debug.LogError("Destroyed");
         }
 
         #endregion

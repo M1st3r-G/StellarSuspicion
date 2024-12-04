@@ -21,7 +21,6 @@ namespace Controller.Actors.Interactable.Buttons
             GameManager.ResolveCreature(CreatureAction.Exit, GameManager.Creature);
             buttonKill.SetInteractionTo(false);
             SetInteractionTo(false);
-            buttonNext.SetInteractionTo(true);
         }
     }
 }

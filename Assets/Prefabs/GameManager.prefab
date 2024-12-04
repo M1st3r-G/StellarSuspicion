@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   window: {fileID: 0}
   microphoneInteraction: {fileID: 0}
+  clockController: {fileID: 0}
 --- !u!114 &1548774846482777672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +344,10 @@ MonoBehaviour:
     type: 8
     clips:
     - {fileID: 8300000, guid: bfe10c627388afe4680034dc2afc8de1, type: 3}
+  - name: PrinterSound
+    type: 9
+    clips:
+    - {fileID: 8300000, guid: 70ac015eef0c6a6499952415558eee61, type: 3}
 --- !u!114 &3340809194995542076
 MonoBehaviour:
   m_ObjectHideFlags: 0

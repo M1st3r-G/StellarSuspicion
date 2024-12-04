@@ -1,4 +1,5 @@
 using Controller.Actors;
+using Controller.Actors.Interactable.Buttons;
 using Data;
 using Extern;
 using Manager;
@@ -17,6 +18,7 @@ namespace Controller.Creature
         private Animator _anim;
         
         [SerializeField] private TrapdoorController _trapdoorController;
+        [SerializeField] private ButtonNextInteract buttonNext;
         private CreatureVoiceController Voice { get; set; }
         public int RatingFromQuestions { get; private set; }
         
@@ -70,6 +72,7 @@ namespace Controller.Creature
             name = "Default";
             CurrentCreature = null;
             Voice.StopSounds();
+            buttonNext.SetInteractionTo(true);
         }
 
         public void Clear(CreatureAction exitAction, bool success)
