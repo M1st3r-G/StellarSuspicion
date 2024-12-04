@@ -224,11 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ea797680e982840a0aa938f51b8a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!225 &1956078688 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 3077647103887392344, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-  m_PrefabInstance: {fileID: 2076482066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2076034532 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 443419660610675795, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
@@ -393,6 +388,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4341347927378452082, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341347927378452082, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -472,14 +471,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7058764363069415735, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: fadeoutTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058764363069415735, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: gameOverPanel
-      value: 
-      objectReference: {fileID: 1956078688}
     - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: playerSit
       value: 
