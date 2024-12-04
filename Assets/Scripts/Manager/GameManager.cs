@@ -1,3 +1,4 @@
+using Controller;
 using Controller.Actors;
 using Controller.Actors.Interactable.Table;
 using Controller.Creature;
@@ -18,12 +19,13 @@ namespace Manager
         private MicrophoneInteractController microphoneInteraction;
 
         [SerializeField] private ClockController clockController;
+        [SerializeField] private FuseBoxController fuseBoxController;
         
         public static MicrophoneInteractController Mic => Instance.microphoneInteraction;
         public static WindowController Window => Instance.window;
         public static CreatureController Creature => Instance.window.Creature;
         public static ClockController Clock => Instance.clockController;
-        
+        public static FuseBoxController FuseBox => Instance.fuseBoxController;
         
         // Temps
         public int MonstersAmount { get; private set; }
@@ -31,8 +33,7 @@ namespace Manager
         private int GetRightAmount => (MonstersAmount + Rating) / 2;
         public float Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
         private bool _success;
-        
-        
+
 
         private static int _fatalErrors;
         // Public

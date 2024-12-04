@@ -17,7 +17,7 @@ namespace Controller.Actors.Interactable.Buttons
         {
             Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
             AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
-                
+            TutorialManager.SetFlag(TutorialManager.TutorialFlag.PressedButtonExit);
             GameManager.ResolveCreature(CreatureAction.Exit, GameManager.Creature);
             buttonKill.SetInteractionTo(false);
             SetInteractionTo(false);

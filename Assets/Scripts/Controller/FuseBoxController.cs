@@ -22,7 +22,7 @@ namespace Controller
         
         private void Awake() => TriggerPowerEvent(true);
 
-        private void TriggerPowerEvent(bool running)
+        public void TriggerPowerEvent(bool running)
         {
             OnPowerChangeTo?.Invoke(running);
             SetAudioLoopTo(running);

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Manager
@@ -7,114 +8,69 @@ namespace Manager
     {
         private TutorialFlag _lastFlag;
         private bool _isInTutorial;
+
+        private List<string> _tutorialContent;
         
-        public static TutorialManager Instance { get; private set; }
+        private static TutorialManager Instance { get; set; }
         
         public enum TutorialFlag
         {
-            None,
-            DialogueFinished,
-            EnterGreenhouse,
-            FocusedSeed,
-            PlantedSeed,
-            NextDay,
-            Watered,
-            Replant,
-            AddedFertilizer,
-            FlowerBlooms,
-            DecidedForPlant,
-            BookOpened
+            None = 0,
+            SatDown,
+            AnsweredQuestion,
+            GeneratorInteracted,
+            ZoomedOutOfHelp,
+            PressedButtonKill,
+            PressedButtonExit
         }
 
         private void Awake()
         {
-            if (Instance is not null
+            if (Instance is not null)
             {
                 Debug.LogWarning("More than one instance of TutorialManager!");
                 Destroy(this);
+                return;
             }
+            
             Instance = this;
         }
 
-        public void StartTutorial()
+        public static void StartTutorial() => Instance.InnerStartTutorial();
+        private void InnerStartTutorial()
         {
             if (_isInTutorial) return;
             
             _isInTutorial = true;
-            UnlockContent(false);
             StartCoroutine(TutorialRoutine());
         }
 
-        private void UnlockContent(bool state)
+        public static  void SetFlag(TutorialFlag type)
         {
-            foreach (ShelfSeedsItem seed in seeds)
-                seed.gameObject.SetActive(state);
-
-            foreach (ShelfSoilItem soil in soils)
-                soil.gameObject.SetActive(state);
-
-            foreach (ShelfFertilizerItem fertilizer in fertilizers)
-                fertilizer.gameObject.SetActive(state);
-        }
-        
-        public void SetFlag(TutorialFlag type)
-        {
-            if (_isInTutorial) _lastFlag = type;
+            if (Instance._isInTutorial) Instance._lastFlag = type;
         }
 
         private IEnumerator TutorialRoutine()
         {
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.EnterGreenhouse);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.FocusedSeed);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.PlantedSeed);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.NextDay); 
-            CameraManager.Instance.ToHub();
+            // Scene 1
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
+            UIManager.Dialogue.ShowTutorial(_tutorialContent[0]);
             
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.EnterGreenhouse); 
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.Watered);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.NextDay);
-            CameraManager.Instance.ToHub();
+            GameManager.Mic.SetInteractionTo(true);
+            GameManager.Mic.TutorialGlow();
+            // Todo SHOW DEFAULT ANSWER TUTORIAL
             
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.EnterGreenhouse);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.Replant);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.AddedFertilizer);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.FlowerBlooms);
-            CameraManager.Instance.ToHub();
+            // Scene 2
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.AnsweredQuestion);
+            UIManager.Dialogue.ShowTutorial(_tutorialContent[1]);
             
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.EnterGreenhouse);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DecidedForPlant);
-            dialogueSystem.StartNextSequence();
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.BookOpened);
-            UnlockContent(true);
-            dialogueSystem.StartNextSequence();            
-            yield return new WaitUntil(() => _lastFlag == TutorialFlag.DialogueFinished);
+            yield return new WaitForSeconds(1f);
+            GameManager.FuseBox.TriggerPowerEvent(false);
+            
+            // Scene 3
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.GeneratorInteracted);
+            
+            
             
             _isInTutorial = false;
         }
