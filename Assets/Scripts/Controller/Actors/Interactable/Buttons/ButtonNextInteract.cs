@@ -14,11 +14,9 @@ namespace Controller.Actors.Interactable.Buttons
         
         protected override void OnButtonDown()
         {
-            SetInteractionTo(false);
             GameManager.Window.SetWindowOpened(true);
             AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
 
-            Debug.Log("Let New Creature in");
             GameManager.Creature.SetToCreature(CreatureCreator.GetRandomCreature());
 
             SetInteractionTo(false);

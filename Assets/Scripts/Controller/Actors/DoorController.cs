@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Data;
 using Manager;
@@ -21,28 +20,20 @@ namespace Controller.Actors
         // Public
         public bool IsOpen { get; private set; }
         
-        //DoorCollider logic
-        private void OnTriggerEnter(Collider other)
-        {
-            SetDoorOpened(true);
-            AudioManager.PlayEffect(AudioEffect.DoorCreak,transform.position);
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            SetDoorOpened(false);
-            AudioManager.PlayEffect(AudioEffect.DoorCreak,transform.position);
-        }
-
-
         // Temps
         private Coroutine _closingRoutine;
+        
+        //DoorCollider logic
+        private void OnTriggerEnter(Collider other) => SetDoorOpened(true);
+        private void OnTriggerExit(Collider other) => SetDoorOpened(false);
 
         #region DoorClosing
 
         //Bool open must be true for the door to open
-        public void SetDoorOpened(bool open)
+        protected virtual void SetDoorOpened(bool open)
         {
+            AudioManager.PlayEffect(AudioEffect.DoorCreak,transform.position);
+            
             if(_closingRoutine != null) StopCoroutine(_closingRoutine);
             _closingRoutine = StartCoroutine(ClosingRoutine(open));
         }

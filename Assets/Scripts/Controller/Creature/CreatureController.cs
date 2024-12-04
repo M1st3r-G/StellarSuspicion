@@ -27,8 +27,9 @@ namespace Controller.Creature
             }
         }
 
-        private bool IsVisible => _creatureRenderer.IsVisible;
-
+        public bool HasCreature => _currentCreature is not null;
+        private bool IsWaiting => HasCreature && transform.localPosition.x < 0.1f;
+        
         #endregion
         
         public void Awake()
@@ -36,12 +37,12 @@ namespace Controller.Creature
             _anim = GetComponent<Animator>();
             Voice = GetComponent<CreatureVoiceController>();
             _creatureRenderer = GetComponent<CreatureRenderer>();
-            _creatureRenderer.SetVisibility(false);
         }
 
         public void SetToCreature(CreatureData creature)
         {
-            if (!IsVisible) _creatureRenderer.SetVisibility(true);
+            if (IsWaiting) return;
+            
             name = creature.Name;
             RatingFromQuestions = 0;
             UIManager.Dialogue.ShowGreeting();
@@ -66,7 +67,6 @@ namespace Controller.Creature
             
             GameManager.RateCreature(this);
             CurrentCreature = null;
-            _creatureRenderer.SetVisibility(false);
             
             Voice.StopSounds();
             
@@ -80,8 +80,6 @@ namespace Controller.Creature
             if (exitAction is CreatureAction.Exit) Voice.StartSteps();
             Voice.PlayResolution(exitAction, success);
         }
-
-        public void SetVisibility(bool on) => _creatureRenderer.SetVisibility(on);
 
         public void AnswerQuestion(int index, int rating)
         {

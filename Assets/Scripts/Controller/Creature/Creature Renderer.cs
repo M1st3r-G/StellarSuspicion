@@ -29,23 +29,6 @@ namespace Controller.Creature
 
         private Dictionary<CreatureComponentType, SpriteRenderer> _monsterPartRenderer;
         
-        public bool IsVisible => Alpha > 0.5f;
-        
-        private float Alpha
-        {
-            get => _monsterPartRenderer.First().Value.color.a;
-
-            set
-            {
-                foreach ((_, SpriteRenderer spriteRenderer) in _monsterPartRenderer)
-                {
-                    Color prevColor = spriteRenderer.color;
-                    prevColor.a = value;
-                    spriteRenderer.color = prevColor;
-                }
-            }
-        }
-        
         public void SetRenderer(CreatureData? data)
         {
             foreach (CreatureComponentType type in Enum.GetValues(typeof(CreatureComponentType)))
@@ -55,8 +38,6 @@ namespace Controller.Creature
             head.material = data?.Color;
         }
 
-        public void SetVisibility(bool on) => Alpha = on ? 1f : 0f;
-        
         private void Awake()
         {
             _monsterPartRenderer = new Dictionary<CreatureComponentType, SpriteRenderer>

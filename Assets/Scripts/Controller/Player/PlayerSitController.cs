@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Controller.Actors.Interactable;
+using Controller.Actors.Interactable.Buttons;
 using Controller.Actors.Interactable.Table;
 using Manager;
 using UnityEngine;
@@ -28,7 +29,9 @@ namespace Controller.Player
         private float rotateTime;
 
         private Coroutine _rotRoutine;
-        
+        [SerializeField] private ButtonEnterInteract exitButton;
+        [SerializeField] private ButtonKillInteract killButton;
+
         protected override void Awake()
         {
             base.Awake();
@@ -57,7 +60,11 @@ namespace Controller.Player
             base.Unpossess();
             foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(false);
             GameManager.Window.SetWindowOpened(false);
+            
             deskInteraction.SetInteractionTo(true);
+            killButton.SetInteractionTo(false);
+            exitButton.SetInteractionTo(false);
+            
             if(_rotRoutine is not null) StopCoroutine(_rotRoutine);
             _rotRoutine=StartCoroutine(RotateChair(false));
         }

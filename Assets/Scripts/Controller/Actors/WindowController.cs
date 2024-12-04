@@ -46,8 +46,6 @@ namespace Controller.Actors
         
             IsOpen = open;
 
-            if (open) creatureController.SetVisibility(true); 
-            
             while (elapsed <= closingTime)
             {
                 blinderTransform.localPosition = Vector3.Lerp(startPosition, endPosition, elapsed / closingTime);
@@ -57,7 +55,6 @@ namespace Controller.Actors
             }
 
             blinderTransform.localPosition = endPosition;
-            if (!open) creatureController.SetVisibility(false);
         }
 
         #endregion

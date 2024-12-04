@@ -3749,6 +3749,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
+--- !u!114 &838984112749170907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2933085849663344608, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
+  m_PrefabInstance: {fileID: 2526732218268966715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74ab7e890344bc1ad9089713454aa41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3317398812568253297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 943791319704808522, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
+  m_PrefabInstance: {fileID: 2526732218268966715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd6216be057466b8723f47a0677f701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5289910279355545009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7672243496494328458, guid: 0ed266b5fc8213046b9458a38b3ff1e0, type: 3}
@@ -3854,6 +3876,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair
       objectReference: {fileID: 0}
+    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
+      propertyPath: exitButton
+      value: 
+      objectReference: {fileID: 3317398812568253297}
+    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
+      propertyPath: killButton
+      value: 
+      objectReference: {fileID: 838984112749170907}
     - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
       propertyPath: screenController
       value: 

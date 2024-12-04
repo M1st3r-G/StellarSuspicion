@@ -214,7 +214,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 9016365086060502825}
   settingsMenu: {fileID: 6860732995979195945}
   dialogueUIController: {fileID: 8620418192823553222}
-  gameOverUIController: {fileID: 6804255005460414409}
+  gameOverUIController: {fileID: 0}
 --- !u!114 &7130360158209713221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   playerStand: {fileID: 0}
   mainInputAsset: {fileID: -944628639613478452, guid: d7bf5efa632b2124fbcc489a857ddd80, type: 3}
   swappingTime: 1
-  startStanding: 0
+  startStanding: 1
 --- !u!114 &6891955640083801498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,17 +648,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7735206883089335352, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
   m_PrefabInstance: {fileID: 6213298806628802918}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6804255005460414409 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 601093905296121519, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
-  m_PrefabInstance: {fileID: 6213298806628802918}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7cd7708a3ce0f64b930d52113ff142d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6860732995979195945 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 651942325279512399, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
