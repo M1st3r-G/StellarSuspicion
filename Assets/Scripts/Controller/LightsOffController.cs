@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Controller
@@ -12,6 +13,11 @@ namespace Controller
         private void SetLightTo(bool on)
         {
             foreach (var l in lights) l.enabled = on;
+        }
+
+        private void OnDestroy()
+        {
+            FuseBoxController.OnPowerChangeTo -= SetLightTo;
         }
     }
 }

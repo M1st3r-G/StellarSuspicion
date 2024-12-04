@@ -27,7 +27,12 @@ namespace Manager
 
         private void OnDestroy()
         {
-            if(_instance == this) _instance = null;
+            if (_instance == this)
+            {
+                _instance = null;
+                FuseBoxController.OnPowerChangeTo -= LightsToState;
+            }
+            
         }
 
         public static void LightsToState(bool on)

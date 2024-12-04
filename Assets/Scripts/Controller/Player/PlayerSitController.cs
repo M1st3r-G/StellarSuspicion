@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Controller.Actors.Interactable;
 using Controller.Actors.Interactable.Table;
@@ -32,6 +33,11 @@ namespace Controller.Player
         {
             base.Awake();
             standUpAction.action.performed += OnStandUpAction;
+        }
+
+        protected void OnDestroy()
+        {
+            standUpAction.action.performed -= OnStandUpAction;
         }
 
         public override void SetMouseState() => PlaymodeManager.SetMouseTo(true);

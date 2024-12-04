@@ -20,6 +20,12 @@ namespace Controller.Actors.Interactable.Table
         private int _currentIndex;
         public bool IsZoomed { get; private set; }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            DisplayContent();
+        }
+
         protected override void TriggerInteraction()
         {
             if(_moveRoutine is not null) StopCoroutine(_moveRoutine);

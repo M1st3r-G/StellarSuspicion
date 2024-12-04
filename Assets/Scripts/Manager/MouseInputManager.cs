@@ -39,7 +39,13 @@ namespace Manager
 
         private void OnDestroy()
         {
-            if (Instance == this) Instance = null;
+            if (Instance == this)
+            {
+                Instance = null;
+                mouseInteract.action.started -= MouseDown;
+                mouseInteract.action.canceled -= MouseUp;
+            }
+            
         }
 
         #endregion

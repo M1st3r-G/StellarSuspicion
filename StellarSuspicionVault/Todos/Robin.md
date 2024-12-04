@@ -27,5 +27,8 @@ Notes:
 //-laughting only 1
 
 
+Object dies needs to unsub to input
+Light needs to unsub when die
+
 
 

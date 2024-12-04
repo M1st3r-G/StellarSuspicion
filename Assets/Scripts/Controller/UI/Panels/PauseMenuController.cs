@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using System;
+using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,11 @@ namespace Controller.UI.Panels
         {
             base.Awake();
             pauseAction.action.performed += OnPauseAction;
+        }
+
+        protected void OnDestroy()
+        {
+            pauseAction.action.performed -= OnPauseAction;
         }
 
         private void OnPauseAction(InputAction.CallbackContext context)

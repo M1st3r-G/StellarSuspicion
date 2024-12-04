@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: playerStand
       value: 
       objectReference: {fileID: 1570871604}
+    - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: startStanding
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7805851609275352368, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_text
       value: 'Your Score: '

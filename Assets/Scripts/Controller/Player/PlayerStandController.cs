@@ -39,6 +39,11 @@ namespace Controller.Player
             lookingAction.action.performed += OnMouseInput;            
         }
 
+        protected void OnDestroy()
+        {
+            lookingAction.action.performed -= OnMouseInput;
+        }
+
         #endregion
 
         #region InputHanling

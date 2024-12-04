@@ -21,13 +21,13 @@ Kerstin:
 - [ ] Eventuell Bilder oder excel Tabelle als kurze Zusammenfassung rechts
 
 Irina:
-- [ ] irgendein High Score System/win-lose conditions! Idee: Nach 3-5 Fehltritten Game Over?
-- [ ] Mehr Texte, Einführung in das Handbuch (wenigstens kein leeres Bildschirm am Anfang)
-- [ ] mehr Sound (aber das wisst ihr schon :))
+- [x] irgendein High Score System/win-lose conditions! Idee: Nach 3-5 Fehltritten Game Over?
+- [x] Mehr Texte, Einführung in das Handbuch (wenigstens kein leeres Bildschir m am Anfang)
+- [x] mehr Sound (aber das wisst ihr schon :))
 
 - [ ] Fenster Sehr Hell
 - [ ] Vielleicht notfall licht für den Generator
 
 Joel:
-- [ ] Mikrophone, desktop button .75f
+- [x] Mikrophone, desktop button .75f
 - [ ] Klopfen Seltener
