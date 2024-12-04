@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Manager
@@ -8,6 +9,8 @@ namespace Manager
         private TutorialFlag _lastFlag;
         private bool _isInTutorial;
 
+        private List<string> _tutorialContent;
+        
         private static TutorialManager Instance { get; set; }
         
         public enum TutorialFlag
@@ -49,7 +52,26 @@ namespace Manager
 
         private IEnumerator TutorialRoutine()
         {
-            yield return new WaitUntil(() => true);
+            // Scene 1
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
+            UIManager.Dialogue.ShowTutorial(_tutorialContent[0]);
+            
+            GameManager.Mic.SetInteractionTo(true);
+            GameManager.Mic.TutorialGlow();
+            // Todo SHOW DEFAULT ANSWER TUTORIAL
+            
+            // Scene 2
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.AnsweredQuestion);
+            UIManager.Dialogue.ShowTutorial(_tutorialContent[1]);
+            
+            yield return new WaitForSeconds(1f);
+            GameManager.FuseBox.TriggerPowerEvent(false);
+            
+            // Scene 3
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.GeneratorInteracted);
+            
+            
+            
             _isInTutorial = false;
         }
     }

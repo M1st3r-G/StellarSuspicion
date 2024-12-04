@@ -88,6 +88,8 @@ namespace Controller.Actors.Interactable
             _outline.enabled = false;
         }
 
+        public void TutorialGlow() => _outline.enabled = true;
+
         #endregion
 
         #region MouseInput

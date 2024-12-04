@@ -4,6 +4,7 @@ using Data;
 using Data.Dialogue;
 using Extern;
 using Manager;
+using Palmmedia.ReportGenerator.Core;
 using TMPro;
 using UnityEngine;
 using Debug = System.Diagnostics.Debug;
@@ -16,6 +17,7 @@ namespace Controller.UI
         [Header("References")] 
         [SerializeField] [Tooltip("The Questions to Ask")]
         private List<DialogueQuestionAsset> questions;
+        [SerializeField] private GameObject tutorialQuestion;
 
         [SerializeField] private GreetingInteraction greetings;
 
@@ -30,7 +32,7 @@ namespace Controller.UI
         [SerializeField] private List<TextMeshProUGUI> optionTexts;
         
         private CanvasGroup _myGroup;
-        
+
         private void Awake()
         {
             _myGroup = GetComponent<CanvasGroup>();
@@ -69,6 +71,14 @@ namespace Controller.UI
         
         public void ButtonPressed(int index)
         {
+            if (index < 0)
+            {
+                TutorialManager.SetFlag(TutorialManager.TutorialFlag.AnsweredQuestion);
+                tutorialQuestion.SetActive(false);
+                _myGroup.SetGroupActive(false);
+                return; 
+            }
+            
             Debug.Assert(GameManager.Creature.CurrentCreature is not null, "GameManager.Creature.CurrentCreature != null");
 
             (string content, int rating) = questions[index].GetAnswer(GameManager.Creature.GetGoodness(out _));
@@ -80,5 +90,7 @@ namespace Controller.UI
             GameManager.Creature.AnswerQuestion(index, rating);
             if (optionTexts.Any(t => t.transform.parent.parent.gameObject.activeSelf)) GameManager.Mic.SetInteractionTo(true);
         }
+
+        public void ShowTutorial(string content) => SetText(content);
     }
 }
