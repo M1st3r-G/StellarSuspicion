@@ -291,9 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac43f26d8c8f374895c199354bf0c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOfDay: 120
+  timeOfDay: 150
   maxEvents: 3
-  waitTimeInMins: 2
+  eventReceiver:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  waitTimeInMins: 1.5
 --- !u!114 &832158669268063750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4199d6b204069024eb3251a1b1ee0722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skipTutorial: 0
   tutorialContent:
   - "Moinsen, h\xF6rste mich? Klick mal aufs Mikrofon."
   - "Perfekt. Mit dem Ding wirst du auch mit Aliens Reden k\xF6nnen, mach dir keine

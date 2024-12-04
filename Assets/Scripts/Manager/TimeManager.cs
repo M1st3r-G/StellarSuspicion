@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Manager
 {
@@ -11,51 +9,47 @@ namespace Manager
     {
         [Header("Parameters")]
         [SerializeField] [Tooltip("Time of day in Seconds.")]
-        private float timeOfDay;
+        private float timeOfDay = 150;
         
-        [FormerlySerializedAs("_maxEvents")] [SerializeField] [Tooltip("The Amount of events this day.")]
-        private int maxEvents;
+        [SerializeField] [Tooltip("The Amount of events this day.")]
+        private int maxEvents = 3;
 
         private int _maxEventsInRuntime;
         
         // States
         private int _eventsLeft;
         private float _bounds;
-    
-        private readonly List<EventReceiver> _eventReceiver = new();
-        [SerializeField] [Range(0f, 2f)]private float waitTimeInMins = 1f;
+
+        [SerializeField] private List<EventReceiver> eventReceiver;
+        [SerializeField] [Range(0f, 2f)] private float waitTimeInMins = 1f;
 
         // Public
         
         #region Setup
 
-        public static TimeManager Instance;
+        private static TimeManager _instance;
 
         private void Awake()
         {
-            if (Instance != null)
+            if (_instance != null)
             {
                 Debug.LogWarning("More than one instance of CameraManager");
                 Destroy(gameObject);
                 return;
             }
 
-            Instance = this;
+            _instance = this;
 
             float deviation = -Mathf.Exp(-(maxEvents / 4f)) + 1f;
             _bounds = deviation * timeOfDay / (2 * maxEvents);
             _maxEventsInRuntime = maxEvents;
         }
     
-        private void Start()
-        {
-            Debug.Log($"EventHandler has {_eventReceiver.Count} events registered");
-            Invoke(nameof(StartNewDay), 60f * waitTimeInMins);
-        }
+        private void Start() => Debug.Log($"EventHandler has {eventReceiver.Count} events registered");
 
         public void OnDestroy()
         {
-            if (Instance == this) Instance = null;
+            if (_instance == this) _instance = null;
         }
     
         #endregion
@@ -99,13 +93,14 @@ namespace Manager
         
         #region EventHandling
 
-        public void RegisterEventReceiver(EventReceiver eventReceiver) => _eventReceiver.Add(eventReceiver);
-
         public static void TriggerRandomEvent() 
-            => Instance.TriggerEvent(Random.Range(0, Instance._eventReceiver.Count));
+            => _instance.TriggerEvent(Random.Range(0, _instance.eventReceiver.Count));
         
-        private void TriggerEvent(int index) => _eventReceiver[index].Trigger();
+        private void TriggerEvent(int index) => eventReceiver[index].Trigger();
 
         #endregion
+
+        public static void StartEvents() => _instance.InnerStartEvents();
+        private void InnerStartEvents() => Invoke(nameof(StartNewDay), 60f * waitTimeInMins);
     }
 }

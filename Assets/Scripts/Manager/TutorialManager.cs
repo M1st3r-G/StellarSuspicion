@@ -51,7 +51,11 @@ namespace Manager
             
             Debug.Assert(tutorialAudio.Count == tutorialContent.Count, "Length Differ");
 
-            if (_skipTutorial) return;
+            if (_skipTutorial)
+            {
+                TimeManager.StartEvents();
+                return;
+            }
             StartTutorial();
         }
 
@@ -125,6 +129,7 @@ namespace Manager
             nextButton.SetInteractionTo(true);
             
             _isInTutorial = false;
+            TimeManager.StartEvents();
         }
 
         private void TriggerTutorialDialogue(int index)

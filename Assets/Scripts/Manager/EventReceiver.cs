@@ -9,7 +9,6 @@ namespace Manager
         [SerializeField] [Tooltip("You can Add here what methods should be called if the evnet Triggers")]
         private UnityEvent onEventStart;
         
-        private void Awake() => TimeManager.Instance.RegisterEventReceiver(this);
         public void Trigger()
         {
             Debug.LogWarning($"Event {customName} started");
