@@ -25,7 +25,6 @@ namespace Manager
         public static WindowController Window => Instance.window;
         public static CreatureController Creature => Instance.window.Creature;
         public static ClockController Clock => Instance.clockController;
-        public static FuseBoxController FuseBox => Instance.fuseBoxController;
         
         // Temps
         public int MonstersAmount { get; private set; }

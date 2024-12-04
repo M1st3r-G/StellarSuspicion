@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7cd7708a3ce0f64b930d52113ff142d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreText: {fileID: 0}
+  highscoreText: {fileID: 3436347067962590374}
   gameOverText: {fileID: 933007652611859207}
   gameOverPanel: {fileID: 5338101010295806063}
   fadeoutTime: 2

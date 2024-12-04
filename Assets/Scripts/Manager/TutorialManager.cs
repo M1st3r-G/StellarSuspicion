@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Controller;
+using Controller.Actors.Interactable.Buttons;
+using Controller.Actors.Interactable.Table;
 using UnityEngine;
 
 namespace Manager
@@ -9,8 +12,12 @@ namespace Manager
         private TutorialFlag _lastFlag;
         private bool _isInTutorial;
 
-        private List<string> _tutorialContent;
-        
+        [SerializeField] private List<string> tutorialContent;
+        [SerializeField] private FuseBoxController fuseBox;
+        [SerializeField] private ScreenInteractController screen;
+        [SerializeField] private ButtonKillInteract killButton;
+        [SerializeField] private ButtonEnterInteract exitButton;
+
         private static TutorialManager Instance { get; set; }
         
         public enum TutorialFlag
@@ -34,10 +41,11 @@ namespace Manager
             }
             
             Instance = this;
+            
+            StartTutorial();
         }
 
-        public static void StartTutorial() => Instance.InnerStartTutorial();
-        private void InnerStartTutorial()
+        private void StartTutorial()
         {
             if (_isInTutorial) return;
             
@@ -54,7 +62,7 @@ namespace Manager
         {
             // Scene 1
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
-            UIManager.Dialogue.ShowTutorial(_tutorialContent[0]);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[0]);
             
             GameManager.Mic.SetInteractionTo(true);
             GameManager.Mic.TutorialGlow();
@@ -62,15 +70,30 @@ namespace Manager
             
             // Scene 2
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.AnsweredQuestion);
-            UIManager.Dialogue.ShowTutorial(_tutorialContent[1]);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[1]);
             
             yield return new WaitForSeconds(1f);
-            GameManager.FuseBox.TriggerPowerEvent(false);
+            fuseBox.TriggerPowerEvent(false);
             
             // Scene 3
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.GeneratorInteracted);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[2]);
             
+            // Scene 4
+            yield return new WaitForSeconds(3f);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[3]);
+            screen.TutorialGlow();
             
+            // Scene 5
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.ZoomedOutOfHelp);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[4]);
+            
+            killButton.SetInteractionTo(true);
+            exitButton.SetInteractionTo(true);
+            
+            //Last Scene
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.PressedButtonKill or TutorialFlag.PressedButtonExit);
+            UIManager.Dialogue.ShowTutorial(tutorialContent[_lastFlag is TutorialFlag.PressedButtonKill ? 5 : 6]);
             
             _isInTutorial = false;
         }
