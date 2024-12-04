@@ -9,7 +9,7 @@ namespace Extern
     {
         public static int GetGoodness(this CreatureController controller, out CreatureAlignment alignment)
         {
-            Debug.Assert(controller.CurrentCreature != null, "controller.CurrentCreature != null");
+            Debug.Assert(controller.CurrentCreature.HasValue, "controller.CurrentCreature != null");
 
             int goodness = controller.CurrentCreature.Value.GetAllParts()
                 .Aggregate(controller.RatingFromQuestions, (c, part) => c + part.goodness); 
