@@ -5,10 +5,8 @@
         Knocking = 1,
         PowerOff = 2,
         TrapdoorStuck = 3,
-        EnemyFall = 4,
         DoorCreak = 5,
         ButtonClick = 6,
-        Accept = 7,
         Error = 8
     }
 
