@@ -16,7 +16,7 @@ MonoBehaviour:
   answers:
   - name: Familie
     rating: 1
-  - name: Eh...Familien?
+  - name: Eh... Familien?
     rating: -1
   - name: "Die sch\xF6nen Orte"
     rating: 1
@@ -28,5 +28,5 @@ MonoBehaviour:
     rating: 1
   - name: Ein einfacher Urlaub
     rating: 1
-  - name: Ehm...uh....Urlaub?
+  - name: Ehm... uh... Urlaub?
     rating: -1

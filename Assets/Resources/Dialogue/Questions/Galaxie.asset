@@ -16,7 +16,7 @@ MonoBehaviour:
   answers:
   - name: "Die Milchstra\xDFe, hier bin ich geboren und wahnsinnig stolz darauf."
     rating: 1
-  - name: "\xD6hm....die Milkstra\xDFe?"
+  - name: "\xD6hm... die Milkstra\xDFe?"
     rating: -1
   - name: "Milchstra\xDFe?"
     rating: -1
@@ -26,7 +26,7 @@ MonoBehaviour:
     rating: 1
   - name: Ursa Minor.
     rating: 1
-  - name: "Alsooo....\xE4hm.....Ursa Miner?"
+  - name: "Alsooo... \xE4hm... Ursa Miner?"
     rating: -1
   - name: "Bo\xF6tes."
     rating: 1
