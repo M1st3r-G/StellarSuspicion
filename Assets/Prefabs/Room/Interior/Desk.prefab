@@ -2530,6 +2530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1443837901161417034}
+  - component: {fileID: 6243661388861335892}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -2553,6 +2554,22 @@ Transform:
   - {fileID: 2923310688518439252}
   m_Father: {fileID: 7785749428173378200}
   m_LocalEulerAnglesHint: {x: 0, y: 40, z: 0}
+--- !u!114 &6243661388861335892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077207721710039349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783444c262ad75546aa77da6b6345605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionForSummondthing: {x: -3.0486, y: -0.4627, z: -5.4962}
+  firstSprite: {fileID: 7652564072185992270, guid: 64d56c176d6f070438507449ff361510, type: 3}
+  secondSprite: {fileID: 3983475968272345998, guid: 841512dcbe38f1c4581a55c8f71531e1, type: 3}
+  thirdSprite: {fileID: 6280310203987068258, guid: c861d621a850573459da941a409d1aeb, type: 3}
 --- !u!1 &7117964479488422935
 GameObject:
   m_ObjectHideFlags: 0
