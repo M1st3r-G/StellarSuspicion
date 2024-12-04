@@ -13,6 +13,7 @@ namespace Manager
         public enum TutorialFlag
         {
             None = 0,
+            SatDown,
             AnsweredQuestion,
             GeneratorInteracted,
             ZoomedOutOfHelp,
@@ -31,7 +32,6 @@ namespace Manager
             
             Instance = this;
         }
-
 
         public static void StartTutorial() => Instance.InnerStartTutorial();
         private void InnerStartTutorial()
