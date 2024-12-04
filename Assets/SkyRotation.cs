@@ -1,19 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SkyRotation : MonoBehaviour
 {
-    private void Start()
-    {
-        StartCoroutine(LowRotation());
-    }
+    [SerializeField] private Vector3 rotationAxis;
+    [SerializeField] [Range(0f, 45f)]private float rotationSpeed;
+
+    private void Start() => StartCoroutine(LowRotation());
 
     private IEnumerator LowRotation()
     {
         while (true)
         {
-            transform.rotation *= new Quaternion();   
+            transform.rotation *= Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, rotationAxis);   
             yield return null;
         }
     }

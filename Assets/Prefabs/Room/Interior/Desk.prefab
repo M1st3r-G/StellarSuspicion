@@ -3866,14 +3866,6 @@ PrefabInstance:
       propertyPath: interactionsWhenSitting.Array.data[1]
       value: 
       objectReference: {fileID: 9009087611855156094}
-    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
-      propertyPath: interactionsWhenSitting.Array.data[2]
-      value: 
-      objectReference: {fileID: 2130989705462312877}
-    - target: {fileID: 5121522515902129265, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
-      propertyPath: interactionsWhenSitting.Array.data[3]
-      value: 
-      objectReference: {fileID: 1789730953288964656}
     - target: {fileID: 5251516068723924770, guid: fc6ab08c5a0832d4ea37339b29863426, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.38
