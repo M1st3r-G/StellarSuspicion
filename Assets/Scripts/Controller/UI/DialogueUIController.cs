@@ -4,7 +4,6 @@ using Data;
 using Data.Dialogue;
 using Extern;
 using Manager;
-using Palmmedia.ReportGenerator.Core;
 using TMPro;
 using UnityEngine;
 using Debug = System.Diagnostics.Debug;
