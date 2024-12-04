@@ -7,23 +7,17 @@ namespace Manager
     {
         private TutorialFlag _lastFlag;
         private bool _isInTutorial;
-        
-        public static TutorialManager Instance { get; private set; }
+
+        private static TutorialManager Instance { get; set; }
         
         public enum TutorialFlag
         {
-            None,
-            DialogueFinished,
-            EnterGreenhouse,
-            FocusedSeed,
-            PlantedSeed,
-            NextDay,
-            Watered,
-            Replant,
-            AddedFertilizer,
-            FlowerBlooms,
-            DecidedForPlant,
-            BookOpened
+            None = 0,
+            AnsweredQuestion,
+            GeneratorInteracted,
+            ZoomedOutOfHelp,
+            PressedButtonKill,
+            PressedButtonExit
         }
 
         private void Awake()
@@ -38,7 +32,9 @@ namespace Manager
             Instance = this;
         }
 
-        public void StartTutorial()
+
+        public static void StartTutorial() => Instance.InnerStartTutorial();
+        private void InnerStartTutorial()
         {
             if (_isInTutorial) return;
             
@@ -46,9 +42,9 @@ namespace Manager
             StartCoroutine(TutorialRoutine());
         }
 
-        public void SetFlag(TutorialFlag type)
+        public static  void SetFlag(TutorialFlag type)
         {
-            if (_isInTutorial) _lastFlag = type;
+            if (Instance._isInTutorial) Instance._lastFlag = type;
         }
 
         private IEnumerator TutorialRoutine()
