@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Controller.Actors.Interactable;
 using Controller.Actors.Interactable.Buttons;
@@ -31,7 +30,8 @@ namespace Controller.Player
         private Coroutine _rotRoutine;
         [SerializeField] private ButtonEnterInteract exitButton;
         [SerializeField] private ButtonKillInteract killButton;
-
+        [SerializeField] private MicrophoneInteractController microphoneInteractController;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -53,6 +53,7 @@ namespace Controller.Player
             _rotRoutine = StartCoroutine(RotateChair(true));
             
             foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(true);
+            microphoneInteractController.SetInteractionTo(GameManager.Creature.HasCreature);
         }
 
         public override void Unpossess()
@@ -64,9 +65,10 @@ namespace Controller.Player
             deskInteraction.SetInteractionTo(true);
             killButton.SetInteractionTo(false);
             exitButton.SetInteractionTo(false);
+            microphoneInteractController.SetInteractionTo(false);
             
             if(_rotRoutine is not null) StopCoroutine(_rotRoutine);
-            _rotRoutine=StartCoroutine(RotateChair(false));
+            _rotRoutine = StartCoroutine(RotateChair(false));
         }
 
         private void OnStandUpAction(InputAction.CallbackContext ctx)
