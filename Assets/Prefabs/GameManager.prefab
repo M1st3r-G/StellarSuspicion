@@ -214,7 +214,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 9016365086060502825}
   settingsMenu: {fileID: 6860732995979195945}
   dialogueUIController: {fileID: 8620418192823553222}
-  gameOverUIController: {fileID: 0}
+  gameOverUIController: {fileID: 3918434191542626979}
 --- !u!114 &7130360158209713221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +641,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 821e53e912db46508f35a09539c881f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3918434191542626979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6943144877019581381, guid: 8c8d1af1df56ebe428e418ee6ce00a24, type: 3}
+  m_PrefabInstance: {fileID: 6213298806628802918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cd7708a3ce0f64b930d52113ff142d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &4423357222583903582 stripped

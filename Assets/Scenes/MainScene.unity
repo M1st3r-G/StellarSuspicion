@@ -134,17 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905f80ed024749dab9291e437583468f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &725457157 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3918434191542626979, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-  m_PrefabInstance: {fileID: 2076482066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7cd7708a3ce0f64b930d52113ff142d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &757268603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,10 +430,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6230366378018188666, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
-      propertyPath: gameOverUIController
-      value: 
-      objectReference: {fileID: 725457157}
     - target: {fileID: 6741363777618056504, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_Name
       value: GameManager
