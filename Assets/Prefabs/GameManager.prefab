@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 0}
+  microphoneInteraction: {fileID: 0}
 --- !u!114 &1548774846482777672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1115,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7058764363069415735}
   m_SourcePrefab: {fileID: 100100000, guid: d02b44fc5ecf26f48a2aeabaa081ea50, type: 3}
+--- !u!225 &3077647103887392344 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5338101010295806063, guid: d02b44fc5ecf26f48a2aeabaa081ea50, type: 3}
+  m_PrefabInstance: {fileID: 6962918148590954039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7805851609275352368 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 933007652611859207, guid: d02b44fc5ecf26f48a2aeabaa081ea50, type: 3}
@@ -1143,6 +1149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 7805851609275352368}
+  gameOverPanel: {fileID: 3077647103887392344}
+  fadeoutTime: 2
 --- !u!224 &8605130793433209007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1714413468611706520, guid: d02b44fc5ecf26f48a2aeabaa081ea50, type: 3}
