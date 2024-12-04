@@ -22,17 +22,17 @@ namespace Manager
         public static CreatureController Creature => _instance.window.Creature;
         
         // Temps
-        private int MonstersAmount { get; set; }
+        public int MonstersAmount { get; set; }
         private int Rating { get; set; }
         private int GetRightAmount => (MonstersAmount + Rating) / 2;
-        private float Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
+        public float Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
         private bool _success;
         
         
 
         private static int _fatalErrors;
         // Public
-        private static GameManager _instance;
+        public static GameManager _instance;
         
         #region Setup
 

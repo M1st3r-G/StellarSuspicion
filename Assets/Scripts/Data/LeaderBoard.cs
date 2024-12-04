@@ -18,7 +18,7 @@ namespace Data
         public void AddToLeaderBoard(string name, int numOfCreatures, float accuracy)
         {
             leaderboardDataEntries.Add(new LeaderboardDataEntry(name, accuracy, numOfCreatures));
-            leaderboardDataEntries = leaderboardDataEntries.OrderByDescending(e=>e).ToList();
+//            leaderboardDataEntries = leaderboardDataEntries.OrderByDescending(e=>e).ToList();
             if (leaderboardDataEntries.Count > MaxEntries) leaderboardDataEntries.RemoveAt(MaxEntries);
         }
     

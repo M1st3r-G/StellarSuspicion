@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Globalization;
+using System.Linq;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +10,7 @@ namespace Controller.UI.Panels
 {
     public class GameOverUIController : MonoBehaviour
     {
+        [SerializeField]private TextMeshProUGUI highscoreText;
         [SerializeField]private TextMeshProUGUI gameOverText;
         [SerializeField]private CanvasGroup gameOverPanel;
         [SerializeField]private float fadeoutTime;
@@ -39,9 +42,11 @@ namespace Controller.UI.Panels
 
         public void GameOver(float score)
         {
+            LeaderBoardManager.AddToBoard("placeholdername",GameManager._instance.MonstersAmount,GameManager._instance.Accuracy);
             Debug.LogWarning("Game Over");
             gameObject.SetActive(true);
             gameOverText.text += score.ToString(CultureInfo.CurrentCulture);
+            highscoreText.text = LeaderBoardManager.GetTop().Aggregate("", (prev, entry) => prev + $"{entry.Name}: {entry.NumberOfCreatures} | {entry.Accuracy}<br>");
             StartCoroutine(GameOverCoroutine());
         }
 
