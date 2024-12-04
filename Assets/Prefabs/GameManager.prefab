@@ -202,6 +202,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7d8e9e2cbe14b284ab0384d0dd244574, type: 2}
   - {fileID: 2100000, guid: e94152ee90d5e5743b9c8c77927b6da7, type: 2}
   - {fileID: 2100000, guid: f9a554aa1e9925e468e25ac200c3906f, type: 2}
+  defaultLerptime: 1
 --- !u!114 &6230366378018188666
 MonoBehaviour:
   m_ObjectHideFlags: 0

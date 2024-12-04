@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Controller;
 using UnityEngine;
 
@@ -10,6 +9,9 @@ namespace Manager
         [SerializeField] List<Material> glowingMaterials;
         
         private static LightManager _instance;
+        
+        [SerializeField] [Range(0.1f, 2f)] private float defaultLerptime;
+        public static float DefaultLerpTime => _instance.defaultLerptime;
 
         private void Awake()
         {

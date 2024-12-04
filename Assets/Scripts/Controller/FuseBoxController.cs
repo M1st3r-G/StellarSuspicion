@@ -12,6 +12,8 @@ namespace Controller
         [SerializeField] [Tooltip("The Interaction of this System")]
         private FuseInteraction interaction;
 
+        [SerializeField] private Light emergencyLight;
+        
         [Header("Parameters")] 
         [SerializeField] [Tooltip("The Humming Loop")]
         private AudioSource loop1;
@@ -22,10 +24,11 @@ namespace Controller
         
         private void Awake() => TriggerPowerEvent(true);
 
-        public void TriggerPowerEvent(bool running)
+        private void TriggerPowerEvent(bool running)
         {
             OnPowerChangeTo?.Invoke(running);
             SetAudioLoopTo(running);
+            emergencyLight.enabled = !running;
         }
 
         private void SetAudioLoopTo(bool running)
