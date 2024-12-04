@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,11 +37,11 @@ namespace Controller.UI.Panels
             gameOverPanel.alpha = 0;
         }
 
-        public void GameOver(int score)
+        public void GameOver(float score)
         {
             Debug.LogWarning("Game Over");
-            this.gameObject.SetActive(true);
-            gameOverText.text += score.ToString();
+            gameObject.SetActive(true);
+            gameOverText.text += score.ToString(CultureInfo.CurrentCulture);
             StartCoroutine(GameOverCoroutine());
         }
 
