@@ -1,6 +1,5 @@
-using System;
-using Controller;
 using Controller.Actors;
+using Controller.Actors.Interactable.Events;
 using Controller.Actors.Interactable.Table;
 using Controller.Creature;
 using Controller.UI.Panels;
@@ -69,9 +68,9 @@ namespace Manager
 
         #endregion
 
-        public static void ResolveCreature(CreatureAction acceptAction, CreatureData creature)
+        public static void ResolveCreature(CreatureAction acceptAction, CreatureController creatureController)
         {
-            CreatureAlignment creatureAlignment = creature.IsGood();
+            CreatureAlignment creatureAlignment = creatureController.IsGood();
             if (creatureAlignment is CreatureAlignment.Neutral)
                 creatureAlignment = Random.Range(0f, 1f) > 0.5f ? CreatureAlignment.Good : CreatureAlignment.Evil;
 
@@ -82,10 +81,10 @@ namespace Manager
             Creature.Clear(acceptAction, success);
         }
 
-        public static void RateCreature(CreatureData creature)
+        public static void RateCreature(CreatureController creatureController)
         {
-            if (!success && creature.IsGood()== CreatureAlignment.Evil)fatalErrors++;
-            if (fatalErrors == 5)GameOverUIController.Instance.GameOver(score-5); ;
+            if (!success && creatureController.IsGood()== CreatureAlignment.Evil)fatalErrors++;
+            if (fatalErrors == 5)GameOverUIController.instance.GameOver(score-5); ;
             Instance.MonstersAmount++;
             int rating = success ? 1 : -1;
             Instance.Rating += rating;

@@ -13,8 +13,9 @@ namespace Controller.Creature
         private CreatureData? _currentCreature;
         private CreatureRenderer _creatureRenderer;
         private Animator _anim;
-        public CreatureVoiceController Voice { get; private set; }
-
+        private CreatureVoiceController Voice { get; set; }
+        public int RatingFromQuestions { get; private set; }
+        
         public CreatureData? CurrentCreature
         {
             get => _currentCreature;
@@ -42,6 +43,7 @@ namespace Controller.Creature
         {
             if (!IsVisible) _creatureRenderer.SetVisibility(true);
             name = creature.Name;
+            RatingFromQuestions = 0;
             UIManager.Dialogue.ShowGreeting();
             CurrentCreature = creature;
             
@@ -50,7 +52,7 @@ namespace Controller.Creature
             Voice.PlayerHello();
             
             GameManager.Mic.SetInteractionTo(true); //TODO only when Neutral? 
-            Debug.Log($"This Creature is {CurrentCreature?.IsGood()}");
+            Debug.Log($"This Creature is currently {this.IsGood()}");
         }
 
         public void OnFinishedMovement() => Voice.StopSounds();
@@ -60,8 +62,9 @@ namespace Controller.Creature
             Debug.Assert(CurrentCreature != null, nameof(CurrentCreature) + " != null");
             
             name = "Default";
- 
-            GameManager.RateCreature(CurrentCreature.Value);
+            RatingFromQuestions = 0;
+            
+            GameManager.RateCreature(this);
             CurrentCreature = null;
             _creatureRenderer.SetVisibility(false);
             
@@ -79,5 +82,12 @@ namespace Controller.Creature
         }
 
         public void SetVisibility(bool on) => _creatureRenderer.SetVisibility(on);
+
+        public void AnswerQuestion(int index, int rating)
+        {
+            RatingFromQuestions += rating;
+            Debug.Log($"This Creature is currently {this.IsGood()}");
+            Voice.PlaySentence(index);
+        }
     }
 }
