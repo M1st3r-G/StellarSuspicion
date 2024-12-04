@@ -4,21 +4,6 @@ tags:
   - todo
 ---
 Todo:
-- [x] CameraManager
-- [x] AudioManager
-- [x] TimeManager
-- [x] Sensitivity Slider
-- [x] Room
-	- [x] DoorController on Proximity
-	- [x] Collider
-- [x] Settings
-	- [x] Sensitivity
-	- [x] Audio
-
-
-Bugs:
-
-Instanrt Feedback for Critical Error
 
 Notes:
 //-Funny only 4
