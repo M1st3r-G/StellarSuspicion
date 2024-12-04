@@ -11,9 +11,9 @@ Todo:
 - [x] Room
 	- [x] DoorController on Proximity
 	- [x] Collider
-- [ ] Settings
+- [x] Settings
 	- [x] Sensitivity
-	- [ ] Audio
+	- [x] Audio
 
 
 Bugs:
@@ -27,8 +27,6 @@ Notes:
 //-laughting only 1
 
 
-Object dies needs to unsub to input
-Light needs to unsub when die
 
 
 

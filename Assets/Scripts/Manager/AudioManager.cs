@@ -68,17 +68,13 @@ namespace Manager
                     Debug.LogError($"Noch keine Sounds für {effect} sind importiert");
                     return;
                 }
-                
                 AudioSource tmp = Instantiate(effectPrefab, position, Quaternion.identity).GetComponent<AudioSource>();
                 tmp.clip = cnt.GetClip();
                 tmp.Play();
-                
                 return;
             }
-            
             Debug.LogError($"Sound with {effect} Identifier not found");
         }
-
         #endregion
     }
 }

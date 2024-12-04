@@ -1,6 +1,8 @@
+using Controller.Actors;
 using Data;
 using Extern;
 using Manager;
+using TMPro;
 using UnityEngine;
 
 namespace Controller.Creature
@@ -13,6 +15,8 @@ namespace Controller.Creature
         private CreatureData? _currentCreature;
         private CreatureRenderer _creatureRenderer;
         private Animator _anim;
+        
+        [SerializeField] private TrapdoorController _trapdoorController;
         private CreatureVoiceController Voice { get; set; }
         public int RatingFromQuestions { get; private set; }
         
@@ -64,14 +68,8 @@ namespace Controller.Creature
             Debug.Assert(CurrentCreature != null, nameof(CurrentCreature) + " != null");
             
             name = "Default";
-            RatingFromQuestions = 0;
-            
-            GameManager.RateCreature(this);
             CurrentCreature = null;
-            
             Voice.StopSounds();
-            
-            GameManager.Mic.SetInteractionTo(false);
         }
 
         public void Clear(CreatureAction exitAction, bool success)
@@ -80,6 +78,12 @@ namespace Controller.Creature
 
             if (exitAction is CreatureAction.Exit) Voice.StartSteps();
             Voice.PlayResolution(exitAction, success);
+            
+            RatingFromQuestions = 0;
+            GameManager.RateCreature(this);
+            GameManager.Mic.SetInteractionTo(false);
+            
+            _trapdoorController.SetOpenAsEvent();
         }
 
         public void AnswerQuestion(int index, int rating)

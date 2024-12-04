@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 6776651784771453834, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+      propertyPath: _trapdoorController
+      value: 
+      objectReference: {fileID: 1562200186}
     - target: {fileID: 7666907755372251888, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -191,6 +195,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+--- !u!114 &1562200186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2720032516329474906, guid: ef1a7290c5818d64aa5a430fe65910c3, type: 3}
+  m_PrefabInstance: {fileID: 757268603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5970b440bab04bfd80e290e5a7438fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1570871604 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8668827284809697893, guid: 5f27539681e23484ba8a2d797ded5fe9, type: 3}
@@ -331,6 +346,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2874027425423242632, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: clips.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874027425423242632, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: clips.Array.data[6].name
+      value: PrinterSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874027425423242632, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: clips.Array.data[6].type
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874027425423242632, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: clips.Array.data[6].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874027425423242632, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: clips.Array.data[6].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70ac015eef0c6a6499952415558eee61, type: 3}
     - target: {fileID: 3621242351965476416, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

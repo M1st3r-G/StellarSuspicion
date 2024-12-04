@@ -3,6 +3,7 @@ using Controller.Actors.Interactable.Events;
 using Data;
 using Manager;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Controller.Actors
 {
@@ -13,6 +14,7 @@ namespace Controller.Actors
         [Header("Parameters")]
         [SerializeField] [Range(0f, 2f)] [Tooltip("How long it takes the trapdoor to open")]
         private float openTime;
+        [SerializeField]private bool canFire;
         
         // Public
         public bool IsBlocked { get; private set; }
@@ -21,18 +23,25 @@ namespace Controller.Actors
         private Coroutine _closingRoutine;
 
         private void Awake() => _interactable = GetComponentInChildren<TrapdoorInteractable>();
-
+        
         public void SetOpen(bool open)
         {
             if(_closingRoutine != null) StopCoroutine(_closingRoutine);
             _closingRoutine = StartCoroutine(MoveToBlockRoutine(open));
         }
 
+        public void SetCanFireTrue()
+        {
+            canFire = true;
+        }
+
         public void SetOpenAsEvent()
         {
+            if (!canFire) return;
             SetOpen(true);
             AudioManager.PlayEffect(AudioEffect.TrapdoorStuck, transform.position);
             _interactable.SetInteractionTo(true);
+            canFire = false;
         }
 
         private IEnumerator MoveToBlockRoutine(bool blocked)

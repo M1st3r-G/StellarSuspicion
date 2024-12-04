@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openTime: 1
+  canFire: 0
 --- !u!114 &8388005427511219327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +257,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6982876984839992222}
         m_TargetAssemblyTypeName: Controller.Actors.TrapdoorController, Assembly-CSharp
-        m_MethodName: SetOpenAsEvent
+        m_MethodName: SetCanFireTrue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
