@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Globalization;
 using System.Linq;
 using Manager;
 using TMPro;
@@ -33,27 +32,26 @@ namespace Controller.UI.Panels
             if(Instance==this) Instance = null;
         }
 
-
         public void Hide()
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
             gameOverPanel.alpha = 0;
         }
 
-        public void GameOver(float score)
+        public void GameOver()
         {
-            LeaderBoardManager.AddToBoard("placeholdername",GameManager._instance.MonstersAmount,GameManager._instance.Accuracy);
-            Debug.LogWarning("Game Over");
+            Debug.Log("Game Over");
+            LeaderBoardManager.AddToBoard("dName", GameManager.Instance.MonstersAmount,
+                GameManager.Instance.Accuracy);
+            
             gameObject.SetActive(true);
-            gameOverText.text += score.ToString(CultureInfo.CurrentCulture);
-            highscoreText.text = LeaderBoardManager.GetTop().Aggregate("", (prev, entry) => prev + $"{entry.Name}: {entry.NumberOfCreatures} | {entry.Accuracy}<br>");
+            gameOverText.text += $"{GameManager.Instance.MonstersAmount} | {GameManager.Instance.Accuracy}";
+            highscoreText.text = LeaderBoardManager.GetTop().Aggregate("",
+                (prev, entry) => prev + $"{entry.Name}: {entry.NumberOfCreatures} | {entry.Accuracy}<br>");
             StartCoroutine(GameOverCoroutine());
         }
 
-        public void ReturnToMainMenu()
-        {
-            SceneManager.LoadScene(0);
-        }
+        public void ReturnToMainMenu() => SceneManager.LoadScene(0);
 
         private IEnumerator GameOverCoroutine()
         {
@@ -66,9 +64,6 @@ namespace Controller.UI.Panels
                 yield return null;
          
             }
-            yield return null;
         }
-    
-    
     }
 }
