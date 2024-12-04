@@ -52,6 +52,8 @@ namespace Controller.Player
             if(_rotRoutine is not null) StopCoroutine(_rotRoutine);
             _rotRoutine = StartCoroutine(RotateChair(true));
             
+            TutorialManager.SetFlag(TutorialManager.TutorialFlag.SatDown);
+            if (TutorialManager.IsInTutorial) return;
             foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(true);
             microphoneInteractController.SetInteractionTo(GameManager.Creature.HasCreature);
         }

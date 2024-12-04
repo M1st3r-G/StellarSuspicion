@@ -450,6 +450,10 @@ PrefabInstance:
       propertyPath: playerStand
       value: 
       objectReference: {fileID: 1570871604}
+    - target: {fileID: 7130360158209713221, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
+      propertyPath: startStanding
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8132665944091326048, guid: 493249ca96cb3cd43ad4bc4de9f4d36e, type: 3}
       propertyPath: window
       value: 

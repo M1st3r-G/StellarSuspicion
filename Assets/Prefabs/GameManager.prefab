@@ -471,7 +471,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4199d6b204069024eb3251a1b1ee0722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialContent: []
+  tutorialContent:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
   fuseBox: {fileID: 0}
   screen: {fileID: 0}
   killButton: {fileID: 0}

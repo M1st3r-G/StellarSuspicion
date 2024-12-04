@@ -18,18 +18,21 @@ namespace Controller.Actors.Interactable.Buttons
         
         protected override void OnButtonDown()
         {
-            Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
-
+            TutorialManager.SetFlag(TutorialManager.TutorialFlag.PressedButtonKill);
+            
             if (trapdoor.IsBlocked)
             {   
                 AudioManager.PlayEffect(AudioEffect.Error, transform.position);
                 return;
             }
-            TutorialManager.SetFlag(TutorialManager.TutorialFlag.PressedButtonKill);
-            GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature);
+            
             AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
             SetInteractionTo(false);
             buttonEnter.SetInteractionTo(false);
+
+            if (GameManager.Creature.CurrentCreature is not null)
+                GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature);
+            else Debug.LogError("There is an Issue with the Timing except if Tutoiral");
         }
     }
 }

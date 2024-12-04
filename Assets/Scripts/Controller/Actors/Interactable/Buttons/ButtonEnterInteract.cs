@@ -15,12 +15,14 @@ namespace Controller.Actors.Interactable.Buttons
         
         protected override void OnButtonDown()
         {
-            Debug.Assert(GameManager.Creature.CurrentCreature is not null, "There is an Issue with the Timing");
             AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
             TutorialManager.SetFlag(TutorialManager.TutorialFlag.PressedButtonExit);
-            GameManager.ResolveCreature(CreatureAction.Exit, GameManager.Creature);
             buttonKill.SetInteractionTo(false);
             SetInteractionTo(false);
+            
+            if (GameManager.Creature.CurrentCreature is not null) 
+                GameManager.ResolveCreature(CreatureAction.Exit, GameManager.Creature);
+            else Debug.LogError("There is an Issue with the Timing except if Tutoiral");
         }
     }
 }

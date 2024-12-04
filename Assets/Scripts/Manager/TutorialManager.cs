@@ -45,6 +45,8 @@ namespace Manager
             StartTutorial();
         }
 
+        public static bool IsInTutorial => Instance._isInTutorial;
+        
         private void StartTutorial()
         {
             if (_isInTutorial) return;
@@ -64,25 +66,28 @@ namespace Manager
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
             UIManager.Dialogue.ShowTutorial(tutorialContent[0]);
             
-            GameManager.Mic.SetInteractionTo(true);
             GameManager.Mic.TutorialGlow();
+            GameManager.Mic.SetInteractionTo(true);
             // Todo SHOW DEFAULT ANSWER TUTORIAL
             
             // Scene 2
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.AnsweredQuestion);
             UIManager.Dialogue.ShowTutorial(tutorialContent[1]);
             
-            yield return new WaitForSeconds(1f);
-            fuseBox.TriggerPowerEvent(false);
+            yield return new WaitForSeconds(2f);
+            fuseBox.OnStartEvent();
             
             // Scene 3
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.GeneratorInteracted);
+            
+            yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
             UIManager.Dialogue.ShowTutorial(tutorialContent[2]);
             
             // Scene 4
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
             UIManager.Dialogue.ShowTutorial(tutorialContent[3]);
             screen.TutorialGlow();
+            screen.SetInteractionTo(true);
             
             // Scene 5
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.ZoomedOutOfHelp);

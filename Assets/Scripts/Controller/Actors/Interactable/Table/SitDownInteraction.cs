@@ -6,7 +6,6 @@ namespace Controller.Actors.Interactable.Table
     {
         protected override void TriggerInteraction()
         {
-            TutorialManager.SetFlag(TutorialManager.TutorialFlag.SatDown);
             PlaymodeManager.SitDown();
             SetInteractionTo(false);
         }
