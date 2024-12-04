@@ -47,8 +47,6 @@ namespace Manager
             
             Debug.Log("GameManager is created!");
             _instance = this;
-            
-            TimeManager.OnDayEnd += () => Debug.Log("Game Over");
         }
 
         private void OnDestroy()
