@@ -24,8 +24,5 @@ tags:
 - Fix ScreenController
 	- Buttons
 	- Text better formated
-- Weight:
-	- Highscore (Days)
-- Rework Days
 
-Fix Alien Alph
+Fix Alien Alpha
