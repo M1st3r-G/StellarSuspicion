@@ -94,8 +94,17 @@ namespace Manager
         #region EventHandling
 
         public static void TriggerRandomEvent() 
-            => _instance.TriggerEvent(Random.Range(0, _instance.eventReceiver.Count));
-        
+            => _instance.TriggerEvent(GetRandomIndexForEvent());
+
+        // 0: Fuse, 1: Trapdoor, 2: Window 
+        private static int GetRandomIndexForEvent() =>
+            Random.Range(0f, 1f) switch
+            {
+                < 0.4f => 0,
+                < 0.8f => 1,
+                _ => 2
+            };
+
         private void TriggerEvent(int index) => eventReceiver[index].Trigger();
 
         #endregion
