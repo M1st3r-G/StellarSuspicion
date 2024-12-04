@@ -1,6 +1,7 @@
 using Controller.Actors;
 using Controller.Actors.Interactable.Table;
 using Controller.Creature;
+using Controller.UI.Panels;
 using Data;
 using Extern;
 using UnityEngine;

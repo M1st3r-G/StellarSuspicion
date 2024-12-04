@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Controller.UI.Panels;
+using Data;
 using Manager;
 using UnityEditor;
 using UnityEngine;
@@ -43,7 +44,7 @@ namespace Editor
 
             if (GUILayout.Button("Spawn Evil"))GameManager.Creature.SetToCreature(CreatureCreator.GetEvil());
             
-            if(GUILayout.Button("GameOver"))GameOverUIController.instance.GameOver(10);
+            if(GUILayout.Button("GameOver"))GameOverUIController.Instance.GameOver(10);
         }
     }
 }
