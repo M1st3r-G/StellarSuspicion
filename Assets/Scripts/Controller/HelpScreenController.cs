@@ -7,14 +7,14 @@ namespace Controller
     {
         [SerializeField] private List<GameObject> content;
         [SerializeField] private GameObject currentSelection;
-        private int _currentIndex;
+        private int _currentIndex = -1;
 
         #region Content
 
         public void MoveLeft()
         {
             _currentIndex--;
-            if (_currentIndex == -1) _currentIndex += content.Count;
+            if (_currentIndex < 0) _currentIndex += content.Count;
 
             DisplayContent();
         }
