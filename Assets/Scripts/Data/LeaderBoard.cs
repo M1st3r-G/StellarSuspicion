@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Extern;
 using UnityEngine;
 
 namespace Data
@@ -17,8 +18,7 @@ namespace Data
 
         public void AddToLeaderBoard(string name, int numOfCreatures, float accuracy)
         {
-            leaderboardDataEntries.Add(new LeaderboardDataEntry(name, accuracy, numOfCreatures));
-//            leaderboardDataEntries = leaderboardDataEntries.OrderByDescending(e=>e).ToList();
+            leaderboardDataEntries.AddInOrder(new LeaderboardDataEntry(name, accuracy, numOfCreatures));
             if (leaderboardDataEntries.Count > MaxEntries) leaderboardDataEntries.RemoveAt(MaxEntries);
         }
     

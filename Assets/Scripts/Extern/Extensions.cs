@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Data;
 using UnityEngine;
 
 namespace Extern
@@ -12,6 +13,21 @@ namespace Extern
             menu.alpha = state ? 1f : 0f;
         }
 
+        public static void AddInOrder(this List<LeaderBoard.LeaderboardDataEntry> entries,
+            LeaderBoard.LeaderboardDataEntry value)
+        {
+            for (int i = 0; i < entries.Count; i++)
+            {
+                if (entries[i] < value)
+                {
+                    entries.Insert(i, value);
+                    return;
+                }
+            }
+            
+            entries.Add(value);
+        }
+        
         public static int[] GetRandomIntsInRange(int min, int max, int amount, bool duplicates)
         {
             List<int> ret = new();
