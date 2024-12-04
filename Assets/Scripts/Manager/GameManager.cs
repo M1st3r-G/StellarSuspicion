@@ -17,30 +17,28 @@ namespace Manager
         [SerializeField] [Tooltip("The Microphone")]
         private MicrophoneInteractController microphoneInteraction;
 
-        public static MicrophoneInteractController Mic => Instance.microphoneInteraction;
-        public static WindowController Window => Instance.window;
-        public static CreatureController Creature => Instance.window.Creature;
+        public static MicrophoneInteractController Mic => _instance.microphoneInteraction;
+        public static WindowController Window => _instance.window;
+        public static CreatureController Creature => _instance.window.Creature;
         
         // Temps
         private int MonstersAmount { get; set; }
         private int Rating { get; set; }
         private int GetRightAmount => (MonstersAmount + Rating) / 2;
-        private int GetWrongAmount => (MonstersAmount - Rating) / 2;
-        public float Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
-        private static bool _success;
-        private static int _score;
+        private float Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
+        private bool _success;
         
         
 
         private static int _fatalErrors;
         // Public
-        public static GameManager Instance;
+        private static GameManager _instance;
         
         #region Setup
 
         private void Awake()
         {
-            if (Instance != null)
+            if (_instance != null)
             {
                 Debug.LogWarning("More than one GameManager in scene!");
                 Destroy(gameObject);
@@ -48,14 +46,14 @@ namespace Manager
             }
             
             Debug.Log("GameManager is created!");
-            Instance = this;
+            _instance = this;
             
             TimeManager.OnDayEnd += () => Debug.Log("Game Over");
         }
 
         private void OnDestroy()
         {
-            if (Instance == this) Instance = null;
+            if (_instance == this) _instance = null;
         }
 
         private void Start()
@@ -66,7 +64,10 @@ namespace Manager
 
         #endregion
 
-        public static void ResolveCreature(CreatureAction acceptAction, CreatureController creatureController)
+        public static void ResolveCreature(CreatureAction acceptAction, CreatureController creatureController) =>
+            _instance.InnerResolveCreature(acceptAction, creatureController);
+
+        private void InnerResolveCreature(CreatureAction acceptAction, CreatureController creatureController)
         {
             CreatureAlignment creatureAlignment = creatureController.IsGood();
             if (creatureAlignment is CreatureAlignment.Neutral) creatureAlignment = CreatureAlignment.Evil;
@@ -78,14 +79,16 @@ namespace Manager
             Creature.Clear(acceptAction, _success);
         }
 
-        public static void RateCreature(CreatureController creatureController)
+        public static void RateCreature(CreatureController creatureController) => _instance.InnerRateCreature(creatureController);
+
+        private void InnerRateCreature(CreatureController creatureController)
         {
             if (!_success && creatureController.IsGood()== CreatureAlignment.Evil)_fatalErrors++;
-            if (_fatalErrors == 5)GameOverUIController.instance.GameOver(_score-5); ;
-            Instance.MonstersAmount++;
+            if (_fatalErrors == 5) GameOverUIController.Instance.GameOver(Accuracy);
+            _instance.MonstersAmount++;
             int rating = _success ? 1 : -1;
-            Instance.Rating += rating;
-            Debug.LogWarning("Total Rating: " + Instance.Rating +", Total Fatal Errors: " + _fatalErrors);
+            _instance.Rating += rating;
+            Debug.LogWarning("Total Rating: " + _instance.Rating +", Total Fatal Errors: " + _fatalErrors);
         }
     }
 }
