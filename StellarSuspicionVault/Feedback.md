@@ -7,10 +7,6 @@ Feedback Sam:
 - [ ] Spezies/Eigenschaften merken sich umgang/ Entscheidungen
 
 ### Feedback Build 2
-Kerstin:
-- [ ] Nur schlecht, alles was nicht schlecht ist ist automatisch gut
-- [ ] Eventuell Bilder oder excel Tabelle als kurze Zusammenfassung rechts
-
 ### Enhancement Feedback
 - [ ] Vielleicht notfall licht für den Generator
 - [ ] Klopfen Seltener

@@ -19,8 +19,4 @@ tags:
 
 ### Main
 #next-step
-- Fix ScreenController
-	- More Pages
-
 - Knocking
-- Pause Events while Tutorial
