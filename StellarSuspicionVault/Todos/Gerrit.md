@@ -27,3 +27,10 @@ tags:
 
 Door Response
 Fatal Error Response
+
+
+Big Issue with Knowledge
+
+Settingasd
+
+Microphone interaction on StandUp Disable on (Enable on sit if creature)

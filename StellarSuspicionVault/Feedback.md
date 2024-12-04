@@ -11,7 +11,7 @@ Feedback Utz:
 - [ ] Enviromental Storytelling
 - [ ] Gemurmel im Raum
 ---
-- [ ] Leaderboard, Bestzeiten
+- [x] Leaderboard, Bestzeiten
 - [ ] Gemurmel im Raum
 - [ ] tutorial
 
@@ -25,9 +25,20 @@ Irina:
 - [x] Mehr Texte, Einführung in das Handbuch (wenigstens kein leeres Bildschir m am Anfang)
 - [x] mehr Sound (aber das wisst ihr schon :))
 
-- [ ] Fenster Sehr Hell
+- [x] Fenster Sehr Hell
 - [ ] Vielleicht notfall licht für den Generator
 
 Joel:
 - [x] Mikrophone, desktop button .75f
 - [ ] Klopfen Seltener
+
+### Feedback build 3
+[Version](https://github.com/M1st3r-G/StellarSuspicion/releases/tag/v0.95)
+Sam:
+- [ ] Event Pacing
+	- [ ] 2 Mintuen pause vor den events
+- [ ] TUTORIAL
+	- [ ] Aufstehen
+	- [ ] Mikrofon
+- [ ] Feedback zur Luke und Dem Reparieren
+
