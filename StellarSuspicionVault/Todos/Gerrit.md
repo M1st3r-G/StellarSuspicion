@@ -18,7 +18,6 @@ tags:
 - More Events
 	- Visuall Sound for Tasks
 - Tutorial
- - Skydome
 
 #next-step
 - Fix ScreenController
@@ -26,4 +25,5 @@ tags:
 	- Text better formated
 
 
-Aufstehen
+Door Response
+Fatal Error Response
