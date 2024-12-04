@@ -26,7 +26,7 @@ namespace Controller.Actors.Interactable.Buttons
                 return;
             }
             
-            GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature.CurrentCreature.Value);
+            GameManager.ResolveCreature(CreatureAction.Die, GameManager.Creature);
             AudioManager.PlayEffect(AudioEffect.ButtonClick,transform.position);
             buttonNext.SetInteractionTo(true);
             SetInteractionTo(false);

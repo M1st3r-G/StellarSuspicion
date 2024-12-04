@@ -24,7 +24,7 @@ tags:
 - Fix ScreenController
 	- Buttons
 	- Text better formated
-- Add Goodness to Quesitnos
 - Weight:
 	- Highscore (Days)
+- Rework Days
 

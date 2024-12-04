@@ -6,6 +6,7 @@ using Extern;
 using Manager;
 using TMPro;
 using UnityEngine;
+using Debug = System.Diagnostics.Debug;
 
 namespace Controller.UI
 {
@@ -68,11 +69,15 @@ namespace Controller.UI
         
         public void ButtonPressed(int index)
         {
-            SetText(questions[index].Answer);
+            Debug.Assert(GameManager.Creature.CurrentCreature is not null, "GameManager.Creature.CurrentCreature != null");
+
+            (string content, int rating) = questions[index].GetAnswer(GameManager.Creature.IsGood());
+            SetText(content);
+            
             optionTexts[index].transform.parent.parent.gameObject.SetActive(false);
             _myGroup.SetGroupActive(false);
             
-            GameManager.Creature.Voice.PlaySentence(index);
+            GameManager.Creature.AnswerQuestion(index, rating);
             if (optionTexts.Any(t => t.transform.parent.parent.gameObject.activeSelf)) GameManager.Mic.SetInteractionTo(true);
         }
     }
