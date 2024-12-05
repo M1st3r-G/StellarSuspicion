@@ -23,7 +23,6 @@ namespace Controller.Actors
             firstSprite.SetActive(false);
             secondSprite.SetActive(false);
             thirdSprite.SetActive(false);
-            Debug.LogWarning("Clock Controller");
         }
 
         #endregion

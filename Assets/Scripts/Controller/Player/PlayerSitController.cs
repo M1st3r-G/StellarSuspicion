@@ -53,9 +53,9 @@ namespace Controller.Player
             _rotRoutine = StartCoroutine(RotateChair(true));
             
             TutorialManager.SetFlag(TutorialManager.TutorialFlag.SatDown);
+            microphoneInteractController.SetInteractionTo(GameManager.Creature.HasCreature || TutorialManager.IsLocked);
             if (TutorialManager.IsInTutorial) return;
             foreach (InteractableBase interaction in interactionsWhenSitting) interaction.SetInteractionTo(true);
-            microphoneInteractController.SetInteractionTo(GameManager.Creature.HasCreature);
         }
 
         public override void Unpossess()
