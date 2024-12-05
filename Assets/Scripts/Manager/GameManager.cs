@@ -24,8 +24,7 @@ namespace Manager
         public static MicrophoneInteractController Mic => Instance.microphoneInteraction;
         public static WindowController Window => Instance.window;
         public static CreatureController Creature => Instance.window.Creature;
-        public static ClockController Clock => Instance.clockController;
-        
+
         // Temps
         public int MonstersAmount { get; private set; }
         private int Rating { get; set; }

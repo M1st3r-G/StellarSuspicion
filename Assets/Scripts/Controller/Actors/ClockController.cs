@@ -6,46 +6,40 @@ namespace Controller.Actors
 {
     public class ClockController : MonoBehaviour
     {
+        [SerializeField]private PrintoutController firstSprite;
+        [SerializeField]private PrintoutController secondSprite;
+        [SerializeField]private PrintoutController thirdSprite;
+
         private int _counter;
-
-
-        [SerializeField] private Vector3 positionForSummondthing;
-        [SerializeField]private GameObject firstSprite;
-        [SerializeField]private GameObject secondSprite;
-        [SerializeField]private GameObject thirdSprite;
-
     
         #region Setup
 
         private void Awake()
         {
-            _counter = 0;
-            firstSprite.SetActive(false);
-            secondSprite.SetActive(false);
-            thirdSprite.SetActive(false);
+            firstSprite.gameObject.SetActive(false);
+            secondSprite.gameObject.SetActive(false);
+            thirdSprite.gameObject.SetActive(false);
         }
 
         #endregion
 
         public void Printout()
         {
-            Debug.Log(_counter);
-        
+            AudioManager.PlayEffect(AudioEffect.Print, transform.position);
             switch (_counter)
             {
                 case 0:
-                    Debug.LogWarning("Case 0");
-                    firstSprite.SetActive(true);
+                    firstSprite.Appear();
                     break;
                 case 1:
-                    secondSprite.SetActive(true);
+                    secondSprite.Appear();
                     break;
                 case 2:
-                    thirdSprite.SetActive(true);
+                    thirdSprite.Appear();
                     break;
             }
+
             _counter++;
-            AudioManager.PlayEffect(AudioEffect.Print, transform.position);
         }
     
     }

@@ -16,6 +16,3 @@ tags:
 - More Events
 	- Visuall Sound for Tasks
 - Player Step Sounds
-
-Polishes:
-- Print, after Druckersound
