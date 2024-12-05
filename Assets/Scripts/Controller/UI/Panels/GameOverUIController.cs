@@ -46,7 +46,6 @@ namespace Controller.UI.Panels
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             PlaymodeManager.Instance.FirstPersonMap.Disable();
-            Time.timeScale = 0f;
             
             gameOverText.text = $"Behandelte Aliens: {GameManager.Instance.MonstersAmount}, Genauigkeit: {GameManager.Instance.Accuracy}";
             StartCoroutine(GameOverCoroutine());
