@@ -19,5 +19,4 @@ tags:
 
 Polishes:
 - Cannot Leave the Room, when Boris Present?
-- Fix Name in Highscore?
 - Print, after Druckersound

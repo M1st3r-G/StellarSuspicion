@@ -30,7 +30,7 @@ namespace Manager
         public int MonstersAmount { get; private set; }
         private int Rating { get; set; }
         private int GetRightAmount => (MonstersAmount + Rating) / 2;
-        public float Accuracy => GetRightAmount / (float)(MonstersAmount - 5);
+        public float Accuracy => GetRightAmount / (float)(MonstersAmount - 4);
         private bool _success;
 
 

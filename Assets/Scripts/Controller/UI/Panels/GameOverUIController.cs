@@ -15,6 +15,7 @@ namespace Controller.UI.Panels
         [SerializeField]private float fadeoutTime;
     
         public static GameOverUIController Instance;
+        [SerializeField] private TMP_InputField textInput;
 
         private void Awake()
         {
@@ -41,16 +42,29 @@ namespace Controller.UI.Panels
         public void GameOver()
         {
             Debug.Log("Game Over");
-            LeaderBoardManager.AddToBoard("dName", GameManager.Instance.MonstersAmount,
-                GameManager.Instance.Accuracy);
-            
             gameObject.SetActive(true);
-            gameOverText.text += $"{GameManager.Instance.MonstersAmount} | {GameManager.Instance.Accuracy}";
-            highscoreText.text = LeaderBoardManager.GetTop().Aggregate("",
-                (prev, entry) => prev + $"{entry.Name}: {entry.NumberOfCreatures} | {entry.Accuracy}<br>");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            PlaymodeManager.Instance.FirstPersonMap.Disable();
+            Time.timeScale = 0f;
+            
+            gameOverText.text = $"Behandelte Aliens: {GameManager.Instance.MonstersAmount}, Genauigkeit: {GameManager.Instance.Accuracy}";
             StartCoroutine(GameOverCoroutine());
         }
 
+        public void AddToLeaderBoard()
+        {
+            string enteredName = textInput.text;
+            if (string.IsNullOrEmpty(enteredName)) enteredName = "Unknown";
+
+            textInput.transform.parent.gameObject.SetActive(false);
+            
+            LeaderBoardManager.AddToBoard(enteredName, GameManager.Instance.MonstersAmount, GameManager.Instance.Accuracy);
+            
+            highscoreText.text = LeaderBoardManager.GetTop().Aggregate("",
+                (prev, entry) => prev + $"Name: {entry.Name}, Behandelte Aliens: {entry.NumberOfCreatures}, Genauigkeit: {entry.Accuracy}<br>");
+        }
+        
         public void ReturnToMainMenu() => SceneManager.LoadScene(0);
 
         private IEnumerator GameOverCoroutine()
@@ -60,7 +74,7 @@ namespace Controller.UI.Panels
             while (elapsed < fadeoutTime)
             {
                 gameOverPanel.alpha = Mathf.Lerp(0, 0.85f, elapsed / fadeoutTime);
-                elapsed += Time.deltaTime;
+                elapsed += Time.unscaledDeltaTime;
                 yield return null;
             }
         }
