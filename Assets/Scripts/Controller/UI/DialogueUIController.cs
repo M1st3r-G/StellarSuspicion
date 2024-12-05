@@ -54,6 +54,9 @@ namespace Controller.UI
 
         public void ShowQuestionOptions()
         {
+            if (!optionTexts.Any(t => t.transform.parent.parent.gameObject.activeSelf) &&
+                !tutorialQuestion.activeSelf) return;
+            
             _myGroup.SetGroupActive(true);
 
             for (int i = 0; i < questions.Count; i++)
