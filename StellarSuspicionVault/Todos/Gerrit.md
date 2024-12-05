@@ -15,3 +15,9 @@ tags:
 - Zoom To Error
 - More Events
 	- Visuall Sound for Tasks
+- Player Step Sounds
+
+Polishes:
+- Cannot Leave the Room, when Boris Present?
+- Fix Name in Highscore?
+- Print, after Druckersound
