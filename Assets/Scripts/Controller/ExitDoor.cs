@@ -16,7 +16,7 @@ namespace Controller
             else
             {
                 //Showing
-                if (!GameManager.Creature.HasCreature) base.SetDoorOpened(true);
+                if (!GameManager.Creature.HasCreature && !TutorialManager.IsLocked) base.SetDoorOpened(true);
                 else ShowError();
             }
         }

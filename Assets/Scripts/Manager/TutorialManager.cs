@@ -9,11 +9,13 @@ namespace Manager
 {
     public class TutorialManager : MonoBehaviour
     {
-        [SerializeField] private bool _skipTutorial;
+        [SerializeField] private bool skipTutorial;
         
         private TutorialFlag _lastFlag = TutorialFlag.None;
         private bool _isInTutorial;
-
+        private bool _lockDoors;
+        public static bool IsLocked => Instance._isInTutorial && Instance._lockDoors;
+        
         [SerializeField] private List<string> tutorialContent;
         [SerializeField] private List<AudioClip> tutorialAudio;
         
@@ -51,11 +53,12 @@ namespace Manager
             
             Debug.Assert(tutorialAudio.Count == tutorialContent.Count, "Length Differ");
 
-            if (_skipTutorial)
+            if (skipTutorial)
             {
                 TimeManager.StartEvents();
                 return;
             }
+            
             StartTutorial();
         }
 
@@ -64,7 +67,8 @@ namespace Manager
         private void StartTutorial()
         {
             if (_isInTutorial) return;
-            
+
+            _lockDoors = false;
             _isInTutorial = true;
             StartCoroutine(TutorialRoutine());
         }
@@ -78,6 +82,7 @@ namespace Manager
         {
             // Scene 1
             yield return new WaitUntil(() => _lastFlag is TutorialFlag.SatDown);
+            _lockDoors = true;
             adonis.gameObject.SetActive(true);
             adonis.Play("Enter");
             TriggerTutorialDialogue(0);
@@ -128,7 +133,7 @@ namespace Manager
             adonis.Play(_lastFlag is TutorialFlag.PressedButtonKill ? "Drop" : "Exit");
             nextButton.SetInteractionTo(true);
             
-            _isInTutorial = false;
+            _isInTutorial = _lockDoors = false;
             TimeManager.StartEvents();
         }
 

@@ -18,5 +18,4 @@ tags:
 - Player Step Sounds
 
 Polishes:
-- Cannot Leave the Room, when Boris Present?
 - Print, after Druckersound
